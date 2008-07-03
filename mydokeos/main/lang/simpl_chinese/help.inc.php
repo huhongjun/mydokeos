@@ -46,4 +46,5 @@ $langClarContent2 = "清除内容";
 $langHGroups = "小组";
 $langGroupsContent = "小组内容";
 $langGuide = "手册";
+$HSurvey = "帮助调查";
 ?>
