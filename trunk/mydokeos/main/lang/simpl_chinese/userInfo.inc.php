@@ -29,6 +29,6 @@ $langGroupUserManagement = "小组管理";
 $langUserInfo = "用户信息";
 $langUnregister = "注销";
 $langAddAUser = "添加用户";
-$UsersUnsubscribed = "&#29992;&#25143;&#24050;&#32463;&#27880;&#38144;";
-$ThisStudentIsSubscribeThroughASession = "&#23398;&#29983;&#24050;&#32463;&#20174;&#26412;&#35838;&#31243;&#27880;&#38144;&#65292;&#20320;&#19981;&#33021;&#32534;&#36753;&#27492;&#31867;&#20449;&#24687;";
+$UsersUnsubscribed = "选择用户从课程里订阅";
+$ThisStudentIsSubscribeThroughASession = "这个学生是在课程里通过session订阅的。你不可能编辑这些信息";
 ?>
