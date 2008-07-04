@@ -1,6 +1,7 @@
 <?php /*
 for more information: see languages.txt in the lang folder. 
 */
+$LinkMoved = "链接被移动";
 $langLinkName = "链接名称";
 $langLinkAdd = "添加链接";
 $langLinkAdded = "链接已添加.";
@@ -42,4 +43,5 @@ $langAll_Link_Deleted = "链接已经被删除";
 $langOnHomepage = "在主页上显示链接";
 $langShowLinkOnHomepage = "在课程主页将链接显示为一个图标";
 $langCsvImport = "CSV 导入";
+$General = "普通";
 ?>
