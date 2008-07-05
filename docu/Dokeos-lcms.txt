@@ -11,3 +11,106 @@
 	
 Dokeos 开发服务器状态可显示未翻译文本，点击#可跳转到官网翻译平台
 
+-=========================================================-
+
+archive	[初始为空，有index.html]固定的存放导出用户、班级的csv、xls文件
+courses	[初始为空，有index.html]存放新建课程，每课程一个目录
+documentation	系统文档：安装
+home	组合成首页的页面部分内容
+main
+	admin	平台管理
+	announcements
+	app_share
+		外部程序，vnc相关，java程序，applet
+	auth
+		ldap、openid、......
+	blog
+	calendar
+	chat
+	conference
+	course_description
+	course_home
+	course_info
+	coursecopy
+	create_course
+	css	
+		SCORM主题
+	default_course_document
+		新建课程的默认文档
+	document
+	dropbox
+	exercice
+		考试
+	external_module
+		外部链接
+	forum
+	garbage
+		？
+	gradebook
+	group
+	help
+		上下文帮助
+	img
+		图标，本地化
+	inc
+		conf 系统配置：目录archive、courses、garbage
+		lib
+			ezpdf
+			fckeditor
+				editor
+					css
+					dialog
+					filemanager
+					images
+					js
+					lang 语言，简体中文貌似用了繁体
+					plugins
+						ttachment
+						ImageManager
+						ImageManagerStandalone
+						mimetex		数学公式编辑mimetex.exe,c语言开源程序
+						MP3
+						placeholder
+						simplecommands
+						tablecommands
+						Video
+					skins
+				fcktemplates.xml.php	HTML页面模板，左侧列表通过语言文件获得
+				myconfig.js 	配置插件
+			flv_player	？播放器
+			formvalidator	输入校验
+			getid3
+			icalcreator
+			javascript
+			kses-0.2.2	kses - an HTML/XHTML filter written in PHP
+			mimetex
+				mimetex.cgi		unix
+				mimetex.exe		windows
+				mimetex.html	
+			mp3player	Flash版mp3播放器
+			pclzip		PclZip is a library that allow you to manage a Zip archive.
+			pear
+			phpmailer	Full Featured Email Transfer Class for PHP
+			ppt2png
+			WCAG
+			xajax		0.2.4=》The easiest way to develop asynchronous Ajax applications with PHP
+	install
+		装完后要移走这个目录
+	lang
+	link
+	messaging
+	metadata
+	mySpace
+	newscorm	课件编辑都在这里
+	online
+	permissions
+	plugin
+	resourcelinker
+	survey
+	template
+	tracking
+	upload		上载scorm、word、ppt
+	user
+	WCAG
+	work	
+	plugin
