@@ -1,16 +1,25 @@
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpcourses.inc.phpindex.inc.php
 $PluginName
-测试路径：admin登录，左上角可见
+测试路径：admin登录，左上角可见, trad4all.inc.php
 
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpregistration.inc.php
 $Theme
+
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpadmin.inc.phptracking.inc.php
 $MyDLTT
+测试路径：
+
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpadmin.inc.php
 $GradebookActivation
+测试路径：
+
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.php
 $SysInfo
+测试路径:未解决
+
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpcreate_course.inc.phpcourse_info.inc.php
 $Theme
+测试路径：
+
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpforum.inc.php
 $NotifyMe
