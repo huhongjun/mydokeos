@@ -92,4 +92,7 @@ $ForumSearchResults = "论坛查询结果";
 $ForumSearchInformation = "你查询多个词可以使用+号连接";
 $YouWillBeNotifiedOfNewPosts = "你的新帖子将通过e-mail通知你。";
 $YouWillNoLongerBeNotifiedOfNewPosts = "你的新帖子不再通过e-mail通知你";
+
+//zhoulei add
+$ForumMoved = "论坛已移动";
 ?>
