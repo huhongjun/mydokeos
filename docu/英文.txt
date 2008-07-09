@@ -4,22 +4,27 @@ $PluginName
 
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpregistration.inc.php
 $Theme
+测试路径：个人资料，确定按钮下面，trad4all.inc.php
 
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpadmin.inc.phptracking.inc.php
 $MyDLTT
-测试路径：
+测试路径：平台管理-平台-学习跟踪下面，admin.inc.php
 
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpadmin.inc.php
 $GradebookActivation
-测试路径：
+测试路径：admin.inc.php
 
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.php
 $SysInfo
-测试路径:未解决
-
+测试路径：平台管理-平台-MyDLTT下面的SysInfo，点击进入，左上角，trad4all.inc.php
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpcreate_course.inc.phpcourse_info.inc.php
 $Theme
 测试路径：
 
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpforum.inc.php
 $NotifyMe
+测试路径：论坛，notification.inc.php
+
+trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpforum.inc.php
+$ForumMoved
+测试路径：论坛，点击向上向下箭头，forum.inc.php
