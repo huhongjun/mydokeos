@@ -1,0 +1,14 @@
+trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpcourses.inc.phpindex.inc.php
+$PluginName
+trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpregistration.inc.php
+$Theme
+trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpadmin.inc.phptracking.inc.php
+$MyDLTT
+trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpadmin.inc.php
+$GradebookActivation
+trad4all.inc.phpnotification.inc.phpaccessibility.inc.php
+$SysInfo
+trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpcreate_course.inc.phpcourse_info.inc.php
+$Theme
+trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpforum.inc.php
+$NotifyMe
