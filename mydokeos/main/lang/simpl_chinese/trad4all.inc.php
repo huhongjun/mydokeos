@@ -2,7 +2,7 @@
 for more information: see languages.txt in the lang folder. 
 */
 $Title = "标题;";
-$By = "按照";
+$By = "由";
 $UsersOnline = "在线用户";
 $Remove = "移除";
 $Description = "简介";
