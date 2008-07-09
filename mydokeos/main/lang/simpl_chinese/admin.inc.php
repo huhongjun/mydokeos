@@ -5,7 +5,7 @@ $AdminBy  = "管理员";
 $AdministrationTools  = "系统管理员";
 $State  = "系统状态";
 $Statistiques  = "统计信息";
-$VisioHostLocal = "Videoconference host";
+$VisioHostLocal = "视频会议热点";
 $VisioRTMPIsWeb = "视频会议协议是否是基于web的（多数情况为false）";
 $ShowBackLinkOnTopOfCourseTreeComment = "显示返回课程分层的链接。底部列表中已有链接。";
 $langUsed       = "使用的";
@@ -681,6 +681,7 @@ $Nested = "嵌套";
 $OpenIdAuthenticationComment = "使OpenID URL-基础证明（从主页显示一个额外的登录表单）";
 $VersionCheckEnabled = "版本检查激活";
 $InstallDirAccessibleSecurityThreat = "你Dokeos系统的主要/安装目录仍是方便的网络用户。这可能为你的安装提出了一个安全威胁。我们建议你删除这个目录或你改变其权限，使网络用户无法使用包含这个的脚本。";
+$GradebookActivation = "成绩册工具激活";
 $GradebookActivationComment = "使成绩册工具将添加设置学习目标和分数的可能性，但如果你不需要它，它可能使界面过于复杂。你是否想激活这个工具呢？";
 $UserTheme = "主题（样式表）";
 $UserThemeSelection = "用户主题选择";
@@ -810,4 +811,6 @@ $StylesheetAdded = "风格已添加";
 $LDAPFilledTutorFieldValueTitle = "导师鉴定值";
 $LDAPFilledTutorFieldValueComment = "当检查在导师字段以上完成时，这个值已被内部的一个导师字段的子元素为用户视为一个教师。如果这个字段为空，唯一的条件是该字段为这个LDAP用户视为一名教师已存在。例如，这字段可能\"CN=G_TRAINER,OU=Trainer\"。";
 $IsNotWritable = "是否写下";
+//huhj added
+$MyDLTT = "我的DLTT";
 ?>

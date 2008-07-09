@@ -24,6 +24,7 @@ $langCode = "课程代码";
 $langUp = "向上";
 $Down = "向下";
 $Up = "向上";
+$Theme = "主题";
 $TheListIsEmpty = "列表为空.";
 $langCourseCreate = "新建课程";
 $langTodo = "您的建议";
@@ -36,7 +37,7 @@ $langOfficialCode = "官方代码";
 $FirstName = "名";
 $LastName = "姓";
 $Status = "状态";
-$langEmail = "E-mail";
+$langEmail = "电子邮件";
 $SlideshowConversion = "幻灯片转换";
 $UploadFile = "上传文件";
 $AvailableFrom = "可用从";
@@ -559,4 +560,9 @@ $GroupWiki = "Wiki";
 $ExportToPDF = "导出为PDF";
 $CommentAdded = "注释已添加";
 $BackToPreviousPage = "返回前一页";
+
+//huhj added
+$PluginName = "插件名称";
+$GradebookActivation = "成绩册激活";
+$SysInfo = "PHP系统信息";
 ?>
