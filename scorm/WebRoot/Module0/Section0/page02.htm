@@ -1,0 +1,418 @@
+<html>
+	<head>
+		<title>Be Streetwise</title>
+		<meta NAME="keywords" content="e-learning, community safety, e-learning development, local government, Elearning,training,onlne,safety">
+		<meta NAME="description" CONTENT="Community Safety SEFEG e-learning program.">
+		<meta NAME="Author" content="SEFEG">
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+// SEFEG customisation
+var intModule     = 1;
+var intSection    = 0;
+var intPage       = 2;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+	<!-- implement API FUNCTION // This is the customised SEFEG content-->
+	<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+	<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+	<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+
+<!--
+// Set up Navigation Object for page
+
+objNav = new Navigation(intModule , intSection, intPage);
+
+//-->
+		</script>
+		<script LANGUAGE="javascript">
+<!--
+var Correct= Array("true", "true","true", "true","true");
+var Answers= Array(5);
+for(ansInd = 0; ansInd<Answers.length;ansInd++){
+	Answers[ansInd] = new Object();
+	Answers[ansInd].checked = false;
+}
+
+
+function pushToAnswer(ansInd){
+		document.getElementById("CIRCLE_" + ansInd).style.zIndex=1000;
+		Answers[ansInd].checked = true;
+}
+function popFromAnswer(ansInd){
+	document.getElementById("CIRCLE_" + ansInd).style.zIndex=0;
+	Answers[ansInd].checked = false;
+}
+
+
+function swowFbIcons(){
+	if(completed){
+		var FbIcons = document.getElementById("FbIcons")
+		for (var i= 0; i<Answers.length; i++ ){
+			document.getElementById("CIRCLE_" + i).style.zIndex=1000 +i;
+			document.getElementById("CIRCLE_" + i).disabled= true;
+			
+			correctIcon = document.getElementById("FbIcons_" + i + "_correct");
+			incorrectIcon = document.getElementById("FbIcons_" + i + "_incorrect");
+			
+			if(Answers[i] && Answers[i].checked == true){
+				FbIcons.appendChild(correctIcon).style.display="inline";
+			} else{
+				FbIcons.appendChild(incorrectIcon).style.display="inline";
+			}		
+		
+		}
+		
+	FbIcons.style.display = "inline";
+	document.getElementById("img_girlladder").useMap="";
+	document.getElementById("img_girlladder").disabled= true;
+	
+	}
+}
+
+//-->
+		</script>
+<body>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable=false><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable=false><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div> 
+				
+
+				<!-- Content Grid -->
+				<div CLASS="contentgrid"> <!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						<div class="celldark12x1" style="background-image:url(image/0_2_3_head.gif)">
+							<div class="instriconsm" style="top: 5px; left: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22" alt="Information"></div>
+							<div class="TextLightNormal" style="left:30px;top:10px;width:610px;">
+								Planning a Route
+							</div>
+						</div>
+					</div>
+					<div class="grid1x2">
+						<div class="cellmedium3x6">
+							<div class="instriconsm" style="top: 5px; left: 164px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22" alt="Information"></div>
+							<div class="TextDarkNormal" style="padding-right:15px;">
+								When planning your route home you need to carefully consider which route is the 
+								safest.
+								<br>
+								<br>
+								You need to be aware of the possible dangers and take steps to avoid them.
+							</div>
+						</div>
+					</div>
+					<div class="grid4x2">
+						<div class="cell6x6" style="margin:0px;">
+							<div style="z-index:90;position:absolute;">
+								<div style="z-index:90;position:absolute;"><img src="image/0_3_2_1.jpg" name="img_girlladder" width="386" height="248" border="0"
+										usemap="#img_bathroomMap" hidefocus="true" alt="Click to identify problems in street scene"></div>
+								<map name="img_bathroomMap">
+									<area shape="poly" coords="47,57,98,55,159,72,186,43,195,52,206,114,206,146,178,203,140,229,13,228,29,151"
+										href="#0" onClick="pushToAnswer(0);" alt="Strangers">
+									<area shape="rect" coords="211,1,299,68" href="#1" onClick="pushToAnswer(1);" alt="Traffic lights ">
+									<area shape="rect" coords="309,34,332,98" href="#2" onClick="pushToAnswer(2);" alt="Dark alleyway">
+									<area shape="rect" coords="340,42,369,67" href="#3" onClick="pushToAnswer(3);" alt="Headphones">
+									<area shape="rect" coords="303,102,340,142" href="#4" onClick="pushToAnswer(4);" alt="Handbag">
+								</map>
+								<div id="CIRCLE_0" style="cursor:hand; left:113px; top:66px; position:absolute;   z-index:0; "
+									nClick="popFromAnswer(0);">
+									<img src="image/0_3_2_circle.gif" width="38" height="39" border="0">
+								</div>
+								<div id="CIRCLE_1" style="cursor:hand; left:222px; top:27px; position:absolute;   z-index:0; "
+									onClick="popFromAnswer(1);">
+									<img src="image/0_3_2_circle.gif" width="38" height="39" border="0">
+								</div>
+								<div id="CIRCLE_2" style="cursor:hand; left:299px; top:53px; position:absolute;   z-index:0; "
+									onClick="popFromAnswer(2);">
+									<img src="image/0_3_2_circle.gif" width="38" height="39" border="0">
+								</div>
+								<div id="CIRCLE_3" style="cursor:hand; left:336px; top:35px; position:absolute; z-index:0;"
+									onClick="popFromAnswer(3);">
+									<img src="image/0_3_2_circle.gif" width="38" height="39" border="0">
+								</div>
+								<div id="CIRCLE_4" style="cursor:hand; left:303px; top:102px; position:absolute;   z-index:0; "
+									onClick="popFromAnswer(4);">
+									<img src="image/0_3_2_circle.gif" width="38" height="39" border="0">
+								</div>
+								<div id="FbIcons" name="FbIcons" style="z-index:125;position:absolute;display:none;">
+								</div>
+								<div id="FbIcons_0_correct" style="display:none;left:110px;top:39px;position:absolute;z-index:300;cursor:pointer;">
+									<img src="../../image/icons/correct_icon.gif" width="21" height="21" border="0" alt="Correct response"
+										onClick="showFlash(10);"> <img src="../../image/icons/feedback_icon.gif" width="22" height="22" border="0" alt="Information click to activate"
+										onClick="showFlash(10);">
+								</div>
+								<div id="FbIcons_0_incorrect" style="display:none;left:110px;top:39px;position:absolute;z-index:300;cursor:pointer;">
+									<img src="../../image/icons/incorrect_icon.gif" width="21" height="22" border="0" alt="Incorrect response"
+										onClick="showFlash(11);"> <img src="../../image/icons/feedback_icon.gif" width="22" height="22" border="0" alt="Information click to activate"
+										onClick="showFlash(11);">
+								</div>
+								<div id="FbIcons_1_correct" style="display:none;left:192px;top:6px;position:absolute;z-index:300;cursor:pointer;">
+									<img src="../../image/icons/correct_icon.gif" width="21" height="21" border="0" alt="Correct response"
+										onClick="showFlash(12);"> <img src="../../image/icons/feedback_icon.gif" width="22" height="22" border="0" alt="Information click to activate"
+										onClick="showFlash(12);">
+								</div>
+								<div id="FbIcons_1_incorrect" style="display:none;left:192px;top:6px;position:absolute;z-index:300;cursor:pointer;">
+									<img src="../../image/icons/incorrect_icon.gif" width="21" height="22" border="0" alt="Incorrect response"
+										onClick="showFlash(13);"> <img src="../../image/icons/feedback_icon.gif" width="22" height="22" border="0" alt="Information click to activate"
+										onClick="showFlash(13);">
+								</div>
+								<div id="FbIcons_2_correct" style="display:none;left:284px;top:30px;position:absolute;z-index:300;cursor:pointer;">
+									<img src="../../image/icons/correct_icon.gif" width="21" height="21" border="0" alt="Correct response"
+										onClick="showFlash(14);"> <img src="../../image/icons/feedback_icon.gif" width="22" height="22" border="0" alt="Information click to activate"
+										onClick="showFlash(14);">
+								</div>
+								<div id="FbIcons_2_incorrect" style="display:none;left:284px;top:30px;position:absolute;z-index:300;cursor:pointer;">
+									<img src="../../image/icons/incorrect_icon.gif" width="21" height="22" border="0" alt="Incorrect response"
+										onClick="showFlash(15);"> <img src="../../image/icons/feedback_icon.gif" width="22" height="22" border="0" alt="Information click to activate"
+										onClick="showFlash(15);">
+								</div>
+								<div id="FbIcons_3_correct" style="display:none;left:333px;top:12px;position:absolute;z-index:300;cursor:pointer;">
+									<img src="../../image/icons/correct_icon.gif" width="21" height="21" border="0" alt="Correct response"
+										onClick="showFlash(16);"> <img src="../../image/icons/feedback_icon.gif" width="22" height="22" border="0" alt="Information click to activate"
+										onClick="showFlash(16);">
+								</div>
+								<div id="FbIcons_3_incorrect" style="display:none;left:333px;top:12px;position:absolute;z-index:300;cursor:pointer;">
+									<img src="../../image/icons/incorrect_icon.gif" width="21" height="22" border="0" alt="Incorrect response"
+										onClick="showFlash(17);"> <img src="../../image/icons/feedback_icon.gif" width="22" height="22" border="0" alt="Information click to activate"
+										onClick="showFlash(17);">
+								</div>
+								<div id="FbIcons_4_correct" style="display:none;left:301px;top:144px;position:absolute;z-index:300;cursor:pointer;">
+									<img src="../../image/icons/correct_icon.gif" width="21" height="21" border="0" alt="Correct response"
+										onClick="showFlash(18);"> <img src="../../image/icons/feedback_icon.gif" width="22" height="22" border="0" alt="Information click to activate"
+										onClick="showFlash(18);">
+								</div>
+								<div id="FbIcons_4_incorrect" style="display:none;left:301px;top:144px;position:absolute;z-index:300;cursor:pointer;">
+									<img src="../../image/icons/incorrect_icon.gif" width="21" height="22" border="0" alt="Incorrect response"
+										onClick="showFlash(19);"> <img src="../../image/icons/feedback_icon.gif" width="22" height="22" border="0" alt="Information click to activate"
+										onClick="showFlash(19);">
+								</div>
+								<div class="instriconsm" style="cursor:pointer;left: 325px;top:224px;z-index:100;" onclick="showAnswer(Answers, Correct, '', 1);swowFbIcons();if(completed){this.style.display='none'};setIncompleteTimeout();"><IMG SRC="../../image/buttons/submit.gif" alt="Submit" width="53" height="18" border="0"></div>
+							</div>
+						</div>
+					</div>
+					<div class="grid10x2" id="fb0">
+						<div class="cell3x6">
+							<div class="instriconsm" style="top: 5px; left: 164px"><img src="../../image/icons/mouse_icon.gif" WIDTH="22" HEIGHT="22" alt="Instruction"></div>
+							<div class="TextDarkNormal" style="padding-right:30px;">
+								Click your mouse on where you think there is a potential hazard to the woman’s 
+								safety.
+								<br>
+								<br>
+								When you have made your selections click submit.
+							</div>
+						</div>
+					</div> <!--Correct feedback -->
+					<div id="fb1" style="display:none;">
+						<div class="grid10x2">
+							<div class="cellcorrect3x2">
+								<div class="instriconsm" style="top: 5px; left: 162px"><img src="../../image/icons/correct_icon.gif" WIDTH="21" HEIGHT="21" alt="Correct response"></div>
+								<div class="TextLightNormal" style="margin-top:5px;padding-right:10px;padding-left:10px;">
+									<b>Well done!</b>
+									<br>
+									<br>
+									You have correctly identified all of the potential safety hazards.
+								</div>
+							</div>
+						</div>
+						<div class="grid10x4">
+							<div class="cellmedium3x4">
+								<div class="instriconsm" style="top:5px; left: 162px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22" alt="Information"></div>
+								<div class="TextDarkNormal" style="margin-top:5px;padding-right:25px;">
+									Click on the icons on the left for more information
+								</div>
+							</div>
+						</div>
+					</div> <!-- Almost Correct feedback -->
+					<div id="fb2" style="display:none;">
+						<div class="grid10x2">
+							<div class="cellincorrect3x2">
+								<div class="instriconsm" style="top: 5px; left: 162px"><img src="../../image/icons/incorrect_icon.gif" WIDTH="21" HEIGHT="22" alt="Incorrect response"></div>
+								<div class="TextLightNormal" style="margin-top:5px;margin-right:0px;margin-left:10px;">
+									<b>Almost…</b>
+									<br>
+									<br>
+									You have missed some of the items
+									<br>
+								</div>
+							</div>
+						</div>
+						<div class="grid10x4">
+							<div class="cellmedium3x4">
+								<div class="instriconsm" style="top:5px; left: 162px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22" alt="Information"></div>
+								<div class="TextDarkNormal" style="margin-top:5px;padding-right:25px;">
+									Click on the icons on the left for more information
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fd10" style="display:none;">
+						<div class="grid10x4">
+							<div class="cellcorrect3x4">
+								<div class="instriconsm" style="top: 5px; left: 165px"><img src="../../image/icons/correct_icon.gif" WIDTH="21" HEIGHT="21" alt="Correct response"></div>
+								<div class="SCROLLLight" style="top:30px;height:125px;width:175px;">
+									Avoid people who may look like they pose a danger to you when walking home, 
+									especially if they look as if they have been drinking.
+									<br>
+									<br>
+									Always ensure your route home is well lit if walking home at night.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fd11" style="display:none;">
+						<div class="grid10x4">
+							<div class="cellincorrect3x4">
+								<div class="instriconsm" style="top: 5px; left: 165px"><img src="../../image/icons/incorrect_icon.gif" WIDTH="21" HEIGHT="22" alt="Incorrect response"></div>
+								<div class="SCROLLLight" style="top:30px;height:125px;width:175px;">
+									Avoid people who may look like they pose a danger to you when walking home, 
+									especially if they look as if they have been drinking.
+									<br>
+									<br>
+									Always ensure your route home is well lit if walking home at night.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fd12" style="display:none;">
+						<div class="grid10x4">
+							<div class="cellcorrect3x4">
+								<div class="instriconsm" style="top: 5px; left: 165px"><img src="../../image/icons/correct_icon.gif" WIDTH="21" HEIGHT="21" alt="Correct response"></div>
+								<div class="SCROLLLight" style="top:30px;height:125px;width:175px;">
+									Try to walk facing the traffic where possible, thus enabling drivers to have a 
+									clear view of you, and for you to see them.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fd13" style="display:none;">
+						<div class="grid10x4">
+							<div class="cellincorrect3x4">
+								<div class="instriconsm" style="top: 5px; left: 165px"><img src="../../image/icons/incorrect_icon.gif" WIDTH="21" HEIGHT="22" alt="Incorrect response"></div>
+								<div class="SCROLLLight" style="top:30px;height:125px;width:175px;">
+									Try to walk facing the traffic where possible, thus enabling drivers to have a 
+									clear view of you, and for you to see them.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fd14" style="display:none;">
+						<div class="grid10x4">
+							<div class="cellcorrect3x4">
+								<div class="instriconsm" style="top: 5px; left: 165px"><img src="../../image/icons/correct_icon.gif" WIDTH="21" HEIGHT="21" alt="Correct response"></div>
+								<div class="SCROLLLight" style="top:30px;height:125px;width:175px;">
+									Beware of recessed doorways and alleyways. Position yourself so that you and 
+									any person coming from the alley or doorway will not be startled by each 
+									other’s presence.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fd15" style="display:none;">
+						<div class="grid10x4">
+							<div class="cellincorrect3x4">
+								<div class="instriconsm" style="top: 5px; left: 165px"><img src="../../image/icons/incorrect_icon.gif" WIDTH="21" HEIGHT="22" alt="Incorrect response"></div>
+								<div class="SCROLLLight" style="top:30px;height:125px;width:175px;">
+									Beware of recessed doorways and alleyways. Position yourself so that you and 
+									any person coming from the alley or doorway will not be startled by each 
+									other’s presence.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fd16" style="display:none;">
+						<div class="grid10x4">
+							<div class="cellcorrect3x4">
+								<div class="instriconsm" style="top: 5px; left: 165px"><img src="../../image/icons/correct_icon.gif" WIDTH="21" HEIGHT="21" alt="Correct response"></div>
+								<div class="SCROLLLight" style="top:30px;height:125px;width:175px;">
+									Listening to music may prevent you from hearing anyone coming up behind you.
+									<br>
+									<br>
+									One of your most important senses is hearing. Try to be aware that this sense 
+									may not be as effective if you are listening to portable electronics, such as a 
+									personal stereo or CD player.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fd17" style="display:none;">
+						<div class="grid10x4">
+							<div class="cellincorrect3x4">
+								<div class="instriconsm" style="top: 5px; left: 165px"><img src="../../image/icons/incorrect_icon.gif" WIDTH="21" HEIGHT="22" alt="Incorrect response"></div>
+								<div class="SCROLLLight" style="top:30px;height:125px;width:175px;">
+									Listening to music may prevent you from hearing anyone coming up behind you.
+									<br>
+									<br>
+									One of your most important senses is hearing. Try to be aware that this sense 
+									may not be as effective if you are listening to portable electronics, such as a 
+									personal stereo or CD player.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fd18" style="display:none;">
+						<div class="grid10x4">
+							<div class="cellcorrect3x4">
+								<div class="instriconsm" style="top: 5px; left: 165px"><img src="../../image/icons/correct_icon.gif" WIDTH="21" HEIGHT="21" alt="Correct response"></div>
+								<div class="SCROLLLight" style="top:30px;height:125px;width:175px;">
+									Do not hold your bag away from your body and do not dangle it from your hand – 
+									this is a very easy target to anyone who wants to snatch it from you.
+									<br>
+									<br>
+									Try to keep your bag close to your body, with zips and clasps facing inwards.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fd19" style="display:none;">
+						<div class="grid10x4">
+							<div class="cellincorrect3x4">
+								<div class="instriconsm" style="top: 5px; left: 165px"><img src="../../image/icons/incorrect_icon.gif" WIDTH="21" HEIGHT="22" alt="Incorrect response"></div>
+								<div class="SCROLLLight" style="top:30px;height:125px;width:175px;">
+									Do not hold your bag away from your body and do not dangle it from your hand – 
+									this is a very easy target to anyone who wants to snatch it from you.
+									<br>
+									<br>
+									Try to keep your bag close to your body, with zips and clasps facing inwards.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> <!-- End Content Grid Div --> <!-- Bottom Bar Division -->
+				<div CLASS="bottombar"> <!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script> <!-- End of Main Navigation-->
+				</div> <!-- End Bottom Bar Division -->
+			</div> <!-- End Outer Border Div -->
+		</div> <!-- End Main Div -->
+	</body>
+</html>
