@@ -3,7 +3,7 @@ for more information: see languages.txt in the lang folder.
 */
 $GeneralDescription = "概要简介";
 $GeneralDescriptionQuestions = "课程在程序中的位置在哪? 有没有前提条件? 课程与其他的课程联系如何?";
-$GeneralDescriptionInformation = "描述这门课程(学时, 官方代码, 教室)和教师(名字, 姓氏, 办公室, 电话, e-mail...)";
+$GeneralDescriptionInformation = "描述这门课程(学时, 官方代码, 教室)和教师(名字, 姓氏, 办公室, 电话, 电子邮件...)";
 $Objectives = "对象";
 $ObjectivesInformation = "目标课程大体及详细地描述.";
 $ObjectivesQuestions = "用户将在课程的最后做些什么呢? 课程进行中他们会作出什么样的创新呢?";
