@@ -30,5 +30,5 @@ $langUserInfo = "用户信息";
 $langUnregister = "注销";
 $langAddAUser = "添加用户";
 $UsersUnsubscribed = "选择用户从课程里订阅";
-$ThisStudentIsSubscribeThroughASession = "这个学生是在课程里通过session订阅的。你不可能编辑这些信息";
+$ThisStudentIsSubscribeThroughASession = "这个学生是在课程里通过会话订阅的。你不可能编辑这些信息";
 ?>
