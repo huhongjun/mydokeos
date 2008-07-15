@@ -28,3 +28,6 @@ $NotifyMe
 trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpforum.inc.php
 $ForumMoved
 测试路径：论坛，点击向上向下箭头，forum.inc.php
+
+trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpplugin_credits_system.inc.php
+$DisabledCreditCourse
