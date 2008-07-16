@@ -42,7 +42,8 @@ $DefaultPaymentOption = "默认支付选项";
 $DefaultPaymentOptionexp = "在当前支付选项中选择默认选项用于购买课程";
 $DefaultPaymentOptionCredits = "默认支付选项学习币";
 $DefaultPaymentOptionCreditsexp = "选中的默认支付选项需要的学习币数量";
-$AllowTeacher = "允许教师r";
+$AllowTeacher = "允许教师";
+$AllowTeacher = "允许教师";
 $AllowTeacherexp = "允许教师设定自己的课程为学习币支付类型?";
 $SettingsStored = "设置已保存";
 $DefaultOptions = "默认选项";
@@ -88,7 +89,7 @@ $FreeCourses = "免费课程";
 $ShowAllCourses = "显示所有课程";
 $ShowFreeCourses = "显示免费课程";
 $ShowCreditCourses = "显示收费课程";
-$DisableCreditCourse= "关闭课程收费";
+$DisableCreditCourse = "关闭课程收费";
 $EnableCreditCourse = "启用课程收费";
 $currentMenu = "当前支付选项菜单";
 $addMenu = "添加支付选项菜单";
@@ -164,7 +165,8 @@ $edit = "修改";
 
 $PluginName = "我的学习币";
 $EnablePaymentOption = "支付选项";
-$EnabledCreditCourse = "成为收费课程";
+$EnabledCreditCourse = "启用课程收费";
 $CreditAmountRequired = "必须填写学习币数量";
+$DisabledCreditCourse = "关闭课程收费";
 //end huhj
 ?>
