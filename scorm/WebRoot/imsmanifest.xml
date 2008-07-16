@@ -1,1 +1,201 @@
-<?xml version="1.0" encoding="UTF-8"?><manifest identifier="MANIFEST01" version="1.2" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd"><metadata><schema>ADL SCORM</schema><schemaversion>1.2</schemaversion><imsmd:lom><imsmd:general><imsmd:title><imsmd:langstring xml:lang="en">Personal Safety</imsmd:langstring></imsmd:title></imsmd:general></imsmd:lom></metadata><organizations default="MANIFEST01_ORG1"><organization identifier="MANIFEST01_ORG1"><title>Personal Safety</title><item identifier="MI01" identifierref="Res01" isvisible="true" parameters=""><title>Personal Safety</title><item identifier="MI02" identifierref="Res02" isvisible="true" parameters=""><title>Personal Safety</title><item identifier="MI03" identifierref="Res03" isvisible="true" parameters=""><title>Introduction</title></item><item identifier="MI8" identifierref="Res8" isvisible="true" parameters=""><title>Be streetwise</title></item><item identifier="MI9" identifierref="Res9" isvisible="true" parameters=""><title>What to do if you are followed</title></item><item identifier="MI10" identifierref="Res10" isvisible="true" parameters=""><title>Personal awareness</title></item><item identifier="MI11" identifierref="Res11" isvisible="true" parameters=""><title>Communicating with others</title></item><item identifier="MI12" identifierref="Res12" isvisible="true" parameters=""><title>Conclusion</title></item></item><item identifier="MI04" identifierref="Res04" isvisible="true" parameters=""><title>Test</title><item identifier="MI13" identifierref="Res13" isvisible="true" parameters=""><title>测试题 1</title></item><item identifier="MI14" identifierref="Res14" isvisible="true" parameters=""><title>Question 2</title></item><item identifier="MI15" identifierref="Res15" isvisible="true" parameters=""><title>Question 3</title></item><item identifier="MI16" identifierref="Res16" isvisible="true" parameters=""><title>Question 4</title></item><item identifier="MI17" identifierref="Res17" isvisible="true" parameters=""><title>Question 5</title></item><item identifier="MI18" identifierref="Res18" isvisible="true" parameters=""><title>Question 6</title></item><item identifier="MI05" identifierref="Res05" isvisible="true" parameters=""><title>Summary</title></item></item><item identifier="MI06" identifierref="Res06" isvisible="true" parameters=""><title>Assessment1</title><item identifier="MI19" identifierref="Res19" isvisible="true" parameters=""><title>Travelling1 to Work</title></item><item identifier="MI20" identifierref="Res20" isvisible="true" parameters=""><title>Resources</title></item><item identifier="MI21" identifierref="Res21" isvisible="true" parameters=""><title>Personal Threat</title></item><item identifier="MI22" identifierref="Res22" isvisible="true" parameters=""><title>HR Record</title></item><item identifier="MI07" identifierref="Res07" isvisible="true" parameters=""><title>Summary</title></item></item></item></organization></organizations><resources><resource identifier="Res01" type="webcontent" adlcp:scormtype="sco" href="defaults/pages/module.htm?mod=0"><file href="defaults/pages/module.htm?mod=0" /></resource><resource identifier="Res02" type="webcontent" adlcp:scormtype="sco" href="defaults/pages/section.htm?mod=0&amp;sec=0"><file href="defaults/pages/section.htm?mod=0&amp;sec=0" /></resource><resource identifier="Res03" type="webcontent" adlcp:scormtype="sco" href="Module0/Section0/page01.htm"><file href="Module0/Section0/page01.htm" /></resource><resource identifier="Res04" type="webcontent" adlcp:scormtype="sco" href="defaults/pages/section.htm?mod=0&amp;sec=1"><file href="defaults/pages/section.htm?mod=0&amp;sec=1" /></resource><resource identifier="Res05" type="webcontent" adlcp:scormtype="sco" href="Module0/Section1/page07.htm"><file href="Module0/Section1/page07.htm" /></resource><resource identifier="Res06" type="webcontent" adlcp:scormtype="sco" href="defaults/pages/section.htm?mod=0&amp;sec=2"><file href="defaults/pages/section.htm?mod=0&amp;sec=2" /></resource><resource identifier="Res07" type="webcontent" adlcp:scormtype="sco" href="Module0/Section2/page05.htm"><file href="Module0/Section2/page05.htm" /></resource><resource identifier="Res8" type="webcontent" adlcp:scormtype="sco" href="Module0/Section0/page02.htm"><file href="Module0/Section0/page02.htm" /></resource><resource identifier="Res9" type="webcontent" adlcp:scormtype="sco" href="Module0/Section0/page03.htm"><file href="Module0/Section0/page03.htm" /></resource><resource identifier="Res10" type="webcontent" adlcp:scormtype="sco" href="Module0/Section0/page04.htm"><file href="Module0/Section0/page04.htm" /></resource><resource identifier="Res11" type="webcontent" adlcp:scormtype="sco" href="Module0/Section0/page05.htm"><file href="Module0/Section0/page05.htm" /></resource><resource identifier="Res12" type="webcontent" adlcp:scormtype="sco" href="Module0/Section0/page06.htm"><file href="Module0/Section0/page06.htm" /></resource><resource identifier="Res13" type="webcontent" adlcp:scormtype="sco" href="Module0/Section1/page01.htm"><file href="Module0/Section1/page01.htm" /></resource><resource identifier="Res14" type="webcontent" adlcp:scormtype="sco" href="Module0/Section1/page02.htm"><file href="Module0/Section1/page02.htm" /></resource><resource identifier="Res15" type="webcontent" adlcp:scormtype="sco" href="Module0/Section1/page03.htm"><file href="Module0/Section1/page03.htm" /></resource><resource identifier="Res16" type="webcontent" adlcp:scormtype="sco" href="Module0/Section1/page04.htm"><file href="Module0/Section1/page04.htm" /></resource><resource identifier="Res17" type="webcontent" adlcp:scormtype="sco" href="Module0/Section1/page05.htm"><file href="Module0/Section1/page05.htm" /></resource><resource identifier="Res18" type="webcontent" adlcp:scormtype="sco" href="Module0/Section1/page06.htm"><file href="Module0/Section1/page06.htm" /></resource><resource identifier="Res19" type="webcontent" adlcp:scormtype="sco" href="Module0/Section2/page01.htm"><file href="Module0/Section2/page01.htm" /></resource><resource identifier="Res20" type="webcontent" adlcp:scormtype="sco" href="Module0/Section2/page02.htm"><file href="Module0/Section2/page02.htm" /></resource><resource identifier="Res21" type="webcontent" adlcp:scormtype="sco" href="Module0/Section2/page03.htm"><file href="Module0/Section2/page03.htm" /></resource><resource identifier="Res22" type="webcontent" adlcp:scormtype="sco" href="Module0/Section2/page04.htm"><file href="Module0/Section2/page04.htm" /></resource></resources></manifest>
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="MANIFEST01" version="1.2"
+	xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+	xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+	<metadata>
+		<schema>ADL SCORM</schema>
+		<schemaversion>1.2</schemaversion>
+		<imsmd:lom>
+			<imsmd:general>
+				<imsmd:title>
+					<imsmd:langstring xml:lang="en">Personal Safety
+					</imsmd:langstring>
+				</imsmd:title>
+			</imsmd:general>
+		</imsmd:lom>
+	</metadata>
+	<organizations default="MANIFEST01_ORG1">
+		<organization identifier="MANIFEST01_ORG1">
+			<title>个人安全</title>
+			<item identifier="MI01" identifierref="Res01" isvisible="true"
+				parameters="">
+				<title>个人安全</title>
+				<item identifier="MI02" identifierref="Res02" isvisible="true"
+					parameters="">
+					<title>个人安全</title>
+					<item identifier="MI03" identifierref="Res03" isvisible="true"
+						parameters="">
+						<title>引言</title>
+					</item>
+					<item identifier="MI8" identifierref="Res8" isvisible="true"
+						parameters="">
+						<title>Be streetwise</title>
+					</item>
+					<item identifier="MI9" identifierref="Res9" isvisible="true"
+						parameters="">
+						<title>被跟踪时怎么办</title>
+					</item>
+					<item identifier="MI10" identifierref="Res10" isvisible="true"
+						parameters="">
+						<title>Personal awareness</title>
+					</item>
+					<item identifier="MI11" identifierref="Res11" isvisible="true"
+						parameters="">
+						<title>联系他人</title>
+					</item>
+					<item identifier="MI12" identifierref="Res12" isvisible="true"
+						parameters="">
+						<title>Conclusion</title>
+					</item>
+				</item>
+				<item identifier="MI04" identifierref="Res04" isvisible="true"
+					parameters="">
+					<title>Test</title>
+					<item identifier="MI13" identifierref="Res13" isvisible="true"
+						parameters="">
+						<title>测试题 1</title>
+					</item>
+					<item identifier="MI14" identifierref="Res14" isvisible="true"
+						parameters="">
+						<title>测试题 2</title>
+					</item>
+					<item identifier="MI15" identifierref="Res15" isvisible="true"
+						parameters="">
+						<title>测试题 3</title>
+					</item>
+					<item identifier="MI16" identifierref="Res16" isvisible="true"
+						parameters="">
+						<title>测试题 4</title>
+					</item>
+					<item identifier="MI17" identifierref="Res17" isvisible="true"
+						parameters="">
+						<title>测试题 5</title>
+					</item>
+					<item identifier="MI18" identifierref="Res18" isvisible="true"
+						parameters="">
+						<title>测试题 6</title>
+					</item>
+					<item identifier="MI05" identifierref="Res05" isvisible="true"
+						parameters="">
+						<title>Summary</title>
+					</item>
+				</item>
+				<item identifier="MI06" identifierref="Res06" isvisible="true"
+					parameters="">
+					<title>Assessment1</title>
+					<item identifier="MI19" identifierref="Res19" isvisible="true"
+						parameters="">
+						<title>Travelling1 to Work</title>
+					</item>
+					<item identifier="MI20" identifierref="Res20" isvisible="true"
+						parameters="">
+						<title>Resources</title>
+					</item>
+					<item identifier="MI21" identifierref="Res21" isvisible="true"
+						parameters="">
+						<title>Personal Threat</title>
+					</item>
+					<item identifier="MI22" identifierref="Res22" isvisible="true"
+						parameters="">
+						<title>HR Record</title>
+					</item>
+					<item identifier="MI07" identifierref="Res07" isvisible="true"
+						parameters="">
+						<title>Summary</title>
+					</item>
+				</item>
+			</item>
+		</organization>		
+	</organizations>
+	<resources>
+		<resource identifier="Res01" type="webcontent"
+			adlcp:scormtype="sco" href="defaults/pages/module.htm?mod=0">
+			<file href="defaults/pages/module.htm?mod=0" />
+		</resource>
+		<resource identifier="Res02" type="webcontent"
+			adlcp:scormtype="sco" href="defaults/pages/section.htm?mod=0&amp;sec=0">
+			<file href="defaults/pages/section.htm?mod=0&amp;sec=0" />
+		</resource>
+		<resource identifier="Res03" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section0/page01.htm">
+			<file href="Module0/Section0/page01.htm" />
+		</resource>
+		<resource identifier="Res04" type="webcontent"
+			adlcp:scormtype="sco" href="defaults/pages/section.htm?mod=0&amp;sec=1">
+			<file href="defaults/pages/section.htm?mod=0&amp;sec=1" />
+		</resource>
+		<resource identifier="Res05" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section1/page07.htm">
+			<file href="Module0/Section1/page07.htm" />
+		</resource>
+		<resource identifier="Res06" type="webcontent"
+			adlcp:scormtype="sco" href="defaults/pages/section.htm?mod=0&amp;sec=2">
+			<file href="defaults/pages/section.htm?mod=0&amp;sec=2" />
+		</resource>
+		<resource identifier="Res07" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section2/page05.htm">
+			<file href="Module0/Section2/page05.htm" />
+		</resource>
+		<resource identifier="Res8" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section0/page02.htm">
+			<file href="Module0/Section0/page02.htm" />
+		</resource>
+		<resource identifier="Res9" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section0/page03.htm">
+			<file href="Module0/Section0/page03.htm" />
+		</resource>
+		<resource identifier="Res10" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section0/page04.htm">
+			<file href="Module0/Section0/page04.htm" />
+		</resource>
+		<resource identifier="Res11" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section0/page05.htm">
+			<file href="Module0/Section0/page05.htm" />
+		</resource>
+		<resource identifier="Res12" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section0/page06.htm">
+			<file href="Module0/Section0/page06.htm" />
+		</resource>
+		<resource identifier="Res13" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section1/page01.htm">
+			<file href="Module0/Section1/page01.htm" />
+		</resource>
+		<resource identifier="Res14" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section1/page02.htm">
+			<file href="Module0/Section1/page02.htm" />
+		</resource>
+		<resource identifier="Res15" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section1/page03.htm">
+			<file href="Module0/Section1/page03.htm" />
+		</resource>
+		<resource identifier="Res16" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section1/page04.htm">
+			<file href="Module0/Section1/page04.htm" />
+		</resource>
+		<resource identifier="Res17" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section1/page05.htm">
+			<file href="Module0/Section1/page05.htm" />
+		</resource>
+		<resource identifier="Res18" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section1/page06.htm">
+			<file href="Module0/Section1/page06.htm" />
+		</resource>
+		<resource identifier="Res19" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section2/page01.htm">
+			<file href="Module0/Section2/page01.htm" />
+		</resource>
+		<resource identifier="Res20" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section2/page02.htm">
+			<file href="Module0/Section2/page02.htm" />
+		</resource>
+		<resource identifier="Res21" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section2/page03.htm">
+			<file href="Module0/Section2/page03.htm" />
+		</resource>
+		<resource identifier="Res22" type="webcontent"
+			adlcp:scormtype="sco" href="Module0/Section2/page04.htm">
+			<file href="Module0/Section2/page04.htm" />
+		</resource>
+	</resources>
+</manifest>
