@@ -163,5 +163,8 @@ $add = "添加";
 $edit = "修改";
 
 $PluginName = "我的学习币";
+$EnablePaymentOption = "支付选项";
+$EnabledCreditCourse = "成为收费课程";
+$CreditAmountRequired = "必须填写学习币数量";
 //end huhj
 ?>
