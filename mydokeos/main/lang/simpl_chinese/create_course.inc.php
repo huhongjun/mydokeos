@@ -100,4 +100,7 @@ $ExampleForum = "论坛实例";
 $ExampleThread = "线程实例";
 $ExampleThreadContent = "内容实例";
 $IntroductionWiki = "Wiki是WikiWikiWeb的缩写。Wikiwiki一词来源于Hawaiian，意思是快速或高速。在wiki里，人们可以一起写页面。如果一个人写了一些错误，那么下一个人可以改正它。下一个人也可以在页面中添加一些新的。因此，当有人改变它时，可以获得更好的。";
+
+//zhoulei add
+$CourseCodeAlreadyExistExplained = "课程代码已存在的解释";
 ?>
