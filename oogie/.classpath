@@ -8,15 +8,14 @@
 	<classpathentry kind="lib" path="lib/java_uno_accessbridge.jar"/>
 	<classpathentry kind="lib" path="lib/java_uno.jar"/>
 	<classpathentry kind="lib" path="lib/jodconverter-2.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/jut.jar"/>
+	<classpathentry kind="lib" path="lib/xstream-1.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/ridl-2.3.0.jar"/>
 	<classpathentry kind="lib" path="lib/jodconverter-cli-2.2.1.jar"/>
 	<classpathentry kind="lib" path="lib/juh-2.3.0.jar"/>
 	<classpathentry kind="lib" path="lib/jurt-2.3.0.jar"/>
-	<classpathentry kind="lib" path="lib/jut.jar"/>
-	<classpathentry kind="lib" path="lib/ridl.jar"/>
-	<classpathentry kind="lib" path="lib/ridl-2.3.0.jar"/>
+	<classpathentry kind="lib" path="lib/unoil-2.3.0.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.4.3.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-jdk14-1.4.3.jar"/>
-	<classpathentry kind="lib" path="lib/unoil-2.3.0.jar"/>
-	<classpathentry kind="lib" path="lib/xstream-1.2.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
