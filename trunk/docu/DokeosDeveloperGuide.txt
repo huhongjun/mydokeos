@@ -1,0 +1,19 @@
+Eclipse PDT+xDebug+XAMPP 调试环境配置
+
+
+如何研究？
+	了解页面之间的包含关系
+	各目录下文件的作用
+	主页面布局
+		
+
+archive
+courses
+documentation
+home			
+
+php调试
+	print($cmd);
+	
+
+
