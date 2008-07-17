@@ -75,8 +75,6 @@ $langProblem = "遇到问题, 请联系我们.";
 $langIs = "是";
 $langAddress = "地址";
 $langSettings = "下面是您的注册信息: 用户名:";
-
-Username :";
 $langYouAreReg = "您已注册到";
 $langDear = "尊敬的";
 $langYourReg = "您注册在";
