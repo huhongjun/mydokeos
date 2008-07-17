@@ -17,7 +17,7 @@ main\inc\lib\ppt2png ==> oogie 文件转换（java类远程连接openoffice）
 	java -cp E:/xampp-lms/htdocs/dokeos-1.8.5//main/inc/lib/ppt2png;E:/xampp-lms/htdocs/dokeos-1.8.5//main/inc/lib/ppt2png/jodconverter-2.2.1.jar;E:/xampp-lms/htdocs/dokeos-1.8.5//main/inc/lib/ppt2png/jodconverter-cli-2.2.1.jar DokeosConverter -p 2002 -d woogie "E:/xampp-lms/htdocs/dokeos-1.8.5//courses/ZZXWX/document//huhj.odt" "E:/xampp-lms/htdocs/dokeos-1.8.5//courses/ZZXWX/document/xyxxyxxx-huhj9/xyxxyxxx-huhj.html" 
 	
 	
-C:\OpenOffice.org 2.4\program\soffice -accept=socket,host=localhost,port=2002;urp;StarOffice.ServiceManager	
+"C:\OpenOffice.org 2.4\program\soffice" -accept=socket,host=localhost,port=2002;urp;StarOffice.ServiceManager	
 
 eclipse调试
 	DocumentConverter
