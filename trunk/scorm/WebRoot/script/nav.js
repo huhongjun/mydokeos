@@ -1,4 +1,4 @@
-//--- Menu Functions ---//
+﻿//--- Menu Functions ---//
 var MODULENAME = "Module";
 var SECTIONNAME = "Section";
 var PAGENAME = "page";
@@ -38,7 +38,7 @@ dw("<table  width=778 cellspacing=0 cellpadding=0 border=0><tr>");
 	if (use_SimpleNav == -1){
 	
 			if(objNav.getModuleCount() == 0){
-				dw("<td class=\"exitSt\" style=\"cursor:default !important;\">&nbsp;Home&nbsp;</td>");
+				dw("<td class=\"exitSt\" style=\"cursor:default !important;\">&nbsp;主页&nbsp;</td>");
 				dw("<td width=2><img src=\"../../image/sp-orqnge.gif\" width=2 height=18 hspace=0></td>");		
 			}
 
@@ -72,7 +72,7 @@ dw("<table  width=778 cellspacing=0 cellpadding=0 border=0><tr>");
 	
 	} else	if (use_SimpleNav != 1){
 			if(objNav.getModuleCount() == 0){
-				dw("<td class=\"exitSt\" onclick=\"return objNav.home()\">&nbsp;Home&nbsp;</td>");
+				dw("<td class=\"exitSt\" onclick=\"return objNav.home()\">&nbsp;主页&nbsp;</td>");
 				dw("<td width=2><img src=\"../../image/sp-orqnge.gif\" width=2 height=18 hspace=0></td>");		
 			}
 
@@ -86,7 +86,7 @@ dw("<table  width=778 cellspacing=0 cellpadding=0 border=0><tr>");
 				}
 				dw("<td width=2><img src=\"../../image/sp-orqnge.gif\" width=2 height=18 hspace=0></td>");		
 			}
-			dw("<td class=\"exitSt\" onclick=\"objNav.doExit();return false;\" >Exit</td>");			
+			dw("<td class=\"exitSt\" onclick=\"objNav.doExit();return false;\" >退出</td>");			
 			dw("</tr></table>");	
 				//dw("</div>");	
 
@@ -109,7 +109,7 @@ dw("<table  width=778 cellspacing=0 cellpadding=0 border=0><tr>");
 	} 
 	else  {
 			if(objNav.getModuleCount() == 0){
-				dw("<td class=\"exitSt\" onclick=\"return objNav.home()\">&nbsp;Home&nbsp;</td>");
+				dw("<td class=\"exitSt\" onclick=\"return objNav.home()\">&nbsp;主页&nbsp;</td>");
 				dw("<td width=2><img src=\"../../image/sp-orqnge.gif\" width=2 height=18 hspace=0></td>");		
 			}
 
@@ -122,7 +122,7 @@ dw("<table  width=778 cellspacing=0 cellpadding=0 border=0><tr>");
 				}
 				dw("<td width=2><img src=\"../../image/sp-orqnge.gif\" width=2 height=18 hspace=0></td>");		
 			}
-			dw("<td class=\"exitSt\" onclick=\"objNav.doExit();return false;\" >Exit</td>");			
+			dw("<td class=\"exitSt\" onclick=\"objNav.doExit();return false;\" >退出</td>");			
 			dw("</tr></table>");	
 
 			dw("<div  class=\"subnav\" >");

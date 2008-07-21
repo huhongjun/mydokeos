@@ -30,7 +30,7 @@
 					</item>
 					<item identifier="MI8" identifierref="Res8" isvisible="true"
 						parameters="">
-						<title>Be streetwise</title>
+						<title>现代城市的生存能力</title>
 					</item>
 					<item identifier="MI9" identifierref="Res9" isvisible="true"
 						parameters="">
@@ -38,7 +38,7 @@
 					</item>
 					<item identifier="MI10" identifierref="Res10" isvisible="true"
 						parameters="">
-						<title>Personal awareness</title>
+						<title>个人意识</title>
 					</item>
 					<item identifier="MI11" identifierref="Res11" isvisible="true"
 						parameters="">
@@ -46,12 +46,12 @@
 					</item>
 					<item identifier="MI12" identifierref="Res12" isvisible="true"
 						parameters="">
-						<title>Conclusion</title>
+						<title>结论</title>
 					</item>
 				</item>
 				<item identifier="MI04" identifierref="Res04" isvisible="true"
 					parameters="">
-					<title>Test</title>
+					<title>测试</title>
 					<item identifier="MI13" identifierref="Res13" isvisible="true"
 						parameters="">
 						<title>测试题 1</title>
@@ -78,31 +78,31 @@
 					</item>
 					<item identifier="MI05" identifierref="Res05" isvisible="true"
 						parameters="">
-						<title>Summary</title>
+						<title>概览</title>
 					</item>
 				</item>
 				<item identifier="MI06" identifierref="Res06" isvisible="true"
 					parameters="">
-					<title>Assessment1</title>
+					<title>评定1</title>
 					<item identifier="MI19" identifierref="Res19" isvisible="true"
 						parameters="">
-						<title>Travelling1 to Work</title>
+						<title>旅行工作1</title>
 					</item>
 					<item identifier="MI20" identifierref="Res20" isvisible="true"
 						parameters="">
-						<title>Resources</title>
+						<title>资源</title>
 					</item>
 					<item identifier="MI21" identifierref="Res21" isvisible="true"
 						parameters="">
-						<title>Personal Threat</title>
+						<title>个人威胁</title>
 					</item>
 					<item identifier="MI22" identifierref="Res22" isvisible="true"
 						parameters="">
-						<title>HR Record</title>
+						<title>人力资源</title>
 					</item>
 					<item identifier="MI07" identifierref="Res07" isvisible="true"
 						parameters="">
-						<title>Summary</title>
+						<title>概览</title>
 					</item>
 				</item>
 			</item>
