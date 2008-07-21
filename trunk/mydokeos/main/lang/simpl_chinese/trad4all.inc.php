@@ -451,8 +451,8 @@ $RemindInactiveLearnersMailContent = "亲爱的用户，<br /><br />你停止%s以上%s天。
 $OpenIdAuthentication = "OpenID证明";
 $UploadMaxSize = "上传最大大小";
 $Unknown = "未知";
-$MoveUp = "下移";
-$MoveDown = "上移";
+$MoveUp = "上移";
+$MoveDown = "下移";
 $UplUnableToSaveFileFilteredExtension = "文件上传失败：此文件扩展名或文件类型已禁止";
 $OpenIDURL = "OpenID URL";
 $UplFileTooBig = "你上传的文件太大，无法用于当前dokeos设置（%sMB）。请联系网站管理员来讨论这个问题。";
@@ -565,4 +565,9 @@ $BackToPreviousPage = "返回前一页";
 $PluginName = "我的学习币";
 $GradebookActivation = "成绩册激活";
 $SysInfo = "PHP系统信息";
+
+//zml added 
+$EditTheCurrentItem = "编辑当前项目";
+$MoveTheCurrentItem = "移动当前项目";
+$DeleteTheCurrentItem = "删除当前项目";
 ?>
