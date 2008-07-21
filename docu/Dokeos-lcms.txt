@@ -1,29 +1,29 @@
-æœ¬åœ°åŒ–
-	IILearn åŸºäºDokeos 1.8ï¼Œä¸ºä½¿ç”¨ä¸­å›½å›½æƒ…å¼€å‘çš„ç‰ˆæœ¬
+±¾µØ»¯
+	IILearn »ùÓÚDokeos 1.8£¬ÎªÊ¹ÓÃÖĞ¹ú¹úÇé¿ª·¢µÄ°æ±¾
 	
-	ä¸ºæ”¯æŒä¸­æ–‡ï¼Œéœ€å®Œæˆä¸‹è¿°æ“ä½œï¼š
-		1ã€åœ¨ç³»ç»Ÿç®¡ç†ç•Œé¢æ¿€æ´»ä¸­æ–‡è¯­è¨€ï¼ˆå¯ä»¥åœ¨DBä¸­ä¿®æ”¹å¯¹åº”çš„è¯­è¨€æ–‡ä»¶ç›®å½•ï¼‰ï¼›
-			GB2312ã€UTF-8
-		2ã€ç³»ç»Ÿé…ç½®ä¸ºå­—ç¬¦é›†GB2312ï¼›
-é—®é¢˜
-	æŸ¥çœ‹SCORMè¯¾ä»¶æ’­æ”¾çŠ¶æ€é¡µé¢åˆå§‹æœ‰ä¹±ç ï¼Œæ”¹ä¸ºå…¶ä»–ç¼–ç æ ¼å¼å†æ”¹å›å°±æ²¡æœ‰ä¹±ç äº†
-	è¯¾ä»¶æ’­æ”¾ç•Œé¢IE6å˜ç°ä¸å¦‚FF3ï¼Œæ²¡æœ‰å·¦è¾¹å¯¼èˆªæ 
+	ÎªÖ§³ÖÖĞÎÄ£¬ĞèÍê³ÉÏÂÊö²Ù×÷£º
+		1¡¢ÔÚÏµÍ³¹ÜÀí½çÃæ¼¤»îÖĞÎÄÓïÑÔ£¨¿ÉÒÔÔÚDBÖĞĞŞ¸Ä¶ÔÓ¦µÄÓïÑÔÎÄ¼şÄ¿Â¼£©£»
+			GB2312¡¢UTF-8
+		2¡¢ÏµÍ³ÅäÖÃÎª×Ö·û¼¯GB2312£»
+ÎÊÌâ
+	²é¿´SCORM¿Î¼ş²¥·Å×´Ì¬Ò³Ãæ³õÊ¼ÓĞÂÒÂë£¬¸ÄÎªÆäËû±àÂë¸ñÊ½ÔÙ¸Ä»Ø¾ÍÃ»ÓĞÂÒÂëÁË
+	¿Î¼ş²¥·Å½çÃæIE6±äÏÖ²»ÈçFF3£¬Ã»ÓĞ×ó±ßµ¼º½À¸
 	
-Dokeos å¼€å‘æœåŠ¡å™¨çŠ¶æ€å¯æ˜¾ç¤ºæœªç¿»è¯‘æ–‡æœ¬ï¼Œç‚¹å‡»#å¯è·³è½¬åˆ°å®˜ç½‘ç¿»è¯‘å¹³å°
+Dokeos ¿ª·¢·şÎñÆ÷×´Ì¬¿ÉÏÔÊ¾Î´·­ÒëÎÄ±¾£¬µã»÷#¿ÉÌø×ªµ½¹ÙÍø·­ÒëÆ½Ì¨
 
 -=========================================================-
 
-archive	[åˆå§‹ä¸ºç©ºï¼Œæœ‰index.html]å›ºå®šçš„å­˜æ”¾å¯¼å‡ºç”¨æˆ·ã€ç­çº§çš„csvã€xlsæ–‡ä»¶
-courses	[åˆå§‹ä¸ºç©ºï¼Œæœ‰index.html]å­˜æ”¾æ–°å»ºè¯¾ç¨‹ï¼Œæ¯è¯¾ç¨‹ä¸€ä¸ªç›®å½•
-documentation	ç³»ç»Ÿæ–‡æ¡£ï¼šå®‰è£…
-home	ç»„åˆæˆé¦–é¡µçš„é¡µé¢éƒ¨åˆ†å†…å®¹
+archive	[³õÊ¼Îª¿Õ£¬ÓĞindex.html]¹Ì¶¨µÄ´æ·Åµ¼³öÓÃ»§¡¢°à¼¶µÄcsv¡¢xlsÎÄ¼ş
+courses	[³õÊ¼Îª¿Õ£¬ÓĞindex.html]´æ·ÅĞÂ½¨¿Î³Ì£¬Ã¿¿Î³ÌÒ»¸öÄ¿Â¼
+documentation	ÏµÍ³ÎÄµµ£º°²×°
+home	×éºÏ³ÉÊ×Ò³µÄÒ³Ãæ²¿·ÖÄÚÈİ
 main
-	admin	å¹³å°ç®¡ç†
+	admin	Æ½Ì¨¹ÜÀí
 	announcements
 	app_share
-		å¤–éƒ¨ç¨‹åºï¼Œvncç›¸å…³ï¼Œjavaç¨‹åºï¼Œapplet
+		Íâ²¿³ÌĞò£¬vncÏà¹Ø£¬java³ÌĞò£¬applet
 	auth
-		ldapã€openidã€......
+		ldap¡¢openid¡¢......
 	blog
 	calendar
 	chat
@@ -34,26 +34,26 @@ main
 	coursecopy
 	create_course
 	css	
-		SCORMä¸»é¢˜
+		SCORMÖ÷Ìâ
 	default_course_document
-		æ–°å»ºè¯¾ç¨‹çš„é»˜è®¤æ–‡æ¡£
+		ĞÂ½¨¿Î³ÌµÄÄ¬ÈÏÎÄµµ
 	document
 	dropbox
 	exercice
-		è€ƒè¯•
+		¿¼ÊÔ
 	external_module
-		å¤–éƒ¨é“¾æ¥
+		Íâ²¿Á´½Ó
 	forum
 	garbage
-		ï¼Ÿ
+		£¿
 	gradebook
 	group
 	help
-		ä¸Šä¸‹æ–‡å¸®åŠ©
+		ÉÏÏÂÎÄ°ïÖú
 	img
-		å›¾æ ‡ï¼Œæœ¬åœ°åŒ–
+		Í¼±ê£¬±¾µØ»¯
 	inc
-		conf ç³»ç»Ÿé…ç½®ï¼šç›®å½•archiveã€coursesã€garbage
+		conf ÏµÍ³ÅäÖÃ£ºÄ¿Â¼archive¡¢courses¡¢garbage
 		lib
 			ezpdf
 			fckeditor
@@ -63,22 +63,22 @@ main
 					filemanager
 					images
 					js
-					lang è¯­è¨€ï¼Œç®€ä½“ä¸­æ–‡è²Œä¼¼ç”¨äº†ç¹ä½“
+					lang ÓïÑÔ£¬¼òÌåÖĞÎÄÃ²ËÆÓÃÁË·±Ìå
 					plugins
 						ttachment
 						ImageManager
 						ImageManagerStandalone
-						mimetex		æ•°å­¦å…¬å¼ç¼–è¾‘mimetex.exe,cè¯­è¨€å¼€æºç¨‹åº
+						mimetex		ÊıÑ§¹«Ê½±à¼­mimetex.exe,cÓïÑÔ¿ªÔ´³ÌĞò
 						MP3
 						placeholder
 						simplecommands
 						tablecommands
 						Video
 					skins
-				fcktemplates.xml.php	HTMLé¡µé¢æ¨¡æ¿ï¼Œå·¦ä¾§åˆ—è¡¨é€šè¿‡è¯­è¨€æ–‡ä»¶è·å¾—
-				myconfig.js 	é…ç½®æ’ä»¶
-			flv_player	ï¼Ÿæ’­æ”¾å™¨
-			formvalidator	è¾“å…¥æ ¡éªŒ
+				fcktemplates.xml.php	HTMLÒ³ÃæÄ£°å£¬×ó²àÁĞ±íÍ¨¹ıÓïÑÔÎÄ¼ş»ñµÃ
+				myconfig.js 	ÅäÖÃ²å¼ş
+			flv_player	£¿²¥·ÅÆ÷
+			formvalidator	ÊäÈëĞ£Ñé
 			getid3
 			icalcreator
 			javascript
@@ -87,21 +87,81 @@ main
 				mimetex.cgi		unix
 				mimetex.exe		windows
 				mimetex.html	
-			mp3player	Flashç‰ˆmp3æ’­æ”¾å™¨
+			mp3player	Flash°æmp3²¥·ÅÆ÷
 			pclzip		PclZip is a library that allow you to manage a Zip archive.
 			pear
 			phpmailer	Full Featured Email Transfer Class for PHP
 			ppt2png
 			WCAG
-			xajax		0.2.4=ã€‹The easiest way to develop asynchronous Ajax applications with PHP
+			xajax		0.2.4=¡·The easiest way to develop asynchronous Ajax applications with PHP
 	install
-		è£…å®Œåè¦ç§»èµ°è¿™ä¸ªç›®å½•
+		×°ÍêºóÒªÒÆ×ßÕâ¸öÄ¿Â¼
 	lang
 	link
 	messaging
 	metadata
 	mySpace
-	newscorm	è¯¾ä»¶ç¼–è¾‘éƒ½åœ¨è¿™é‡Œ
+	newscorm	¿Î¼ş±à¼­¶¼ÔÚÕâÀï
+	          aicc_api.php                       -->ÔÚHACPÍ¨ĞÅ·½Ê½ÖĞ´¦ÀíAICC/CMIv4µÄAPIÊÂ¼ş 
+						aicc_hacp.php                      -->ÔÚHACP½»»¥Ä£Ê½ÖĞ´¦ÀíAICC/CMIv4µÄAPIÊÂ¼ş 
+						aicc.class.php                     -->¶¨ÒåAICCÀà¼°AICCÏîÄ¿µÄÊôĞÔÔªËØ
+						aiccBlock.class.php                -->ÔÚAICC¿Î³ÌÎÄ¼şÖĞ¶¨Òå¿éÔªËØ
+						aiccItem.class.php                 -->´¦ÀíAICCÎÄ¼şÖĞµÄÔªËØ
+						aiccObjective.class.php            -->¸ù¾İ´´½¨µÄÀàĞÍdb»òÕßmanifest´´½¨Ò»¸öscormResource¶ÔÏó
+						aiccResource.class.php             -->¸ù¾İ´´½¨µÄÀàĞÍdb»òÕßconfig´´½¨Ò»¸öscormResource¶ÔÏó
+						audiorecorder.inc.php              -->°üº¬lazloÎÄ¼şÎªÁËÓÃÂ¼Òô»ú
+						back_compat.inc.php                -->ÓÃÀ´¼æÈİscorm 1.6.3ºÍ1.8Á½¸ö°æ±¾µÄ¹¤¾ß£¬ÔÚlibraryÖĞÒÔ²»Í¬µÄ·½Ê½±»¼ÓÔØ
+						blank.php                          -->ÏÔÊ¾Ò»¸ö¿Õ°×Ò³
+						content_makers.inc.php             -->Î¨Ò»Ê¹ÓÃ´Ë½Å±¾ÊÇÓĞÒ»¸ö±ãĞ¯Ê½µÄ·½Ê½£¬±£´æµÄÄÚÈİÇåµ¥±ê¼Ç
+						display_audiorecorder.php          -->²»ÔÊĞí²¥·ÅÂ¼Òô
+						document.php                       -->ÎÄµµ 
+						index.php                          -->ÖØ¶¨ÏòµÄ½Å±¾
+						learnpath_functions.inc.php        -->Ñ§Ï°Â·¾¶º¯Êı¼¯ 
+						learnpath.class.php                -->¶¨ÒåDokeosºÍScormÊôĞÔºÍ·½·¨µÄ¸¸Àà£¬±»ÓÃÓÚËùÓĞµÄDokeosÀàºÍScormÀà
+						learnpathItem.class.php            -->Ñ§Ï°Â·¾¶ÏîÄ¿
+						learnpathList.class.php            -->Ñ§Ï°Â·¾¶ÁĞ±í 
+						lp_add_item.php                    -->Ìí¼ÓÑ§Ï°Â·¾¶µÄ²½Öè
+						lp_add.php                         -->Ñ§Ï°Â·¾¶ ÖĞ Ìí¼ÓÒ»¸öĞÂµÄÑ§Ï°Â·¾¶   
+						lp_admin_view.php                  -->±êÌâÁ´½ÓµÄÒ³Ãæ/×éÖ¯
+						lp_api.php                         -->
+						lp_build.php                       -->Ñ§Ï°Â·¾¶ ÖĞµÄ ½¨Á¢
+						lp_comm.common.php                 -->  
+						lp_comm.server.php                 -->
+						lp_content.php                     -->ÏÔÊ¾´íÎóĞÅÏ¢Ã»ÓĞÈÎºÎÄÚÈİ¿ÉÒÔ±»ÔØÈë
+						lp_controller.php                  -->¿ØÖÆµ¼º½
+						lp_edit_item_prereq.php            -->Ç°ÌáÌõ¼ş 
+						lp_edit_item.php                   -->±à¼­
+						lp_edit.php                        -->Ñ§Ï°Â·¾¶±à¼­Ò³Ãæ
+						lp_export.php                      -->Ñ§Ï°Â·¾¶ µ¼ÈëÒ³Ãæ 
+						lp_footer.php                      -->Ñ§Ï°Â·¾¶Ò³½Å
+						lp_header.php                      -->Ñ§Ï°Â·¾¶Ò³Í·
+						lp_list.php                        -->ËùÓĞÑ§Ï°Â·¾¶µÄÁĞ±í
+						lp_log.php                         -->Ñ§Ï°Â·¾¶µÄÈÕÖ¾   
+						lp_message.php                     -->Ñ§Ï°Â·¾¶µÄĞÅÏ¢
+						lp_move_item.php                   -->Ò³ÃæÒÆ¶¯£¨ÉÏÒÆ¡¢ÏÂÒÆ£©
+						lp_nav.php                         -->¿Î¼ş²¥·ÅµÄ¹¤¾ß²Ëµ¥
+						lp_save.php                        -->±£´æÏîÄ¿×´Ì¬  
+						lp_stats.php                       -->Ñ§Ï°Â·¾¶ÖĞ ÎÒµÄ×´Ì¬  
+						lp_toc.php                         -->¿Î¼ş²¥·ÅÊ± ×ó²àµÄ²Ëµ¥
+						lp_upload.php                      -->Ñ§Ï°Â·¾¶ÉÏ´«ÎÄ¼ş
+						lp_view_item.php                   -->  
+						lp_view.php                        -->Ñ§Ï°Â·¾¶ÁĞ±íÖĞ ÏÔÊ¾
+						openoffice_document.class.php      -->
+						openoffice_presentation.class.php  -->
+						openoffice_text_document.class.php -->
+						resourcelinker.inc.php             -->
+						resourcelinker.php                 -->  
+						scorm_admin.php                    -->´¦ÀíScorm¹ÜÀí¹¦ÄÜ  
+						scorm_api.php                      -->´¦ÀíScorm 1.1ºÍ1.2ºÍ1.3 ÊÂ¼şµÄAPI²Ù×÷ 
+						scorm_manage.php                   -->ScormÈí¼ş°üµÄ¸¨Öú½Å±¾
+						scorm.class.php                    -->¶¨ÒåScormÀà¼°ÊôĞÔºÍ·½·¨
+						scorm.lib.php                      -->´¦ÀíScorm±ê×¼µÄÈİÆ÷  
+						scormItem.class.php                -->´¦ÀíScormÎÄ¼şÔªËØ   
+						scormMetadata.class.php            -->ÔÚScormÎÄ¼şÖĞ´¦ÀíÓëScormÎÄ¼şÓĞ¹ØµÄÔªÊı¾İ
+						scormOrganization.class.php        -->ÔÚxmlÎÄ¼şÖĞ¶¨Òå<orgaization>±êÇ©µÄÀà
+						scormResource.class.php            -->ÔÚxmlÎÄ¼şÖĞ¶¨Òå<resource>±êÇ©µÄÀà
+						
+						
 	online
 	permissions
 	plugin
@@ -109,8 +169,18 @@ main
 	survey
 	template
 	tracking
-	upload		ä¸Šè½½scormã€wordã€ppt
+	upload		ÉÏÔØscorm¡¢word¡¢ppt
 	user
 	WCAG
 	work	
 	plugin
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
