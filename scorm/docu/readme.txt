@@ -1,9 +1,10 @@
-课件模板
+﻿课件模板
 	基于HTML+JavaScript+Flash+XML
 
 部署
 	直接拷贝到apache的htdocs目录下即可，http://localhost/SCORM-CourseWare/index.htm
 	当没有lms平台时离线方式运行，feedback和comment都不能用；
+	只支持Internet Explorer；
 
 待办事项
 	课件demo中文化，以便让课件相关人员了解其作用、功能和适用范围与价值；
