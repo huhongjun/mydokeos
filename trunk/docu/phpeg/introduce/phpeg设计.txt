@@ -1,0 +1,93 @@
+1. 数据库：
+   (1)建立数据库php_eg (注：设置字符编码为utf8否则中文字符会乱码)
+   		create DATABASE `php_eg` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+   (2)使用数据库
+  	   use php_eg;
+   (3)建立表contents
+	   CREATE TABLE `contents` (                                                 
+	            `id` int(11) NOT NULL auto_increment,                                   
+	            `name` varchar(16) collate utf8_bin NOT NULL default 'nothing',                
+	            `content` varchar(40) collate utf8_bin NOT NULL default 'nothing',             
+	            `insert_time` datetime NOT NULL default '0000-00-00 00:00:00',          
+	            PRIMARY KEY  (`id`)                                                     
+	    ) ENGINE=MyISAM AUTO_INCREMENT=119 DEFAULT CHARSET=utf8 COLLATE=utf8_bin  
+	          
+          
+2. 程序：
+   (1)dbcon.php 取得数据库链接。如果没有得到数据库链接会抛出提示信息
+   (2)index.php 一个跳转页面到列表页list.php
+   (3)list.php  内容显示的列表页
+       操作有：发表留言 add.php
+              修改     edit.php
+              删除     delete.php
+                       当点“删除”会提示是否要删除 是执行删除（delete.php） 否依然显示列表页的信息
+                     
+   (4)add.php 新增页面 输入名字和内容 
+         操作有：①“提交” 
+                    1）判断名字和内容是否全部填写 
+                          如果有一个没有填写则抛到error_empty.php 提示并且有返回操作 到add.php页面
+                    2）判断用户名是否超出长度(数据库php_eg表contents字段name定义)
+                          如果用户名超出长度则抛到error_name.php 提示并且有返回操作 到add.php页面
+                    3）判断内容是否超出长度(数据库php_eg表contents字段content定义)
+                          如果用户名超出长度则抛到error_content.php 提示并且有返回操作 到add.php页面
+                    4）如果以上所有校验都通过则到add_success.php页面提示操作成功并且有查看留言操作到列表页list.php
+                ②“返回” 到列表页list.php
+   (5)edit.php 修改页面 修改名字和内容 
+         操作有：①“提交” 
+                    1）判断名字和内容是否全部填写 
+                          如果有一个没有填写则抛到error_empty.php 提示并且有返回操作 到edit.php页面
+                    2）判断用户名是否超出长度(数据库php_eg表contents字段name定义)
+                          如果用户名超出长度则抛到error_name.php 提示并且有返回操作 到edit.php页面
+                    3）判断内容是否超出长度(数据库php_eg表contents字段content定义)
+                          如果用户名超出长度则抛到error_content.php 提示并且有返回操作 到edit.php页面
+                    4）如果以上所有校验都通过则到edit_success.php页面提示操作成功并且有查看留言操作到列表页list.php
+                ②“返回” 到列表页list.php
+   (6)delete.php 删除页面
+                   当列表页list.php通过校验确定要删除 执行删除 成功有提示信息del_success.php 并且有查看留言到列表也list.php
+                   如果删除不成功则提示“数据不存在”  
+                   
+                   
+3. css的简单使用
+	控制body中 td th 中的字体大小
+	body,td,th {
+		font-size: 12px;
+	}
+	
+	控制页面距离边缘的距离
+	body{
+	margin:0px;
+	}
+	
+	链接操作字体不变色的控制
+	a:link {
+		color: #333333;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #333333;
+		text-decoration: underline;
+	}
+	a:visited {
+		color: #333333;
+		text-decoration: none;
+	}
+	a:active {
+		color: #333333;
+		text-decoration: none;
+	}
+	
+	td标签中 行高 边距 字体加粗
+	.tb {
+	line-height:22px;
+	border:1px solid #CCCCCC;
+	margin:3px;
+	}
+	.tb td {
+	padding:2px;（间隙属性(padding)是用来设置元素内容到元素边界的距离。）
+	font-weight:bold;
+	}
+	
+	设置 td 中的背景色  关键在页面中如何引用table中用class=bg就是table的背景色
+	.bg {
+	background-color:#F6F6F6;
+	}

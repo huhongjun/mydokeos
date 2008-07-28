@@ -1,0 +1,36 @@
+body,td,th {
+	font-size: 14px;
+}
+body{
+margin:0px;
+}
+a:link {
+	color: #333333;
+	text-decoration: none;
+}
+a:hover {
+	color: #333333;
+	text-decoration: underline;
+}
+a:visited {
+	color: #333333;
+	text-decoration: none;
+}
+a:active {
+	color: #333333;
+	text-decoration: none;
+}
+
+.tb {
+line-height:22px;
+border:1px solid #CCCCCC;
+margin:3px;
+}
+.tb td {
+padding:2px;
+font-weight:bold;
+}
+
+.bg {
+background-color:#F6F6F6;
+}
