@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <manifest identifier="MANIFEST01" xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1p3.xsd http://www.imsglobal.org/xsd/imsmd_v1p2 imsmd_v1p2p2.xsd">
 	<metadata>
 		<schema>IMS CONTENT</schema>
@@ -14,23 +14,23 @@
 	<organizations default="MANIFEST01_ORG1">
 		<organization identifier="MANIFEST01_ORG1">			
 			<item identifier="MI01" identifierref="Res01" isvisible="true" parameters="">
-				<title>Module 1</title>				
+				<title>模块 1</title>				
 					<item identifier="MI02" identifierref="Res02" isvisible="true" parameters="">
-						<title>Section 1</title>
+						<title>第1节</title>
 						<item identifier="MI03" identifierref="Res03" isvisible="true" parameters="">
-							<title>Page01</title>
+							<title>第01页</title>
 						</item>
 					</item>
 					<item identifier="MI04" identifierref="Res04" isvisible="true" parameters="">
-						<title>Test</title>
+						<title>测试</title>
 						<item identifier="MI05" identifierref="Res05" isvisible="true" parameters="">
-							<title>Summary</title>
+							<title>概览</title>
 						</item>
 					</item>
 					<item identifier="MI06" identifierref="Res06" isvisible="true" parameters="">
-						<title>Assessment</title>
+						<title>评定</title>
 						<item identifier="MI07" identifierref="Res07" isvisible="true" parameters="">
-							<title>Summary</title>
+							<title>概览</title>
 						</item>
 					</item>				
 			</item>
