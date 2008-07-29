@@ -1,0 +1,192 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 6	;
+var intSection    = 1;
+var intPage       = 1;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable=false><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable=false><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid3x1">
+						<div class="celldark10x1">
+							<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="SCROLLLight" style="margin-left:35px;padding-top:4">
+Switch to edit mode in the e-CMS to replace the text here. This instruction text will also remain on the screen.
+							</div>
+						</div>
+					</div>
+					<div class="grid1x1">
+						<div class="cellmedium2x7">
+							<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="SCROLLDark" style="margin-right:0px;padding-top:10;text-indent:20px;">
+								Switch to edit mode in the e-CMS to replace the text here. </p>
+<p>This text will remain on screen as it introduces the e-learning.</p>							</div>
+						</div>
+					</div>
+					<div id="fb1">
+						<div class="grid3x2">
+							<div class="cell6x6"><IMG SRC="image/3_panels_5_steps_no_branching_1.jpg" border="0" width="386" height="248"></div>
+						</div>
+						<div class="grid9x2">
+							<div class="cell4x6">
+								<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+<div class="instriconsm" style="LEFT: 140px; TOP: 200px"><img src="../../image/icons/mouse_icon.gif" WIDTH="44" HEIGHT="44"></div>
+								<div class="instriconsm" style="top: 224px; left: 197px"><img src="../../image/buttons/next.gif" width="53" height="19" alt="" border="0" onclick="showFeedback(2);"
+										style="cursor: hand"></div>
+								<div class="SCROLLDark" style="height:190px;margin-right:5px;top:29">
+								Switch to edit mode in the e-CMS to replace the text here. </p>
+<p>This text will change every time the [Next] button is pressed immediately below.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div id="fb2" style="display: none;">
+						<div class="grid3x2">
+							<div class="cell6x6"><IMG SRC="image/3_panels_5_steps_no_branching_2.jpg" border="0" width="386" height="248"></div>
+						</div>
+						<div class="grid9x2">
+							<div class="cell4x6">
+								<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+								<div class="instriconsm" style="top: 224px; left: 6px"><img src="../../image/buttons/back.gif" width="53" height="19" alt="" border="0" onclick="showFeedback(1);"
+										style="cursor: hand"></div>
+								<div class="instriconsm" style="top: 224px; left: 197px"><img src="../../image/buttons/next.gif" width="53" height="19" alt="" border="0" onclick="showFeedback(3);"
+										style="cursor: hand"></div>
+								<div class="SCROLLDark" style="height:190px;margin-right:5px;top:29">
+								Switch to edit mode in the e-CMS to replace the text here. </p>
+<p>This text will change every time the [Next] button is pressed immediately below.</p>
+								</div>
+<div class="instriconsm" style="LEFT: 140px; TOP: 200px"><img src="../../image/icons/mouse_icon.gif" WIDTH="44" HEIGHT="44"></div>
+							</div>
+						</div>
+					</div>
+					
+					
+						<div id="fb3" style="display: none;">
+						<div class="grid3x2">
+							<div class="cell6x6"><IMG SRC="image/3_panels_5_steps_no_branching_3.jpg" border="0" width="386" height="248"></div>
+						</div>
+						<div class="grid9x2">
+							<div class="cell4x6">
+								<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+								<div class="instriconsm" style="top: 224px; left: 6px"><img src="../../image/buttons/back.gif" width="53" height="19" alt="" border="0" onclick="showFeedback(2);"
+										style="cursor: hand"></div>
+								<div class="instriconsm" style="top: 224px; left: 197px"><img src="../../image/buttons/next.gif" width="53" height="19" alt="" border="0" onclick="showFeedback(4);"
+										style="cursor: hand"></div>
+								<div class="SCROLLDark" style="height:190px;margin-right:5px;top:29">
+								Switch to edit mode in the e-CMS to replace the text here. </p>
+<p>This text will change every time the [Next] button is pressed immediately below.</p>
+								</div>
+<div class="instriconsm" style="LEFT: 140px; TOP: 200px"><img src="../../image/icons/mouse_icon.gif" WIDTH="44" HEIGHT="44"></div>
+							</div>
+						</div>
+					</div>
+					
+										
+						<div id="fb4" style="display: none;">
+						<div class="grid3x2">
+							<div class="cell6x6"><IMG SRC="image/3_panels_5_steps_no_branching_4.jpg" border="0" width="386" height="248"></div>
+						</div>
+						<div class="grid9x2">
+							<div class="cell4x6">
+								<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+								<div class="instriconsm" style="top: 224px; left: 6px"><img src="../../image/buttons/back.gif" width="53" height="19" alt="" border="0" onclick="showFeedback(3);"
+										style="cursor: hand"></div>
+								<div class="instriconsm" style="top: 224px; left: 197px"><img src="../../image/buttons/next.gif" width="53" height="19" alt="" border="0" onclick="showFeedback(5);completed = true;"
+										style="cursor: hand"></div>
+								<div class="SCROLLDark" style="height:190px;margin-right:5px;top:29">
+Switch to edit mode in the e-CMS to replace the text here. </p>
+<p>This text will change every time the [Next] button is pressed immediately below.</p>
+								</div>
+<div class="instriconsm" style="LEFT: 140px; TOP: 200px"><img src="../../image/icons/mouse_icon.gif" WIDTH="44" HEIGHT="44"></div>
+							</div>
+						</div>
+					</div>
+					
+					
+						<div id="fb5" style="display: none;">
+						<div class="grid3x2">
+							<div class="cell10x6">
+								<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+								<div class="instriconsm" style="top: 224px; left: 6px"><img src="../../image/buttons/back.gif" width="53" height="19" alt="" border="0" onclick="showFeedback(4);"
+										style="cursor: hand"></div>
+								<div class="SCROLLDark" style="height:190px;margin-right:5px;top:5;margin-left:35px;">
+
+Switch to edit mode in the e-CMS to replace the concluding text here. </p>
+							</div>
+<div class="instriconsm" style="LEFT: 540px; TOP: 200px;cursor:hand;" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif"  alt="Ready to move to Next Page" WIDTH="44" HEIGHT="44"></div>
+							</div>
+						</div>
+					</div>					
+					
+					
+					
+					
+					
+					<!-- Right Content -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

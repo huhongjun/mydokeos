@@ -1,0 +1,197 @@
+<html>
+	<head>
+		<title>Check your environment</title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 1;
+var intPage       = 3;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css">
+			<link rel="stylesheet" type="text/css" href="../../style/grid.css">
+				<link rel="stylesheet" type="text/css" href="../../style/cell.css">
+					<link rel="stylesheet" type="text/css" href="../../style/content.css">
+						<link rel="stylesheet" type="text/css" href="../../style/navigation.css">
+							<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+							<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+							<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+							</script>
+							<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable=false><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable=false><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						<div class="celldark12x1" >
+
+<div class="instriconsm" style="top:7px;left: 5px"><img src="../../image/icons/feedback_icon.gif" width="22" height="22" border="0"></div>
+							<div class="SCROLLLight" style="margin-top:10px;margin-left: 40px">
+								Switch to edit mode in the e-CMS to update the text here. This text stays on screen at all times. 
+</div>
+						</div>
+					</div>
+					<!--Feedback 1-->
+					<div id="fb1">
+						<div class="grid1x2">
+							<div class="cell4x6">
+								<div class="instriconsm" style="LEFT: 130px; TOP: 200px"><img src="../../image/icons/mouse_icon_estart.gif" WIDTH="44" HEIGHT="44"></div>
+<div class="instriconsm" style="LEFT: 10px; TOP: 10px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+								<div class="SCROLLDark" style="margin-top:10px;margin-left: 40px;padding-right:10px;">
+									<P>Switch to edit mode in the e-CMS to update the text here. </p><P>The Flash can be replaced with Flash animations or images of your choice using e-CMS. The height is 248 and width 516 pixels.</P>
+								</div>
+										<div class="instriconsm" style="top: 224px; left: 187px;cursor:hand;"><IMG SRC="../../image/buttons/next.gif" onclick="showFeedback(2);;functionFlash('flash','TGotoFrame','\'/move\', 0');functionFlash('flash','TPlay','\'/move\'');"></div>
+							</div>
+						</div>
+						<!-- Image Content -->
+						<div class="grid5x2">
+							<div class="cell8x6"><OBJECT id="flash" codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+									width="516" height="248" type="application/x-shockwave-flash" VIEWASTEXT>
+									<PARAM NAME="Movie" VALUE="flash/2_panels_3_steps_no_branching_1.swf">
+									<PARAM NAME="Src" VALUE="flash/2_panels_3_steps_no_branching_1.swf">
+									<PARAM NAME="WMode" VALUE="Opaque">
+									<PARAM NAME="Play" VALUE="1">
+									<PARAM NAME="Loop" VALUE="0">
+									<PARAM NAME="Quality" VALUE="High">
+									<PARAM NAME="SAlign" VALUE="">
+									<PARAM NAME="Menu" VALUE="0">
+									<PARAM NAME="Base" VALUE="">
+									<PARAM NAME="AllowScriptAccess" VALUE="always">
+									<PARAM NAME="Scale" VALUE="ExactFit">
+									<PARAM NAME="DeviceFont" VALUE="0">
+									<PARAM NAME="EmbedMovie" VALUE="0">
+									<PARAM NAME="BGColor" VALUE="FFFFFF">
+									<PARAM NAME="SWRemote" VALUE="">
+								</object></div>
+						</div>
+						<!-- END Image Content -->
+					</div>
+					<!--END Feedback 1-->
+					<!--Feedback 2-->
+					<div id="fb2" style="display: none;">
+						<div class="grid9x2">
+							<div class="cell4x6">
+								<div class="instriconsm" style="LEFT: 130px; TOP: 200px"><img src="../../image/icons/mouse_icon_estart.gif" WIDTH="44" HEIGHT="44"></div>
+								<div class="instriconsm" style="LEFT: 10px; TOP: 10px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+								<div class="SCROLLDark" style="margin-top:10px;margin-left: 40px;padding-right:10px;">
+									<P>Switch to edit mode in the e-CMS to update the text here. </p><P>The Flash can be replaced with Flash animations or images of your choice using e-CMS. The height is 248 and width 516 pixels.</P>								</div>
+										<div class="instriconsm" style="top: 224px; left: 7px;cursor:hand;"><IMG SRC="../../image/buttons/back.gif" onclick="completed=false;showFeedback(1)"></div>
+										<div class="instriconsm" style="top: 224px; left: 187px;cursor:hand;"><IMG SRC="../../image/buttons/next.gif" onclick="completed=true;showFeedback(3)"></div>
+							</div>
+						</div>
+						<!-- Image Content -->
+						<div class="grid1x2">
+							<div class="cell8x6">
+								<OBJECT id="flash" codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+									width="516" height="248" type="application/x-shockwave-flash" VIEWASTEXT>
+									<PARAM NAME="Movie" VALUE="flash/2_panels_3_steps_no_branching_2.swf">
+									<PARAM NAME="Src" VALUE="flash/2_panels_3_steps_no_branching_2.swf">
+									<PARAM NAME="WMode" VALUE="Opaque">
+									<PARAM NAME="Play" VALUE="1">
+									<PARAM NAME="Loop" VALUE="0">
+									<PARAM NAME="Quality" VALUE="High">
+									<PARAM NAME="SAlign" VALUE="">
+									<PARAM NAME="Menu" VALUE="0">
+									<PARAM NAME="Base" VALUE="">
+									<PARAM NAME="AllowScriptAccess" VALUE="always">
+									<PARAM NAME="Scale" VALUE="ExactFit">
+									<PARAM NAME="DeviceFont" VALUE="0">
+									<PARAM NAME="EmbedMovie" VALUE="0">
+									<PARAM NAME="BGColor" VALUE="FFFFFF">
+									<PARAM NAME="SWRemote" VALUE="">
+								</object>
+							</div>
+						</div>
+						<!-- END Image Content -->
+					</div>
+					<!--END Feedback 2-->
+					<!--Feedback 3-->
+					<div id="fb3" style="display: none;">
+						<div class="grid9x2">
+							<div class="cell4x6">
+								<div class="instriconsm" style="LEFT: 130px; TOP: 200px"><img src="../../image/icons/mouse_icon_estart.gif" WIDTH="44" HEIGHT="44"></div>
+								<div class="instriconsm" style="LEFT: 10px; TOP: 10px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+								<div class="SCROLLDark" style="margin-top:10px;margin-left: 40px;padding-right:10px;">
+									<P>Switch to edit mode in the e-CMS to enter the concluding text here. </p><P>The Flash can be replaced with Flash animations or images of your choice using e-CMS. The height is 248 and width 516 pixels.</P>
+								</div>
+<div class="instriconsm" style="top: 200px; left: 200px;cursor:hand;" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif"  alt="Ready to move to Next Page" WIDTH="44" HEIGHT="44"></div>
+										<div class="instriconsm" style="top: 224px; left: 7px;cursor:hand;"><IMG SRC="../../image/buttons/back.gif" onclick="completed=false;showFeedback(2);functionFlash('flash','TGotoFrame','\'/move\', 0'); functionFlash('flash','TPlay','\'/move\'');"></div>
+										
+
+							</div>
+						</div>
+						<!-- Image Content -->
+						<div class="grid1x2">
+							<div class="cell8x6"><OBJECT id="flash" codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+									width="516" height="248" type="application/x-shockwave-flash" VIEWASTEXT>
+									<PARAM NAME="Movie" VALUE="flash/2_panels_3_steps_no_branching_3.swf">
+									<PARAM NAME="Src" VALUE="flash/2_panels_3_steps_no_branching_3.swf">
+									<PARAM NAME="WMode" VALUE="Opaque">
+									<PARAM NAME="Play" VALUE="1">
+									<PARAM NAME="Loop" VALUE="0">
+									<PARAM NAME="Quality" VALUE="High">
+									<PARAM NAME="SAlign" VALUE="">
+									<PARAM NAME="Menu" VALUE="0">
+									<PARAM NAME="Base" VALUE="">
+									<PARAM NAME="AllowScriptAccess" VALUE="always">
+									<PARAM NAME="Scale" VALUE="ExactFit">
+									<PARAM NAME="DeviceFont" VALUE="0">
+									<PARAM NAME="EmbedMovie" VALUE="0">
+									<PARAM NAME="BGColor" VALUE="FFFFFF">
+									<PARAM NAME="SWRemote" VALUE="">
+								</object></div>
+						</div>
+						<!-- END Image Content -->
+					</div>
+					<!--END Feedback 3-->
+
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>
