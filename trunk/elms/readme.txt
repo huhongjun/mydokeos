@@ -2,15 +2,16 @@ ildasm.exe 	网上下载
 ilasm1.exe		取自本机安装的.Net 1.x(C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322)
 ilasm2.exe		取自本机安装的.Net 2.x(C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727)
 
-EStart-original.exe		安装后的原始文件
-huhj.il		字串汉化在此
-huhj.res	图标和版本信息
+EStart-original.exe	安装后的原始文件
+EStart.il	字串汉化在此
+EStart.res	图标和版本信息
 
 操作：
 	ildasm  执行后有GUI界面，很容易使用
-	ilasm xxx.il /output:test.exe 将 MSIL 文件 xxx.il 汇编生成test.exe 可执行文件
+	ilasm1 EStart.il /output:EStart.exe 将 MSIL 文件 xxx.il 汇编生成EStart.exe 可执行文件
 
 【1.字串修改】
+
 首先查找“ldstr”，这个字串后面跟随双引号中的内容基本都是需要翻译的，例如本例：
 ldstr "Currently Processing:"
 ldstr "&File"
@@ -22,6 +23,7 @@ ldstr "webLink"
 ldstr "currentlyProcessingLabel"
 
 【2.字体修改】
+
 那么翻译完之后，由于源程序的字体有时并不适合中文用户阅读，那么哪些是字体呢？幸好，这个 il 反编译代码文件中提供了字体名称和字号大小，也是跟随于 ldstr 之后，本例中找到如下两种字体：
 ldstr "Courier New"
 ldc.r4 8.25
@@ -34,3 +36,4 @@ ldstr "宋体"
 ldc.r4 12.
 
 在测试过程中，我发现 il 文件中的可翻译字串可以使用 Passolo 进行提取，这样可以大幅提高翻译效率。
+其他工具：Resource Hunter，有绿色版本
