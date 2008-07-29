@@ -35,5 +35,10 @@ ldc.r4 9
 ldstr "宋体"
 ldc.r4 12.
 
-在测试过程中，我发现 il 文件中的可翻译字串可以使用 Passolo 进行提取，这样可以大幅提高翻译效率。
-其他工具：Resource Hunter，有绿色版本
+帮助信息：
+	在测试过程中，我发现 il 文件中的可翻译字串可以使用 Passolo 进行提取，这样可以大幅提高翻译效率。
+	其他工具：Resource Hunter，有绿色版本
+	il文件分析
+		每个label均有三个位置出现：字体定义、label名称、label显示文本（直接文本或ASCII码），前一句是相同的ldfld ......
+		每个button均有两次出现，button标志和显示内容
+		
