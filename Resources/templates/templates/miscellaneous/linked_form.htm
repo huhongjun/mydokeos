@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 0;
+var intPage       = 5;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+		<body onload="setIncompleteTimeout();">
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable=false><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable=false><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						<div class="celldark2x7">
+<div class="instriconsm" style="top: 6px; left:5px;"><IMG SRC="../../image/icons/feedback_icon.gif" width="22" height="22" border="0"></div>						
+							<div class="SCROLLLight"  style="padding-left:25px;padding-top:8px;">
+<b>								Edit e-Learning Title</b>
+							</div>
+							<div class="SCROLLLight" style="padding-top:10px;">
+								Use the e-CMS to replace the text here.
+							</div>
+						</div>
+					</div>
+
+<div class="grid3x1">
+						<div class="cell4x6" style="background-image:url(image/linked_form.jpg);">		
+</div>
+</div>
+						
+					
+<div class="grid7x1">
+						<div class="cellmedium6x6">					
+					<div class="SCROLLDark" style=" height:240px;padding-top:10px;margin-right:5px;margin-top:5px">
+This template can be used for accessing important company forms which need to be completed by the user.  Replace this text using the edit mode of the e-CMS system.
+
+<div class="instriconsm" style="top: 190px; left:325px;;cursor:hand;" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif"  alt="Ready to move to Next Page" WIDTH="44" HEIGHT="44"></div>
+					</div>
+					</div>
+					</div>
+	
+	
+	
+	
+	<div class="grid3x7">
+						<div class="cell10x1" style="padding-top: 9px; padding-left:65px;">					
+<div class="instriconsm" style="top: 0px; left:5px;"><IMG SRC="../../image/icons/mouse_icon.gif" width="44" height="44" border="0"></div>
+					<a href="file/expenses.xls" target="_blank"  class="Link" hidefocus="true" >You will need to edit this link to match the file on your server</a>
+					</div>
+					</div>
+	
+	
+	
+					
+					<!-- Right Content -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

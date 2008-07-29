@@ -1,0 +1,155 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 0;
+var intPage       = 8;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable=false><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable=false><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						<div class="cellmedium3x7" style="padding-TOP: 8px">
+							<div class="instriconsm" style="LEFT: 10px; TOP: 10px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="instriconsm" style="LEFT: 90px; TOP: 170px"><img src="../../image/icons/mouse_icon_estart.gif" WIDTH="44" HEIGHT="44"></div>
+							<div class="TextDarkNormal" style="margin-left:42px;margin-top:0px;">Select an option:</div>
+							<div class="TextDarkNormal" style="margin-left:10px;margin-top:30px;">
+							<li ><a style="line-height:20px;"  href="" onclick="showFeedback(1);completed = true;return false;" class="Link" HIDEFOCUS="true">Option A</a>
+							<li ><a style="line-height:20px;" href="" onclick="showFeedback(2);completed = true;return false;" class="Link" HIDEFOCUS="true">Option B</a>
+ 							<li ><a style="line-height:20px;" href="" onclick="showFeedback(3);completed = true;return false;" class="Link" HIDEFOCUS="true">Option C</a>
+							<li ><a style="line-height:20px;"  href="" onclick="showFeedback(4);completed = true;return false;" class="Link" HIDEFOCUS="true">Option D</a>
+						</div>
+						</div>
+					</div>
+					<div id="fb0" class="grid4x1">
+						<div class="cell9x7"><IMG SRC="image/3_panels_5_images_4_choices_1.jpg" border="0" height="290" width=581"></div>
+					</div>
+					<!--Feedback 1-->
+					<div id="fb1" style="display: none;">
+						<div class="grid4x1">
+							<div class="cell5x7" style="padding-right: 10px; padding-TOP: 10px;">
+							<div class="instriconsm" style="LEFT: 293px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>							
+								<div class="SCROLLdark" style="height:270px;"><b>Option A</b><br>
+									<br>
+									Switch to edit mode in the e-CMS to update the text here.<p> This text is displayed depending upon the selection on the left of the screen.</p>								</div>
+							</div>
+						</div>
+						<div class="grid9x1">
+							<div class="cell4x7"><IMG SRC="image/3_panels_5_images_4_choices_2.jpg" border="0" width="256" height="290"></div>
+						</div>
+					</div>
+					<!--End Feedback 1-->
+					<!--Feedback 2-->
+					<div id="fb2" style="display: none;">
+						<div class="grid4x1">
+							<div class="cell5x7" <div class="cell6x7">
+<div class="instriconsm" style="LEFT: 293px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>														
+								<div class="TextDarkNormal" style="margin-LEFT: 10px;margin-right: 10px; margin-TOP: 10px">
+									<b>Option B</b><br>
+									<br>
+									Switch to edit mode in the e-CMS to update the text here.<p> This text is displayed depending upon the selection on the left of the screen.</p>								</div>
+							</div>
+						</div>
+						<div class="grid9x1">
+							<div class="cell4x7"><IMG SRC="image/3_panels_5_images_4_choices_3.jpg" border="0" width="256" height="290"></div>
+						</div>
+					</div>
+					<!--End Feedback 2-->
+					<!--Feedback 3-->
+					<div id="fb3" style="display: none;">
+						<div class="grid4x1">
+							<div class="cell5x7" <div class="cell6x7">
+<div class="instriconsm" style="LEFT: 293px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>							
+								<div class="TextDarkNormal" style="margin-LEFT: 10px;margin-right: 10px; margin-TOP: 10px">
+									<b>Option C</b><br>
+									<br>
+									Switch to edit mode in the e-CMS to update the text here.<p> This text is displayed depending upon the selection on the left of the screen.</p>								</div>
+							</div>
+						</div>
+						<div class="grid9x1">
+							<div class="cell4x7"><IMG SRC="image/3_panels_5_images_4_choices_4.jpg" border="0" width="256" height="290"></div>
+						</div>
+					</div>
+					<!--End Feedback 3-->
+					<!--Feedback 4-->
+					<div id="fb4" style="display: none;">
+						<div class="grid4x1">
+							<div class="cell5x7">
+<div class="instriconsm" style="LEFT: 293px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>							
+								<div class="TextDarkNormal" style="margin-LEFT: 10px;margin-right: 50px; margin-TOP: 20px;">
+									<b>Option D</b><br>
+									<br>
+									Switch to edit mode in the e-CMS to update the text here.<p> This text is displayed depending upon the selection on the left of the screen.</p></div>
+<div class="instriconsm" style="LEFT: 275px; TOP: 230px;cursor:hand;" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif"  alt="Ready to move to Next Page" WIDTH="44" HEIGHT="44"></div>
+							</div>
+						</div>
+						<div class="grid9x1">
+							<div class="cell4x7"><IMG SRC="image/3_panels_5_images_4_choices_5.jpg" border="0" width="256" height="290"></div>
+						</div>
+					</div>
+					<!--End Feedback 4-->
+					<!-- Right Content -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>
