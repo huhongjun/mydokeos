@@ -6,6 +6,9 @@
 	当没有lms平台时离线方式运行，feedback和comment都不能用；
 	只支持Internet Explorer；
 
+配置
+	EStart.exe.config
+
 待办事项
 	课件demo中文化，以便让课件相关人员了解其作用、功能和适用范围与价值；
 		imsmanifest.xml：手工或用reload editor；
@@ -18,4 +21,9 @@
 	修改模板以便重用
 		第一步、在桌面软件中使用；
 		第二步、迁移到dokeos中使用？
-		
+
+关于Flash模板
+	delete层是模板开发人员留下的提示信息，正式发布时删除该层即可,而对应的HTML文件中已经写好了与Flash通信的JS函数
+	Flash模板可参考Pachyderm的，够复杂够强大
+
+2008/08/05 整理14个样例课件，找出3个汉化。
