@@ -103,4 +103,5 @@ $IntroductionWiki = "Wiki是WikiWikiWeb的缩写。Wikiwiki一词来源于Hawaiian，意思是
 
 //zhoulei add
 $CourseCodeAlreadyExistExplained = "课程代码已存在的解释";
+$CourseTimes = "课时";
 ?>

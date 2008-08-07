@@ -69,4 +69,7 @@ $SubmitRegistrationCode = "提交注册代码";
 $CourseCategoryDeleted = "类别被删除";
 $CategorySortingDone = "类别排序";
 $CourseCategoryEditStored = "类别更新";
+
+//zml add 
+$CourseTimes = "课时"; 
 ?>
