@@ -78,7 +78,7 @@ $categories_select = $form->addElement('select', 'category_code', get_lang('Fac'
 CourseManager::select_and_sort_categories($categories_select);
 $form->addElement('static',null,null, get_lang('TargetFac'));
 $form->add_textfield('wanted_code', get_lang('Code'),false,array('size'=>'20','maxlength'=>20));
-$form->add_textfield('course_times', get_lang('CourseTimes'),false,array('size'=>'20','maxlength'=>20));
+$form->add_textfield('course_times', get_lang('CourseTimes'),true,array('size'=>'20','maxlength'=>20));
 $form->addRule('wanted_code',get_lang('Max'),'maxlength',20);
 $titular= &$form->add_textfield('tutor_name', get_lang('Professors'),true,array('size'=>'60'));
 $form->addElement('select_language', 'course_language', get_lang('Ln'));
@@ -105,6 +105,7 @@ if($form->validate())
 	$tutor_name = $course_values['tutor_name'];
 	$category_code = $course_values['category_code'];
 	$title = $course_values['title'];
+	$course_times = $course_values['course_times'];//zml add course_times
 	$course_language = $course_values['course_language'];
 	
 	if(trim($wanted_code) == ''){
@@ -129,7 +130,7 @@ if($form->validate())
 			update_Db_course($db_name);
 			$pictures_array=fill_course_repository($directory);
 			fill_Db_course($db_name, $directory, $course_language,$pictures_array);
-			register_course($code, $visual_code, $directory, $db_name, $tutor_name, $category_code, $title, $course_language, api_get_user_id(), $expiration_date);
+			register_course($code, $visual_code, $directory, $db_name, $tutor_name, $category_code, $title, $course_times, $course_language, api_get_user_id(), $expiration_date);
 		}
 		$message = get_lang('JustCreated');
 		$message .= " <strong>".$visual_code."</strong>";
