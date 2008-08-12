@@ -38,7 +38,7 @@ function validate_data($courses)
 	{
 		$course['line'] = $index +1;
 		//1. check if mandatory fields are set
-		$mandatory_fields = array ('Code', 'Title', 'CourseCategory', 'Teacher', 'course_times');
+		$mandatory_fields = array ('Code', 'Title', 'CourseCategory', 'Teacher', 'CourseTimes');
 		foreach ($mandatory_fields as $key => $field)
 		{
 			if (!isset ($course[$field]) || strlen($course[$field]) == 0)
@@ -97,7 +97,7 @@ function validate_data($courses)
 			}
 		}
 		//5. check if course_times exists
-		if (isset ($course['course_times']) && strlen($course['course_times']) == 0)
+		if (isset ($course['CourseTimes']) && strlen($course['CourseTimes']) == 0)
 		{
 	
 				$course['error'] = get_lang('NoCourseTimes');
@@ -131,7 +131,7 @@ function save_data($courses)
 		update_Db_course($db_name);
 		fill_course_repository($directory);
 		fill_Db_course($db_name, $directory, api_get_setting('platformLanguage'));
-		register_course($code, $visual_code, $directory, $db_name, $teacher->name, $course['CourseCategory'], $course['Title'], $course['course_times'], api_get_setting('platformLanguage'), $teacher->user_id, $expiration_date);
+		register_course($code, $visual_code, $directory, $db_name, $teacher->name, $course['CourseCategory'], $course['Title'], $course['CourseTimes'], api_get_setting('platformLanguage'), $teacher->user_id, $expiration_date);
 		echo $code.get_lang("CREATED").' <br />';
 	}
 }
@@ -216,7 +216,7 @@ if (count($errors) != 0)
 
 <blockquote>
 <pre>
-<b>Code</b>;<b>Title</b>;<b>CourseCategory</b>;<b>Teacher</b>;<b>course_times</b>
+<b>Code</b>;<b>Title</b>;<b>CourseCategory</b>;<b>Teacher</b>;<b>CourseTimes</b>
 BIO0015;Biology;BIO;username
 </pre>
 </blockquote>
