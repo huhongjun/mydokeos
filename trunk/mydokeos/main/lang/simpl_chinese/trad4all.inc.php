@@ -571,4 +571,6 @@ $EditTheCurrentItem = "编辑当前项目";
 $MoveTheCurrentItem = "移动当前项目";
 $DeleteTheCurrentItem = "删除当前项目";
 $CourseTimes = "课时"; 
+$NoCourseTimes = "没有课时";
+$CREATED = "已创建";
 ?>
