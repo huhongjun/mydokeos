@@ -1,5 +1,40 @@
 1、XAMPP安装
+   第一, 下载 xampp-win32-1.6.7-installer.exe 
+   第二，执行 xampp-win32-1.6.7-installer.exe 安装
+   第三，一路点击下一步直到完成安装，注意所选盘符（初始化路径会写入配置文件中）【我选的目录是D:xampp这个路径在安装时可以修改】
+   第四，打开http://localhost/xampp 如果能成功打开界面 则证明安装成功！
 
 2、Dokeos安装
+   01），配置数据库的用户名和密码 打开http://localhost/phpMyAdmin  找到权限 配置localhost 的密码
+   02），下载dokeos-1.8.5.zip 源码（dokeos官网上可直接下载）
+   03），解压dokeos-1.8.5.zip到 D:\xampp\htdocs (这个路径是XAMPP安装后生成的) 解压后的文件名dokeos（可修改）
+   04），更换“语言”配置文件 D:\xampp\htdocs\dokeos\main\lang\simpl_chinese （我们自己做的本地化文件svn上有）
+   05），http://localhost/dokeos 执行安装 页面打开点击按钮： Click to INSTALL DOKEOS 
+   06），点击 Click to INSTALL DOKEOS 按钮后继续用默认值 点 " > " 点 “>” 后 出现 Step 2 of 6 – Requirements 页面
+   07），在页面Step 2 of 6 – Requirements 下面  点击 按钮 “New installation” 进入下一页面 Step 3 of 6 – Licence
+   08），在 Step 3 of 6 – Licence 页面点击 “I Accept >” 进入 页面 Step 4 of 6 – MySQL database settings
+   09），在 Step 4 of 6 – MySQL database settings 页面是检查mysql数据库配置的 如果配置不对则是有红色信息提示 配置正确则是绿色提示
+   10），在 Step 4 of 6 – MySQL database settings 页面下方点击 “next >”进入 Step 5 of 6 – Config settings
+   11），在 Step 5 of 6 – Config settings 页面配置Dokeos 主要是登录的超级管理员admin 还有系统页面右上方的标题然后点击“next >”
+   12），点击“next >”后进入Step 6 of 6 – Last check before install 页面然后点击 “Install Dokeos >”进入页面Step – Config settings
+   13），在 Step – Config settings 页面点击 “Go to your newly created portal.” 进入Dokeos系统首页
 
-3、学习币插件安装
+3. Dokeos初始化配置
+   用admin登录 进入 平台管理 > Dokeos 设置 > 平台 
+   
+   以下所列是需要注意修改的地方，可以根据具体需要具体设置   
+   学校名称(出现在右上方标题)   
+   学校URL(出现在右上方标题) 
+   Dokeos 学校名称(出现在标题)  
+   平台管理员的姓（出现在底部的左边） 
+   平台管理员名(左下脚) 
+   下角显示平台管理员信息?      
+   用户可以注册为教师(创建课程)吗?  
+   用户进入平台后的页面
+   显示课程数量
+   显示空课程类别
+   显示课程语言
+   在主页中显示类别
+   字符集设置 GB2312
+
+4、学习币插件安装
