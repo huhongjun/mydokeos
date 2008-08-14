@@ -1,0 +1,45 @@
+DELETE FROM `settings_current` WHERE variable = 'cs_Paypal';
+INSERT INTO `settings_current` (`variable`, `subkey`, `type`, `category`, `selected_value`, `title`, `comment`, `scope`, `subkeytext`) VALUES 
+('cs_paypal', 'amount', 'hidden', NULL, 'GET:cs_cost_per_credit', '', NULL, NULL, NULL),
+('cs_paypal', 'quantity', 'hidden', NULL, 'GET:amount', '', NULL, NULL, NULL),
+('cs_paypal', 'currency_code', 'hidden', NULL, 'GET:cs_currency', '', NULL, NULL, NULL),
+('cs_paypal', 'lc', 'hidden', NULL, 'GET:language', '', NULL, NULL, NULL),
+('cs_paypal', 'item_number', 'hidden', NULL, 'GET:user_id', '', NULL, NULL, NULL),
+('cs_paypal', 'custom', 'hidden', NULL, 'GET:go_back', '', NULL, NULL, NULL),
+('cs_paypal', 'submit_server', NULL, NULL, 'http://www.sandbox.paypal.com/cgi-bin/webscr', '', NULL, NULL, NULL),
+('cs_paypal', 'business', 'hidden', NULL, 'YourPaypal@Account.com', 'Paypal', 'SetPaypalAccount', 'cs_pm_settings', NULL),
+('cs_paypal', 'auth_token', NULL, NULL, 'Your Paypal authority token', 'Paypal', 'SetPaypalToken', 'cs_pm_settings', NULL),
+('cs_paypal', 'cmd', 'hidden', NULL, '_xclick', '', NULL, NULL, NULL),
+('cs_paypal', 'item_name', 'hidden', NULL, 'Credits', '', NULL, NULL, NULL),
+('cs_paypal', 'no_shipping', 'hidden', NULL, '2', '', NULL, NULL, NULL),
+('cs_paypal', 'no_note', 'hidden', NULL, '1', '', NULL, NULL, NULL),
+('cs_paypal', 'bn', 'hidden', NULL, 'paypal_button', '', NULL, NULL, NULL),
+('cs_paypal', 'return', 'hidden', NULL, 'http://dokeosstage.hogent.be/plugin/credits_system/paypal_payment_notify.php', '', NULL, NULL, NULL);
+
+CREATE TABLE IF NOT EXISTS `cs_paypal_payment_info` (
+  `payment_id` int(11) NOT NULL,
+  `first_name` varchar(100) NOT NULL default '',
+  `last_name` varchar(100) NOT NULL default '',
+  `payer_business_name` varchar(127) NOT NULL default '',
+  `payer_email` varchar(100) NOT NULL default '',
+  `payer_id` varchar(13) NOT NULL default '',
+  `business` varchar(127) NOT NULL default '',
+  `reciver_email` varchar(127) NOT NULL default '',
+  `reciver_id` varchar(13) NOT NULL default '',
+  `street` varchar(100) NOT NULL default '',
+  `city` varchar(50) NOT NULL default '',
+  `state` char(3) NOT NULL default '',
+  `zip` varchar(11) NOT NULL default '',
+  `country` varchar(20) NOT NULL default '',
+  `payment_date` varchar(50) NOT NULL default '',
+  `txn_id` varchar(30) NOT NULL default '',
+  `currency`varchar(3) NOT NULL default '',
+  `fee` varchar(5) NOT NULL default '',
+  `tax` varchar(10) default NULL,
+
+  PRIMARY KEY  (`payment_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
+

@@ -1,0 +1,15 @@
+DELETE FROM `settings_current` WHERE variable = 'cs_stormpay';
+INSERT INTO `settings_current` (`variable`, `subkey`, `type`, `category`, `selected_value`, `title`, `comment`, `scope`, `subkeytext`) VALUES 
+('cs_stormpay', 'payee_email', 'hidden', NULL, 'YourPaypal@Account.com', 'StormPay', 'SetStormPayAccount', 'cs_pm_settings', NULL),
+('cs_stormpay', 'product_name', 'hidden', NULL, 'Credits', '', NULL, NULL, NULL),
+('cs_stormpay', 'quantity', 'hidden', NULL, 'GET:amount', '', NULL, NULL, NULL),
+('cs_stormpay', 'unit_price', 'hidden', NULL, 'GET:cs_cost_per_credit', '', NULL, NULL, NULL),
+('cs_stormpay', 'user_id', 'hidden', NULL, 'GET:user_id', '', NULL, NULL, NULL),
+('cs_stormpay', 'submit_server', NULL, NULL, 'https://www.stormpay.com/stormpay/handle_gen.php', '', NULL, NULL, NULL),
+('cs_stormpay', 'require_IPN', 'hidden', NULL, '1', '', NULL, NULL, NULL),
+('cs_stormpay', 'notify_URL', 'hidden', NULL, 'http://zelweb.madpage.com/buy_credits_WEB.php?savedata=ipn', '', NULL, NULL, NULL),
+('cs_stormpay', 'return_URL', 'hidden', NULL, 'http://zelweb.madpage.com/buy_credits_WEB.php?RETURN=true', '', NULL, NULL, NULL),
+('cs_stormpay', 'pending_URL', 'hidden', NULL, 'http://zelweb.madpage.com/buy_credits_WEB.php?PENDING=true', '', NULL, NULL, NULL),
+('cs_stormpay', 'user1', 'hidden', NULL, 'GET:user_id', '', NULL, NULL, NULL),
+('cs_stormpay', 'user1', 'hidden', NULL, 'GET:go_back', '', NULL, NULL, NULL);
+

@@ -1,0 +1,252 @@
+<?php
+include_once(dirname(__FILE__).'\cs_database.lib.php');
+
+/**
+ * Delete a course payment option 
+ * @author Jose C. Hueso Vazquez
+ * @param integer $code - Id of the Course.
+ * @param integer $option_id - Id of the payment option that will be deleted.
+ * @return boolean - True if all was ok. False if not.  
+ */
+function cs_delete_course_payment_option($code,$option_id)
+{
+	$table_course_credits = Database :: get_main_table(CS_TABLE_COURSE_CREDITS);
+	$sql = 'DELETE FROM '.$table_course_credits.' WHERE code="'.$code.'" AND option_id='.$option_id;
+	$res = api_sql_query($sql, __FILE__, __LINE__) or die(mysql_error());
+	return (mysql_affected_rows()==1?true:false);
+}
+/**
+ * Set a course payment option 
+ * @author Jose C. Hueso Vazquez
+ * @param integer $code - Id of the Course.
+ * @param integer $credits - Number of credits for this payment option.
+ * @param integer $option_id - Id of the payment option that will be set.
+ * @return boolean - True if all was ok. False if not.  
+ */
+function cs_delete_course_payment_option($code,$option_id)
+{
+	$table_course_credits = Database :: get_main_table(CS_TABLE_COURSE_CREDITS);
+	$sql = 'INSERT INTO '.$table_course_credits.' WHERE code="'.$code.'" AND option_id='.$option_id;
+	$res = api_sql_query($sql, __FILE__, __LINE__) or die(mysql_error());
+	return (mysql_affected_rows()==1?true:false);
+}
+
+/**
+ * Check the payment options number of a course.
+ * @author Jose C. Hueso Vazquez
+ * @param integer $code - Id of the Course.
+ * @return integer - Number of payment options of the course
+ */
+function cs_course_payment_options_number($code)
+{
+	$table_course_credits = Database :: get_main_table(CS_TABLE_COURSE_CREDITS);
+	$sql = 'SELECT * FROM '.$table_course_credits.' WHERE code="'.$code.'"'; 
+	$res = api_sql_query($sql, __FILE__, __LINE__) or die(mysql_error());
+	return mysql_num_rows($res);
+}
+
+/**
+ * Get the payment options of the course
+ * @author Borja Nuñez
+ * @param integer $code - Id of the Course.
+ * @return array $option - All info about every payment option of the course:
+ * 				 ['option_id']
+ * 				 ['name'] = day | week | month | year
+ * 				 ['amount'] = amount of payment option (3 days, 6 months...)
+ * 				 ['credits'] = amount of credits of this course payment option 
+ */
+function cs_get_course_payment_options($code)
+{
+	$table_payment_option = Database :: get_main_table(CS_TABLE_PAYMENT_OPTION);
+	$table_course_credits = Database :: get_main_table(CS_TABLE_COURSE_CREDITS);
+	$sql = 'SELECT '.$table_course_credits.'.option_id, '.$table_payment_option.'.name, '.$table_payment_option.'.amount, '.$table_course_credits.'.credits  FROM '.$table_payment_option.', '.$table_course_credits.' WHERE code="'.$code.'" AND '.$table_course_credits.'.option_id = '.$table_payment_option.'.option_id';
+	$res = api_sql_query($sql, __FILE__, __LINE__) or die(mysql_error());
+	return api_store_result($res);
+}
+
+/**
+ * Get the possible payment options of a course: 
+ * All the payment options except those that the course already have.
+ * @author Jose C. Hueso Vazquez
+ * @param integer $code - Id of the Course.
+ * @return array $option - Info of all possible payment options for a course.
+ * 				 ['option_id']
+ * 				 ['name'] = day | week | month | year
+ * 				 ['amount'] = amount of payment option (3 days, 6 months...)
+ */
+function cs_get_course_possible_payment_options($code)
+{
+	//$currentOptions = cs_get_course_payment_options($code);
+	
+	$table_payment_option = Database :: get_main_table(CS_TABLE_PAYMENT_OPTION);
+	$table_course_credits = Database :: get_main_table(CS_TABLE_COURSE_CREDITS);
+	$sql = 'SELECT '.$table_payment_option.'.option_id, '.$table_payment_option.'.name, '.$table_payment_option.'.amount FROM '.$table_payment_option.' WHERE '.$table_payment_option.'.option_id NOT IN (SELECT '.$table_course_credits.'.option_id FROM '.$table_course_credits.' WHERE code = '.$code.')';
+	$res = api_sql_query($sql, __FILE__, __LINE__) or die(mysql_error());
+	return api_store_result($res);
+}
+
+/**
+ * Subscribe a user to a pay course (with a payment option)
+ * @author Borja Nuñez
+ * @param integer $code - Id of he Course.
+ * @param $option_id
+ * @param $option_amount
+ * @param $option_name
+ * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
+ * @return $res - Result of de SQL query.
+ */
+function cs_subscribe_user($code, $option_id, $option_amount, $option_name, $user_id = 0)
+{
+	$table_course_credits_rel_user_credits = Database :: get_main_table(CS_TABLE_COURSE_CREDITS_REL_USER_CREDITS);
+	if(!$user_id)
+		{
+			$user_id = api_get_user_id();
+		}
+	$end_date = strtotime('+'.$option_amount.' '.$option_name);
+	$sql = 'INSERT INTO '.$table_course_credits_rel_user_credits.' (code, option_id, user_id, init_date, end_date) VALUES ("'.$code.'", '.$option_id.', '.$user_id.', "'.date('Y-m-d-H:i',time()).'", "'.date('Y-m-d-H:i',$end_date).'")';
+	return $res = api_sql_query($sql, __FILE__, __LINE__) or die(mysql_error());
+}	
+	
+
+/**
+ * Get the credits of the user.
+ * @author Borja Nuñez
+ * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
+ * @return integer $credits - Amount of credits of the user.
+ */
+function cs_get_user_credits($user_id = 0)
+	{
+		$table_user_credits = Database :: get_main_table(CS_TABLE_USER_CREDITS);
+		if(!$user_id)
+		{
+			$user_id = api_get_user_id();
+		}
+		$sql = "SELECT amount FROM ".$table_user_credits." WHERE user_id=".$user_id;
+		$res = api_sql_query($sql, __FILE__, __LINE__);
+		$user_credits = mysql_fetch_array($res);
+		if($user_credits['amount'])
+		{
+			return $user_credits['amount'];
+		}else
+		{
+			return 0;
+		}
+	}
+	/**
+ * Set the credits of the user.
+ * @author Borja Nuñez
+ * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
+ * @param integer $amount - Optional, amount of credits to set. If there is not, uses 0.
+ * @return integer $amount - Amount of credits of the user.
+ */
+function cs_set_user_credits($amount=0, $user_id = 0)
+	{
+		$table_user_credits = Database :: get_main_table(CS_TABLE_USER_CREDITS);
+		if(!$user_id)
+		{
+			$user_id = api_get_user_id();
+		}
+		if (cs_is_new_user($user_id))
+		{
+			cs_new_user($user_id);
+		}
+
+		$sql = "UPDATE ".$table_user_credits." SET amount = ".$amount." WHERE user_id=".$user_id;		
+		return $res = api_sql_query($sql, __FILE__, __LINE__);
+	}
+
+/**	
+ * Checks if an user is already stored on the Credits System Database.
+ * @author Jose C. Hueso Vázquez
+ * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
+ * @return boolean - False if User does not exist on the Credit System. 
+ */
+function cs_is_new_user($user_id = 0)
+	{
+		if(!$user_id)
+		{
+			$user_id = api_get_user_id();
+		}
+
+		$table_user_credits = Database :: get_main_table(CS_TABLE_USER_CREDITS);
+		$sql = "SELECT * FROM ".$table_user_credits." WHERE user_id=".$user_id;		
+		return (mysql_num_rows($res = api_sql_query($sql, __FILE__, __LINE__))==0);
+	}
+
+	/**	
+ * Creates a new User on the Credits System Database.
+ * @author Jose C. Hueso Vázquez
+ * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
+ * @return integer - Result of the SQL Query. 
+ */
+function cs_new_user($user_id = 0)
+	{
+		if(!$user_id)
+		{
+			$user_id = api_get_user_id();
+		}
+
+		$table_user_credits = Database :: get_main_table(CS_TABLE_USER_CREDITS);
+		$sql = "INSERT INTO ".$table_user_credits." (user_id, amount) VALUES ('".$user_id."','0')";		
+		return $res = api_sql_query($sql, __FILE__, __LINE__);
+	}
+	
+
+		/**
+ * Fill payment's data.
+ * @author Borja Nuñez
+ * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
+ * @param integer $amount -  Amount of credits to set. If there is not, uses 0
+ * @return integer $amount - Amount of credits of the user.
+ */
+function cs_pay($amount, $user_id = 0)
+	{
+		$table_payment = Database :: get_main_table(CS_TABLE_PAYMENT);
+		if(!$user_id)
+		{
+			$user_id = api_get_user_id();
+		}		
+		$sql = "INSERT INTO ".$table_payment." (user_id, amount) VALUES (".$user_id.",".$amount.")";
+		return $res = api_sql_query($sql, __FILE__, __LINE__);
+	}
+ 
+/**
+ * Returns the dates of the last paid subscription for a course.
+ * @author Jose C. Hueso
+ * @param integer $user_id - Id of the User to check. 
+ * @param string $course_id - Id of he Course which the user may be subscribed.
+ * @return string array. Two values. Start and End date of the last valid paid subscripiton. 
+ */
+function cs_user_last_sub_paid($user_id,$course_id)
+	{
+		$table_user_course = Database :: get_main_table(CS_TABLE_COURSE_CREDITS_REL_USER_CREDITS); 
+		$sql = "SELECT code,user_id,init_date,end_date FROM ".$table_user_course." WHERE user_id=".$user_id." AND code='".$course_id."' order by end_date desc";
+		$res = api_sql_query($sql, __FILE__, __LINE__);
+		if ($user_sub = mysql_fetch_array($res)) {
+			$date['init_date'] = $user_sub["init_date"];
+			$date['end_date'] = $user_sub["end_date"];
+		}
+		else {
+			$date['init_date'] = '00-00-0000';
+			$date['end_date'] = '00-00-0000';
+		}
+		return ($date);
+	}
+	
+/**
+ * Check if a user has paid his/her subscription to a course.
+ * @author Jose C. Hueso
+ * @param integer $user_id - Id of the User to check. 
+ * @param string $course_id - Id of he Course which the user may be subscribed.
+ * @return boolean. 'False' if the User´s subscriptions has expired. True if the user still has access.
+ */
+function cs_can_user_access($user_id,$course_id)
+	{
+		$current_date = strtotime (date('Y-m-d H:m'));
+		$date = cs_user_last_sub_paid($user_id,$course_id);
+		$end_date = strtotime ($date["end_date"]);	
+		
+		return ($end_date > $current_date);
+	}
+
+?>

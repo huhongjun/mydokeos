@@ -1,0 +1,249 @@
+<?php // $Id: template.php,v 1.2 2006/03/15 14:34:45 pcool Exp $
+/*
+==============================================================================
+	Dokeos - elearning and course management software
+	
+	Copyright (c) 2004-2006 Dokeos S.A.
+	Copyright (c) Sally "Example" Programmer (sally@somewhere.net)
+	//add your name + the name of your organisation - if any - to this list
+	
+	For a full list of contributors, see "credits.txt".
+	The full license can be read in "license.txt".
+	
+	This program is free software; you can redistribute it and/or
+	modify it under the terms of the GNU General Public License
+	as published by the Free Software Foundation; either version 2
+	of the License, or (at your option) any later version.
+	
+	See the GNU General Public License for more details.
+	
+	Contact address: Dokeos, 44 rue des palais, B-1030 Brussels, Belgium
+	Mail: info@dokeos.com
+==============================================================================
+*/
+/**
+==============================================================================
+*	This file is a code template; 
+*	copy the code and paste it in a new file to begin your own work.
+*
+*	@package dokeos.plugin
+==============================================================================
+*/
+	
+/*
+==============================================================================
+		INIT SECTION
+==============================================================================
+*/ 
+// global settings initialisation 
+// also provides access to main, database and display API libraries
+$language_file = 'plugin_credits_system';  
+include_once("../../main/inc/global.inc.php");
+
+api_block_anonymous_users();
+
+/*
+-----------------------------------------------------------
+	Libraries
+-----------------------------------------------------------
+*/ 
+//the main_api.lib.php, database.lib.php and display.lib.php
+//libraries are included by default
+
+require_once ('./inc/cs_functions.inc.php');
+require_once (api_get_path(LIBRARY_PATH).'formvalidator/FormValidator.class.php');
+	
+/*
+-----------------------------------------------------------
+	Header
+-----------------------------------------------------------
+*/ 
+
+//	Optional extra http or html header
+//	If you need to add some HTTP/HTML headers code 
+//	like JavaScript functions, stylesheets, redirects, put them here.
+
+// $httpHeadXtra[] = ""; 
+// $httpHeadXtra[] = ""; 
+//    ... 
+// 
+// $htmlHeadXtra[] = ""; 
+// $htmlHeadXtra[] = ""; 
+//    ... 
+
+
+
+	
+/*
+==============================================================================
+		FUNCTIONS
+==============================================================================
+*/ 
+
+// put your functions here
+// if the list gets large, divide them into different sections:
+// display functions, tool logic functions, database functions	
+// try to place your functions into an API library or separate functions file - it helps reuse
+	
+/*
+==============================================================================
+		MAIN CODE
+==============================================================================
+*/ 
+
+// Put your main code here. Keep this section short,
+// it's better to use functions for any non-trivial code
+$form = new FormValidator('cs_buy','post');
+
+if (isset($_POST['go_back']))
+{
+	//Save the go_back page.
+	$form->addElement('hidden','go_back',$_POST['go_back']);
+	
+	//Return URL for Paypal payement
+	$return_url = 'http://localhost'.$_POST['go_back'];
+	
+	//fill interbreadcrumb
+	if (ereg('subscribe=1', $_POST['go_back']))
+	{
+		$interbreadcrumb[] = array ("url" => api_get_path(REL_CLARO_PATH).'auth/courses.php?action=subscribe&category='.$_GET['category'].'&up=', "name" => get_lang('CourseManagement'));
+		$interbreadcrumb[] = array ("url" => $_POST['go_back'], "name" => get_lang('Subscribe'));
+	}
+	else
+	{
+		$interbreadcrumb[] = array ("url" => api_get_path(WEB_PATH).'user_portal.php', "name" => get_lang('MyCourses'));
+		$interbreadcrumb[] = array ("url" => $_POST['go_back'], "name" => get_lang('RenewSubscription'));
+	}
+}
+else
+{
+	$interbreadcrumb[] = array ("url" => api_get_path(PLUGIN_PATH).'my_credits.php', "name" => get_lang('CreditsSystem'));
+	
+	//Return URL for Paypal payement
+	$return_url = api_get_path(WEB_PLUGIN_PATH).'credits_system/buy_credits.php';
+}
+
+
+//Add Amount of credits to buy.	
+$form->addElement('text', 'amount','Amount of credits to buy: ','size="1" maxlenght="8"');
+
+//Get Current Settings.
+$settings = cs_get_current_settings();
+
+
+//Add Availables payment methods.
+$group = array ();
+
+for ($i=0; $i <= count($settings['cs_payment_methods']); $i++)
+{
+	
+	echo $settings['cs_payment_methods'][$i]['selected_value'];
+	echo $settings['cs_payment_methods'][$i]['subkey'];
+	
+	if ($settings['cs_payment_methods'][$i]['selected_value'] == 'true')
+	{
+		$group[] = $form->createElement('radio','payment_method','',$settings['cs_payment_methods'][$i]['subkeytext'],$settings['cs_payment_methods'][$i]['subkey']);
+	}
+}
+$form->addGroup($group, 'payment_methods', get_lang('SelectPaymentMethod').':', '<br />', false);
+
+$form->addElement('submit','submit_buy','Buy');
+
+//Validation Rules
+$form->registerRule('valid_amount','regex','/^\d*\.{0,1}\d+$/');
+$form->addRule('amount',get_lang('UseNumericValuesPlz'),'valid_amount',null,'client');
+$form->addRule('amount',get_lang('EnterAnAmount'),'nonzero',null,'client');
+$form->addRule('amount',get_lang('EnterAnAmount'),'required',null,'client');
+$form->addRule('payment_methods',get_lang('SelectPaymentMethod'),'required',null,'client');
+	
+if ($form->validate())
+{
+//Display Header
+$tool_name = get_lang('BuyCredits'); 
+Display::display_header($tool_name);
+api_display_tool_title($tool_name);
+
+	//Save buy data.
+	$buy_input = $form->exportValues();
+	/*if(((cs_pay($buy_input['amount'],api_get_user_id(),$buy_input['payment_method']))&&(cs_set_user_credits(cs_get_user_credits()+$buy_input['amount']))))
+	{
+		if (isset($_POST['go_back']))
+		{
+			//Save the Go_Back page
+			//Now just go back because there is no payment method.
+			echo'<script type="text/javascript">document.location.href="'.$_POST['go_back'].'";</script>';
+		}*/		
+		//Create form to submit data to payment method page.
+		$table_settings_current = Database :: get_main_table(TABLE_MAIN_SETTINGS_CURRENT);
+		$sql = "SELECT selected_value FROM $table_settings_current WHERE variable = 'cs_".$buy_input['payment_method']."' AND subkey = 'submit_server'";
+		$result = api_sql_query($sql, __FILE__, __LINE__);
+		$submit_server = mysql_fetch_array($result);
+		
+		$form = new FormValidator('cs_payment_method','post',$submit_server[0]);
+		
+		//Add payment method fields.
+		$table_settings_current = Database :: get_main_table(TABLE_MAIN_SETTINGS_CURRENT);
+		$sql = "SELECT * FROM $table_settings_current WHERE variable = 'cs_".$buy_input['payment_method']."'";
+		$result = api_sql_query($sql, __FILE__, __LINE__);
+		
+		while ($row = mysql_fetch_array($result))
+		{
+			if (ereg("^GET:", $row['selected_value']))
+			{
+				list($get, $variable) = split(':',$row['selected_value']);
+				switch ($variable)
+				{
+					case 'cs_cost_per_credit' :						
+						$form->addElement($row['type'],$row['subkey'],$settings['cs_cost_per_credit'][0]['selected_value']);
+						break;
+					case 'cs_currency' :					
+						$form->addElement($row['type'],$row['subkey'],$settings['cs_currency'][0]['selected_value']);						
+						break;
+					case 'amount' :
+						$form->addElement($row['type'],$row['subkey'],$buy_input['amount']);
+						break;
+					case 'lc' :
+						$form->addElement($row['type'],$row['subkey'],Database::get_language_isocode($language_interface));
+						break;
+					case 'custom' :
+						$form->addElement($row['type'],$row['subkey'],$return_url);
+						break;
+				}
+			}
+			else
+			{
+				$form->addElement($row['type'],$row['subkey'],$row['selected_value']);
+			}
+		}
+		$form->display();
+		
+		//Load payment method web submitting the form.
+		
+		//Now just show a message because there is no payment method
+		//Display::display_confirmation_message(get_lang('Thx').'<br />'.get_lang('YouHave').' '.cs_get_user_credits().' '.get_lang('Credits'));
+	//}
+	/*else
+	{
+		Display::display_error_message(get_lang('Error').'<br/><a href="javascript:history.go(-1)">'.get_lang('GoBack').'</a>');
+	}*/
+	
+}
+else
+{
+//Display Header
+$tool_name = get_lang('BuyCredits'); 
+Display::display_header($tool_name);
+api_display_tool_title($tool_name);
+	
+	//Display cs_buy form.
+	//Display::display_warning_message('THIS PAGE IS JUST AN EXAMPLE. IT WILL BE MODIFIED WHEN REAL PAYMENTS HAD BEEN IMPLEMENTED!');
+	$form->display();	
+}
+
+/*
+==============================================================================
+		FOOTER 
+==============================================================================
+*/ 
+Display::display_footer();
+?>

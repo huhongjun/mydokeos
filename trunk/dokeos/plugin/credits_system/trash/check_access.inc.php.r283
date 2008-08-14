@@ -1,0 +1,69 @@
+<?php
+
+if(isset($_SESSION['_course']) AND (cs_course_payment_options_number($_SESSION['_course']['sysCode'])>0) AND !(api_is_course_admin()) ) {
+	
+/*
+-----------------------------------------------------------
+	Included libraries
+-----------------------------------------------------------
+*/
+
+include_once(dirname(__FILE__).'../../main/inc/global.inc.php');
+
+require_once(dirname(__FILE__).'/cs_functions.inc.php');
+$language_file = "plugin_credits_system";
+$language_interface = "english";
+
+
+require_once(api_get_path(LIBRARY_PATH).'formvalidator/FormValidator.class.php');
+
+include_once(dirname(__FILE__).'/credits_database.lib.php');
+
+/*
+-----------------------------------------------------------
+	Header
+	include the HTTP, HTML headers plus the top banner
+-----------------------------------------------------------
+*/
+
+$interbreadcrumb[] = array ("url" => api_get_path(WEB_PATH).'user_portal.php', "name" => get_lang('MyCourses'));
+
+
+
+
+	api_block_anonymous_users();
+	if (($end_date = cs_can_user_access(api_get_user_id(),$_SESSION['_course']['sysCode'])) == 0) {
+
+	
+		//echo '</div></div></div>'; //Just closing some div's which were opened in the Dokeos header
+		//echo '<div><div>';	// ... and opening some new ones which we blocked by interupting the header
+		require_once(dirname(__FILE__).'/header2_and_3.php');
+		//api_get_path(WEB_PLUGIN_PATH
+		$tool_name = "Access Denied";
+		
+		api_display_tool_title($tool_name);		
+		$dates = cs_user_last_sub_paid (api_get_user_id(),$_SESSION['_course']['sysCode']);
+		
+		$form = new FormValidator('subscribe','post',api_get_path(WEB_PATH).'user_portal.php?action=subscribe');
+
+		$form -> addElement ('hidden','subscribe',$_SESSION['_course']['sysCode']);
+		
+		$form -> display();
+		
+		if ($dates[end_date] != '00-00-0000'){
+			Display::display_normal_message('Yor access to '.$_SESSION['_course']['name'].' expired on '.$dates['end_date'].'.<br />Please renew your subscription');
+		}
+				
+		else Display::display_normal_message($_SESSION['_course']['name'].' '.get_lang('IsACreditCourse').'<br />'.get_lang('BuyCreditsForSubscription').'<br /> <a href="javascript:document.subscribe.submit()">'.get_lang('BuyCredits').'</a>');
+		
+		
+		Display::display_footer();
+		
+		$course_id = $_SESSION['_course']['sysCode'];
+		
+		unset($_SESSION['_course']);
+
+		exit;
+	}
+}
+?>

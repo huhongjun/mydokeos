@@ -1,0 +1,323 @@
+<?php // $Id: template.php,v 1.2 2006/03/15 14:34:45 pcool Exp $
+/*
+==============================================================================
+	Dokeos - elearning and course management software
+	
+	Copyright (c) 2004-2006 Dokeos S.A.
+	Copyright (c) Sally "Example" Programmer (sally@somewhere.net)
+	//add your name + the name of your organisation - if any - to this list
+	
+	For a full list of contributors, see "credits.txt".
+	The full license can be read in "license.txt".
+	
+	This program is free software; you can redistribute it and/or
+	modify it under the terms of the GNU General Public License
+	as published by the Free Software Foundation; either version 2
+	of the License, or (at your option) any later version.
+	
+	See the GNU General Public License for more details.
+	
+	Contact address: Dokeos, 44 rue des palais, B-1030 Brussels, Belgium
+	Mail: info@dokeos.com
+==============================================================================
+*/
+/**
+==============================================================================
+*	This file is a code template; 
+*	copy the code and paste it in a new file to begin your own work.
+*
+*	@package dokeos.plugin
+==============================================================================
+*/
+	
+/*
+==============================================================================
+		INIT SECTION
+==============================================================================
+*/ 
+// global settings initialisation 
+// also provides access to main, database and display API libraries
+$language_file = 'plugin_credits_system';
+include_once("../../../main/inc/global.inc.php");  
+require_once (api_get_path(LIBRARY_PATH).'formvalidator/FormValidator.class.php');
+
+/*
+-----------------------------------------------------------
+	Libraries
+-----------------------------------------------------------
+*/ 
+//the main_api.lib.php, database.lib.php and display.lib.php
+//libraries are included by default
+
+	
+/*
+-----------------------------------------------------------
+	Header
+-----------------------------------------------------------
+*/ 
+
+//	Optional extra http or html header
+//	If you need to add some HTTP/HTML headers code 
+//	like JavaScript functions, stylesheets, redirects, put them here.
+
+// $httpHeadXtra[] = ""; 
+// $httpHeadXtra[] = ""; 
+//    ... 
+// 
+// $htmlHeadXtra[] = ""; 
+// $htmlHeadXtra[] = ""; 
+//    ... 
+
+
+
+	
+/*
+==============================================================================
+		FUNCTIONS
+==============================================================================
+*/ 
+
+// put your functions here
+// if the list gets large, divide them into different sections:
+// display functions, tool logic functions, database functions	
+// try to place your functions into an API library or separate functions file - it helps reuse
+	
+/*
+==============================================================================
+		MAIN CODE
+==============================================================================
+*/ 
+
+// Put your main code here. Keep this section short,
+// it's better to use functions for any non-trivial code
+
+api_block_anonymous_users();
+
+$subscribe_page = api_get_path(REL_CLARO_PATH).'auth/courses.php';
+if($_SERVER['SCRIPT_NAME'] == $subscribe_page && isset($_GET['action']) && $_GET['action'] == 'subscribe' && isset($_POST['subscribe']))
+{	
+	//The user wants to subscribe to a course.
+	
+	//Get the course payment options and credits.
+	$option = cs_get_course_payment_options($_POST['subscribe']);
+	
+	//Get Course Info.
+	$course_info =  CourseManager::get_course_information($_POST['subscribe']);
+
+	$user_dont_pay = ! cs_can_user_access(api_get_user_id(),$_POST['subscribe']);
+	if($option && $user_dont_pay)
+	{
+		//This is a pay course and user dont pay any subscription at current date.
+		
+		
+		$form = new FormValidator('cs_subscribe','post',api_get_path(REL_CLARO_PATH).'auth/courses.php?action=subscribe&category='.$_GET['category'].'&up=');
+		
+		$links = new FormValidator('cs_subscribe_links');
+				//$group[] = $links->createElement('link','back_subscribe','',api_get_path(REL_CLARO_PATH).'auth/courses.php?action=subscribe&category='.$_GET['category'].'&up=',get_lang('BackToSubscribe'));
+				//$group[] = $links->createElement('link','my_courses','',api_get_path(WEB_PATH).'user_portal.php',get_lang('MyCourses'));								
+				$group[] = $links->createElement('link','back_subscribe','',api_get_path(REL_CLARO_PATH).'auth/courses.php?action=subscribe&category='.$_GET['category'].'&up=','Back to subscribe');
+				//$group[] = $links->createElement('link','my_courses','',api_get_path(WEB_PATH).'user_portal.php','My Courses');
+		
+		$form->addElement('hidden','subscribe',$_POST['subscribe']);
+		/*
+		foreach ($option as $option_id => $values)
+		{
+			$select[$option_id] = $values['amount'].' '.$values['name'].'/s = '.$values['credits'].' credits.';
+		}
+		
+		$form->addElement('select','option','Select payment option: ',$select);
+		*/
+		//Adding show just possible payment options
+		$select = $form->addElement('select','option','Select payment option: ');
+		$user_credits = cs_get_user_credits();
+		foreach ($option as $option_id => $values)
+		{
+			if ($user_credits >= $values['credits'])
+			{
+				$select->addOption($values['amount'].' '.$values['name'].'/s = '.$values['credits'].' credits.', $option_id);
+			}
+			else
+			{
+				//check credits
+				$select->addOption($values['amount'].' '.$values['name'].'/s = '.$values['credits'].' credits.', $option_id, 'disabled');
+			}
+		}
+		// END Adding show just possible payment options
+		$form->addElement('submit','Subscribe','Subscribe');
+		
+		if ($form->validate())
+		{
+			$subscription = $form->exportValues();
+			
+			//Check if user have enought credits to subscribe this option.
+			if ((cs_get_user_credits() - $option[$subscription['option']]['credits']) >= 0)
+			{
+				//Subscribe user to this course in credit system.
+				$res = cs_subscribe_user($subscription['subscribe'],$subscription['option'],$option[$subscription['option']]['amount'],$option[$subscription['option']]['name']);
+				
+				//Update User Credits.
+				cs_set_user_credits(cs_get_user_credits() - $option[$subscription['option']]['credits']);
+			
+				if($res)//IF NO ERROR ON subscribe user to this course in credit system
+				{
+					//Subscribe user to this course.				
+					$message = subscribe_user($subscription['subscribe']);
+					reset($_POST);
+					require_once('header2_and_3.php');
+					Display::display_confirmation_message($message.' '.$course_info['title']);
+					//.'<br\>BORRAR: '.$subscription['subscribe'].'-'.$subscription['option'].'-'.$option[$subscription['option']]['amount'].'-'.$option[$subscription['option']]['name']);
+				}
+			}else
+			{
+				require_once('header2_and_3.php');
+				Display::display_warning_message('You have not enought credits to subscribe to this option. Please, <a href="'.$_SERVER['PHP_SELF'].'?action=subscribe">select another payment option</a> or <a href="'.api_get_path(WEB_PLUGIN_PATH).'credits_system/DUMMY_buy_credits.php">Buy Credits</a>');
+				//$links->addElement('link','buy','',api_get_path(WEB_PLUGIN_PATH).'credits_system/DUMMY_buy_credits.php',get_lang('BuyCredits'));
+				//$links->addElement('link','buy','',api_get_path(WEB_PLUGIN_PATH).'credits_system/DUMMY_buy_credits.php','Buy Credits');
+			}
+		}else
+		{
+			require_once('header2_and_3.php');
+			//Display::display_normal_message('You choose to subscribe to this pay course:<br/>Title: '.$course_info['title'].'<br/>Code: '.$course_info['code'].'<br/>Tutor:'.$course_info['tutor_name']);
+			//show course info and payment options
+			echo'arturo';
+			$form->display();
+		}
+		if(!$user_dont_pay)
+		{
+			exit;
+		}
+		$links->addGroup($group,'links_group');
+		require_once('header2_and_3.php');
+		$links->display();
+		Display::display_footer();		
+		exit;
+	}
+}
+else
+{
+	if (isset($_GET['cs_pay']) && $_GET['cs_pay'] == true && isset($_POST['cs_pay']))
+	{
+		//The user want to pay a course which is already subscribed.
+		
+		//Get Course Info.
+		$course_info =  CourseManager::get_course_information($_POST['cs_pay']);
+		
+		//Get the course payment options and credits.
+		$option = cs_get_course_payment_options($_POST['cs_pay']);
+		
+		$user_dont_pay = ! cs_can_user_access(api_get_user_id(),$_POST['cs_pay']);
+		if($option && $user_dont_pay)
+		{
+			//This is a pay course and user dont pay any subscription at current date.
+		
+			$form = new FormValidator('cs_subscribe','post',$_SERVER['PHP_SELF'].'?cs_pay=true');
+			
+			$links = new FormValidator('cs_subscribe_links');					
+					//$group[] = $links->createElement('link','my_courses','',api_get_path(WEB_PATH).'user_portal.php',get_lang('MyCourses'));
+					//$group[] = $links->createElement('link','my_courses','',api_get_path(WEB_PATH).'user_portal.php','My Courses');
+		
+			$form->addElement('hidden','cs_pay',$_POST['cs_pay']);
+			
+			/*
+			foreach ($option as $option_id => $values)
+			{
+				$select[$option_id] = $values['amount'].' '.$values['name'].'/s = '.$values['credits'].' credits.';
+			}
+			
+			$form->addElement('select','option','Select payment option: ',$select);
+			*/
+			//Adding show just possible payment options
+		$select = $form->addElement('select','option','Select a payment option:');
+		$user_credits = cs_get_user_credits();
+		$no_options = count($option);
+		foreach ($option as $option_id => $values)
+		{
+			if ($user_credits >= $values['credits'])
+			{
+				$select->addOption($values['amount'].' '.$values['name'].'/s = '.$values['credits'].' credits.', $option_id);
+			}
+			else
+			{
+				$no_options--;
+				$select->addOption($values['amount'].' '.$values['name'].'/s = '.$values['credits'].' credits.', $option_id, 'disabled');
+			}
+		}
+		if ($no_options != count($option))
+		{
+			//User have not enought credits for, at least, 1 option.
+			if ($no_options)
+			{
+				$form->addElement('static','','You have not enought credits to subscribe to some payment option. You may want to <a href="'.api_get_path(WEB_PLUGIN_PATH).'credits_system/DUMMY_buy_credits.php">Buy Credits</a>','');
+			}
+			else
+			{
+				require_once('header2_and_3.php');
+				//Display::display_warning_message('You have not enought credits to pay this course Please, <a href="'.$_SERVER['PHP_SELF'].'">select another course</a> or <a href="'.$_SERVER['PHP_SELF'].'?cs_pay=true&buy=true">Buy Credits</a>');
+				$to_buy_form = new FormValidator('buy','post',$_SERVER['PHP_SELF'].'?cs_pay=true&buy=true');
+				$to_buy_form->addElement('hidden','cs_pay',$_POST['cs_pay']);
+				$to_buy_form->display();
+				Display::display_warning_message('You have not enought credits to pay this course Please, <a href="'.$_SERVER['PHP_SELF'].'">select another course</a> or <a href="javascript:document.buy.submit();">Buy Credits</a>');
+				exit;
+			}
+		}
+		// END Adding show just possible payment options
+		$form->addElement('submit','Subscribe','Subscribe');							
+		
+			if ($form->validate())
+			{
+				$subscription = $form->exportValues();
+				
+				//Check if user have enought credits to subscribe this option.
+				if ((cs_get_user_credits() - $option[$subscription['option']]['credits']) >= 0)
+				{
+					//Subscribe user to this course in credit system.
+					$res = cs_subscribe_user($subscription['cs_pay'],$subscription['option'],$option[$subscription['option']]['amount'],$option[$subscription['option']]['name']);
+				
+					//Update User Credits.
+					cs_set_user_credits(cs_get_user_credits() - $option[$subscription['option']]['credits']);
+										
+					//load the course main page.
+					echo'<script type="text/javascript">document.location.href="'.api_get_path(WEB_COURSE_PATH).$course_info['directory'].'/?id_session=0";</script>';
+					exit;
+					
+				}else
+				{
+					require_once('header2_and_3.php');	
+										
+					Display::display_warning_message('You have not enought credits to subscribe to this option. Please, <a href="'.$_SERVER['PHP_SELF'].'?action=subscribe">select another payment option</a> or <a href="'.api_get_path(WEB_PLUGIN_PATH).'credits_system/DUMMY_buy_credits.php">Buy Credits</a>');
+					//$links->addElement('link','buy','',api_get_path(WEB_PLUGIN_PATH).'credits_system/DUMMY_buy_credits.php',get_lang('BuyCredits'));
+					//$links->addElement('link','buy','',api_get_path(WEB_PLUGIN_PATH).'credits_system/DUMMY_buy_credits.php','Buy Credits');
+					$links->addGroup($group,'links_group');
+					$links->display();
+					Display::display_footer();
+					exit;
+				}
+			}else
+			{
+				require_once('header2_and_3.php');				
+					
+				//Display::display_normal_message('You choose to renew your subscription to this course:<br/>Title: '.$course_info['title'].'<br/>Code: '.$course_info['code'].'<br/>Tutor:'.$course_info['tutor_name']);
+				//show course info and payment options.
+				echo'<a href="'.api_get_path(WEB_PATH).'/user_portal.php" target="_top">My courses</a> > <a href="'.$_SELF['PHP_SELF'].'" target="_top">Renew subscription</a>';
+				echo'<br/><br/><h3>Course info:</h3>';
+				echo'<u>Title</u>: '.$course_info['title'].'<br/><u>Code</u>: '.$course_info['code'].'<br/><u>Tutor</u>:'.$course_info['tutor_name'];
+				echo'<h4>Payment Options:</h4>';
+				$form->display();
+				$links->display();
+				Display::display_footer();
+				exit;
+			}
+			if(!$user_dont_pay)
+			{
+				exit;
+			}			
+		}
+	}
+}
+
+/*
+==============================================================================
+		FOOTER 
+==============================================================================
+*/ 
+?>

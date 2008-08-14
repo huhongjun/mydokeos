@@ -1,0 +1,21 @@
+DELETE FROM `settings_current` WHERE variable = 'cs_paymentMethod';
+INSERT INTO `settings_current` (`variable`, `subkey`, `type`, `category`, `selected_value`, `title`, `comment`, `scope`, `subkeytext`) VALUES 
+('cs_paymentMethod', 'fieldname', 'hidden', NULL, 'GET:cs_cost_per_credit', '', NULL, NULL, NULL),
+('cs_paymentMethod', 'fieldname', 'hidden', NULL, 'GET:amount', '', NULL, NULL, NULL),
+('cs_paymentMethod', 'fieldname', 'hidden', NULL, 'GET:cs_currency', '', NULL, NULL, NULL),
+('cs_paymentMethod', 'fieldname', 'hidden', NULL, 'GET:language', '', NULL, NULL, NULL),
+('cs_paymentMethod', 'fieldname', 'hidden', NULL, 'GET:user_id', '', NULL, NULL, NULL),
+('cs_paymentMethod', 'fieldname', 'hidden', NULL, 'GET:go_back', '', NULL, NULL, NULL),
+('cs_paymentMethod', 'submit_server', NULL, NULL, 'http://www.paymentmethod.com/.../...', '', NULL, NULL, NULL),
+('cs_paymentMethod', 'fieldname', 'hidden', NULL, 'YourPaymentMethod@Account.com', 'paymentMethodName', 'SetPaymentMethodNameAccount', 'cs_pm_settings', NULL),
+('cs_paymentMethod', 'fieldname', 'type', NULL, 'value', if is an option 'paymentmethodname' else NULL, if is an option 'comment' else NULL, if is an option 'cs_pm_settings' else NULL, NULL),
+('cs_paymentMethod',...);
+
+CREATE TABLE IF NOT EXISTS `cs_PaymentMethodName_payment_info` (
+  `payment_id` int(11) NOT NULL,
+  `field` type,
+  .
+  .
+  .
+  PRIMARY KEY  (`payment_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;

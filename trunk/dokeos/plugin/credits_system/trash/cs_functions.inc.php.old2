@@ -1,0 +1,157 @@
+<?php
+
+require_once(dirname(__FILE__).'/credits_database.lib.php');
+/**
+ * Get the credits of the user.
+ * @author Borja Nuñez
+ * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
+ * @return integer $credits - Amount of credits of the user.
+ */
+ 
+  
+function cs_get_user_credits($user_id = 0)
+	{
+		if(!$user_id)
+		{
+			$user_id = api_get_user_id();
+		}
+		//$table_user_credits = Database::get_main_table(TABLE_MAIN_USER_CREDITS);
+		$table_user_credits = 'user_credits';
+		$sql = "SELECT amount FROM ".$table_user_credits." WHERE user_id=".$user_id;
+		$res = api_sql_query($sql, __FILE__, __LINE__);
+		$user_credits = mysql_fetch_array($res);
+		if($user_credits['amount'])
+		{
+			return $user_credits['amount'];
+		}else
+		{
+			return 0;
+		}
+	}
+	/**
+ * Set the credits of the user.
+ * @author Borja Nuñez
+ * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
+ * @param integer $amount - Optional, amount of credits to set. If there is not, uses 0.
+ * @return integer $amount - Amount of credits of the user.
+ */
+function cs_set_user_credits($amount=0, $user_id = 0)
+	{
+		if(!$user_id)
+		{
+			$user_id = api_get_user_id();
+		}
+		//$table_user_credits = Database::get_main_table(TABLE_MAIN_USER_CREDITS);
+
+		if (cs_is_new_user($user_id))
+			cs_new_user($user_id);
+				
+		$table_user_credits = 'user_credits';
+		$sql = "UPDATE ".$table_user_credits." SET amount = ".$amount." WHERE user_id=".$user_id;		
+		return $res = api_sql_query($sql, __FILE__, __LINE__);
+	}
+	
+	/**	
+ * Checks if an user is already created on the Credits System Database.
+ * @author Jose C. Hueso Vázquez
+ * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
+ * @return boolean - False if User does not exist on the Credit System. 
+ */
+function cs_is_new_user($user_id = 0)
+	{
+		if(!$user_id)
+		{
+			$user_id = api_get_user_id();
+		}
+
+		$table_user_credits = Database :: get_main_table(CS_TABLE_USER_CREDITS);
+		$sql = "SELECT * FROM ".$table_user_credits." WHERE user_id=".$user_id;		
+		return (mysql_num_rows($res = api_sql_query($sql, __FILE__, __LINE__))==0);
+	}
+
+	/**	
+ * Creates a new User on the Credits System Database.
+ * @author Jose C. Hueso Vázquez
+ * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
+ * @return integer - Result of the SQL Query. 
+ */
+function cs_new_user($user_id = 0)
+	{
+		if(!$user_id)
+		{
+			$user_id = api_get_user_id();
+		}
+
+		$table_user_credits = Database :: get_main_table(CS_TABLE_USER_CREDITS);
+		$sql = "INSERT INTO ".$table_user_credits." (user_id, amount) VALUES ('".$user_id."','0')";		
+		return $res = api_sql_query($sql, __FILE__, __LINE__);
+	}
+	
+		/**
+ * Fill payment's data.
+ * @author Borja Nuñez
+ * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
+ * @param integer $amount -  Amount of credits to set. If there is not, uses 0
+ * @param date $date - Optional, Date of the payment. If there is not, uses current date
+ * @return integer $amount - Amount of credits of the user.
+ */
+function cs_pay($amount, $user_id = 0, $date=0)
+	{
+		if(!$user_id)
+		{
+			$user_id = api_get_user_id();
+		}
+		if(!$date)
+		{
+			$date = time();
+		}
+		//$table_user_credits = Database::get_main_table(TABLE_MAIN_USER_CREDITS);
+		//Display::display_normal_message('credits:'.$amount.'-user_id:'.$user_id.'-date: '.gmdate("m/d/Y g:i:s A", $date));
+		$table_payment = Database :: get_main_table(CS_TABLE_PAYMENT); 
+		//$table_payment = 'payment';
+		//$sql = "INSERT INTO ".$table_payment." (user_id, amount, date) VALUES (".$user_id.",".$amount.",".$date.")";
+		
+		$sql = "INSERT INTO ".$table_payment." (user_id, amount) VALUES (".$user_id.",".$amount.")";
+		return $res = api_sql_query($sql, __FILE__, __LINE__);
+	}
+	
+
+/**
+ * Returns the dates of the last paid subscription for a course.
+ * @author Jose C. Hueso
+ * @param integer $user_id - Id of the User to check. 
+ * @param string $course_id - Id of he Course which the user may be subscribed.
+ * @return string array. Two values. Start and End date of the last valid paid subscripiton. 
+ */
+function cs_user_last_sub_paid($user_id,$course_id)
+	{
+		$table_user_course = Database :: get_main_table(CS_TABLE_COURSE_CREDITS_REL_USER_CREDITS); 
+		$sql = "SELECT code,user_id,init_date,end_date FROM ".$table_user_course." WHERE user_id=".$user_id." AND code='".$course_id."' order by end_date desc";
+		$res = api_sql_query($sql, __FILE__, __LINE__);
+		if ($user_sub = mysql_fetch_array($res)) {
+			$date['init_date'] = $user_sub["init_date"];
+			$date['end_date'] = $user_sub["end_date"];
+		}
+		else {
+			$date['init_date'] = '00-00-0000';
+			$date['end_date'] = '00-00-0000';
+		}
+		return ($date);
+	}
+	
+/**
+ * Check if a user has paid his/her subscription to a course.
+ * @author Jose C. Hueso
+ * @param integer $user_id - Id of the User to check. 
+ * @param string $course_id - Id of he Course which the user may be subscribed.
+ * @return boolean. 'False' if the User´s subscriptions has expired. True if the user still has access.
+ */
+function cs_can_user_access($user_id,$course_id)
+	{
+		$current_date = strtotime (date('Y-m-d H:m'));
+		$date = cs_user_last_sub_paid($user_id,$course_id);
+		$end_date = strtotime ($date["end_date"]);	
+		
+		return ($end_date > $current_date);
+	}
+?>
