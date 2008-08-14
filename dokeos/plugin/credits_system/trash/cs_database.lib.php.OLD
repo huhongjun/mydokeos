@@ -1,0 +1,9 @@
+<?php
+DEFINE ('CS_TABLE_PAYMENT_OPTION','cs_payment_option');
+DEFINE ('CS_TABLE_USER_CREDITS','cs_user_credits');
+DEFINE ('CS_TABLE_COURSE_CREDITS','cs_course_credits');
+DEFINE ('CS_TABLE_PAYMENT','cs_payment');
+DEFINE ('CS_TABLE_COURSE_CREDITS_REL_USER_CREDITS','cs_course_credits_rel_user_credits');
+
+include_once(api_get_path(LIBRARY_PATH).'database.lib.php');
+?>

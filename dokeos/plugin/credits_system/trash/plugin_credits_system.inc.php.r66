@@ -1,0 +1,32 @@
+<?php /*
+for more information: see languages.txt in the lang folder. 
+*/
+$langYouHave0Credits = "You have 0 credits";
+$langCreditsSystem = "Credits System";
+$langBuyCredits = "Buy Credits";
+$langPaymentHistory = "Payment History";
+$langTeacherMenu = "Teacher Menu";
+$lanManageCourseCredits = "Manage Course Credits";
+$langAdminMenu = "Admin Menu";
+$langSettings = "Settings";
+$langManageUserCredits = "Manage User Credits";
+$langManageCourseCredits = "Manage Course Credits";
+$langHello = "Hello";
+$langBuy = "Buy";
+$langcredits = "Credits";
+$langCreditsAndPayMethods = "Credits And Payment Methods";
+$langPAYMENT_METHOD_PAYPAL = "Paypal";
+$langPAYMENT_METHOD_VISA = "Visa";
+$langPAYMENT_METHOD_MASTERCARD = "Mastercard";
+$langOk = "Ok";
+$langPaymentOptions = "Payment Options";
+$langPaymentMethods = "Payment Methods";
+$langCostPerCredit = "CostPerCredit";
+$langAllowTeacher = "Allow Teacher";
+$langDefaultOptions = "Default Options";
+$langSubscriptionNotPaidFor = "You must pay in order to access";
+$langRenewSubscription = "You should renew your subscrition";
+$langNeverPaidAccess = "You never paid access for course";
+$langPaySubscription = "Pay Subscription";
+$langMyCourses = "My Courses";
+?>

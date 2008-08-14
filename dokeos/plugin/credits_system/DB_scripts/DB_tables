@@ -1,0 +1,57 @@
+CREATE TABLE IF NOT EXISTS `cs_course_credits` (
+  `code` varchar(40) NOT NULL,
+  `option_id` int(11) NOT NULL,
+  `credits` FLOAT( 7, 1 ) NOT NULL,
+  PRIMARY KEY  (`code`,`option_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE IF NOT EXISTS `cs_subscriptions` (
+  `subscription_id` int(11) NOT NULL auto_increment,
+  `code` varchar(40) NOT NULL,
+  `option_id` int(11),
+  `user_id` int(11) NOT NULL,
+  `init_date` datetime NOT NULL,
+  `end_date` datetime NOT NULL,
+  `options_history_id` int(11) default NULL,
+  PRIMARY KEY  (`subscription_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+
+
+CREATE TABLE IF NOT EXISTS `cs_options_history` (
+  `options_history_id` int(11) NOT NULL auto_increment,
+  `amount` int(11) NOT NULL default '1',
+  `name` enum('day','week','month','year') NOT NULL default 'day',
+  `credits` FLOAT( 7, 1 ) NOT NULL,
+PRIMARY KEY  (`options_history_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+
+
+CREATE TABLE IF NOT EXISTS `cs_payment` (
+  `payment_id` int(11) NOT NULL auto_increment,
+  `payment_method` VARCHAR( 40 ) NOT NULL DEFAULT 'none',
+  `user_id` int(11) NOT NULL,
+  `credits` FLOAT( 7, 1 ) NOT NULL,
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `amount` FLOAT( 15, 2 ) NOT NULL,
+  PRIMARY KEY  (`payment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=90 ;
+
+
+CREATE TABLE IF NOT EXISTS `cs_payment_option` (
+  `option_id` int(11) NOT NULL auto_increment,
+  `amount` int(11) NOT NULL default '1',
+  `name` enum('day','week','month','year') NOT NULL default 'day',
+  PRIMARY KEY  (`option_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+
+
+
+CREATE TABLE IF NOT EXISTS `cs_user_credits` (
+  `user_id` int(10) NOT NULL,
+  `credits` FLOAT( 7, 1 ) NOT NULL default '0.0',
+  PRIMARY KEY  (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

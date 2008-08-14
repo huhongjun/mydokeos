@@ -1,0 +1,147 @@
+<?php // $Id: template.php,v 1.2 2006/03/15 14:34:45 pcool Exp $
+/*
+==============================================================================
+	Dokeos - elearning and course management software
+	
+	Copyright (c) 2004-2006 Dokeos S.A.
+	Copyright (c) Sally "Example" Programmer (sally@somewhere.net)
+	//add your name + the name of your organisation - if any - to this list
+	
+	For a full list of contributors, see "credits.txt".
+	The full license can be read in "license.txt".
+	
+	This program is free software; you can redistribute it and/or
+	modify it under the terms of the GNU General Public License
+	as published by the Free Software Foundation; either version 2
+	of the License, or (at your option) any later version.
+	
+	See the GNU General Public License for more details.
+	
+	Contact address: Dokeos, 44 rue des palais, B-1030 Brussels, Belgium
+	Mail: info@dokeos.com
+==============================================================================
+*/
+/**
+==============================================================================
+*	This file is a code template; 
+*	copy the code and paste it in a new file to begin your own work.
+*
+*	@package dokeos.plugin
+==============================================================================
+*/
+	
+/*
+==============================================================================
+		INIT SECTION
+==============================================================================
+*/ 
+// global settings initialisation 
+// also provides access to main, database and display API libraries
+$language_file = 'plugin_credits_system';
+include_once("../../../main/inc/global.inc.php");  
+require_once (api_get_path(LIBRARY_PATH).'formvalidator/FormValidator.class.php');
+
+/*
+-----------------------------------------------------------
+	Libraries
+-----------------------------------------------------------
+*/ 
+//the main_api.lib.php, database.lib.php and display.lib.php
+//libraries are included by default
+
+	
+/*
+-----------------------------------------------------------
+	Header
+-----------------------------------------------------------
+*/ 
+
+//	Optional extra http or html header
+//	If you need to add some HTTP/HTML headers code 
+//	like JavaScript functions, stylesheets, redirects, put them here.
+
+// $httpHeadXtra[] = ""; 
+// $httpHeadXtra[] = ""; 
+//    ... 
+// 
+// $htmlHeadXtra[] = ""; 
+// $htmlHeadXtra[] = ""; 
+//    ... 
+
+
+
+	
+/*
+==============================================================================
+		FUNCTIONS
+==============================================================================
+*/ 
+
+// put your functions here
+// if the list gets large, divide them into different sections:
+// display functions, tool logic functions, database functions	
+// try to place your functions into an API library or separate functions file - it helps reuse
+	
+/*
+==============================================================================
+		MAIN CODE
+==============================================================================
+*/ 
+
+// Put your main code here. Keep this section short,
+// it's better to use functions for any non-trivial code
+
+
+if((isset($_GET['buy']) && $_GET['buy'] == 'true') && (isset($_POST['buy']) && $_POST['buy'] == 'true'))
+{	
+	//Get current page.
+	$current_page = $_SERVER['PHP_SELF'].'?';
+	
+	//set current page with $_GET variables to continue to next page.
+	foreach ($_GET as $key => $value)
+	{
+		$current_page .= $key.'='.$value.'&';
+	}
+	
+	$form = new FormValidator('cs_buy','post',$current_page);
+	
+	//set current page with $_POST variables to continue to next page.
+	foreach ($_POST as $key => $value)
+	{
+		$form->addElement('hidden',$key,$value);
+	}
+	
+	$form->addElement('text', 'amount','Amount of credits to buy: ','size="1" maxlenght="3"');
+	$form->registerRule('valid_amount','regex','/^\d*\.{0,1}\d+$/');
+
+	$form->addRule('amount',get_lang('UseNumericValuesPlz'),'valid_amount',null,'client');
+	$form->addRule('amount',get_lang('EnterAnAmaunt'),'required',null,'client');
+	$form->addRule('amount',get_lang('EnterAnAmaunt'),'nonzero',null,'client');
+	
+	$form->addElement('submit','submit_buy','Buy');
+	if ($form->validate())
+	{
+		//Save buy data.
+		$amount = $form->exportValues();
+		if(!((cs_pay($amount['amount']))&&(cs_set_user_credits(cs_get_user_credits()+$amount['amount']))))
+		{
+			require_once('header2_and_3.php');
+			Display::display_error_message(get_lang('Error during the operation'));
+			exit;
+		}
+	}
+	else
+	{
+		require_once('header2_and_3.php');
+		Display::display_warning_message('THIS PAGE IS JUST AN EXAMPLE. IT WILL BE MODIFIED WHEN REAL PAYMENTS HAD BEEN IMPLEMENTED!');
+		$form->display();
+		Display::display_footer();
+		exit;
+	}
+}
+/*
+==============================================================================
+		FOOTER 
+==============================================================================
+*/ 
+?>

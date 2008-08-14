@@ -1,0 +1,439 @@
+<?php
+/*
+==============================================================================
+	Dokeos - elearning and course management software
+
+	Copyright (c) 2004 Dokeos S.A.
+	Copyright (c) 2003 University of Ghent (UGent)
+	Copyright (c) 2001 Universite catholique de Louvain (UCL)
+
+	For a full list of contributors, see "credits.txt".
+	The full license can be read in "license.txt".
+
+	This program is free software; you can redistribute it and/or
+	modify it under the terms of the GNU General Public License
+	as published by the Free Software Foundation; either version 2
+	of the License, or (at your option) any later version.
+
+	See the GNU General Public License for more details.
+
+	Contact: Dokeos, 181 rue Royale, B-1000 Brussels, Belgium, info@dokeos.com
+==============================================================================
+*/
+
+$language_file = "plugin_credits_system";
+if (isset($_GET['code']))
+{
+	$cidReq = $_GET['code'];
+}
+
+
+/*
+-----------------------------------------------------------
+	Header
+	include the HTTP, HTML headers plus the top banner
+-----------------------------------------------------------
+*/
+include_once('../../main/inc/global.inc.php');
+require_once(api_get_path(LIBRARY_PATH).'formvalidator/FormValidator.class.php');
+require_once(dirname(__FILE__).'/inc/cs_functions.inc.php');
+require_once (api_get_path(LIBRARY_PATH).'sortabletable.class.php');
+require_once (api_get_path(LIBRARY_PATH).'course.lib.php');
+$htmlHeadXtra[] =
+"<script type='text/javascript'>
+<!-- //
+function valid_credits(credits){
+	if (credits > 0){
+		return true;
+	}
+	else return false;
+}
+// -->
+</script>";
+api_block_anonymous_users();
+/*if((this.value) && (this.value > 0)){
+	alert ('inside javascript');
+	return (true);
+	}
+	else return (false);*/
+
+$interbreadcrumb[] = array ("url" => 'my_credits.php', "name" => get_lang('CreditsSystem'));
+$interbreadcrumb[] = array ("url" => 'manage_course_credits.php?table=pay', "name" => get_lang('ManageCourseCredits'));
+
+if(($_GET['action'] == 'add') || ($_GET['action'] == 'edit') || ($_POST['action'] == 'edit'))
+{
+	$interbreadcrumb[] = array ("url" => 'edit_pay_course.php?action=current', "name" => get_lang('PaymentOptions'));
+	if (!isset($_POST['action']))
+	{
+		$nameTools = get_lang($_GET['action']);	
+	}
+	else if ((isset($_POST['payment_options_selected'])) && (count($_POST['payment_options_selected'])>0))
+		{
+			$nameTools = get_lang($_POST['action']);		
+		}
+	//User selected no option to edit
+		else 
+		{
+			unset($_POST['action']);
+			$_GET['action'] = 'current';
+		}
+}
+else $nameTools = get_lang('PaymentOptions');
+
+Display :: display_header($nameTools);
+
+if (($_GET['action'] == 'delete')||($_GET['action'] == 'edited'))
+{
+	$title = get_lang('currentMenu');
+}
+else if ($_POST['action'] == 'edit')
+	{
+		$title = get_lang('editMenu');
+	}
+	else $title = get_lang($_GET['action'].'Menu');
+
+api_display_tool_title($title);
+
+if($_GET['action'] != 'add' && $_GET['action'] != 'edit' && $_POST['action'] != 'edit')
+{
+	echo '<img src="img/new_payment_option.gif" border="0" style="vertical-align: middle" title="'.get_lang("Edit").'" alt="'.get_lang("Edit").'"/>';
+	echo '<a href="?action=add">'.get_lang('AddPaymentOption').'</a>';
+}
+
+/**
+ * Verify a valid number of credits
+ */
+/*function valid_credits($element_name,$element_value)
+{
+
+   	if (($element_value) && ($element_value>0))
+		return true;
+	else return false;	
+}*/
+
+function valid_credits($text)
+{
+
+	return false;
+}
+/**
+ * Get the number of courses which will be displayed
+ */
+function get_number_of_options()
+{
+	$complete_name = $_SESSION['_user']['lastName'].' '.$_SESSION['_user']['firstName'];
+	$course_credits_table = Database :: get_main_table(CS_TABLE_COURSE_CREDITS);
+	$sql = "SELECT COUNT(code) AS total_number_of_items FROM $course_credits_table WHERE code='".$_SESSION['_course']['sysCode']."'";
+	//echo $sql;
+	$res = api_sql_query($sql, __FILE__, __LINE__);
+	$obj = mysql_fetch_object($res);
+	return $obj->total_number_of_items;
+}
+
+/**
+ * Get course data to display
+ */
+function get_payment_data($from, $number_of_items, $column, $direction)
+{
+	$payment_option_table = Database :: get_main_table(CS_TABLE_PAYMENT_OPTION);
+	$course_credits_table = Database :: get_main_table(CS_TABLE_COURSE_CREDITS);
+	$course_table = Database :: get_main_table(TABLE_MAIN_COURSE);
+	
+	$sql = "SELECT ".$course_credits_table.".option_id AS col0, credits AS col1, amount AS col2, name AS col3 FROM $course_credits_table, $payment_option_table, $course_table WHERE ".$course_table.".code = ".$course_credits_table.".code AND ".$course_credits_table.".code='".$_SESSION['_course']['sysCode']."' AND ".$course_credits_table.".option_id = ".$payment_option_table.".option_id";
+	//echo $sql;
+	$sql .= " ORDER BY col$column $direction ";
+	$sql .= " LIMIT $from,$number_of_items";
+	$res = api_sql_query($sql, __FILE__, __LINE__);
+	$courses = array ();
+	while ($course = mysql_fetch_row($res))
+	{
+		$courses[] = $course;
+	}
+	
+	return $courses;
+}
+
+function modify_filter($active,$url_params,$row,$column)
+{
+	
+	$option_id = $row[0];
+	
+	switch ($_GET['action'])
+	{
+		case 'delete':
+			break;
+			
+		case 'add':
+			break;
+		case 'edit':
+			break;
+	}
+		
+	return ('<a href="edit_pay_course.php?action=edit&option_id='.$option_id.'"><img src="../../main/img/edit.gif" border="0" style="vertical-align: middle" title="'.get_lang('Edit').'" alt="'.get_lang('Edit').'"/></a>&nbsp;'.
+			'<a href="edit_pay_course.php?action=delete&option_id='.$option_id.'"  onclick="javascript:if(!confirm('."'".addslashes(htmlentities(get_lang("ConfirmYourChoice")))."'".')) return false;"><img src="../../main/img/delete.gif" border="0" style="vertical-align: middle" title="'.get_lang('Delete').'" alt="'.get_lang('Delete').'"/></a>');
+				
+}
+
+
+
+
+
+
+
+if (($_GET['action'] == 'add') || ($_POST['action'] == 'add'))
+{
+//Fill the new payment options form in.
+	$form_new_options = new FormValidator('course_new_options','post',$_SERVER[SELF].'?action=current&num='.$_GET['num'].'&more='.$_GET['more']);
+	$form_new_options -> registerRule('valid_credits_amount','callback','valid_credits');
+	$new_options = cs_get_course_possible_payment_options($_SESSION['_course']['sysCode']);
+	$select_options[0]=get_lang('SelectPaymentOption');
+	foreach ($new_options as $key => $value)
+	{
+		$select_options[$key]=$value['amount'].' '.$value['name'];
+	}
+//User selected more than one option to add
+	if (isset($_GET['more']))
+	{
+		$options_num= $_GET['num'];
+		
+		$group_add[] = $form_new_options->createElement('static','','',get_lang('Set'));
+		$group_add[] = $form_new_options->createElement('text','credits','credits','size="4"');
+		$group_add[] = $form_new_options->createElement('static','','',get_lang('CreditsPer'));
+		$group_add[] = $form_new_options->createElement('select','payment_option','payment_option',$select_options);
+
+		for ($i=1;$i<=$options_num;$i++)
+		{
+			$option_name = 'option_group'.$i;
+			$form_new_options -> addGroup($group_add,$option_name);
+			$form_new_options -> addGroupRule($option_name,array(array(),array(array(get_lang('CreditAmountRequired'),'valid_credits_amount'),array(get_lang('CreditsFieldNumeric'), 'numeric',null,'client'),array(get_lang('CreditAmountPositive'),'valid_credits_amount',null,'client')),array(),array(array(get_lang('SelectValidPaymentOption'),'nonzero',null,'client'))));
+			//required',null,'client
+		//$form_new_options -> addGroupRule($option_name,'TEST','required',null,'client');
+		}		
+	}
+	else $options_num=0;
+			
+	$options_num++;
+
+
+// Option with the add-option-link possibility.
+	$group[] = $form_new_options->createElement('static','','',get_lang('Set'));
+	$group[] = $form_new_options->createElement('text','credits','number_of_credits[]','size="4"');
+	$group[] = $form_new_options->createElement('static','','',get_lang('CreditsPer'));
+	$group[] = $form_new_options->createElement('select','payment_option','payment_option',$select_options);
+	$group[] = $form_new_options->createElement('link','add_option','',$_SERVER[SELF].'?action=add&num='.$options_num.'&more=true',get_lang('AddOption'));
+
+	$form_new_options -> addGroup ($group,'add_option_group');
+	$form_new_options -> addGroupRule('add_option_group',array(array(),array(array(get_lang('CreditAmountRequired'),'required',null,'client'),array(get_lang('CreditsFieldNumeric'), 'numeric',null,'client'),array(get_lang('CreditAmountPositive'),'valid_credits_amount',null,'client')),array(),array(array(get_lang('SelectValidPaymentOption'),'nonzero',null,'client'))));
+//
+//$form_new_options -> addRule($group['credits'],'Enter a subject','numeric');
+	$form_new_options -> addElement ('hidden','num_options',$options_num); 				
+	$form_new_options -> addElement ('hidden','action','add');
+	
+	$form_new_options -> addElement ('submit','submit',get_lang('Ok'));
+}
+
+//Fill the edit form in.
+if (($_GET['action'] == 'edit') || ($_POST['action'] == 'edit') || ($_GET['action'] == 'edited') || ($_POST['action'] == 'edited'))
+{
+	$form_edit_options = new FormValidator('course_edit_options','post',$_SERVER[SELF].'?action=edited');
+	$current_options = cs_get_course_payment_options ($_SESSION['_course']['sysCode']);
+
+	if (($_POST['action'] == 'edit') || ($_POST['action'] == 'edited'))
+	{
+
+		$payment_options = $_POST['payment_options_selected'];
+		foreach ($payment_options as $index => $option_id)	
+		{
+			$select_options[0] = $current_options[$option_id]['amount'].' '.$current_options[$option_id]['name'];
+			$group_name='group_edit_'.$option_id;
+			$group_name = array();		
+			$group_name[] = $form_edit_options->createElement('static','','',get_lang('Set'));
+			$group_name[] = $form_edit_options->createElement('text','credits',null,array('value'=>$current_options[$option_id]['credits'],'size'=>'4'));
+			$group_name[] = $form_edit_options->createElement('static','','',get_lang('CreditsPer'));
+			$group_name[] = $form_edit_options->createElement('select','payment_option','payment_option',$select_options);
+			$form_edit_options -> addGroup ($group_name,'edited_group_'.$option_id);
+			$form_edit_options -> addElement ('hidden','payment_options_selected['.$index.']',$option_id);
+			$form_edit_options -> addElement ('hidden','action','edited');
+		}
+		$form_edit_options -> addElement ('hidden','multiple','true');
+	
+	}
+	else
+	{
+		
+		$select_options[0] = $current_options[$_GET['option_id']]['amount'].' '.$current_options[$_GET['option_id']]['name'];
+	
+		$group_edit[] = $form_edit_options->createElement('static','','',get_lang('Set'));
+		$group_edit[] = $form_edit_options->createElement('text','credits',null,array('value'=>$current_options[$_GET["option_id"]]["credits"],'size'=>'4'));
+		$group_edit[] = $form_edit_options->createElement('static','','',get_lang('CreditsPer'));
+		$group_edit[] = $form_edit_options->createElement('select','payment_option','payment_option',$select_options);
+		$form_edit_options -> addGroup ($group_edit,'edited_group');	
+		$form_edit_options -> addElement ('hidden','option_id',$_GET['option_id']);
+		$form_edit_options -> addElement ('hidden','multiple','false');
+			
+	}
+	$form_edit_options -> addElement ('submit','submit',get_lang('Ok'));
+}
+
+
+if (isset ($_GET['action']))
+{
+	switch ($_GET['action'])
+	{
+		// Delete selected courses
+		case 'delete' :
+			if (isset ($_GET['option_id']))
+			{
+			
+				$error = !(cs_delete_course_payment_option($_SESSION['_course']['sysCode'],$_GET['option_id']));
+				if (!$error)
+				{
+					Display :: display_normal_message(get_lang('PaymentOptionDeleted'));
+				}
+				else Display :: display_normal_message(get_lang('PaymentOptionDeletedError'));
+			}
+			
+			break;
+			
+		//Add a new payment option
+		case 'add' :
+		
+			$form_new_options -> display();
+				
+			break;
+		
+		case 'edit' :
+		
+			$form_edit_options -> display();				
+		
+			break;
+		
+		case 'edited' :
+		
+			if ($form_edit_options -> validate())
+			{
+				$option = $form_edit_options->exportValues();
+			
+				if ($_POST['multiple'] == 'false')
+				{
+					$error = !cs_update_course_payment_option($_SESSION['_course']['sysCode'],$option['option_id'],$option['edited_group']['credits']);				
+				}
+				else
+				{
+					foreach ($_POST['payment_options_selected'] as $index => $option_id)
+					{
+						$error = !cs_update_course_payment_option($_SESSION['_course']['sysCode'],$option_id,$option['edited_group_'.$option_id]['credits']);
+						//echo 'group_id: '.$option_id.' - credits: '.$option['edited_group_'.$option_id]['credits'].'<br />';
+					}
+				}
+				
+				if (!$error)
+				{
+					Display :: display_normal_message(get_lang('PaymentOptionUpdated'));
+				}
+				else Display :: display_normal_message(get_lang('PaymentOptionUpdatedError'));
+			}
+			break;
+	}
+}
+
+if (isset ($_POST['action']))
+{
+	switch ($_POST['action'])
+	{
+		// Delete selected courses
+		case 'delete' :
+			//echo'Hello?? <br /> Course code: '.$_SESSION['sysCode'];
+			$payment_options_id = $_POST['payment_options_selected'];
+			foreach ($payment_options_id as $index => $payment_option_id)
+			{
+				$error=cs_delete_course_payment_option(api_get_course_id(),$payment_option_id);
+			}			
+			$display=get_lang('NumberOfOptionsDeleted').': '.count($payment_options_id);
+			Display::display_normal_message($display);
+			break;
+			
+		case 'add' :
+			
+			$error = false;
+			
+			if ($form_new_options -> validate())
+			{
+				$options = $form_new_options->exportValues();
+				$payment_options_ids = '';
+				for ($j=1;$j<$options['num_options'];$j++)
+				{
+					if ($options['option_group'.$j]['payment_option'])
+					{
+						if (in_array($options['option_group'.$j]['payment_option'],$payment_options_ids))
+						{
+							$display =get_lang ('PaymentOptionsRepeated');
+						}
+						else
+						{
+							if (!cs_set_course_payment_option($_SESSION['_course']['sysCode'],$options['option_group'.$j]['credits'],$options['option_group'.$j]['payment_option']))
+									$error = true;
+							$payment_options_ids[]=	$options['option_group'.$j]['payment_option'];
+						}	
+					}
+				}
+				if ($options['add_option_group']['payment_option'])
+				{
+					if (in_array($options['add_option_group']['payment_option'],$payment_options_ids))
+					{
+						$display =get_lang ('PaymentOptionsRepeated');
+					}
+					else
+					{
+						if (!cs_set_course_payment_option($_SESSION['_course']['sysCode'],$options['add_option_group']['credits'],$options['add_option_group']['payment_option']))
+								$error = true;
+					}	
+				}
+				$error?$display2 = get_lang('ErrorInsertingPaymentOptions'):$display2 = get_lang('ChangesStoredSuccessfully');
+				Display::display_normal_message($display.' <br />'.$display2);				
+			}
+
+			break;
+			
+		case 'edit' :
+
+			$form_edit_options -> display();
+			
+			break;
+	}
+}
+
+;
+if(($_GET['action'] != 'add')&&($_GET['action'] != 'edit')&&($_POST['action'] != 'edit'))
+{
+	//if ($_GET['action'] == 'delete')
+	//{
+		$parameters['action']='current';	
+	//}
+	//else $parameters['action']='edit';
+	//echo $_GET['current_payment_options_column'];
+	//$column;
+
+	$table = new SortableTable('current_payment_options','get_number_of_options', 'get_payment_data');
+	
+	$table->set_additional_parameters($parameters);
+	$table->set_header(0, '', false);
+	$table->set_header(1, get_lang('NumberOfCredits'));
+	$table->set_header(2, get_lang('PeriodicityAmount'));
+	$table->set_header(3, get_lang('Periodicity'));
+	$table->set_header(4, '', false);
+	$table->set_column_filter(4,'modify_filter');
+	$table->set_form_actions(array ('delete' => get_lang('DeletePaymentOptions'), 'edit' => get_lang('EditPaymentOptions')),'payment_options_selected');
+	$table->display();
+//End Course Settings Menu
+}	
+	
+
+/*
+==============================================================================
+		FOOTER
+==============================================================================
+*/
+Display :: display_footer();
+
+?>

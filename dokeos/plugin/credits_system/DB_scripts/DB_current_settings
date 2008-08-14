@@ -1,0 +1,34 @@
+DELETE FROM `settings_current` WHERE scope = 'cs';
+
+INSERT INTO `settings_current` ( `id` , `variable` , `subkey` , `type` , `category` , `selected_value` , `title` , `comment` , `scope` , `subkeytext` )
+VALUES (
+NULL , 'cs_cost_per_credit', NULL , 'textfield', NULL, '1', 'CostPerCredit', 'CostPerCreditexp', 'cs' , NULL
+);
+
+INSERT INTO `settings_current` ( `id` , `variable` , `subkey` , `type` , `category` , `selected_value` , `title` , `comment` , `scope` , `subkeytext` )
+VALUES (
+NULL , 'cs_currency', NULL , 'radio', NULL, 'EUR', 'currency', 'currencyexp', 'cs' , NULL
+);
+
+INSERT INTO `settings_current` (`id`, `variable`, `subkey`, `type`, `category`, `selected_value`, `title`, `comment`, `scope`, `subkeytext`) VALUES 
+(NULL, 'cs_payment_methods', 'paypal', 'checkbox', NULL, 'false', 'PaymentMethods', 'PaymentMethodsexp', 'cs', 'Paypal');
+
+INSERT INTO `settings_current` ( `id` , `variable` , `subkey` , `type` , `category` , `selected_value` , `title` , `comment` , `scope` , `subkeytext` )
+VALUES (
+NULL , 'cs_default_payment_option', NULL , 'select', NULL, '0', 'DefaultPaymentOption', 'DefaultPaymentOptionexp', 'cs' , NULL
+);
+
+INSERT INTO `settings_current` ( `id` , `variable` , `subkey` , `type` , `category` , `selected_value` , `title` , `comment` , `scope` , `subkeytext` )
+VALUES (
+NULL , 'cs_default_payment_option_credits', NULL , 'textfield', NULL, '1', 'DefaultPaymentOptionCredits', 'DefaultPaymentOptionCreditsexp', 'cs' , NULL
+);
+
+INSERT INTO `settings_current` ( `id` , `variable` , `subkey` , `type` , `category` , `selected_value` , `title` , `comment` , `scope` , `subkeytext` )
+VALUES (
+NULL , 'cs_allow_test', NULL , 'radio', NULL , 'yes', 'AllowTest', 'AllowTestexp', 'cs', NULL
+);
+
+INSERT INTO `settings_current` ( `id` , `variable` , `subkey` , `type` , `category` , `selected_value` , `title` , `comment` , `scope` , `subkeytext` )
+VALUES (
+NULL , 'cs_allow_teacher', NULL , 'radio', NULL, 'no', 'AllowTeacher', 'AllowTeacherexp', 'cs' , NULL
+);

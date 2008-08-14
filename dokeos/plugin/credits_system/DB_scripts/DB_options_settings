@@ -1,0 +1,24 @@
+DELETE FROM `settings_options` WHERE variable LIKE "cs_%";
+
+INSERT INTO `settings_options` ( `id` , `variable` , `value` , `display_text` )
+VALUES (
+NULL , 'cs_allow_teacher', 'no', 'No'
+), (
+NULL , 'cs_allow_teacher', 'yes', 'Yes'
+);
+
+INSERT INTO `settings_options` ( `id` , `variable` , `value` , `display_text` )
+VALUES (
+NULL , 'cs_currency', 'EUR', 'EUR'
+), (
+NULL , 'cs_currency', 'USD', 'USD'
+), (
+NULL , 'cs_currency', 'GBP', 'GBP'
+);
+
+INSERT INTO `settings_options` ( `id` , `variable` , `value` , `display_text` )
+VALUES (
+NULL , 'cs_allow_test', 'no', 'No'
+), (
+NULL , 'cs_allow_test', 'yes', 'Yes'
+);

@@ -1,0 +1,8 @@
+<?php
+	if ($user_id = api_get_user_id())
+	{
+		require_once(dirname(__FILE__).'/inc/cs_functions.inc.php');
+		echo '<a href="'.api_get_path(WEB_PLUGIN_PATH).'credits_system/my_credits.php">My Credits ('.cs_get_user_credits($user_id).')</a>';
+		require_once(dirname(__FILE__).'/inc/check_subscription.inc.php');	
+	}
+?>
