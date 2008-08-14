@@ -1,8 +1,8 @@
-Eclipse PDT+xDebug+XAMPP 调试环境配置
+﻿1、开发环境
+	Eclipse PDT+xDebug+XAMPP 调试环境配置
+2、如何研究？
 
-
-如何研究？
-	了解页面之间的包含关系
+了解页面之间的包含关系
 	各目录下文件的作用
 	主页面布局
 		
