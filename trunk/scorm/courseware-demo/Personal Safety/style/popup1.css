@@ -1,0 +1,19 @@
+body
+{
+	background-color: #ffffe1;
+	border: 1px solid #000000;
+	font-family:Verdana;
+	font-size:9pt;
+	color: Black;
+	margin: 5px 5px 5px 5px;
+	OVERFLOW: auto;
+
+scrollbar-face-color: #ffffe1; 
+scrollbar-highlight-color: #ffffe1;
+scrollbar-shadow-color: #ffffe1; 
+scrollbar-3dlight-color: #000000; 
+scrollbar-arrow-color: #000000; 
+scrollbar-track-color: #ffffe1; 
+scrollbar-darkshadow-color: #000000; 
+scrollbar-base-color: #ffffe1;
+}

@@ -1,0 +1,121 @@
+<html>
+	<head>
+		<title>e-Office Safety e-learning</title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 3;
+var intSection    = 7;
+var intPage       = 11;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css">
+			<link rel="stylesheet" type="text/css" href="../../style/grid.css">
+				<link rel="stylesheet" type="text/css" href="../../style/cell.css">
+					<link rel="stylesheet" type="text/css" href="../../style/content.css">
+						<link rel="stylesheet" type="text/css" href="../../style/navigation.css">
+							<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+							<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+							<!-- implement API FUNCTION -->
+							<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+							<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+							<!--END implement API FUNCTION -->
+							<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+
+objNav = new Navigation(intModule , intSection, intPage);
+
+//-->
+							</script>
+<script>
+	function giveFeedbackForTest() {
+		if(top.API) {
+			if(top.API.m_oContentViewer.testPercentCompleted >= top.percentCompleted){
+				testPercentCompletedStatus_Correct.innerHTML = top.API.m_oContentViewer.testPercentCompleted;
+				testPassMark_Correct.innerHTML = top.percentCompleted;
+				showFeedback(2);
+			} else {
+				testPercentCompletedStatus_InCorrect.innerHTML = top.API.m_oContentViewer.testPercentCompleted;
+				testPassMark_InCorrect.innerHTML = top.percentCompleted;
+				showFeedback(3);
+			}
+		} else {
+			showFeedback(1);
+		}
+	}
+</script>
+							<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body  style="BACKGROUND-COLOR: #ffffff" onload="setIncompleteTimeout();giveFeedbackForTest();">
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1" Summary="Header Information including breadcrumb navigation">
+						<tr>
+							<td align="left"><ESTART:LOGO ><img src="../../image/logo.gif" alt="logo" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO ><IMG SRC="../../image/company_logo.gif"  alt="company logo" alt="logo"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid" style="margin-left:1px;">
+					<!-- Text & Image & Icon -->
+					<div id="fb0">
+						<div class="grid1x1">
+							
+<DIV class=cellmedium12x7 ></DIV>
+						</div>
+					</div>
+					<div id="fb1" style="display:none;">
+						<div class="grid1x1">
+							
+<DIV class=cellmedium12x7 ><DIV class=instriconsm style="LEFT: 8px; TOP: 8px"><IMG height=22 alt=Feedback src="../../image/icons/feedback_icon.gif" width=22></DIV><A  tabIndex=10>
+<DIV class=TextDarkNormal style="PADDING-LEFT: 30px; PADDING-TOP: 10px"><B>The End: Almost</B> </DIV>
+<DIV class=TextDarkNormal style="PADDING-LEFT: 8px"><BR><B>You have reached the end of the test. </B><BR><BR>Providing you have reached the pass mark you will be able to undergo the assessment. <BR><BR><BR>Select the <B>Exam Results</B> link to see the result of the test with feedback.<BR><BR><BR>If you have failed the test, go back through the training then repeat the test, when you have reached the pass mark you will get access to the assessment. <BR><BR><B>Please continue to the assessment as soon as is convenient.&nbsp;</B> </DIV></A></DIV>
+						</div>
+					</div>
+					<div id="fb2" style="display:none;">
+						<div class="grid1x1">
+							
+<DIV class=cellmedium12x7 ><DIV class=instriconsm style="LEFT: 8px; TOP: 8px"><IMG height=21 alt=Correct src="../../image/icons/correct_icon.gif" width=21></DIV><A  tabIndex=10>
+<DIV class=TextDarkNormal style="PADDING-LEFT: 30px; PADDING-TOP: 10px"><B>Well Done</B> </DIV>
+<DIV class=TextDarkNormal style="PADDING-LEFT: 8px"><BR><B>You have successfully passed the test</B> <BR><BR>You have scored <B><SPAN id=testPercentCompletedStatus_Correct></SPAN>%</B> against a pass mark of <B><SPAN id=testPassMark_Correct></SPAN>%</B>. <BR><BR><BR>Select the <B>Exam Results</B> link to see your results in detail.<BR><BR><BR><B>Please continue to the assessment as soon as is convenient, any delay in carrying out the assessment can aggravate existing ergonomics problems.</B> </DIV></A></DIV>
+						</div>
+					</div>
+					<div id="fb3" style="display:none;">
+						<div class="grid1x1">
+							
+<DIV class=cellincorrect12x7 ><DIV class=instriconsm style="LEFT: 8px; TOP: 8px"><IMG height=22 alt=Incorrect src="../../image/icons/incorrect_icon.gif" width=21></DIV><A  tabIndex=10>
+<DIV class=TextDarkNormal style="PADDING-LEFT: 30px; PADDING-TOP: 10px"><B>Sorry</B> </DIV>
+<DIV class=TextDarkNormal style="PADDING-LEFT: 8px"><BR><B>You have not yet passed the test </B><BR><BR>You have scored <B><SPAN id=testPercentCompletedStatus_InCorrect></SPAN>%</B> against a pass mark of <B><SPAN id=testPassMark_InCorrect></SPAN>%</B>. <BR><BR><BR>Select the <B>Exam Results</B> link to see your results in detail.<BR><BR><BR>Go back through the training then repeat the test. </DIV></A></DIV>
+						</div>
+					</div>
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>
