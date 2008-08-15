@@ -1,0 +1,246 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 3;
+var intPage       = 1;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+		<script LANGUAGE="javascript">
+var Correct = Array("2", "0", "1");
+var Answers = Array(3);
+
+document.attachEvent('onmouseup' , IsDropCompleted);
+function IsDropCompleted(){
+setIncompleteStatus();
+mouseup()
+	for (i=0;i<Answers.length;i++){
+		if (Answers[i] == null) {
+			submit_6_3_1.style.display="none";
+			return;
+		}
+	}
+	submit_6_3_1.style.display = "";
+	
+}
+function cngImageSRC(){
+	document.getElementById("rs1").src = "image/rs1_fl.gif"
+	document.getElementById("text2").onclick = function(){showFlash(1);};
+	document.getElementById("rs2").src = "image/rs2_fl.gif"
+	document.getElementById("text1").onclick = function(){showFlash(2);};
+	document.getElementById("rs3").src = "image/rs3_fl.gif"
+	document.getElementById("text0").onclick = function(){showFlash(3);};
+	
+	dr0 = document.getElementById("drop0")
+	dr0.children(0).swapNode(document.getElementById("text2"))
+	
+	dr1 = document.getElementById("drop1")
+	dr1.children(0).swapNode(document.getElementById("text0"))
+	
+	dr2 = document.getElementById("drop2")
+	dr2.children(0).swapNode(document.getElementById("text1"))
+}
+
+
+		</script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	
+<script language="JavaScript" src="../../script/ieupdate.js" type="text/javascript" ></script>
+</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO ><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO ><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						
+<DIV class=celldark6x1 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/feedback_icon.gif" width=22></DIV>
+<DIV class=SCROLLLight style="MARGIN-LEFT: 35px; MARGIN-RIGHT: 5px; TOP: 10px"><a tabindex=0>Misdemeanours are dealt with in proportion to the seriousness of the wrong doing.</a></DIV></DIV>
+					</div>
+					<div class="grid1x2">
+						
+<DIV class=cellmedium6x6 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/question_icon.gif" width=22></DIV>
+<DIV class=instriconsm style="LEFT: 315px; TOP: 85px"><IMG height=44 src="../../image/icons/mouse_icon_estart.gif" width=44></DIV>
+<DIV class=SCROLLDark style="MARGIN-TOP: 8px; MARGIN-LEFT: 40px; MARGIN-RIGHT: 5px"><a tabindex=0>Rank these offences by order to seriousness. <BR><BR></a></DIV>
+<TABLE onselectstart="event.cancelBubble = true;return false;" id=Table2 style="LEFT: 20px; WIDTH: 360px; POSITION: absolute" cellSpacing=0 cellPadding=1 border=0>
+<TBODY>
+<TR>
+<TD>
+<DIV id=init0 style="BACKGROUND-IMAGE: url(image/rsContainer.gif); WIDTH: 74px; HEIGHT: 65px">
+<DIV id=text0 ondragstart="return dragDiv(this);" style="FONT-SIZE: 7pt; WIDTH: 74px; CURSOR: pointer; COLOR: #000000; FONT-FAMILY: Verdana; HEIGHT: 65px; TEXT-DECORATION: none"><IMG id=rs3 style="POSITION: absolute" height=65 src="image/rs3.gif" width=74 border=0> 
+<DIV onselectstart="return dragDiv(this.parentElement);" id=boxx0 style="PADDING-LEFT: 8px; PADDING-TOP: 39px; POSITION: absolute; TEXT-ALIGN: center">Minor Misconduct</DIV></DIV></DIV></TD>
+<TD width=40>&nbsp;</TD>
+<TD style="WIDTH: 74px; HEIGHT: 65px" selectable="off">
+<DIV id=drop0 style="BACKGROUND-IMAGE: url(image/rsContainer.gif); WIDTH: 74px; HEIGHT: 65px"></DIV></TD>
+<TD class=SCROLLLight style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px"><a tabindex=0>Threats or acts of physical violence</a></TD></TR>
+<TR>
+<TD>
+<DIV id=init1 style="BACKGROUND-IMAGE: url(image/rsContainer.gif); WIDTH: 74px; HEIGHT: 65px">
+<DIV id=text1 ondragstart="return dragDiv(this);" style="FONT-SIZE: 7pt; WIDTH: 74px; CURSOR: pointer; COLOR: #000000; FONT-FAMILY: Verdana; HEIGHT: 65px; TEXT-DECORATION: none"><IMG id=rs2 style="POSITION: absolute" height=65 src="image/rs2.gif" width=74 border=0> 
+<DIV onselectstart="return dragDiv(this.parentElement);" id=boxx1 style="PADDING-LEFT: 8px; PADDING-TOP: 39px; POSITION: absolute; TEXT-ALIGN: center">Serious Misconduct </DIV></DIV></DIV></TD>
+<TD width=40>&nbsp;</TD>
+<TD style="WIDTH: 74px; HEIGHT: 65px" selectable="off">
+<DIV id=drop1 style="BACKGROUND-IMAGE: url(image/rsContainer.gif); WIDTH: 74px; HEIGHT: 65px"></DIV></TD>
+<TD class=SCROLLLight style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px"><a tabindex=0>Inefficiency</a></TD></TR>
+<TR>
+<TD>
+<DIV id=init2 style="BACKGROUND-IMAGE: url(image/rsContainer.gif); WIDTH: 74px; HEIGHT: 65px">
+<DIV id=text2 ondragstart="return dragDiv(this);" style="FONT-SIZE: 7pt; WIDTH: 74px; CURSOR: pointer; COLOR: #000000; FONT-FAMILY: Verdana; HEIGHT: 65px; TEXT-DECORATION: none"><IMG id=rs1 style="POSITION: absolute" height=65 src="image/rs1.gif" width=74 border=0> 
+<DIV onselectstart="return dragDiv(this.parentElement);" id=boxx2 style="PADDING-LEFT: 8px; PADDING-TOP: 39px; POSITION: absolute; TEXT-ALIGN: center">Gross Misconduct </DIV></DIV></DIV></TD>
+<TD width=40>&nbsp;</TD>
+<TD style="WIDTH: 74px; HEIGHT: 65px" selectable="off">
+<DIV id=drop2 style="BACKGROUND-IMAGE: url(image/rsContainer.gif); WIDTH: 74px; HEIGHT: 65px"></DIV></TD>
+<TD class=SCROLLLight style="PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px"><a tabindex=0>Abusive language</a></TD></TR></TBODY></TABLE>
+<DIV class=instriconsm id=submit_6_3_1 style="DISPLAY: none; LEFT: 295px; TOP: 225px"><IMG style="CURSOR: hand" onclick="showAnswer(Answers, Correct, '');this.style.display = 'none';cngImageSRC();" height=18 alt="" src="../../image/buttons/submit.gif" width=53 border=0></DIV></DIV>
+					</div>
+					
+					<div class="grid7x1" id="fb0">
+						
+<DIV class=cellmedium6x7  style="BACKGROUND-IMAGE: url(image/6_3_1_1.jpg)"></DIV>
+					</div>
+					<div id="fb1" style="display: none;">
+						<div class="grid7x1">
+							
+<DIV class=cellcorrect6x1 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=21 src="../../image/icons/correct_icon.gif" width=21></DIV>
+<DIV class=SCROLLLight style="PADDING-LEFT: 30px; COLOR: white; PADDING-TOP: 8px"><B>That’s Correct</B></DIV></DIV>
+						</div>
+						<div class="grid7x2">
+							
+<DIV class=cell6x1 ><DIV class=instriconsm style="LEFT: 0px; TOP: 0px"><IMG height=44 src="../../image/icons/mouse_icon_estart.gif" width=44></DIV>
+<DIV class=SCROLLDark style="MARGIN-LEFT: 45px; MARGIN-RIGHT: 5px; PADDING-TOP: 5px"><a tabindex=0>Click on each rosette to reveal further information about each type of misconduct. </a></DIV></DIV>
+						</div>
+						<div class="grid7x3"   >
+							
+<DIV class=cell6x5  style="BACKGROUND-IMAGE: url(image/6_3_1_2.jpg)"></DIV>
+						</div>						
+					</div>
+				<div id="fb2" style="display: none;">
+						<div class="grid7x1">
+							
+<DIV class=cellincorrect6x1 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=21 src="../../image/icons/incorrect_icon.gif" width=21></DIV>
+<DIV class=SCROLLLight style="PADDING-LEFT: 30px; COLOR: white; PADDING-TOP: 8px"><B>That’s Incorrect</B></DIV></DIV>
+						</div>
+						<div class="grid7x2">
+							
+<DIV class=celldark6x1 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=44 src="../../image/icons/mouse_icon_estart.gif" width=44></DIV>
+<DIV class=SCROLLLight style="MARGIN-LEFT: 45px; MARGIN-RIGHT: 5px; PADDING-TOP: 0px">Click on each rosette to reveal further information about each type of misconduct. </DIV></DIV>
+						</div>
+						
+						<div class="grid7x3"   >
+							
+<DIV class=cell6x5  style="BACKGROUND-IMAGE: url(image/6_3_1_2.jpg)"></DIV>
+						</div>						
+						
+					</div>
+					<!-- Right Content -->
+					
+					
+
+
+						<div class="grid7x3"  id="fd1" style="display: none;">
+							
+<DIV class=cell6x5 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/feedback_icon.gif" width=22></DIV>
+<DIV class=SCROLLDark style="MARGIN-LEFT: 32px; MARGIN-RIGHT: 5px; TOP: 8px; HEIGHT: 190px"><a tabindex=0><B>Gross Misconduct</B> <BR><BR><ESTART:COMPANYNAME >ExampleCompany</ESTART:COMPANYNAME> will terminate the employment of any employee who is found guilty of gross misconduct. Anyone suspected of such an offence will be suspended without pay pending investigation. Examples of gross misconduct include: 
+<UL>
+<LI>Deliberate damage to property; 
+<LI>Threats of physical violence; 
+<LI>Fraud; 
+<LI>Gross Insubordination; 
+<LI>Working under the influence of alcohol or drugs; 
+<LI>Breaking the law; 
+<LI>Disclosing company secrets to competitors. 
+<LI><ESTART:COMPANYNAME >ExampleCompany</ESTART:COMPANYNAME> will ensure that any employee is prosecuted if their has been a clear case of criminal activity. </LI></UL></a></DIV></DIV>
+						</div>
+
+						<div class="grid7x3"  id="fd2" style="display: none;">
+							
+<DIV class=cell6x5 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/feedback_icon.gif" width=22></DIV>
+<DIV class=SCROLLDark style="MARGIN-LEFT: 32px; MARGIN-RIGHT: 52px; TOP: 8px; HEIGHT: 200px"><a tabindex=0><B>Serious Misconduct</B> <BR><BR>The following are examples offences which would normally result in a final warning or instant dismissal: 
+<UL>
+<LI>Persistent minor misconduct 
+<LI>Rudeness to clients 
+<LI>Damage to property 
+<LI>Abusive language or obscene behaviour 
+<LI>Failure to comply with safety rules 
+<LI>Bullying or discrimination of any kind </LI></UL></a></DIV>
+<DIV class=instriconsm style="LEFT: 330px; CURSOR: hand; TOP: 115px" onclick="return objNav.next();"><IMG height=44 tabindex=0 alt="Ready to move to Next Page" src="../../image/icons/ready_icon.gif" width=44></DIV></DIV>
+						</div>
+					
+
+						<div class="grid7x3"  id="fd3" style="display: none;">
+							
+<DIV class=cell6x5 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/feedback_icon.gif" width=22></DIV>
+<DIV class=SCROLLDark style="MARGIN-LEFT: 32px; MARGIN-RIGHT: 5px; TOP: 8px; HEIGHT: 190px"><a tabindex=0><B>Minor Misconduct</B> <BR><BR>Such offenses usually result in a verbal or written warning. Examples include: 
+<UL>
+<LI>Repeated poor standards 
+<LI>Poor time-keeping 
+<LI>Prolonged absence from work 
+<LI>Abuse of power over subordinates </LI></UL></a></DIV></DIV>
+						</div>
+					
+
+					
+					
+					
+					
+					
+					
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 0;
+var intPage       = 3;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body onload="setIncompleteTimeout();">
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO ><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO ><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1" id="fb0">
+						
+
+<DIV class=cell6x7  style="BACKGROUND: #93a6b7"><IMG src="image/class.jpg" alt="Classroom discussion" border=0></DIV>
+					</div>
+					<div class="grid7x1">
+						
+
+<DIV class=cellmedium6x7 ><DIV class=instriconsm style="LEFT: 358px; TOP: 5px"><IMG src="../../image/icons/feedback_icon.gif"></DIV>
+<DIV class=instriconsm style="LEFT: 335px; CURSOR: hand; TOP: 245px" onclick="return objNav.next();"><IMG height=44 alt="Ready to move to Next Page" src="../../image/icons/ready_icon.gif" width=44></DIV>
+<DIV class=SCROLLDark style="MARGIN-RIGHT: 55px; TOP: 10px; HEIGHT: 275px"><a tabindex=0>
+<P>Within a few weeks, you will receive formal health and safety induction training.<BR>&nbsp;<BR>This will provide you with the specific knowledge to allow you to:</P>
+<OL>
+<LI>Work safely and protect yourself from injury and ill health 
+<LI>Protect other people 
+<LI>Fulfil your role in achieving the company standards.</LI></OL>
+<P>Remember to always contribute to health and safety issues and obey any rules. </P>
+<P>Wilful violation of safety rules and practices will lead to potential dismissal </P></a></DIV></DIV>
+					</div>
+										
+
+					<!-- Right Content -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

@@ -1,0 +1,329 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 0;
+var intPage       = 2;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+		<script language="javascript">		
+var Correct = Array("false", "false", "false", "true");
+var Correct1 = Array("false","true");
+		</script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable=false><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable=false><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<!-- Right Content -->
+					<div class="grid1x1">
+						<div class="celldark12x1">
+<div class="instriconsm" style="top:5px;left: 5px"><img src="../../image/icons/feedback_icon.gif" width="22" height="22" border="0"></div>
+							<div class="SCROLLLight" style="margin-top:4;margin-left:35;line-height:14px"><a tabindex=0>
+								It is important to familiarise yourself with the emergency exits in your work 
+								environment, also note the assembly points listed in the event of a fire.
+							</a></div>
+						</div>
+					</div>
+					<div id="fb3">
+						<div class="grid1x2">
+							<div class="cellmedium4x6" style="padding-left:10px;padding-right:10px;">
+								
+									<div class="instriconsm" style="top:10px;left: 205px"><img src="../../image/icons/mouse_icon_estart.gif" width="44" height="44" border="0"></div>
+									
+									<div class="TextDarkNormal style="padding-top:15px;padding-right:30"><a tabindex=0>If the alarm goes off, select the 
+										action(s) you must take.</a></div>
+									<div style="padding-left:10px;padding-top:20px;">
+										<table cellpadding="7" cellspacing="0" border="0">
+											<tr>
+												<td><input type="checkbox" name="quiz1" value="a" ID="quiz1_1" tabindex="0"></td>
+												<td class="SCROLLDark"><label for="quiz1_1">Collect personal belongings from other areas</label></td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="quiz1" value="b" ID="quiz1_2" tabindex="0"></td>
+												<td class="SCROLLDark"><label for="quiz1_2">Clear your desk of combustible materials</label></td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="quiz1" value="c" ID="quiz1_3" tabindex="0"></td>
+												<td class="SCROLLDark"><label for="quiz1_3">Switch off computers and other electrical equipment</label></td>
+											</tr>
+											<tr>
+												<td><input type="checkbox" name="quiz1" value="d" ID="quiz1_4" tabindex="0"></td>
+												<td class="SCROLLDark"><label for="quiz1_4">Head for the nearest exit</label></td>
+											</tr>
+										</table>
+									</div>
+									<div class="instriconsm" style="cursor:hand;left: 197px;top:224px;"><img src="../../image/buttons/submit.gif" width="53" height="18" border="0" alt="Submit" onkeypress="showAnswer(quiz1, Correct , '', 1);" tabindex=0; onclick="showAnswer(quiz1, Correct , '', 1);"></div>
+
+								</div>
+							
+						</div>
+						<div class="grid5x2">
+							<div class="cell4x6"><IMG SRC="image/3_8_2_anim.gif" alt="Fire Alarm on wall"></div>
+						</div>
+						<div class="grid9x2">
+							<div class="cell4x6"><IMG SRC="image/3_8_2_alarm.jpg" alt="Smoke" width="256" height="248"></div>
+						</div>
+					</div>
+					<!-- Right feedback windows -->
+					<div id="fb1" style="display: none;">
+						<div class="grid1x2">
+							<div class="cellcorrect4x1">
+								<div class="instriconsm" style="top: 8px; left: 5px"><img src="../../image/icons/correct_icon.gif" WIDTH="21" HEIGHT="21"></div>
+								<div class="SCROLLLight" style="color: White;margin-top: 3px; margin-left: 30px"><a tabindex=0>
+									<b>That’s correct,</b> Go straight to the nearest marked exit point.
+								</a></div>
+							</div>
+						</div>
+						<div class="grid1x3">
+							<div class="celldark4x5">
+									<div class="instriconsm" style="top: 8px; left: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+									<div class="instriconsm" style="top:160px;left: 135px"><img src="../../image/icons/mouse_icon_estart.gif" width="44" height="44" border="0"></div>
+									
+								<div class="SCROLLLight" style="margin-top:10px;margin-left:30;"><a tabindex=0>
+
+									Do not go against the flow of people exiting the building and in no 
+									circumstances collect or clear belongings.
+								</a></div>
+								<div class="SCROLLLight" style="margin-top:10px;margin-left:30;"><a tabindex=0>
+									Remember security exits will be opened automatically, there is no need to 
+									retrieve your pass key or company ID.
+
+								</a></div>
+								<div class="instriconsm" style="top: 183px; left: 197px;cursor:hand;"><IMG SRC="../../image/buttons/next.gif" onkeypress="completed=false;showFeedback(4)" tabindex=0; onclick="completed=false;showFeedback(4)"></div>
+							</div>
+						</div>
+						<div class="grid5x2">
+							<div class="cell8x6"><IMG SRC="image/3_8_2_man.jpg" alt="Man exits building"></div>
+						</div>
+					</div>
+					<div id="fb2" style="display: none;">
+						<div class="grid1x2">
+							<div class="cellincorrect4x1">
+								<div class="instriconsm" style="top: 8px; left: 5px"><img src="../../image/icons/incorrect_icon.gif" WIDTH="21" HEIGHT="22"></div>
+								<div class="SCROLLLight" style="color: White;margin-top:3px; margin-left: 30px"><a tabindex=0>
+									<b>That’s incorrect,</b> Go straight to the nearest marked exit point.
+								</a></div>
+							</div>
+						</div>
+						<div class="grid1x3">
+							<div class="celldark4x5">
+
+									<div class="instriconsm" style="top: 8px; left: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+<div class="instriconsm" style="top:160px;left: 135px"><img src="../../image/icons/mouse_icon_estart.gif" width="44" height="44" border="0"></div>
+									
+								<div class="SCROLLLight" style="margin-top:10px;margin-left:30;"><a tabindex=0>
+									Do not go against the flow of people exiting the building and in no 
+									circumstances collect or clear belongings.
+								</a></div>
+								<div class="SCROLLLight" style="margin-top:10px;margin-left:30;"><a tabindex=0>
+									Remember security exits will be opened automatically, there is no need to 
+									retrieve your pass key or company ID.
+									
+								</a></div>
+<div class="instriconsm" style="top: 183px; left: 197px;cursor:hand;"><IMG SRC="../../image/buttons/next.gif" alt="More" onkeypress="completed=false;showFeedback(4)" tabindex=0; onclick="completed=false;showFeedback(4)"></div>
+							</div>
+						</div>
+						<div class="grid5x2">
+							<div class="cell8x6"><IMG SRC="image/3_8_2_man.jpg" alt="Man exits building"></div>
+						</div>
+					</div>
+					<!-- END OF STEP 1 -->
+					<!-- STEP 2 -->
+					<div id="fb4" style="display: none;">
+						<div class="grid1x2">
+							<div class="cellmedium4x6" style="padding-top:10px;padding-left:10px;padding-right:40px;">
+									<div class="instriconsm" style="top:5px;left: 228px"><img src="../../image/icons/question_icon.gif" width="22" height="22" border="0"></div>
+<div class="instriconsm" style="top:160px;left: 135px"><img src="../../image/icons/mouse_icon_estart.gif" width="44" height="44" border="0"></div>
+									
+									<div class="TextDarkNormal"><a tabindex=0>You go to the designated fire assembly point and wait with 
+										work colleagues.<br>
+										<br>
+										The alarm goes finally stops, do you?</a></div>
+									<div style="padding-left:20px;padding-top:20px;">
+										<table class="TextDarkNormal" cellpadding="3" cellspacing="0" border="0">
+											<tr>
+												<td valign="middle"><input type="radio" name="quiz2" value="a" ID="quiz2_1" tabindex=0></td>
+												<td><label for="quiz2_1">Return to work</label></td>
+											</tr>
+											<tr>
+												<td valign="middle"><input type="radio" name="quiz2" value="b" ID="quiz2_2" tabindex=0></td>
+												<td><label for="quiz2_2">Stay where you are</label></td>
+											</tr>
+										</table>
+									</div>
+									<div class="instriconsm" style="cursor:hand;left: 198px;top:226px;"><img src="../../image/buttons/submit.gif" width="53" height="18" border="0" alt="submit"  onkeypress="showAnswer(document.all.quiz2, Correct1 , '', 6);" tabindex=0; onclick="showAnswer(document.all.quiz2, Correct1 , '', 6);"></div>
+							</div>
+						</div>
+						<div id="fd5">
+							<div class="grid5x2">
+								<div class="cell8x6">
+								<OBJECT id="flash" codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+								height="248" width="516" type="application/x-shockwave-flash" VIEWASTEXT>
+								<PARAM NAME="Movie" VALUE="flash/3_8_2_2.swf">
+								<PARAM NAME="Src" VALUE="flash/3_8_2_2.swf">
+								<PARAM NAME="WMode" VALUE="Opaque">
+								<PARAM NAME="Play" VALUE="1">
+								<PARAM NAME="Loop" VALUE="1">
+								<PARAM NAME="Quality" VALUE="High">
+								<PARAM NAME="SAlign" VALUE="">
+								<PARAM NAME="Menu" VALUE="0">
+								<PARAM NAME="Base" VALUE="">
+								<PARAM NAME="AllowScriptAccess" VALUE="always">
+								<PARAM NAME="Scale" VALUE="ExactFit">
+								<PARAM NAME="DeviceFont" VALUE="0">
+								<PARAM NAME="EmbedMovie" VALUE="0">
+								<PARAM NAME="BGColor" VALUE="FFFFFF">
+								<PARAM NAME="SWRemote" VALUE="">
+							</OBJECT>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fb6" style="display: none;">
+						<div class="grid1x2">
+							<div class="cellcorrect4x1">
+								<div class="instriconsm" style="top: 5px; left: 5px"><img src="../../image/icons/correct_icon.gif" WIDTH="21" HEIGHT="21"></div>
+								<div class="SCROLLLight" style="color: White;margin-top:3px;padding-left:18px;padding-right:0px;"><a tabindex=0>
+									<b>That’s correct,</b> You must only leave this area if you are told to do.
+								</a></div>
+							</div>
+						</div>
+						<div class="grid1x3">
+							<div class="celldark4x5">
+							<div class="instriconsm" style="top: 8px; left: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+<div class="instriconsm" style="top:150px;left: 155px" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif" alt="Ready to move to next page" tabindex=0 width="44" height="44" border="0"></div>
+								<div class="SCROLLLight" style="margin-left:35px;margin-top:10px;height:150px"><a tabindex=0>
+									Your departmental manager or a fire warden will instruct you to return to work. 
+									The fire alarm may have been disabled rather than stopped deliberately.
+								</a></div>
+							</div>
+						</div>
+						<div class="grid5x2">
+							<div class="cell8x6">
+								<OBJECT id="Object2" codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+								height="248" width="516" type="application/x-shockwave-flash" VIEWASTEXT>
+								<PARAM NAME="Movie" VALUE="flash/3_8_2_2_correct.swf">
+								<PARAM NAME="Src" VALUE="flash/3_8_2_2_correct.swf">
+								<PARAM NAME="WMode" VALUE="Opaque">
+								<PARAM NAME="Play" VALUE="1">
+								<PARAM NAME="Loop" VALUE="1">
+								<PARAM NAME="Quality" VALUE="High">
+								<PARAM NAME="SAlign" VALUE="">
+								<PARAM NAME="Menu" VALUE="0">
+								<PARAM NAME="Base" VALUE="">
+								<PARAM NAME="AllowScriptAccess" VALUE="always">
+								<PARAM NAME="Scale" VALUE="ExactFit">
+								<PARAM NAME="DeviceFont" VALUE="0">
+								<PARAM NAME="EmbedMovie" VALUE="0">
+								<PARAM NAME="BGColor" VALUE="FFFFFF">
+								<PARAM NAME="SWRemote" VALUE="">
+							</OBJECT>
+							</div>
+						</div>
+					</div>
+					<div id="fb7" style="display: none;">
+						<div class="grid1x2">
+							<div class="cellincorrect4x1">
+								<div class="instriconsm" style="top: 5px; left: 5px"><img src="../../image/icons/incorrect_icon.gif" WIDTH="21" HEIGHT="22"></div>
+								<div class="SCROLLLight" style="color: White;margin-top:3px;padding-left:18px;padding-right:0px;"><a tabindex=0>
+									<b>Incorrect,</b> Do not leave this area unless told to do so.
+								</a></div>
+							</div>
+						</div>
+						<div class="grid1x3">
+							<div class="celldark4x5">
+							<div class="instriconsm" style="top: 8px; left: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+<div class="instriconsm" style="top:150px;left: 155px;cursor:hand;" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif"  tabindex=0  alt="Ready to move to Next Page" WIDTH="44" HEIGHT="44"></div>
+
+								<div class="SCROLLLight" style="margin-left:35px;margin-top:15px;height:150px;"><a tabindex=0>
+									Your departmental manager or a fire warden will instruct you to return to work. 
+									The fire alarm may have been disabled rather than stopped deliberately.
+				</a></div>
+							</div>
+						</div>
+						<div class="grid5x2">
+							<div class="cell8x6">
+								<OBJECT id="Object1" codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+								height="248" width="516" type="application/x-shockwave-flash" VIEWASTEXT>
+								<PARAM NAME="Movie" VALUE="flash/3_8_2_2_incorrect.swf">
+								<PARAM NAME="Src" VALUE="flash/3_8_2_2_incorrect.swf">
+								<PARAM NAME="WMode" VALUE="Opaque">
+								<PARAM NAME="Play" VALUE="1">
+								<PARAM NAME="Loop" VALUE="1">
+								<PARAM NAME="Quality" VALUE="High">
+								<PARAM NAME="SAlign" VALUE="">
+								<PARAM NAME="Menu" VALUE="0">
+								<PARAM NAME="Base" VALUE="">
+								<PARAM NAME="AllowScriptAccess" VALUE="always">
+								<PARAM NAME="Scale" VALUE="ExactFit">
+								<PARAM NAME="DeviceFont" VALUE="0">
+								<PARAM NAME="EmbedMovie" VALUE="0">
+								<PARAM NAME="BGColor" VALUE="FFFFFF">
+								<PARAM NAME="SWRemote" VALUE="">
+							</OBJECT>							
+							</div>
+						</div>
+					</div>
+					<!-- END OF STEP 2 -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

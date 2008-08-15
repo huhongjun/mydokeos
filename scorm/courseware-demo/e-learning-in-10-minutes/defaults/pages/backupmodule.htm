@@ -1,0 +1,261 @@
+<HTML><HEAD><TITLE></TITLE>
+<SCRIPT language=javascript>
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule ;
+var intSection;
+var intPage;
+//=====================================================//
+// -->
+
+//var polko
+function getArgs() {
+	var args = new Object();
+	// Get Query String
+	var query = location.search.substring(1); 
+	// Split query at the comma
+	var pairs = query.split("&"); 
+	
+	// Begin loop through the querystring
+	for(var i = 0; i < pairs.length; i++) {
+
+		// Look for "name=value"
+		var pos = pairs[i].indexOf('='); 
+		// if not found, skip to next
+		if (pos == -1) continue; 
+		// Extract the name
+		var argname = pairs[i].substring(0,pos); 
+		
+		// Extract the value
+		var value = pairs[i].substring(pos+1); 
+		// Store as a property
+		args[argname] = unescape(value); 
+	}
+	return args; // Return the Object
+}
+var qString = getArgs();
+intModule = parseInt(qString["mod"]);
+
+		</SCRIPT>
+<LINK href="../../style/layout.css" type=text/css rel=stylesheet><LINK href="../../style/grid.css" type=text/css rel=stylesheet><LINK href="../../style/cell.css" type=text/css rel=stylesheet><LINK href="../../style/content.css" type=text/css rel=stylesheet><LINK href="../../style/navigation.css" type=text/css rel=stylesheet>
+<SCRIPT language=javascript src="../../script/main.js"></SCRIPT>
+
+<SCRIPT language=VBScript> 
+on error resume next 
+Sub flash_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(command, args) end if
+end sub
+Sub flash1_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(1 & command, args) end if
+end sub
+Sub flash2_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(2 & command, args) end if
+end sub
+Sub flash3_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(3 & command, args) end if
+end sub
+Sub flash4_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(4 & command, args) end if
+end sub
+Sub flash5_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(5 & command, args) end if
+end sub
+Sub flash6_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(6 & command, args) end if
+end sub
+Sub flash7_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(7 & command, args) end if
+end sub
+Sub flash8_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(8 & command, args) end if
+end sub
+Sub flash9_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(9 & command, args) end if
+end sub
+</SCRIPT>
+
+<SCRIPT language=VBScript> 
+on error resume next 
+Sub flash_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(command, args) end if
+end sub
+Sub flash1_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(1 & command, args) end if
+end sub
+Sub flash2_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(2 & command, args) end if
+end sub
+Sub flash3_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(3 & command, args) end if
+end sub
+Sub flash4_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(4 & command, args) end if
+end sub
+Sub flash5_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(5 & command, args) end if
+end sub
+Sub flash6_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(6 & command, args) end if
+end sub
+Sub flash7_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(7 & command, args) end if
+end sub
+Sub flash8_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(8 & command, args) end if
+end sub
+Sub flash9_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(9 & command, args) end if
+end sub
+</SCRIPT>
+
+<SCRIPT language=VBScript> 
+on error resume next 
+Sub flash_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(command, args) end if
+end sub
+Sub flash1_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(1 & command, args) end if
+end sub
+Sub flash2_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(2 & command, args) end if
+end sub
+Sub flash3_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(3 & command, args) end if
+end sub
+Sub flash4_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(4 & command, args) end if
+end sub
+Sub flash5_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(5 & command, args) end if
+end sub
+Sub flash6_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(6 & command, args) end if
+end sub
+Sub flash7_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(7 & command, args) end if
+end sub
+Sub flash8_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(8 & command, args) end if
+end sub
+Sub flash9_FSCommand(ByVal command, ByVal args)
+if not isEmpty(flash_DoFSCommand) then call flash_DoFSCommand(9 & command, args) end if
+end sub
+</SCRIPT>
+
+<SCRIPT language=javascript src="../../script/nav.js"></SCRIPT>
+<!-- implement API FUNCTION -->
+<SCRIPT language=javascript src="../../script/SCOFunctions.js"></SCRIPT>
+
+<SCRIPT language=javascript src="../../script/APIWrapper.js"></SCRIPT>
+<!--END implement API FUNCTION -->
+<SCRIPT language=javascript>
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</SCRIPT>
+
+<META http-equiv=imagetoolbar content=no>
+<STYLE>
+a.linkButton{
+font-face:Verdana;
+font-size:11;
+font-weight:bold;
+padding:0px 0px 2px 10px;
+width:194;
+background:Grey;
+color:#660033;
+border-collapse:collapse;
+border-top:1px solid #003366;
+border-right:1px solid #003366;
+border-bottom:0;
+height:18px;
+}
+
+a:HOVER.linkButton{
+font-face:Verdana;
+font-size:11;
+font-weight:bold;
+text-decoration:none;
+padding:0px 0px 2px 10px;
+width:194;
+background:#E2E2E2;
+color:#993366;
+border-collapse:collapse;
+border-top:1px solid #003366;
+border-left:0;
+border-right:0;
+border-bottom:0;
+height:18px;
+}
+a.activelinkButton{
+font-face:Verdana;
+font-size:11;
+font-weight:bold;
+text-decoration:none;
+padding:0px 0px 2px 10px;
+width:194;
+background:#E2E2E2;
+color:#993366;
+border-collapse:collapse;
+border-top:1px solid #003366;
+border-left:0;
+border-right:0;
+border-bottom:0;
+height:18px;
+}
+
+.HomeNavHint{
+padding:5px 8px 0px 8px;
+font-face:Verdana;
+font-size:12;
+color: Black;
+line-height : 17px;
+}
+
+
+</STYLE>
+
+<META content="MSHTML 6.00.6000.16546" name=GENERATOR></HEAD>
+<BODY onload="setIncompleteTimeout();document.all('fb' + (intModule+1)).style.display = '';document.all('link' + (intModule)).className = 'activelinkButton';"><!-- Start Main Div (Used to position content) -->
+<DIV class=maindiv id=maindiv style="LEFT: -390px; VISIBILITY: visible; TOP: -208px"><!-- Outer Border -->
+<DIV class=outerborder>
+<DIV class=topbar>
+<TABLE id=Table1 cellSpacing=0 cellPadding=0 width=778 border=0>
+<TBODY>
+<TR>
+<TD align=left><ESTART:LOGO contentEditable=false><IMG height=19 src="../../image/logo.gif" width=104 vspace=3></ESTART:LOGO></TD>
+<TD align=right><ESTART:COMPANYLOGO contentEditable=false><IMG src="../../image/company_logo.gif"></ESTART:COMPANYLOGO></TD></TR></TBODY></TABLE><!-- Top Navigation-->
+<SCRIPT language=javascript>
+			<!--
+			writeTopMenu();
+			//-->
+					</SCRIPT>
+<!-- End of Top Navigation--></DIV><!-- Content Grid -->
+<DIV class=contentgrid style="MARGIN-LEFT: 1px"><!-- Top half with logo and picture -->
+<DIV class=grid1x1>
+<DIV class=cellmedium12x7>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+<TBODY>
+<TR>
+<TD>
+<OBJECT id=flash codeBase=http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0 type=application/x-shockwave-flash height=125 width=536 VIEWASTEXT><PARAM NAME="_cx" VALUE="5080"><PARAM NAME="_cy" VALUE="5080"><PARAM NAME="FlashVars" VALUE=""><PARAM NAME="Movie" VALUE="flash/home.swf"><PARAM NAME="Src" VALUE="flash/home.swf"><PARAM NAME="WMode" VALUE="Opaque"><PARAM NAME="Play" VALUE="-1"><PARAM NAME="Loop" VALUE="-1"><PARAM NAME="Quality" VALUE="High"><PARAM NAME="SAlign" VALUE=""><PARAM NAME="Menu" VALUE="-1"><PARAM NAME="Base" VALUE=""><PARAM NAME="AllowScriptAccess" VALUE=""><PARAM NAME="Scale" VALUE="ShowAll"><PARAM NAME="DeviceFont" VALUE="0"><PARAM NAME="EmbedMovie" VALUE="0"><PARAM NAME="BGColor" VALUE="FFFFFF"><PARAM NAME="SWRemote" VALUE=""><PARAM NAME="MovieData" VALUE=""><PARAM NAME="SeamlessTabbing" VALUE="1"><PARAM NAME="Profile" VALUE="0"><PARAM NAME="ProfileAddress" VALUE=""><PARAM NAME="ProfilePort" VALUE="0"><PARAM NAME="AllowNetworking" VALUE="all"><PARAM NAME="AllowFullScreen" VALUE="false"></OBJECT></TD>
+<TD><ESTART:WELCOMELOGO contentEditable=false><IMG height=125 src="image/welcome.jpg" width=240></ESTART:WELCOMELOGO></TD></TR></TBODY></TABLE><A class=linkButton id=link0 onmouseover=showFeedback(1) style="PADDING-TOP: 30px; HEIGHT: 82px" onclick="return objNav.goModule(0)" onmouseout="showFeedback( intModule+1)" href="#">Induction Modules &gt;</A><BR></DIV></DIV>
+<DIV id=fb0>
+<DIV class=grid4x4>
+<DIV class=cell9x4 style="BORDER-RIGHT: #003366 1px solid; BORDER-TOP: #003366 1px solid; BORDER-LEFT: 0px; BORDER-BOTTOM: #003366 1px solid">
+<DIV class=HomeNavHint></DIV></DIV></DIV></DIV><!-- Right feedback windows -->
+<DIV id=fb1 style="DISPLAY: none">
+<DIV class=grid4x4>
+<DIV class=cell9x4 style="BORDER-RIGHT: #003366 1px solid; BORDER-TOP: #003366 1px solid; BORDER-LEFT: 0px; BORDER-BOTTOM: #003366 1px solid">
+<DIV class=HomeNavHint>
+<P><STRONG>Information about the Company and Industry</STRONG><BR>Discover the bigger picture, how the company has developed and where it is <BR>heading in the future.<BR>
+<P style="MARGIN-TOP: 6px">When you see this icon it means that there is a task to do on the screen.<BR>This can be answering a question or pressing a button.<BR>When you see this icon it means that you can move on to the next page by pressing <BR>the [Next Page] button at the bottom of the screen.</P>
+<DIV class=instriconsm style="LEFT: 510px; CURSOR: hand; TOP: 110px" onclick="return objNav.next();"><IMG height=44 alt="Ready to move to Next Page" src="../../image/icons/ready_icon.gif" width=44></DIV>
+<DIV class=instriconsm style="LEFT: 510px; TOP: 60px"><IMG height=44 alt="More information on Page" src="../../image/icons/mouse_icon_estart.gif" width=44></DIV></DIV></DIV></DIV></DIV></DIV><!-- End Content Grid Div --><!-- Bottom Bar Division -->
+<DIV class=bottombar><!-- Main Navigation-->
+<SCRIPT language=javascript>
+				writeMainMenu();
+					</SCRIPT>
+<!-- End of Main Navigation--></DIV><!-- End Bottom Bar Division --></DIV><!-- End Outer Border Div --></DIV><!-- End Main Div --></BODY></HTML>

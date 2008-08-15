@@ -1,0 +1,235 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 0;
+var intPage       = 5;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css/">
+			<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+			<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+			<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+			<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+			<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+			<!-- implement API FUNCTION -->
+			<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+			<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+			<!--END implement API FUNCTION -->
+			<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+			</script>
+			<script>
+ function flashcheck(arg){
+ showFeedback(arg);
+ completed = true;
+}
+
+
+			</script>
+			<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable="false"><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable="false"><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						<div class="cell12x7" style="background:#FBF6F0">
+							<OBJECT id="flash" codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+								height="290" width="776" type="application/x-shockwave-flash" VIEWASTEXT>
+								<PARAM NAME="_cx" VALUE="15372">
+								<PARAM NAME="_cy" VALUE="7673">
+								<PARAM NAME="FlashVars" VALUE="15372">
+								<PARAM NAME="Movie" VALUE="flash/4_0_5_1.swf">
+								<PARAM NAME="Src" VALUE="flash/4_0_5_1.swf">
+								<PARAM NAME="WMode" VALUE="Transparent">
+								<PARAM NAME="Play" VALUE="1">
+								<PARAM NAME="Loop" VALUE="0">
+								<PARAM NAME="Quality" VALUE="High">
+								<PARAM NAME="SAlign" VALUE="">
+								<PARAM NAME="Menu" VALUE="0">
+								<PARAM NAME="Base" VALUE="">
+								<PARAM NAME="AllowScriptAccess" VALUE="always">
+								<PARAM NAME="Scale" VALUE="ExactFit">
+								<PARAM NAME="DeviceFont" VALUE="0">
+								<PARAM NAME="EmbedMovie" VALUE="0">
+								<PARAM NAME="BGColor" VALUE="0">
+								<PARAM NAME="SWRemote" VALUE="">
+							</OBJECT>
+						</div>
+					</div>
+					<div class="grid1x1">
+						<div class="cell12x7">
+							<div id="fb1" class="SCROLLDark" style="display: none;position:absolute;left:215px;top: 130px;">
+								<table ID="Table2" class="SCROLLDark">
+									<tr>
+										<td nowrap align="right"><b>Contact Name:</b></td>
+										<td><ESTART:HROFFICERCONTACTNAME contentEditable="false">Gill Parkinson</ESTART:HROFFICERCONTACTNAME></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Job Title:</b></td>
+										<td><ESTART:HROFFICERJOBTITLE contentEditable="false">HR Officer</ESTART:HROFFICERJOBTITLE></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Tel.:</b></td>
+										<td><ESTART:HROFFICERTEL contentEditable="false">020 7292 24XX</ESTART:HROFFICERTEL></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Email:</b></td>
+										<td><ESTART:HROFFICEREMAIL contentEditable="false"><a href="mailto:Gill.Parkinson@acme.com"  class="Link">Gill.Parkinson@acme.com</a></ESTART:HROFFICEREMAIL></td>
+									</tr>
+								</table>
+							</div>
+							<div id="fb2" class="SCROLLDark" style="display: none;position:absolute;left:215px;top: 130px;">
+								<table ID="Table3" class="SCROLLDark">
+									<tr>
+										<td nowrap align="right"><b>Contact Name:</b></td>
+										<td><ESTART:OFFICERMANAGERCONTACTNAME contentEditable="false">Michelle Smith</ESTART:OFFICERMANAGERCONTACTNAME></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Job Title:</b></td>
+										<td><ESTART:OFFICERMANAGERJOBTITLE contentEditable="false">Office Manager</ESTART:OFFICERMANAGERJOBTITLE></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Tel.:</b></td>
+										<td><ESTART:OFFICERMANAGERTEL contentEditable="false">020 7292 244X</ESTART:OFFICERMANAGERTEL></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Email:</b></td>
+										<td><ESTART:OFFICERMANAGEREMAIL contentEditable="false"><a href="mailto:mdriscoll@acme.com" class="Link">mdriscoll@acme.com</a></ESTART:OFFICERMANAGEREMAIL></td>
+									</tr>
+								</table>
+							</div>
+							<div id="fb3" class="SCROLLDark" style="display: none;position:absolute;left:215px;top: 130px;">
+								<table ID="Table4" class="SCROLLDark">
+									<tr>
+										<td nowrap align="right"><b>Contact Name:</b></td>
+										<td><ESTART:RECEPTIONISTCONTACTNAME contentEditable="false">Debbie Strong</ESTART:RECEPTIONISTCONTACTNAME></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Job Title:</b></td>
+										<td><ESTART:RECEPTIONISTJOBTITLE contentEditable="false">Receptionist</ESTART:RECEPTIONISTJOBTITLE></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Tel.:</b></td>
+										<td><ESTART:RECEPTIONISTTEL contentEditable="false">020 7292 240X</ESTART:RECEPTIONISTTEL></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Email:</b></td>
+										<td><ESTART:RECEPTIONISTEMAIL contentEditable="false"><a href="mailto:dsmart@acme.com" class="Link">dsmart@acme.com</a></ESTART:RECEPTIONISTEMAIL></td>
+									</tr>
+								</table>
+							</div>
+							<div id="fb4" class="SCROLLDark" style="display: none;position:absolute;left:215px;top: 130px;">
+								<table ID="Table5" class="SCROLLDark">
+									<tr>
+										<td nowrap align="right"><b>Contact Name:</b></td>
+										<td><ESTART:HEALTHANDSAFETYCONTACTNAME contentEditable="false">Sarah Hazard</ESTART:HEALTHANDSAFETYCONTACTNAME></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Job Title:</b></td>
+										<td><ESTART:HEALTHANDSAFETYJOBTITLE contentEditable="false">Health & Safety</ESTART:HEALTHANDSAFETYJOBTITLE>
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><b>Tel.:</b></td>
+										<td><ESTART:HEALTHANDSAFETYTEL contentEditable="false">020 7292 2X11</ESTART:HEALTHANDSAFETYTEL></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Email:</b></td>
+										<td><ESTART:HEALTHANDSAFETYEMAIL contentEditable="false"><a href="mailto:sahmed@acme.com" class="Link">sahmed@acme.com</a></ESTART:HEALTHANDSAFETYEMAIL></td>
+									</tr>
+								</table>
+							</div>
+							<div id="fb5" class="SCROLLDark" style="display: none;position:absolute;left:215px;top: 130px;">
+								<table ID="Table6" class="SCROLLDark">
+									<tr>
+										<td nowrap align="right"><b>Contact Name:</b></td>
+										<td><ESTART:ITSUPPORTCONTACTNAME contentEditable="false">Simon Spencer</ESTART:ITSUPPORTCONTACTNAME></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Job Title:</b></td>
+										<td><ESTART:ITSUPPORTJOBTITLE contentEditable="false">IT Support</ESTART:ITSUPPORTJOBTITLE>
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><b>Tel.:</b></td>
+										<td><ESTART:ITSUPPORTTEL contentEditable="false">020 7292 24X1</ESTART:ITSUPPORTTEL></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Email:</b></td>
+										<td><ESTART:ITSUPPORTEMAIL contentEditable="false"><a href="mailto:sahmed@acme.com" class="Link">sahmed@acme.com</a></ESTART:ITSUPPORTEMAIL></td>
+									</tr>
+								</table>
+							</div>
+							<div id="fb6" class="SCROLLDark" style="display: none;position:absolute;left:215px;top: 130px;">
+								<table ID="Table7" class="SCROLLDark">
+									<tr>
+										<td nowrap align="right"><b>Contact Name:</b></td>
+										<td><ESTART:FINANCECONTACTNAME contentEditable="false">Mick Docker</ESTART:FINANCECONTACTNAME></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Job Title:</b></td>
+										<td><ESTART:FINANCEJOBTITLE contentEditable="false">Finance</ESTART:FINANCEJOBTITLE>
+										</td>
+									</tr>
+									<tr>
+										<td align="right"><b>Tel.:</b></td>
+										<td><ESTART:FINANCETEL contentEditable="false">020 7292 24X4</ESTART:FINANCETEL></td>
+									</tr>
+									<tr>
+										<td align="right"><b>Email:</b></td>
+										<td><ESTART:FINANCEEMAIL contentEditable="false"><a href="mailto:mharrigan@acme.com" class="Link">mharrigan@acme.com</a></ESTART:FINANCEEMAIL></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="instriconsm" style="LEFT: 225px; TOP: 10px"><img src="../../image/icons/mouse_icon_estart.gif" WIDTH="44" HEIGHT="44"></div>
+					<div class="instriconsm" style="LEFT: 695px; TOP: 220px;cursor:hand;" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif"  alt="Ready to move to Next Page" WIDTH="44" HEIGHT="44"></div>
+					<!--END Feedback Incorrect -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

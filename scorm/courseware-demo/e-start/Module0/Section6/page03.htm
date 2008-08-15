@@ -1,0 +1,204 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 6	;
+var intSection    = 1;
+var intPage       = 1;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable=false><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable=false><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid3x1">
+						<div class="celldark10x1">
+							<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="SCROLLLight" style="margin-left:35px;padding-top:4"><a tabindex=0>
+This section demonstrates classic signs of sexual harassment, press [More...] for examples of how not to behave:
+							</a></div>
+						</div>
+					</div>
+					<div class="grid1x1">
+						<div class="cellmedium2x7">
+							<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="SCROLLDark" style="margin-right:0px;padding-top:10;text-indent:20px;"><a tabindex=0>
+								The Company is committed to a working environment free from harassment and 
+								intimidation. Harassment under the Sex Discrimination Act 1975 and is not 
+								tolerated.
+							</a></div>
+						</div>
+					</div>
+					<div id="fb1">
+						<div class="grid3x2">
+							<div class="cell6x6"><IMG SRC="image/6_1_1_1.jpg" alt="Lecherous behaviour, man with hand on shoulder of female employee" border="0" width="386" height="248"></div>
+						</div>
+						<div class="grid9x2">
+							<div class="cell4x6">
+								<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+<div class="instriconsm" style="LEFT: 140px; TOP: 200px"><img src="../../image/icons/mouse_icon.gif" WIDTH="44" HEIGHT="44"></div>
+							<div class="SCROLLDark" style="height:190px;margin-right:5px;top:29"><a tabindex=0>
+								Physical harassment - this involves unsolicited physical conduct ranging from patting, pinching or unnecessarily touching another employee's body;
+								</a></div>
+							<div class="instriconsm" style="top: 224px; left: 197px"><img src="../../image/buttons/next.gif" width="53" height="19" tabindex=0 alt="More" border="0" onclick="showFeedback(2)"; onkeypress="showFeedback(2)"
+										style="cursor: hand"></div>
+												
+								
+							</div>
+						</div>
+					</div>
+					
+					
+					<div id="fb2" style="display: none;">
+						<div class="grid3x2">
+							<div class="cell6x6"><IMG SRC="image/6_1_1_2.jpg" alt="Man invading personal space of employee, threatening behaviour" border="0" width="386" height="248"></div>
+						</div>
+						<div class="grid9x2">
+							<div class="cell4x6">
+								<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+								<div class="SCROLLDark" style="height:190px;margin-right:5px;top:29"><a tabindex=0>
+								Verbal harassment - includes offensive language, sexually orientated jokes and comments. or repeated unwelcome invitations.
+								</a></div>
+								<div class="instriconsm" style="top: 224px; left: 6px"><img src="../../image/buttons/back.gif" width="53" height="19" tabindex=0  alt="Back" border="0" onclick="showFeedback(1);"
+										style="cursor: hand"></div>
+								<div class="instriconsm" style="top: 224px; left: 197px"><img src="../../image/buttons/next.gif" width="53" height="19" tabindex=0 alt="More" border="0" onclick="showFeedback(3)"; onkeypress="showFeedback(3)"
+										style="cursor: hand"></div>
+								
+<div class="instriconsm" style="LEFT: 140px; TOP: 200px"><img src="../../image/icons/mouse_icon.gif" WIDTH="44" HEIGHT="44"></div>
+							</div>
+						</div>
+					</div>
+					
+					
+						<div id="fb3" style="display: none;">
+						<div class="grid3x2">
+							<div class="cell6x6"><IMG SRC="image/6_1_1_3.jpg" alt="Domineering body language" border="0" width="386" height="248"></div>
+						</div>
+						<div class="grid9x2">
+							<div class="cell4x6">
+								<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+								<div class="SCROLLDark" style="height:190px;margin-right:5px;top:29"><a tabindex=0>
+								Non-verbal conduct of a sexual nature - includes the display pictures, objects or written materials which display men and woman as sexual objects; also includes the leering, whistling or making crude gestures.
+								</a></div>
+								<div class="instriconsm" style="top: 224px; left: 6px"><img src="../../image/buttons/back.gif" width="53" height="19" tabindex=0 alt="Back" border="0" onclick="showFeedback(2)"; onkeypress="showFeedback(2)"
+										style="cursor: hand"></div>
+								<div class="instriconsm" style="top: 224px; left: 197px"><img src="../../image/buttons/next.gif" width="53" height="19" tabindex=0 alt="More" border="0" onclick="showFeedback(4)"; onkeypress="showFeedback(4)"
+										style="cursor: hand"></div>
+								
+<div class="instriconsm" style="LEFT: 140px; TOP: 200px"><img src="../../image/icons/mouse_icon.gif" WIDTH="44" HEIGHT="44"></div>
+							</div>
+						</div>
+					</div>
+					
+										
+						<div id="fb4" style="display: none;">
+						<div class="grid3x2">
+							<div class="cell6x6"><IMG SRC="image/6_1_1_4.jpg" alt="Argressive pointing to subordinate" border="0" width="386" height="248"></div>
+						</div>
+						<div class="grid9x2">
+							<div class="cell4x6">
+								<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+								<div class="SCROLLDark" style="height:190px;margin-right:5px;top:29"><a tabindex=0>
+Threatening harassment – this harassment usually occurs between a manager and a subordinate.  A reward or sexual favour is demanded or implied, and a failure to comply results in negative consequences for the subordinate.
+								</a></div>
+								<div class="instriconsm" style="top: 224px; left: 6px"><img src="../../image/buttons/back.gif" width="53" height="19" tabindex=0 alt="Back" border="0" onclick="showFeedback(3)"; onkeypress="showFeedback(3)"
+										style="cursor: hand"></div>
+								<div class="instriconsm" style="top: 224px; left: 197px"><img src="../../image/buttons/next.gif" width="53" height="19" tabindex=0 alt="More" border="0" onclick="showFeedback(5);completed = true"; onkeypress="showFeedback(5);completed = true"
+										style="cursor: hand"></div>
+								
+<div class="instriconsm" style="LEFT: 140px; TOP: 200px"><img src="../../image/icons/mouse_icon.gif" WIDTH="44" HEIGHT="44"></div>
+							</div>
+						</div>
+					</div>
+					
+					
+						<div id="fb5" style="display: none;">
+						<div class="grid3x2">
+							<div class="cell10x6">
+								<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+								<div class="SCROLLDark" style="height:190px;margin-right:5px;top:5;margin-left:35px;"><a tabindex=0>
+
+Every employee at <ESTART:COMPANYNAME contentEditable=false>ExampleCompany</ESTART:COMPANYNAME> is responsible for identifying&nbsp;the behaviour outlined in order to maintain a harassment-free working environment. In particular if you are responsible for other employees you must ensure that:
+<ul>
+<li>You are aware of, and understand the company's policy in relation to sexual harassment and equal opportunities;</li>
+<li>Your office is free of visual harassment;</li>
+<li>You tackle physical and verbal harassment as soon as it is identified;</li>
+<li>You are sympathetic and supportive of any individual who states that they have been harassed;</li>
+<li>You treat sexual harassment cases with complete confidentiality;</li>
+<li>You ensure that the harassment is immediately stopped..</li>
+</ul>
+								</a></div>
+								<div class="instriconsm" style="top: 224px; left: 6px"><img src="../../image/buttons/back.gif" width="53" height="19" tabindex=0 alt="Back" border="0" onclick="showFeedback(4)"; onkeypress="showFeedback(4)"
+										style="cursor: hand"></div>
+								
+<div class="instriconsm" style="LEFT: 540px; TOP: 200px;cursor:hand;" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif" tabindex=0 alt="Ready to move to Next Page" WIDTH="44" HEIGHT="44"></div>
+							</div>
+						</div>
+					</div>					
+					
+					
+					
+					
+					
+					<!-- Right Content -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

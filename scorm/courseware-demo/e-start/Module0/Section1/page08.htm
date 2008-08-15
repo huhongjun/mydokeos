@@ -1,0 +1,183 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 0;
+var intPage       = 8;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable=false><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable=false><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						<div class="cellmedium3x7" style="padding-TOP: 8px">
+							<div class="instriconsm" style="LEFT: 10px; TOP: 10px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="instriconsm" style="LEFT: 90px; TOP: 170px"><img src="../../image/icons/mouse_icon_estart.gif" WIDTH="44" HEIGHT="44"></div>
+							<div class="TextDarkNormal" style="margin-left:42px;margin-top:0px;"><a tabindex=0>Other reasons for absence are 
+									listed below:</a></div>
+							<div class="TextDarkNormal" style="margin-left:10px;margin-top:30px;">
+							<li ><a style="line-height:20px;"  href="" onkeypress="showFeedback(1);completed = true;return false;" tabindex=0; onclick="showFeedback(1);completed = true;return false;" class="Link" HIDEFOCUS="true">Jury Service</a>
+							<li ><a style="line-height:20px;" href="" onkeypress="showFeedback(2);completed = true;return false;" tabindex=0; onclick="showFeedback(2);completed = true;return false;" class="Link" HIDEFOCUS="true">Maternity Leave</a>
+							<li ><a style="line-height:20px;" href="" onkeypress="showFeedback(3);completed = true;return false;" tabindex=0; onclick="showFeedback(3);completed = true;return false;" class="Link" HIDEFOCUS="true">Paternity Leave</a>
+							<li ><a style="line-height:20px;"  href="" onkeypress="showFeedback(4);completed = true;return false;" tabindex=0; onclick="showFeedback(4);completed = true;return false;" class="Link" HIDEFOCUS="true">Parental Leave</a>
+						</div>
+						</div>
+					</div>
+					<div id="fb0" class="grid4x1">
+						<div class="cell9x7"><IMG SRC="image/1_8_1.jpg" tabindex=0 alt="Empty work chair" border="0" height="290" width=581"></div>
+					</div>
+					<!--Feedback 1-->
+					<div id="fb1" style="display: none;">
+						<div class="grid4x1">
+							<div class="cell5x7" style="padding-right: 10px; padding-TOP: 10px;">
+							<div class="instriconsm" style="LEFT: 293px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>							
+								<div class="SCROLLdark" style="height:270px;"><a tabindex=0><b>Jury 
+										Service</b><br>
+									<br>
+									If you are required to serve on jury duty or a similar activity you should 
+									advise your direct line manager as soon as possible in writing.<br>
+									During this time you will receive an amount equivalent to your adjusted gross 
+									salary, taking into account any compensation you may receive directly for 
+									performing this service.<br>
+									In some circumstances it may not be possible for you to attend jury duty due to 
+									client or business needs. If this is the case, you should speak to a member of 
+									the Human Resources department who will write to support an application for 
+									jury service to be deferred.
+								</a></div>
+							</div>
+						</div>
+						<div class="grid9x1">
+							<div class="cell4x7"><IMG SRC="image/1_8_2.jpg" tabindex=0 alt="Jury in court" border="0" width="256" height="290"></div>
+						</div>
+					</div>
+					<!--End Feedback 1-->
+					<!--Feedback 2-->
+					<div id="fb2" style="display: none;">
+						<div class="grid4x1">
+							<div class="cell5x7" <div class="cell6x7">
+<div class="instriconsm" style="LEFT: 293px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>														
+								<div class="TextDarkNormal" style="margin-LEFT: 10px;margin-right: 10px; margin-TOP: 10px">
+									<a tabindex=0><b>Maternity Leave</b><br>
+									<br>
+									Please contact HR for further details on the Company Maternity policy.</a>
+								</div>
+							</div>
+						</div>
+						<div class="grid9x1">
+							<div class="cell4x7"><IMG SRC="image/1_8_3.jpg" tabindex=0 alt="Loving mother with baby" border="0" width="256" height="290"></div>
+						</div>
+					</div>
+					<!--End Feedback 2-->
+					<!--Feedback 3-->
+					<div id="fb3" style="display: none;">
+						<div class="grid4x1">
+							<div class="cell5x7" <div class="cell6x7">
+<div class="instriconsm" style="LEFT: 293px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>							
+								<div class="TextDarkNormal" style="margin-LEFT: 10px;margin-right: 10px; margin-TOP: 10px">
+									<a tabindex=0><b>Paternity Leave</b><br>
+									<br>
+									In line with the company's maternity leave policy; employees who become fathers 
+									are permitted to take <ESTART:PATERNITYLEAVE contentEditable=false>5 days</ESTART:PATERNITYLEAVE> paternity leave with no service qualifications 
+									necessary. In the case of multiple births <ESTART:PATERNITYLEAVE contentEditable=false>5 days</ESTART:PATERNITYLEAVE> is still the maximum paid 
+									paternity leave offered Paternity leave should be taken within the first two 
+									months of the baby's birth or adoption. As with maternity leave, new fathers 
+									will need to provide a medical certificate confirming the birth or details of 
+									adoption.</a>
+								</div>
+							</div>
+						</div>
+						<div class="grid9x1">
+							<div class="cell4x7"><IMG SRC="image/1_8_4.jpg" tabindex=0 alt="Suited father with baby" border="0" width="256" height="290"></div>
+						</div>
+					</div>
+					<!--End Feedback 3-->
+					<!--Feedback 4-->
+					<div id="fb4" style="display: none;">
+						<div class="grid4x1">
+							<div class="cell5x7">
+<div class="instriconsm" style="LEFT: 293px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>							
+								<div class="TextDarkNormal" style="margin-LEFT: 10px;margin-right: 50px; margin-TOP: 20px;">
+									<a tabindex=0><b>Parental Leave</b><br>
+									<br>
+									In line with the Parental Leave Directive, all employees with more than one 
+									year's service have the right to take up to three months unpaid leave within 
+									the first five years of the birth or adoption of a child. This applies to 
+									parents of children born after 15th December 1999 only. Employees who wish to 
+									request Parental Leave should discuss where possible, appropriate time periods 
+									to ensure client and business needs will continue to be met.
+									<br>
+									<br>
+									If you require further information in relation to Parental leave please contact 
+									a member of Human Resources.</a></div>
+<div class="instriconsm" style="LEFT: 275px; TOP: 230px;cursor:hand;" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif" tabindex=0 alt="Ready to move to Next Page" WIDTH="44" HEIGHT="44"></div>
+							</div>
+						</div>
+						<div class="grid9x1">
+							<div class="cell4x7"><IMG SRC="image/1_8_5.jpg" border="0" tabindex=0 alt="Happy parents" width="256" height="290"></div>
+						</div>
+					</div>
+					<!--End Feedback 4-->
+					<!-- Right Content -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

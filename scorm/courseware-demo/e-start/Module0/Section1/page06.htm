@@ -1,0 +1,138 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 0;
+var intPage       = 6;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable=false><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable=false><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						<div class="cell3x3" ><IMG SRC="image/1_6_2.jpg" alt="Bad news" border=0></div>
+					</div>
+					<div class="grid4x1">
+						<div class="celldark9x3">
+							<div class="instriconsm" style="LEFT: 5px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="TextLightBold" style="margin-left:35px;margin-top:8px;"><a tabindex=0>Compassionate 
+									Leave</a></div>
+							<div class="TextLightNormal" style="margin-top:5px;padding-left:10px;">
+								<a tabindex=0><ESTART:COMPANYNAME contentEditable=false>ExampleCompany</ESTART:COMPANYNAME> is a sympathetic employer and special leave may be granted to make 
+								arrangements for personal situations or family illness. The amount of time away 
+								from work needed should be discussed, where possible, in advance with your 
+								direct line manager.</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid1x4">
+						<div class="cell9x4" style="padding-top:5px;padding-left:10px;">
+							<div class="TextDarkBold" style="margin-top:5px;">
+								<a tabindex=0>Bereavement Leave</a><br>
+							</div>
+							<div class="TextDarkNormal" style="margin-top:8px;margin-left:40">
+								<a tabindex=0>In case of a bereavement leave is granted as outlined below and is subject to 
+								change depending on each individual case:
+							<p style="margin-top:8px;">
+								Select below to find out policy on bereavement and compassionate leave. The 
+								time away form work may be extended depending on the circumstances. Each 
+								request will be dealt with sympathetically.
+								</p></a>					
+<li ><a href="" onkeypress="showFeedback(1);completed=true;return false;" tabindex=0; onclick="showFeedback(1);completed=true;return false;" class="Link" HIDEFOCUS="true" > Immediate Family</a>
+<li ><a href="" onkeypress="showFeedback(2);completed=true;return false;" tabindex=0; onclick="showFeedback(2);completed=true;return false;" class="Link" HIDEFOCUS="true"> Relative</a>
+							</div>
+<div class="instriconsm" style="LEFT: 2px; TOP: 115px"><img src="../../image/icons/mouse_icon_estart.gif" WIDTH="44" HEIGHT="44"></div>
+						</div>
+					</div>
+					<div id="fb0" class="grid10x4">
+						<div class="cell3x4" ><IMG SRC="image/1_6_1.jpg" alt="Flower on lake" border=0></div>
+					</div>
+					<div id="fb1" class="grid10x4" style="display: none">
+						<div class="cellmedium3x4">
+							<div class="instriconsm" style="LEFT: 163px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="TextDarkNormal" style="margin-LEFT: 10px;margin-right: 25px; margin-TOP: 10px">
+								<a tabindex=0>• Immediate Family-Up to <ESTART:IMMEDIATEFAMILLYBREAVEMENTLEAVE contentEditable=false>5 days</ESTART:IMMEDIATEFAMILLYBREAVEMENTLEAVE> bereavement leave, to include attending the 
+								funeral.</a>
+								<br>
+								<br>
+								<a tabindex=0>• Immediate Family includes Parent, Spouse, Partner, Child, Sibling</a>
+							</div>
+						</div>
+					</div>
+					<div id="fb2" class="grid10x4" style="display: none">
+						<div class="cellmedium3x4">
+							<div class="instriconsm" style="LEFT: 163px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="TextDarkNormal" style="margin-LEFT: 10px;margin-right: 35px; margin-TOP: 10px">
+								<a tabindex=0>• Relative - Up to <ESTART:RELATIVEBREAVEMENTLEAVE contentEditable=false>2<br>days</ESTART:RELATIVEBREAVEMENTLEAVE> to include attending the funeral
+								<br>
+								<br>
+								• Relatives includes Grandparent, Uncle, Aunt, First Cousin, Nephew, Niece, God 
+								Children</a>
+							</div>
+							<div class="instriconsm" style="LEFT: 141px; TOP: 118px;cursor:hand;" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif" tabindex=0 alt="Ready to move to Next Page" WIDTH="44" HEIGHT="44"></div>
+						</div>
+					</div>
+					<!-- Right Content -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>
