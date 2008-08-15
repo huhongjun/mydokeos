@@ -1,0 +1,48 @@
+BODY
+{
+font-size:9pt;font-family:Microsoft Sans Serif;color:#000000;
+}
+.TextLightBold
+{
+font-size:9pt;font-family:verdana;font-weight:bold;font-style:italic;color:White;overflow:auto;position:relative;
+}
+.TextLightBoldSmall
+{
+font-size:8pt;font-family:verdana, arial, helvetica;font-weight:bold;color:White;overflow:auto;position:relative;
+}
+.TextLightNormal
+{
+font-size:9pt;font-family:verdana, arial, helvetica;color:White;overflow:auto;position:relative;
+}
+.TextLightNormalSmall
+{
+font-size:8pt;font-family:verdana;color:White;overflow:auto;position:relative;
+}
+.TextDarkNormal
+{
+font-size:9pt;font-family:verdana, arial, helvetica;color:Black;overflow:auto;position:relative;margin-left:10px;margin-right:10px;
+}
+.TextDarkNormalSmall
+{
+font-size:8pt;font-family:verdana, arial, helvetica;color:Black;overflow:auto;position:relative;margin-left:10px;margin-right:10px;
+}
+.instriconsm
+{
+font-size:8pt;font-family:verdana, arial, helvetica;color:Black;position:absolute;top:21px;left:5px;
+}
+.SCROLLLight
+{
+font-size:9pt;font-family:verdana, arial, helvetica;color:white;overflow:auto;position:relative;margin-left:10px;scrollbar-face-color:#ffffff;scrollbar-highlight-color:#E2E2E2;scrollbar-shadow-color:#4494D2;scrollbar-3dlight-color:#4494D2;scrollbar-arrow-color:#4494D2;scrollbar-track-color:#ffffff;scrollbar-darkshadow-color:#E2E2E2;scrollbar-base-color:auto;border:0px solid black;
+}
+.SCROLLDark
+{
+font-size:9pt;font-family:verdana, arial, helvetica;color:Black;overflow:auto;position:relative;margin-left:10px;scrollbar-face-color:#ffffff;scrollbar-highlight-color:#E2E2E2;scrollbar-shadow-color:#4494D2;scrollbar-3dlight-color:#4494D2;scrollbar-arrow-color:#4494D2;scrollbar-track-color:#ffffff;scrollbar-darkshadow-color:#E2E2E2;scrollbar-base-color:auto;border:0px solid black;
+}
+a.Link
+{
+font-size:9pt;font-family:verdana, arial, helvetica;color:#0E74BA;text-decoration:underline;
+}
+a:HOVER.Link
+{
+font-size:9pt;font-family:verdana, arial, helvetica;color:#993366;text-decoration:underline;
+}

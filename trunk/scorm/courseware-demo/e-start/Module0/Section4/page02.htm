@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 0;
+var intPage       = 2;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO ><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO ><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						
+<DIV class=celldark6x3 ><DIV class=instriconsm style="LEFT: 358px; TOP: 5px"><IMG src="../../image/icons/feedback_icon.gif"></DIV>
+<DIV class=SCROLLLight style="MARGIN-LEFT: 8px; LINE-HEIGHT: 15px; MARGIN-RIGHT: 10px; PADDING-TOP: 8px"><A  style="WIDTH: 348px; HEIGHT: 79px" tabIndex=0><ESTART:COMPANYNAME >ExampleCompany</ESTART:COMPANYNAME> offers its employees extensive training materials covering all of company’s main business areas. 
+<P>Content is available within standard training materials or the company intranet. </P></A></DIV></DIV>
+					</div>
+
+<div class="grid1x4">
+						
+<DIV class=cellmedium6x4 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=44 src="../../image/icons/mouse_icon_estart.gif" width=44></DIV>
+<DIV class=SCROLLDark style="MARGIN-LEFT: 55px; LINE-HEIGHT: 15px; MARGIN-RIGHT: 10px; PADDING-TOP: 8px"><A  tabIndex=0>Click to find out further information: </A>
+<UL>
+<LI><A class=Link onkeypress="showFeedback(1);completed = true;return false;" hideFocus  style="LINE-HEIGHT: 20px" onclick="showFeedback(1);return false;" tabIndex=0 href="">Company Library</A> 
+<LI><A class=Link onkeypress="showFeedback(2);completed = true;return false;" hideFocus  style="LINE-HEIGHT: 20px" onclick="showFeedback(2);completed = true;return false;" tabIndex=0 href="">Intranet</A> </LI></UL></DIV></DIV>
+</div>
+					
+					<div class="grid7x1" id="fb0">
+						
+<DIV class=cell6x7><IMG src="image/7_0_2_2.jpg" tabindex=0 alt="Employees carrying out e-learning" border=0></DIV>
+					</div>
+					<!--Feedback 1-->
+					<div id="fb1" style="display: none;">
+						<div class="grid7x1">
+							
+<DIV class=cell6x7 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/feedback_icon.gif" width=22></DIV>
+<DIV class=SCROLLDark style="MARGIN-LEFT: 30px; WIDTH: 350px; TOP: 8px; HEIGHT: 275px"><a tabindex=0>Manuals and other supporting documentation are available from the HR department or locally through your line manager. 
+<P>If you cannot get access to the information you need, contact your line manager with justification for the training need. If the need is valid the training materials shall be purchased. </P></a></DIV></DIV>
+						</div>
+					</div>
+					<!--End Feedback 1-->
+					<!--Feedback 2-->
+					<div id="fb2" style="display: none;">
+						<div class="grid7x1">
+							
+<DIV class=cell6x7 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/feedback_icon.gif" width=22></DIV>
+<DIV class=SCROLLDark style="MARGIN-LEFT: 30px; WIDTH: 350px; TOP: 8px; HEIGHT: 230px"><a tabindex=0>e-Learning plays a significant role in the development of <ESTART:COMPANYNAME >ExampleCompany</ESTART:COMPANYNAME>’s staff. This induction program should be regularly revisited to check on company policy and procedures. 
+<P>The content contained herein is regularly updated to reflect the current company thinking. </P></a></DIV>
+<DIV class=instriconsm style="LEFT: 295px; CURSOR: hand; TOP: 245px" onclick="return objNav.next();"><IMG height=44 alt="Ready to move to Next Page" tabindex=0 src="../../image/icons/ready_icon.gif" width=44></DIV></DIV>
+						</div>
+					</div>
+					<!--End Feedback 2-->
+					<!-- Right Content -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

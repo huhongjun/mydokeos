@@ -1,0 +1,161 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 0;
+var intPage       = 9;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO ><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO ><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						
+<DIV class=celldark7x2  style="PADDING-TOP: 2px"><DIV class=instriconsm style="LEFT: 425px; TOP: 3px"><IMG src="../../image/icons/feedback_icon.gif"></DIV>
+<DIV class=TextlightNormal style="PADDING-RIGHT: 17px; MARGIN-LEFT: 5px; LINE-HEIGHT: 15px"><a tabindex=0>Whilst <ESTART:COMPANYNAME >ExampleCompany</ESTART:COMPANYNAME> in no way wishes to prejudice the genuinely sick employee, continual non-attendance will be questioned, investigated and may be dealt with through disciplinary procedures. These disciplinary stages are similarly used to deal with any perceived misconduct from an employee.</a></DIV></DIV>
+					</div>
+					<div class="grid1x3">
+						
+<DIV class=cell7x5 ><IMG height=206 src="image/1_9_1.jpg" width=451 alt="Man descending stairs towards dismissal"></DIV>
+					</div>
+					<!--Feedback 0-->
+					<div id="fb0" class="grid8x1">
+						
+<DIV class=cellmedium5x7  style="PADDING-TOP: 10px"><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/feedback_icon.gif" width=22></DIV>
+<DIV class=instriconsm style="LEFT: 185px; TOP: 235px"><IMG height=44 src="../../image/icons/mouse_icon.gif" width=44></DIV>
+<DIV class=SCROLLDark style="PADDING-RIGHT: 0px; MARGIN-TOP: 0px; PADDING-LEFT: 20px; HEIGHT: 225px"><a tabindex=0><B>Informal</B> <BR><BR>In situations where an employee's sickness record is giving some cause for concern, then the employee's line manager will discuss those concerns with the employee, providing support and counselling where appropriate. </a></DIV>
+<DIV class=instriconsm style="LEFT: 257px; CURSOR: hand; TOP: 265px"><IMG onkeypress=showFeedback(1) tabindex=0; onclick=showFeedback(1) src="../../image/buttons/next.gif"></DIV></DIV>
+					</div>
+					<!--End Feedback 0-->
+					<!--Feedback 1-->
+					<div id="fb1" style="display: none;">
+						<div class="grid1x3">
+							
+<DIV class=cell7x5 ><IMG height=206 src="image/1_9_2.jpg" width=451 alt="Man continues descending stairs towards dismissal"></DIV>
+						</div>
+						<div class="grid8x1">
+							
+<DIV class=cellmedium5x7  style="PADDING-TOP: 10px"><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/feedback_icon.gif" width=22></DIV>
+<DIV class=instriconsm style="LEFT: 185px; TOP: 235px"><IMG height=44 src="../../image/icons/mouse_icon.gif" width=44></DIV>
+<DIV class=SCROLLDark style="PADDING-RIGHT: 10px; MARGIN-TOP: 0px; MARGIN-LEFT: 30px; HEIGHT: 225px"><a tabindex=0><B>Formal</B> <BR><BR>If there is no obvious improvement in the health of the employee then the line manager would arrange for the employee to meet with them and would 'formally' review the employees case. At this formal stage the employee must be offered the opportunity for appropriate representation. The outcome of this meeting will be documented and a copy will be issued to the employee and where appropriate notice will be given if their level of absence is unacceptable and a period of time to improve. </a></DIV>
+<DIV class=instriconsm style="LEFT: 28px; CURSOR: hand; TOP: 265px"><IMG onkeypress=showFeedback(0) tabindex=0; onclick=showFeedback(0) src="../../image/buttons/back.gif"></DIV>
+<DIV class=instriconsm style="LEFT: 257px; CURSOR: hand; TOP: 265px"><IMG onkeypress=showFeedback(2) tabindex=0; onclick=showFeedback(2) src="../../image/buttons/next.gif"></DIV></DIV>
+						</div>
+					</div>
+					<!--End Feedback 1-->
+					<!--Feedback 2-->
+					<div id="fb2" style="display: none;">
+						<div class="grid1x3">
+							
+<DIV class=cell7x5 ><IMG height=206 src="image/1_9_3.jpg" alt="Man continues descending stairs towards dismissal" width=451></DIV>
+						</div>
+						<div class="grid8x1">
+							
+<DIV class=cellmedium5x7  style="PADDING-TOP: 10px"><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/feedback_icon.gif" width=22></DIV>
+<DIV class=instriconsm style="LEFT: 185px; TOP: 235px"><IMG height=44 src="../../image/icons/mouse_icon.gif" width=44></DIV>
+<DIV class=SCROLLDark style="MARGIN-TOP: 0px; MARGIN-LEFT: 30px; MARGIN-RIGHT: 0px; HEIGHT: 225px"><a tabindex=0>I the employee fails to improve in the given period then a formal second review must be undertaken. If possible, a more senior manager should chair this meeting. The employee must be offered the opportunity for appropriate representation. <BR><BR>Prior to the meeting the employee must be seen by the Company Approved Doctor who will give his opinion on the employee's health. The employee must be given the results of this meeting in writing. Where appropriate they must be given notice that their level of absence is unacceptable and that they are given a period of time during which to reduce their level of absence. The employee must also be informed at this stage if any further absences may result in their employment being terminated due to ill health.</a></DIV>
+<DIV class=instriconsm style="LEFT: 28px; CURSOR: hand; TOP: 265px"><IMG onkeypress=showFeedback(1) tabindex=0; onclick=showFeedback(1) src="../../image/buttons/back.gif"></DIV>
+<DIV class=instriconsm style="LEFT: 257px; CURSOR: hand; TOP: 265px"><IMG onkeypress=showFeedback(3) tabindex=0; onclick=showFeedback(3) src="../../image/buttons/next.gif"></DIV>
+</DIV>
+						</div>
+					</div>
+					<!--End Feedback 2-->
+					<!--Feedback 3-->
+					<div id="fb3" style="display: none;">
+						<div class="grid1x3">
+							
+<DIV class=cell7x5 ><IMG height=206 src="image/1_9_4.jpg" alt="Man continues descending stairs towards dismissal" width=451></DIV>
+						</div>
+						<div class="grid8x1">
+							
+<DIV class=cellmedium5x7  style="PADDING-TOP: 10px"><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/feedback_icon.gif" width=22></DIV>
+<DIV class=instriconsm style="LEFT: 185px; TOP: 235px"><IMG height=44 src="../../image/icons/mouse_icon.gif" width=44></DIV>
+<DIV class=SCROLLDark style="PADDING-RIGHT: 10px; MARGIN-TOP: 0px; MARGIN-LEFT: 30px; HEIGHT: 225px"><a tabindex=0>If there is still no improvement within the agreed period a formal absence review will be held with a Senior Manager or Director. The employee must be offered the opportunity for appropriate representation at this meeting. The Senior Manager or Director will review all the available evidence including the Doctor's report. If there are no special circumstances the employee will be dismissed on the grounds of ill health and their inability to meet the acceptable standards of attendance required by the Company.</a> </DIV>
+<DIV class=instriconsm style="LEFT: 28px; CURSOR: hand; TOP: 265px"><IMG onkeypress=showFeedback(2) tabindex=0; onclick=showFeedback(2) src="../../image/buttons/back.gif"></DIV>
+<DIV class=instriconsm style="LEFT: 257px; CURSOR: hand; TOP: 265px"><IMG onkeypress=showFeedback(4) tabindex=0; onclick="showFeedback(4);completed = true;" src="../../image/buttons/next.gif"></DIV>
+</DIV>
+
+						</div>
+					</div>
+					<!--End Feedback 3-->
+					<!--Feedback 4-->
+					<div id="fb4" style="display: none;">
+						<div class="grid1x3">
+							
+<DIV class=cell7x5 ><IMG height=206 src="image/1_9_5.jpg" alt="Man turns to ascend stairs towards reinstatement." width=451></DIV>
+						</div>
+						<div class="grid8x1">
+							
+<DIV class=cellmedium5x7  style="PADDING-TOP: 10px"><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/feedback_icon.gif" width=22></DIV>
+<DIV class=SCROLLDark style="PADDING-RIGHT: 10px; MARGIN-TOP: 0px; MARGIN-LEFT: 30px; HEIGHT: 225px"><a tabindex=0>Every employee has the right to appeal against the outcome of any formal review. The basis of an appeal should normally relate to one of the following areas:</a> <BR>
+<DIV class=SCROLLDark style="MARGIN-TOP: 5px; MARGIN-LEFT: 25px; MARGIN-RIGHT: 5px"><a tabindex=0>• that the need for action was not warranted<BR>• that the resulting action was inappropriate<BR>• that the process had not been followed correctly </a></DIV><a tabindex=0><BR>An appeal should be put in writing to the departmental Manager or Director. The employee or their representative may construct the letter of appeal. The letter should contain the grounds for appeal and should be lodged within 5 days of receipt of the issue of a formal letter. <BR><BR>An appeal hearing should be arranged within <ESTART:PERIODFORAPPEALAGAINSTDISMISSAL >5 days</ESTART:PERIODFORAPPEALAGAINSTDISMISSAL> of receipt of the appeal letter. An appeal against Dismissal will be considered in the same way, but should be heard by a Manager or Director who has not previously been involved in the case. </a></DIV>
+<DIV class=instriconsm style="LEFT: 205px; CURSOR: hand; TOP: 235px" onclick="return objNav.next();"><IMG height=44 alt="Ready to move to Next Page" src="../../image/icons/ready_icon.gif" tabindex=0width=44></DIV>
+<DIV class=instriconsm style="LEFT: 28px; CURSOR: hand; TOP: 265px"><IMG onkeypress=showFeedback(3) tabindex=0; onclick=showFeedback(3) src="../../image/buttons/back.gif"></DIV>
+</DIV>
+						</div>
+					</div>
+					<!--End Feedback 4-->
+					<!-- Right Content -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

@@ -1,0 +1,194 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule ;
+var intSection;
+var intPage;
+//=====================================================//
+// -->
+
+//var polko
+function getArgs() {
+	var args = new Object();
+	// Get Query String
+	var query = location.search.substring(1); 
+	// Split query at the comma
+	var pairs = query.split("&"); 
+	
+	// Begin loop through the querystring
+	for(var i = 0; i < pairs.length; i++) {
+
+		// Look for "name=value"
+		var pos = pairs[i].indexOf('='); 
+		// if not found, skip to next
+		if (pos == -1) continue; 
+		// Extract the name
+		var argname = pairs[i].substring(0,pos); 
+		
+		// Extract the value
+		var value = pairs[i].substring(pos+1); 
+		// Store as a property
+		args[argname] = unescape(value); 
+		
+	}
+	return args; // Return the Object
+}
+var qString = getArgs();
+intModule = parseInt(qString["mod"]);
+intSection = parseInt(qString["sec"]);
+
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+		<!-- implement API FUNCTION -->
+		<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+		<!--END implement API FUNCTION -->
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+		<style>
+a.linkButton{
+font-face:Verdana;
+font-size:11;
+font-weight:bold;
+padding:0px 0px 2px 10px;
+width:194;
+background:Grey;
+color:#003E77;
+border-collapse:collapse;
+border-top:1px solid #4494D2;
+border-right:1px solid #4494D2;
+border-bottom:0;
+}
+
+a:HOVER.linkButton{
+font-face:Verdana;
+font-size:11;
+font-weight:bold;
+text-decoration:none;
+padding:0px 0px 2px 10px;
+width:194;
+background:#E2E2E2;
+color:#4494D2;
+border-collapse:collapse;
+border-top:1px solid #4494D2;
+border-left:0;
+border-right:0;
+border-bottom:0;
+}
+.HomeNavHint{
+padding:5px 8px 0px 8px;
+font-face:Verdana;
+font-size:12;
+color: Black;
+line-height : 17px;
+}
+
+
+</style>
+	</head>
+	<body onload="setIncompleteTimeout();">
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable=false><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable=false><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid" style="margin-left:1px;">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						<div class="cellmedium5x7">
+							<object id="flash" type="application/x-shockwave-flash" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+								height="290" width="321" VIEWASTEXT>
+								<param NAME="Movie" VALUE="flash/clouds.swf">
+								<param NAME="WMode" VALUE="transparent">
+								<param NAME="Play" VALUE="1">
+								<param NAME="Loop" VALUE="1">
+								<param NAME="Quality" VALUE="High">
+								<param NAME="Menu" VALUE="-1">
+								<param NAME="Base" VALUE>
+								<param NAME="Scale" VALUE="NoBorder">
+								<param NAME="EmbedMovie" VALUE="0">
+								<param NAME="SWRemote" VALUE>
+							</object>
+						</div>
+					</div>
+					<div id="fb0">
+						<div class="grid6x1">
+							<div class="cell7x7" style="padding-top:10px;">
+<div class="instriconsm" style="top: 230px; left: 400px;cursor:pointer;" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif"  alt="Ready to move to Next Page" WIDTH="44" HEIGHT="44"></div> 
+								<div class="TextDarkNormal" style="left:10px;"><a tabindex=0>
+									<span class="TextDarkBold">
+										<script>dw(objNav.arrMenuText[objNav.module][1][objNav.section][0]);</script>
+									</span>: Subject Areas
+									<p>This section covers the following topics:</a>
+									
+									<table cellpadding="2" cellspacing="2" border="0">
+										<tr>
+											<td valign="top">
+												<ul>
+													<script>
+										var ba=0;
+										var pageCount = objNav.getPageCount(objNav.module, objNav.section);
+for(pId=0;pId<pageCount; pId++){
+		ThisPageName = objNav.arrMenuText[objNav.module][1][objNav.section][1][pId];
+		if(	ba ==9	){	
+			dw("</td><td valign=top>")
+		}
+		(ba	>= 9 )?ba=1:ba++;
+		dw("<li style=\"padding-top:2px;padding-right:10px;\"><a href=\"\" class=\"link\" onclick=\"return objNav.goPage(" + (pId+1) + ");return false;\">" + ThisPageName  + "</a><br>");//" "+ba+; onkeypress=\"return objNav.goPage(" + (pId+1) + ");return false;\">" + ThisPageName  + "</a><br>");//" "+ba+
+}
+													</script>
+												</ul>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

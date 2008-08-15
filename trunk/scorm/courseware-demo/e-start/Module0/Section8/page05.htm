@@ -1,0 +1,125 @@
+<html>
+	<head>
+		<title>e-Office Safety e-learning</title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 3;
+var intSection    = 8;
+var intPage       = 26;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css">
+			<link rel="stylesheet" type="text/css" href="../../style/grid.css">
+				<link rel="stylesheet" type="text/css" href="../../style/cell.css">
+					<link rel="stylesheet" type="text/css" href="../../style/content.css">
+						<link rel="stylesheet" type="text/css" href="../../style/navigation.css">
+							<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+							<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+							<!-- implement API FUNCTION -->
+							<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+							<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+							<!--END implement API FUNCTION -->
+							<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+
+objNav = new Navigation(intModule , intSection, intPage);
+
+//-->
+							</script>
+<script>
+	function saveData() {
+		if(top.API) {
+			return top.API.SaveUserDataToServer();
+		}
+	}
+
+function viewResults(){
+	if(top.API){
+		saveData();
+		location.href='../../lms/userreport.asp';
+	}
+}
+
+
+// Popup the printout screen
+function showPrintout() {
+	if(top.API) {
+		top.API.SaveUserDataToServer();
+		var printout = window.open("../../lms/Admin_Assessment.asp", "printout", "");
+		printout.focus();
+	}
+	return false;
+}
+
+
+</script>
+
+							
+							<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body style="BACKGROUND-COLOR: #ffffff" onload="setIncompleteTimeout();">
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1" Summary="Header Information including breadcrumb navigation">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable=false><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable=false><img src="../../image/company_logo.gif" WIDTH="233" HEIGHT="22" vspace="3"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid" style="margin-left:1px;margin-top:3px;">
+					<!-- Text & Image & Icon -->
+					<div class="grid1x1">
+						<div class="cellmedium12x7">
+							<div class="instriconsm" style="top: 8px; left: 8px"><img src="../../image/icons/feedback_icon.gif" alt="Feedback" WIDTH="22" HEIGHT="22"></div>
+							<a tabindex=0><div class="TextDarkNormal" style="padding-left:30px; padding-top:10px">
+								<b>Assessment Sign-Off</b> 
+							</div>
+							<div class="TextDarkNormal" style="padding-left:8px;">
+								<a tabindex=0><br>
+								<b>Have you answered all assessment questions? </b><br>
+								<br>Ensure you have completed all 
+								assessment questions by opening the left-hand navigation 
+								panel (you may need to select <b>Open Outline</b> at the bottom left of the screen to view the navigation panel.).<br>
+								<br>
+
+								Pressing the button below tells us you have considered and answered all the assessment questions.<br></a>
+<br>
+<input type="button" tabindex=0 onclick="top.submitAssessment();" value="Submit Assessment"; onkeypress="top.submitAssessment();" value="Submit Assessment"></a><br>
+<br>
+<a tabindex=0><i>N.B. Once you have submitted the assessment you <strong>will not</strong> be able to access the assessment again until it has been closed by management.</i><br>
+							</a></div>
+						</div>
+					</div>
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar" style="margin-top:3px;">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

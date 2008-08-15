@@ -1,0 +1,134 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 0;
+var intPage       = 1;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css"/>
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css"/>
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css"/>
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+  </script>
+  
+  <script>
+  function flashloadtext(){
+  showFeedback(1);
+  completed = true;
+  functionFlash('flash','SetVariable','"textHtm", document.all.fb1.innerHTML'); 
+  functionFlash('flash','TCallLabel','"/", "filltext"');
+  }
+  </script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable=false><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable=false><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+								<!-- Top Navigation-->
+								<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+								</script>
+								<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						<div class="cell12x7">
+<OBJECT id="flash" codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+								height="290" width="776" type="application/x-shockwave-flash" VIEWASTEXT>
+								<PARAM NAME="_cx" VALUE="15372">
+								<PARAM NAME="_cy" VALUE="7673">
+								<PARAM NAME="FlashVars" VALUE="15372">
+								<PARAM NAME="Movie" VALUE="flash/hand_text.swf">
+								<PARAM NAME="Src" VALUE="flash/hand_text.swf">
+								<PARAM NAME="WMode" VALUE="Opaque">
+								<PARAM NAME="Play" VALUE="1">
+								<PARAM NAME="Loop" VALUE="0">
+								<PARAM NAME="Quality" VALUE="High">
+								<PARAM NAME="SAlign" VALUE="">
+								<PARAM NAME="Menu" VALUE="-1">
+								<PARAM NAME="Base" VALUE="">
+								<PARAM NAME="AllowScriptAccess" VALUE="always">
+								<PARAM NAME="Scale" VALUE="ExactFit">
+								<PARAM NAME="DeviceFont" VALUE="0">
+								<PARAM NAME="EmbedMovie" VALUE="0">
+								<PARAM NAME="BGColor" VALUE="FFFFFF">
+								<PARAM NAME="SWRemote" VALUE="">
+							</object>
+<div id="fb1" style="display: none;position:absolute;left:245px;top:15px;width:245px;overflow:auto;height:207px;
+SCROLLBAR-FACE-COLOR: #ffffff; 
+SCROLLBAR-HIGHLIGHT-COLOR: #FFEAC2;
+SCROLLBAR-SHADOW-COLOR: #FF7900; 
+SCROLLBAR-3DLIGHT-COLOR: #FF7900; 
+SCROLLBAR-ARROW-COLOR: #FF7900; 
+SCROLLBAR-TRACK-COLOR: #ffffff; 
+SCROLLBAR-DARKSHADOW-COLOR: #FFEAC2; 
+SCROLLBAR-BASE-COLOR: #ffffff; ">
+<a tabindex=0><b>Employment Contract</b><br>
+Your employment with the company is subject to your employment contract. You should have already received your contract containing the terms and conditions of your employment. The contract of employment has been sent to you in
+duplicate, one copy is for yourself, the other to be returned to the Human Resources Department.
+
+<p></p>
+<b>Probation Period</b><br>
+The probationary period enables both you and <ESTART:COMPANYNAME contentEditable=false>ExampleCompany</ESTART:COMPANYNAME> to ascertain your suitability for the job. During this period, either party with one week's notice can terminate employment.
+	
+At the end of your probationary period, a formal appraisal will take place with your direct line manager. This appraisal allows both you and your manager to provide each other with feedback on how you feel you are progressing.</a>
+</div>
+<div class="instriconsm" style="top: 200px; left: 650px;cursor:hand;" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif"  tabindex=0 alt="Ready to move to Next Page" WIDTH="44" HEIGHT="44"></div> 
+
+						</div>
+						
+					</div>
+					
+					<!-- Right Content -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>
+

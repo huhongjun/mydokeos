@@ -1,0 +1,206 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 0;
+var intPage       = 7;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+<script>
+function flashcheck(itemId) {
+		showFeedback(itemId);
+		
+		if(itemId == 5){
+			completed = true;
+		}
+}
+</script>
+		
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+
+
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable=false><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable=false><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						<div class="cellmedium12x1">
+							<div class="instriconsm" style="LEFT: 5px; TOP: 8px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="TextDarkNormal" style="margin-left:35px;margin-top:5px;"><a tabindex=0>When you are sick 
+								there are a number of procedures that must be followed in accordance with 
+								company policy.</a></div>
+							<div class="TextDarkNormal" style="margin-left:35px;margin-top:0px;"><a tabindex=0>Click on the flashing dice to move the counter:</a></div>
+						</div>
+					</div>
+					<div class="grid1x2">
+						<div class="cell8x6">
+							<OBJECT id="flash" codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+								height="248" width="516" type="application/x-shockwave-flash" VIEWASTEXT>
+								<PARAM NAME="_cx" VALUE="15372">
+								<PARAM NAME="_cy" VALUE="7673">
+								<PARAM NAME="FlashVars" VALUE="15372">
+								<PARAM NAME="Movie" VALUE="flash/snakes.swf">
+								<PARAM NAME="Src" VALUE="flash/snakes.swf">
+								<PARAM NAME="WMode" VALUE="Opaque">
+								<PARAM NAME="Play" VALUE="1">
+								<PARAM NAME="Loop" VALUE="0">
+								<PARAM NAME="Quality" VALUE="High">
+								<PARAM NAME="SAlign" VALUE="">
+								<PARAM NAME="Menu" VALUE="-1">
+								<PARAM NAME="Base" VALUE="">
+								<PARAM NAME="AllowScriptAccess" VALUE="always">
+								<PARAM NAME="Scale" VALUE="ExactFit">
+								<PARAM NAME="DeviceFont" VALUE="0">
+								<PARAM NAME="EmbedMovie" VALUE="0">
+								<PARAM NAME="BGColor" VALUE="#91CADB">
+								<PARAM NAME="SWRemote" VALUE="">
+							</object>
+						</div>
+					</div>
+					<!-- Feedback 0-->
+					<div id="fb0" class="grid9x2">
+						<div class="cell4x6"><img src="image/1_7_1.jpg" alt="Bottle of pills" width="256" height="248" border="0"></div>
+					</div>
+					<!-- End Feedback 0-->
+					<!-- Feedback 1-->
+					<div id="fb1" class="grid9x2" style="display: none">
+						<div class="cell4x6" style="padding-right:5px; padding-TOP: 10px;">
+							<div class="instriconsm" style="LEFT: 05px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="SCROLLDark" style="height:215px;margin-LEFT: 45px;margin-Right: 7px">
+								<a tabindex=0>Employees are required to contact their manager before <ESTART:CONTACTEMPLOYEESIFILLPRIORTO contentEditable=false>10.00am</ESTART:CONTACTEMPLOYEESIFILLPRIORTO> on a daily basis 
+								if they will be absent from work due to sickness or injury.
+							<p>
+								Click on the flashing dice to continue...</a>
+							</p></div>
+							<div class="instriconsm" style="LEFT: 1px; TOP: 145px"><img src="../../image/icons/mouse_icon_estart.gif" WIDTH="44" HEIGHT="44"></div>
+						</div>
+					</div>
+					<!-- End Feedback 1-->
+					<!-- Feedback 2-->
+					<div id="fb2" class="grid9x2" style="display: none">
+						<div class="cell4x6" style="padding-right:5px; padding-TOP: 10px;">
+							<div class="instriconsm" style="LEFT: 05px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="SCROLLDark" style="height:215px;margin-LEFT: 45px;margin-Right: 7px">
+								<a tabindex=0>The Company expectation is that no employee should be absent for more than <ESTART:EXPECTEDMAXIMUMNUMBEROFSICKDAYS contentEditable=false>7 
+								working days</ESTART:EXPECTEDMAXIMUMNUMBEROFSICKDAYS> in any one year due to sickness related problems.
+							<p>
+								Click on the flashing dice to continue...</a>
+							</p>	
+							</div>
+							<div class="instriconsm" style="LEFT: 1px; TOP: 145px"><img src="../../image/icons/mouse_icon_estart.gif" WIDTH="44" HEIGHT="44"></div>
+						</div>
+					</div>
+					<!-- End Feedback 2-->
+					<!-- Feedback 3-->
+					<div id="fb3" class="grid9x2" style="display: none">
+						<div class="cell4x6" style="padding-right:5px; padding-TOP: 10px;">
+							<div class="instriconsm" style="LEFT: 05px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="SCROLLDark" style="height:215px;margin-LEFT: 45px;margin-Right: 7px">
+								<a tabindex=0>If an employee is away from work for more than <ESTART:MEDICALCERTIFICATEAFTER contentEditable=false>5 working days</ESTART:MEDICALCERTIFICATEAFTER> a medical 
+								certificate issued by a doctor will be necessary in addition to the 
+								Self-Certification Sick leave form. For each additional time period away due to 
+								sickness or injury a separate medical certificate will be required.
+							<p>
+								Click on the flashing dice to continue...</a>
+							</div>
+							<div class="instriconsm" style="LEFT: 1px; TOP: 145px"><img src="../../image/icons/mouse_icon_estart.gif" WIDTH="44" HEIGHT="44"></div>
+						</div>
+					</div>
+					<!-- End Feedback 3-->
+					<!-- Feedback 4-->
+					<div id="fb4" class="grid9x2"  style="display: none">
+						<div class="cell4x6" style="padding-right:5px; padding-TOP: 10px;">
+							<div class="instriconsm" style="LEFT: 05px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="SCROLLDark" style="height:215px;margin-LEFT: 45px;margin-Right: 7px">
+								<a tabindex=0>Upon returning, we ask all staff to report to their direct line manager before 
+								commencing work, we reserve the right to carry out a return to work interview.
+							<p>
+								At this meeting the employee and the line manager may complete a 'Return to 
+								work meeting' form agreeing the reason for the absence, the period of absence 
+								and, where appropriate, what course of action is required as a result of the 
+								absence. If appropriate both parties must sign this form before forwarding it 
+								to Human Resources.
+							<p>
+								Click on the flashing dice to continue...</a>
+							</div>										<div class="instriconsm" style="LEFT: 1px; TOP: 145px"><img src="../../image/icons/mouse_icon_estart.gif" WIDTH="44" HEIGHT="44"></div>
+						</div>
+					</div>
+					<!-- End Feedback 4-->
+					<!-- Feedback 5-->
+					<div id="fb5" class="grid9x2" style="display: none">
+						<div class="cell4x6" style="padding-right:5px; padding-TOP: 10px;">
+							<div class="instriconsm" style="LEFT: 05px; TOP: 5px"><img src="../../image/icons/feedback_icon.gif" WIDTH="22" HEIGHT="22"></div>
+							<div class="SCROLLDark" style="height:215px;margin-LEFT: 45px;margin-Right: 7px">
+								<a tabindex=0>Provided that you meet the qualifying criteria, you will be entitled to 
+								Statutory Sick Pay for that time you are absent through illness for a period of 
+								up to <ESTART:STATUTORYSICKPAYPERIOD contentEditable=false>28 weeks</ESTART:STATUTORYSICKPAYPERIOD> in any period of illness.
+							<p>
+								Please note that this payment is for tax reasons treated as wages in that it is 
+								subject to PAYE and National Insurance.</a>
+							</div>
+							<div class="instriconsm" style="LEFT: 1px; TOP: 195px;" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif" tabindex=0 alt="Ready to move to Next Page" WIDTH="44" HEIGHT="44"></div>
+						</div>
+					</div>
+					<!-- End Feedback 5-->
+					<!-- Right Content -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

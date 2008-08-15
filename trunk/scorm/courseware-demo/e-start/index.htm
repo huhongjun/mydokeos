@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<head>
+	<title>E-Start Prototype Site</title> 
+	</head>
+<body topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0"
+	UNSELECTABLE="on" scroll="no" >
+	<iframe id="contentFrame" name="contentFrame" src="Module0/Section0/page01.htm" width="100%"
+		height="100%" frameborder="0"></iframe>
+	<iframe style="position:absolute;left:0px;top:0px;width:100%;height:100%;visibility:hidden;" id="DrawFrame"
+		name="DrawFrame" src="" width="100%" height="100%" frameborder="0" allowTransparency="true"></iframe>
+
+			<object id="msxml" width="1" height="1" classid="CLSID:2933BF90-7B36-11d2-B20E-00C04F983E60"
+				VIEWASTEXT>
+			</object>
+
+</body>
+<script>
+var DrawFrame=document.all.DrawFrame;
+var contentFrame = document.all.contentFrame;
+
+var ShowCommentsOnStart = 0;
+var FeedbackPageUrl = "draw/feedback.asp";
+var SaveCommentsPageUrl = "draw/savecomments.asp";
+
+
+// utility function called by getCookie( )
+function getCookieVal(offset) {
+    var endstr = document.cookie.indexOf (";", offset);
+    if (endstr == -1) {
+        endstr = document.cookie.length;
+    }
+    return unescape(document.cookie.substring(offset, endstr));
+}
+
+// primary function to retrieve cookie by name
+function getCookie(name) {
+    var arg = name + "=";
+    var alen = arg.length;
+    var clen = document.cookie.length;
+    var i = 0;
+    while (i < clen) {
+        var j = i + alen;
+        if (document.cookie.substring(i, j) == arg) {
+            return getCookieVal(j);
+        }
+        i = document.cookie.indexOf(" ", i) + 1;
+        if (i == 0) break; 
+    }
+    return "";
+}
+    
+// store cookie value with optional details as needed
+function setCookie(name, value, expires, path, domain, secure) {
+    document.cookie = name + "=" + escape (value) +
+        ((expires) ? "; expires=" + expires : "") +
+        ((path) ? "; path=" + path : "") +
+        ((domain) ? "; domain=" + domain : "") +
+        ((secure) ? "; secure" : "");
+}
+
+// remove the cookie by setting ancient expiration date
+function deleteCookie(name,path,domain) {
+    if (getCookie(name)) {
+        document.cookie = name + "=" +
+            ((path) ? "; path=" + path : "") +
+            ((domain) ? "; domain=" + domain : "") +
+            "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+    }
+}
+
+var userName;
+function setc(){
+		if(getCookie("userName") != ""){
+			document.userName = getCookie("userName");	
+		} else {
+			inputUser = prompt("Enter here your name!" , "");
+			if(inputUser != null && inputUser != ""){ 
+				date = new Date();
+				date.setMonth(date.getMonth()+10);
+
+				setCookie("userName", inputUser , date.toGMTString());
+				document.userName =inputUser; 
+			} else {
+				inputUser = prompt("Enter here your name!" , "");
+			}
+		}
+
+}
+window.attachEvent("onload" , setc);
+
+</script>
+
+<script>
+	var loc =window.location.toString();
+	var slashIndex = loc.lastIndexOf("/");
+	var basePath = loc.substring(0 , slashIndex );
+	var contentLoc;
+	var contentBasePath;
+	var contentPath;
+	var fbWin;
+
+
+function loadDrawFrame(theFrame , url){
+theFrame.contentWindow.location.replace( FeedbackPageUrl + "?rType=drawings&url=" + url);
+}
+
+function unload(){
+DrawFrame.style.visibility = "hidden";
+	if(fbWin ){	
+		
+		isNewComments = fbWin.checkIfNewComments();
+		if(isNewComments > 0){
+			confirmed = confirm("Do you want to save changes?");
+			if(confirmed){	
+				fbWin.saveComments();
+			} else {
+				DrawFrame.contentWindow.document.all.newComments.innerHTML = "";
+			}
+		}	
+		fbWin.close();
+		fbWin = null;
+	}	
+}
+
+function DrawFrameIsLoaded(){
+			if(!fbWin ){
+				fbWin = showFeedback( contentPath );	
+				fbWin.attachEvent("onbeforeunload" , unload);
+				document.attachEvent("onbeforeunload" , unload);
+				contentFrame.contentWindow.attachEvent("onbeforeunload" , unload);
+				DrawFrame.style.visibility = "visible"; //Show 
+				
+				allDivs = DrawFrame.contentWindow.oldComments.getElementsByTagName("DIV");
+				
+				 for(var dv=0;dv<allDivs.length;dv++){
+				 allDivs[dv].style.visibility = "visible";
+				// alert(allDivs[dv].id)
+				 }
+				return fbWin;
+			}	
+}
+
+function load(){
+		try {
+			contentLoc = contentFrame.contentWindow.location.toString();
+			contentBasePath =  contentLoc.substring(0 , basePath.length);
+			contentPath = contentLoc.substring(basePath.length , contentLoc.length);
+		} catch(e) {
+			 alert('You cannot use the Feedback on pages which are outside of the current domain.');
+			 window.close();
+		} finally {
+			contentFrame.contentWindow.document.attachEvent("onkeydown", keydown);
+			loadDrawFrame(DrawFrame , contentPath);
+			
+			if(fbWin){
+				fbWin.close();
+				fbWin = null;
+			}
+	
+			if(ShowCommentsOnStart != 0){
+				DrawFrame.attachEvent("onload" , DrawFrameIsLoaded);
+			}	
+	
+		}
+}
+
+
+
+
+
+
+function keydown() {
+	var e = event;
+	if(e == null){e = DrawFrame.contentWindow.event;}
+	if(e == null){e = contentFrame.contentWindow.event;}
+	if(e == null){e = window.event;}
+	if(e.keyCode == 119) //F8
+	{
+			
+			//if(){
+				DrawFrameIsLoaded();
+			//}
+	}
+}
+
+document.attachEvent("onkeydown", keydown);
+contentFrame.contentWindow.document.attachEvent("onkeydown", keydown);
+DrawFrame.contentWindow.document.attachEvent("onkeydown", keydown);
+contentFrame.attachEvent("onload" , load);
+
+</script>
+
+
+<script language="javascript">
+
+
+function showFeedback( contentPath){
+		var mArguments = window;
+		mArguments.pUrl=contentPath;
+		var dialogLeft = window.screenLeft +document.body.clientWidth - 400;
+		var dialogTop = window.screenTop + 28;
+
+		feedbackWindow = showModelessDialog(FeedbackPageUrl +"?rType=feedback&url=" + contentPath   , mArguments, "dialogLeft:" + dialogLeft + ";dialogTop:" + dialogTop +  ";dialogWidth:400px;dialogHeight:600px;resizable:yes;help:no;status:no;");
+		return feedbackWindow;
+}
+
+
+
+
+function doSaveComments(xmlString){
+//alert(document.title +"-----"+xmlString); 
+
+	var objXMLHTTP;
+	objXMLHTTP = new ActiveXObject("Microsoft.XMLHTTP");
+	objXMLHTTP.Open("POST", SaveCommentsPageUrl, false); 
+	objXMLHTTP.SetRequestHeader("Content-type", "text/xml"); 
+	//alert(xmlString);
+	objXMLHTTP.Send(xmlString);
+	result = (objXMLHTTP.status==200);
+	//DrawFrame.contentWindow.oldComments.innerText="<p><p><p><p><p>" + objXMLHTTP.responseText
+	if(!result){
+		alert("Could not connect to server: error "  + objXMLHTTP.status + ", " + objXMLHTTP.statusText );
+		return false;
+	} else {
+		if(objXMLHTTP.responseText > "") { //Server reported that an error has occurred
+			alert("An error has occurred while saving data on the server: " + objXMLHTTP.responseText + " Data has not been saved.");
+			return false;
+		} else {
+			//document.all.DrawFrame.contentWindow.location.reload();
+			return true;
+		}
+	}
+}
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+

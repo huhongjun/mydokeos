@@ -1,0 +1,121 @@
+<html>
+	<head>
+		<title></title>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// NB intModule is base 0, the others are base 1
+// so if the page you are editing is 3_4_6 then intModule = 2, intSection = 4, intPage = 6
+var intModule     = 3;
+var intSection    = 10;
+var intPage       = 1;
+//=====================================================//
+
+var tPageRef  = (intModule + 1) + "_" + intSection + "_" + intPage + "_";
+var isOpened  = (parent.opener != null);
+
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+		<!-- implement API FUNCTION -->
+		<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+		<!--END implement API FUNCTION -->
+		<!--END implement API FUNCTION -->
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+
+//-->
+		</script>
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO contentEditable="false"><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO contentEditable="false"><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid" style="margin-left:1px">
+					<!-- Clipboard background -->
+					<div class="grid8x1">
+						<div class="cell5x7" style="BACKGROUND-IMAGE: url(images/8_1_clipboard.jpg)">
+						</div>
+					</div>
+					<!-- END Clipboard background -->
+					<!-- SEATING -->
+					<div id="fd0">
+						<!-- Flash -->
+						<div class="grid1x1">
+							<div class="cell7x7">
+								<img src="images/image0017dcdd3a-0e.jpg" height="290" width="450"></div>
+						</div>
+					</div>
+					<!--END SEATING -->
+					<!-- Queston A for SEATING -->
+					<div id="fb1">
+						<div class="grid8x1">
+							<div class="cellmedium5x7">
+								<table class="instriconsm" style="position:relative;top:0;left:0;width:90%;height:80%"
+									border="0" cellpadding="5" ID="Table3">
+									<tr valign="bottom">
+										<td>
+											<div class="TextDarkBold"><//start//>Open Elms does offer a hosting service, where we can host your e-learning courses for you over the internet.<br><br>Would you like to receive further information about our hosting service?<//break//>
+											</div>
+											<Answer><table class="instriconsm" style="position:relative" width="90%" cellpadding="0" cellspacing="0"  Summary="Select a task response" ID="Table2"><tr><td align="center"><div class="TextDarkBold" 
+onclick="this.children(0).click();if (getLessonStatus() == 'browsed')  setLessonStatus('incomplete')"> 
+<input id="r1" type="radio" name="radio1" value="" >Yes 
+</div></td> 
+<td align="center"><div class="TextDarkBold" 
+onclick="this.children(0).click();if (getLessonStatus() == 'browsed')  setLessonStatus('incomplete')"> 
+<input id="r1" type="radio" name="radio1" value="" >No 
+</div></td> 
+</tr></table></Answer>
+											<div class="instriconsm" style="LEFT: 250px; TOP: 265px"><img src="../../image/buttons/submit.gif" width="53" height="18" alt="" border="0" onclick="getQuestion(1)"
+													style="CURSOR: hand"></div>
+											<div class="instriconsm" style="LEFT: 293px; TOP: 7px"><img src="../../image/icons/question_icon.gif" WIDTH="22" HEIGHT="22"></div>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!--END Queston A for SEATING -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar" width="100%">
+					<script LANGUAGE="javascript">
+<!--
+	writeMainMenu();
+//-->
+					</script>
+				</div>
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>

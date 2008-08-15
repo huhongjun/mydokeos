@@ -1,0 +1,125 @@
+<html>
+	<head>
+		<title></title>
+		<script LANGUAGE="javascript">
+<!--
+//================ CHANGE THESE ONLY ==================//
+// if the page you are editing is 3_4_6 then intModule = 3, intSection = 4, intPage = 6
+var intModule     = 1;
+var intSection    = 0;
+var intPage       = 1;
+//=====================================================//
+// -->
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../style/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/grid.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/cell.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/content.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/navigation.css" />
+		<script LANGUAGE="javascript" SRC="../../script/main.js"></script>
+		<script LANGUAGE="javascript" SRC="../../script/nav.js"></script>
+
+<!-- implement API FUNCTION -->
+<script LANGUAGE="javascript" SRC="../../script/SCOFunctions.js"></script>
+<script LANGUAGE="javascript" SRC="../../script/APIWrapper.js"></script>
+<!--END implement API FUNCTION -->
+
+		<script LANGUAGE="javascript">
+<!--
+// Set up Navigation Object for page
+objNav = new Navigation(intModule , intSection, intPage);
+//-->
+		</script>
+		<META HTTP-EQUIV="imagetoolbar" CONTENT="no">
+	</head>
+	<body>
+		<!-- Start Main Div (Used to position content) -->
+		<div CLASS="maindiv" ID="maindiv">
+			<!-- Outer Border -->
+			<div class="outerborder">
+				<div CLASS="topbar">
+					<table cellpadding="0" cellspacing="0" border="0" width="778" ID="Table1">
+						<tr>
+							<td align="left"><ESTART:LOGO ><img src="../../image/logo.gif" WIDTH="104" HEIGHT="19" vspace="3"></ESTART:LOGO></td>
+							<td align="right"><ESTART:COMPANYLOGO ><IMG SRC="../../image/company_logo.gif"></ESTART:COMPANYLOGO></td>
+						</tr>
+					</table>
+					<!-- Top Navigation-->
+					<script language="javascript">
+			<!--
+			writeTopMenu();
+			//-->
+					</script>
+					<!-- End of Top Navigation-->
+				</div>
+				<!-- Content Grid -->
+				<div CLASS="contentgrid">
+					<!-- Top half with logo and picture -->
+					<div class="grid1x1">
+						
+<DIV class=celldark6x4 ><DIV class=instriconsm style="LEFT: 358px; TOP: 5px"><IMG src="../../image/icons/feedback_icon.gif"></DIV>
+<DIV class=SCROLLLight style="MARGIN-LEFT: 8px; LINE-HEIGHT: 15px; MARGIN-RIGHT: 5px; PADDING-TOP: 8px"><A  style="WIDTH: 357px; HEIGHT: 143px" tabIndex=0>Sally has been working for ExampleCompany for 3 months and is preparing for her first appraisal interview. 
+<P>She is worried that her boss will notice that her language skills when speaking to French clients is not as good as it should be. </P>
+<P>Sally has got away with it thus far, beside telling her boss may lead to her dismissal. </A></P></DIV></DIV>
+					</div>
+					<div class="grid1x5">
+						
+<DIV class=cellmedium6x3 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/question_icon.gif" width=22></DIV>
+<DIV class=instriconsm style="LEFT: 295px; TOP: 0px"><IMG height=44 src="../../image/icons/mouse_icon.gif" width=44></DIV>
+<DIV class=SCROLLdark style="MARGIN-TOP: 10px; MARGIN-LEFT: 40px; MARGIN-RIGHT: 5px"><A  tabIndex=0><B>What should Sally do?</B></A> 
+<UL>
+<LI><A class=Link onkeypress="showFeedback(2);return false;" hideFocus  style="LINE-HEIGHT: 20px" onclick="showFeedback(2);return false;" tabIndex=0 href="">Tell her boss there are no problems.</A> 
+<LI><A class=Link onkeypress="showFeedback(1);return false;" hideFocus  style="LINE-HEIGHT: 20px" onclick="showFeedback(1);completed = true;return false;" tabIndex=0 href="">Be honest and disclose the problem.</A> </LI></UL></DIV></DIV>
+					</div>
+					<div class="grid7x1" id="fb0">
+						
+<DIV class=cellmedium6x7 ><IMG height=290 src="image/7_0_1_1.jpg" width=386 border=0></DIV>
+					</div>
+					<!--Feedback 1-->
+					<div id="fb1" style="display:none;">
+					
+						<div class="grid7x1">
+							
+<DIV class=cellmedium6x3 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/feedback_icon.gif" width=22></DIV>
+<DIV class=SCROLLDark style="MARGIN-LEFT: 30px; WIDTH: 350px; TOP: 8px; HEIGHT: 110px"><A  tabIndex=0>Sally’s boss is pleased with her candour. Sally is booked on a training course which leads to promotion and further success in the company. <BR><BR>The performance development review is a chance for you to air grievances and identify areas for personal development. </A></DIV></DIV>
+						</div>
+						<div class="grid7x4">
+								
+<DIV class=cellmedium6x4 ><IMG height=164 src="image/7_0_1_2.jpg" width=386 border=0></DIV>
+<div class="instriconsm" style="LEFT: 295px; TOP: 105px ;cursor:hand;" onclick="return objNav.next();"><img src="../../image/icons/ready_icon.gif" tabindex=0  alt="Ready to move to Next Page" WIDTH="44" HEIGHT="44"></div>
+
+						</div>		
+					</div>
+					<!--End Feedback 1-->
+					<!--Feedback 2-->
+					<div id="fb2" style="display:none;">
+
+						<div class="grid7x1">
+								
+<DIV class=cellmedium6x4 ><IMG height=164 src="image/7_0_1_3.jpg" width=386 border=0></DIV>
+						</div>
+						<div class="grid7x5">
+							
+<DIV class=cellmedium6x4 ><DIV class=instriconsm style="LEFT: 5px; TOP: 5px"><IMG height=22 src="../../image/icons/feedback_icon.gif" width=22></DIV>
+<DIV class=SCROLLDark style="MARGIN-LEFT: 30px; WIDTH: 350px; TOP: 8px; HEIGHT: 110px"><A  tabIndex=0>Sally hides her short-comings. As time goes on Sally regularly fails in her job, this leads to a stalling in Sally’s career. <BR><BR>Sally should have told her boss about her problem, this would have lead to training and support from the company. </A></DIV></DIV>
+						</div>
+					</div>
+					<!--End Feedback 2-->
+					<!-- Right Content -->
+				</div>
+				<!-- End Content Grid Div -->
+				<!-- Bottom Bar Division -->
+				<div CLASS="bottombar">
+					<!-- Main Navigation-->
+					<script LANGUAGE="javascript">
+				writeMainMenu();
+					</script>
+					<!-- End of Main Navigation-->
+				</div>
+				<!-- End Bottom Bar Division -->
+			</div>
+			<!-- End Outer Border Div -->
+		</div>
+		<!-- End Main Div -->
+	</body>
+</html>
