@@ -32,7 +32,7 @@ require_once (api_get_path(LIBRARY_PATH).'/formvalidator/FormValidator.class.php
 	Libraries
 -----------------------------------------------------------
 */
-include_once(dirname(__FILE__).'\cs_database.lib.php');
+include_once(dirname(__FILE__).'/inc/cs_database.lib.php');
 
 /**
 ==============================================================================

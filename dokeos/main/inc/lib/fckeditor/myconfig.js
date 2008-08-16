@@ -37,7 +37,7 @@ FCKConfig.ToolbarSets["Announcements"] = [
 ] ;
 
 FCKConfig.ToolbarSets["Full"] = [
-	['PasteWord','Link','Anchor','-','ImageManager','Flash','MP3','Video','Table','Rule','-','Subscript', 'Superscript','-','OrderedList','UnorderedList','Outdent','Indent','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],'/',['FontName','FontSize','Bold','Italic','Underline','StrikeThrough','TextColor', 'BGColor','-','Source']
+	['PasteWord','Link','Anchor','-','ImageManager','Flash','MP3','Video','Table','Rule','-','Subscript', 'Superscript','-','OrderedList','UnorderedList','Outdent','Indent','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],'/',['FontName','FontSize','Bold','Italic','Underline','StrikeThrough','TextColor', 'BGColor','-','Source','mimetex']
 ] ;
 
 FCKConfig.ToolbarSets["Comment"] = [
@@ -68,3 +68,4 @@ var sOtherPluginPath = FCKConfig.BasePath.substr(0, FCKConfig.BasePath.length - 
 FCKConfig.Plugins.Add("MP3", "en", sOtherPluginPath ) ;
 FCKConfig.Plugins.Add("Video", "en", sOtherPluginPath ) ;
 FCKConfig.Plugins.Add("Attachment", "en", sOtherPluginPath ) ;
+FCKConfig.Plugins.Add("mimetex", "en", sOtherPluginPath ) ; 

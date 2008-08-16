@@ -47,7 +47,7 @@ $tool_name = get_lang('EditPaymentOption');
 	Libraries
 -----------------------------------------------------------
 */
-include_once(dirname(__FILE__).'/cs_database.lib.php');
+include_once(dirname(__FILE__).'/inc/cs_database.lib.php');
 
 
 /*

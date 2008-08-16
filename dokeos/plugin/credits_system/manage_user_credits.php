@@ -59,8 +59,8 @@ if (isset($_GET['selected0']))
 */ 
 
 require_once (api_get_path(LIBRARY_PATH).'usermanager.lib.php');
-include_once(dirname(__FILE__).'\inc\cs_database.lib.php');
-include_once(dirname(__FILE__).'\inc\cs_functions.inc.php');
+include_once(dirname(__FILE__).'/inc/cs_database.lib.php');
+include_once(dirname(__FILE__).'/inc/cs_functions.inc.php');
 require_once(api_get_path(LIBRARY_PATH).'/formvalidator/FormValidator.class.php');
 
 /*

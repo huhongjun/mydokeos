@@ -55,4 +55,5 @@ $ForumAddNewTopic = "论坛: 添加新话题";
 $ForumEditTopic = "论坛: 编辑主题";
 $ExerciseAnswers = "练习: 答案";
 $ForumReply = "论坛: 回复";
+$AgendaSortChronologicallyDown = "按年代顺序排序日程（降序）";
 ?>

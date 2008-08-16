@@ -560,4 +560,8 @@ $GroupWiki = "Wiki";
 $ExportToPDF = "Export to PDF";
 $CommentAdded = "You comment has been added";
 $BackToPreviousPage = "Back to previous page";
+
+//huhj added
+$PluginName = "Plugin Name";
+$GradebookActivation = "Gradebook Activation";
 ?>

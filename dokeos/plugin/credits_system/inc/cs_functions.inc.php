@@ -548,7 +548,7 @@ function cs_user_last_sub_paid($user_id,$course_id)
  */
 function cs_can_user_access($user_id,$course_id)
 	{
-		$current_date = strtotime (date('Y-m-d H:m'));
+		$current_date = strtotime (date('Y-m-d H:i:s'));
 		$date = cs_user_last_sub_paid($user_id,$course_id);
 		$end_date = strtotime ($date["end_date"]);	
 		

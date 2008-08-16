@@ -42,5 +42,8 @@ $langBackup = "备份";
 $langImportBackupInfo = "导入备份. 你可以从本地磁盘上传备份文件或使用服务器上可用的备份文件.";
 $langCreateBackupInfo = "创建此课程的备份. 你可以选择放在备份文件中课程内容.";
 $ToolIntro = "工具介绍";
-$UploadError = "&#19978;&#20256;&#25991;&#20214;&#38169;&#35823;&#65292;&#35831;&#26816;&#26597;&#25991;&#20214;&#22823;&#23567;&#30340;&#38480;&#21046;&#21644;&#30456;&#24212;&#26435;&#38480;";
+$UploadError = "更新失败，请检查文件大小上限限制和文件夹权限。";
+$DocumentsWillBeAddedToo = "文档将也被添加";
+$ToExportLearnpathWithQuizYouHaveToSelectQuiz = "如果你想导出学习路径包含测试，你必须确定相应的测试是包括在导出中，所以你必须在测试列表中选择他们。";
+$ArchivesDirectoryNotWriteableContactAdmin = "存档目录，使用这个工具，是不能写入的。请联系你的平台管理员。";
 ?>

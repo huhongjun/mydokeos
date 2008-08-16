@@ -165,7 +165,7 @@ if ($options != count($option))
 		} 
 		Display::display_header($tool_name);
 		
-		Display::display_warning_message(get_lang('NoCredits').'. '.get_lang('Please').', <a href="'.$back_page.'">'.get_lang('SelectAnotherCourse').'</a> '.get_lang('or').' <a href="javascript:document.buy.submit();">'.get_lang('BuyCredits').'</a>');
+		Display::display_warning_message(get_lang('NoCredits').'. '.get_lang('Please').', <a href="'.$back_page.'">'.get_lang('SelectAnotherCourse').'</a> '.get_lang('or').' <a href="javascript:document.buy.submit();">'.get_lang('BuyCredits').'</a>'.",false");
 				
 		//show course info and payment options.
 		echo'<br/><br/><h3>'.get_lang('CourseInfo').':</h3>';

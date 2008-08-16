@@ -45,7 +45,7 @@ api_block_anonymous_users();
 
 require_once(api_get_path(LIBRARY_PATH).'/sortabletable.class.php');
 require_once(api_get_path(LIBRARY_PATH).'/course.lib.php');
-include_once(dirname(__FILE__).'\inc\cs_database.lib.php');
+include_once(dirname(__FILE__).'/inc/cs_database.lib.php');
 
 /*
 ==============================================================================

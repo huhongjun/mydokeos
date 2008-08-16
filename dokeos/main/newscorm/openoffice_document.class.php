@@ -65,11 +65,16 @@ abstract class OpenofficeDocument extends learnpath {
 		$classpath = '-cp .:jodconverter-2.2.1.jar:jodconverter-cli-2.2.1.jar';
 		if(strpos($_ENV['OS'],'Windows') !== false)
 		{
-			$classpath = str_replace(':',';',$classpath);
+			//$classpath = str_replace(':',';',$classpath);
+			$classpath = '-cp '
+				.api_get_path(SYS_PATH).'main/inc/lib/ppt2png'.';'
+				.api_get_path(SYS_PATH).'main/inc/lib/ppt2png/'.'jodconverter-2.2.1.jar'.';'
+				.api_get_path(SYS_PATH).'main/inc/lib/ppt2png/'.'jodconverter-cli-2.2.1.jar';
 		}
 		if(strpos($_ENV['OS'],'Windows') !== false)
 		{
-			$cmd = 'cd '.str_replace('/','\\',api_get_path(SYS_PATH).'main/inc/lib/ppt2png ').$classpath.' DokeosConverter';
+			//$cmd = 'cd '.str_replace('/','\\',api_get_path(SYS_PATH).'main/inc/lib/ppt2png java').$classpath.' DokeosConverter';
+			$cmd = 'java '.$classpath.' DokeosConverter';
 		}
 		else
 		{
@@ -86,6 +91,7 @@ abstract class OpenofficeDocument extends learnpath {
 		
 		$locale = $this->original_locale; // TODO : improve it because we're not sure this locale is present everywhere
 		putenv('LC_ALL='.$locale);
+		
 		$shell = exec($cmd, $files, $return);
 		if($return != 0) { //if the java application returns an error code
 			switch($return)

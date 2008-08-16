@@ -1171,7 +1171,10 @@ function get_lang($variable, $notrans = 'DLTT')
 	}
 	if (!is_string($variable))
 		return $ot.'get_lang(?)'.$ct;
+	// zml Global的作用是定义全局变量,但是这个全局变量不是应用于整个网站,而是应用于当前页面,包括include或require的所有文件
+	// 总结:在函数体内定义的global变量,函数体外可以使用,在函数体外定义的global变量不能在函数体内使用
 	global $language_interface, $language_files;
+	
 	//language file specified in tool
     $langpath = api_get_path(SYS_CODE_PATH).'lang/';
 	if (isset ($language_files))
