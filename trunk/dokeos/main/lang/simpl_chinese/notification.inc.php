@@ -15,4 +15,8 @@ $lang_new_forum_topic = "新主题已添加";
 $lang_new_groupforum_topic = "已添加新话题到组论坛";
 $lang_new_dropbox_file = "新文档已收到";
 $lang_update_dropbox_file = "投递箱中的文件已更新";
+$ForumCategoryAdded = "论坛分类已添加";
+$LearnpathAdded = "学习路径已添加";
+//huhj added
+$NotifyMe = "通知我";
 ?>

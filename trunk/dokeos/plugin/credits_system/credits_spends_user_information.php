@@ -42,7 +42,7 @@ require_once (api_get_path(LIBRARY_PATH).'sortabletable.class.php');
 	Libraries
 -----------------------------------------------------------
 */
-include_once(dirname(__FILE__).'/cs_database.lib.php');
+include_once(dirname(__FILE__).'/inc/cs_database.lib.php');
 require_once (api_get_path(LIBRARY_PATH)."debug.lib.inc.php");
 require_once (api_get_path(LIBRARY_PATH)."events.lib.inc.php");
 require_once (api_get_path(LIBRARY_PATH)."export.lib.inc.php");

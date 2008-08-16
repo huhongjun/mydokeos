@@ -34,7 +34,7 @@ if(api_get_setting('show_navigation_menu') != 'false')
 <div id="bottom_corner"></div> 
  <div class="copyright">
   <?php global $_configuration; ?>
-  <?php echo get_lang("Platform") ?> <a href="http://www.dokeos.com">Dokeos <?php echo $_configuration['dokeos_version']; ?></a> &copy; <?php echo date('Y'); ?>
+  <?php echo get_lang("Platform") ?> <a href="http://www.edlt.com">东方创远教育科技有限公司 <?php echo $_configuration['dokeos_version']; ?></a> &copy; <?php echo date('Y'); ?>
  </div>
 
 <?php

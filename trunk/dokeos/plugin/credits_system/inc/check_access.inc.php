@@ -20,7 +20,7 @@ if(isset($_SESSION['_course']) AND (cs_course_payment_options_number($_SESSION['
 -----------------------------------------------------------
 */
 
-include_once(dirname(__FILE__).'../../main/inc/global.inc.php');
+include_once('../../main/inc/global.inc.php');
 
 require_once(dirname(__FILE__).'/cs_functions.inc.php');
 

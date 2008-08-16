@@ -100,7 +100,7 @@ $form -> addElement ('hidden','subscribe',$_GET['code']);
 		
 $form -> display();
 		
-Display::display_normal_message($message);
+Display::display_normal_message($message,false);
 				
 
 /*

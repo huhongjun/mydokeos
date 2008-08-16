@@ -100,7 +100,7 @@ echo "<ul class=\"menulist\">";
 $user_navigation=array();
 
 //Check the number of payment methods enabled by the admin.
-$settings = cs_get_current_settings('cs_payment_methods');
+$settings = cs_get_current_settings();
 $payment_methods_num = 0;
 for($i=0; $i<count($settings['cs_payment_methods']); $i++){
 	if ($settings['cs_payment_methods'][$i]['selected_value'] == 'true')

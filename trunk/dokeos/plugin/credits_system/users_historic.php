@@ -39,7 +39,7 @@
 
 $language_file = 'plugin_credits_system';
 include("../../main/inc/global.inc.php");
-include_once(dirname(__FILE__).'/cs_database.lib.php');
+include_once(dirname(__FILE__).'/inc/cs_database.lib.php');
 require_once(dirname(__FILE__).'/inc/cs_functions.inc.php');
 require_once (api_get_path(LIBRARY_PATH).'sortabletable.class.php');
 

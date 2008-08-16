@@ -41,7 +41,7 @@ api_protect_admin_script();
 	Libraries
 -----------------------------------------------------------
 */
-include_once(dirname(__FILE__).'/cs_database.lib.php');
+include_once(dirname(__FILE__).'/inc/cs_database.lib.php');
 require_once ('cs_statistics.lib.php');
 
 /*

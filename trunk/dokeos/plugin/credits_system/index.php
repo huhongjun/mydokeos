@@ -25,7 +25,7 @@ $language_file = 'plugin_credits_system';
 	{
 		require_once(dirname(__FILE__).'/inc/cs_functions.inc.php');
 		cs_check_database();
-		echo '<a href="'.api_get_path(WEB_PLUGIN_PATH).'credits_system/my_credits.php">My Credits ('.cs_get_user_credits($user_id).')</a>';
+		echo '<a href="'.api_get_path(WEB_PLUGIN_PATH).'credits_system/my_credits.php">'.get_lang('PluginName').'('.cs_get_user_credits($user_id).')</a>';
 		require_once(dirname(__FILE__).'/inc/check_subscription.inc.php');
 		require_once(dirname(__FILE__).'/inc/check_access.inc.php');
 	}

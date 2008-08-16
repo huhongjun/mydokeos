@@ -100,8 +100,8 @@ $default_course_dir = api_get_path(REL_CODE_PATH).'default_course_document/';
 			<tr>
 			
 			<td style="vertical-align: middle; width: 50%;" colspan="1" rowspan="1">
-				<h1>TITULUS 1<br>
-				<span class="gris_title">TITULUS 2</span><br>
+				<h1>Title 1<br>
+				<span class="gris_title">Title 2</span><br>
 				</h1>
 			</td>
 			

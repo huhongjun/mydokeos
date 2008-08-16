@@ -46,7 +46,7 @@ $tool_name = "Add Payment Option"; // title of the page (should come from the la
 	Libraries
 -----------------------------------------------------------
 */
-include_once(dirname(__FILE__).'/cs_database.lib.php');
+include_once(dirname(__FILE__).'/inc/cs_database.lib.php');
 
 /*
 ==============================================================================

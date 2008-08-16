@@ -8,7 +8,7 @@ DEFINE ('CS_TABLE_OPTIONS_HISTORY','cs_options_history');
 
 //Add enabled payment methods databases.
 require_once(dirname(__FILE__).'/cs_functions.inc.php');
-$payment_methods = cs_get_current_settings('cs_payment_methods');
+$payment_methods = cs_get_current_settings();
 for ($i=0; $i < count($payment_methods['cs_payment_methods']); $i++)
 {
 	DEFINE ('CS_TABLE_'.strtoupper($payment_methods['cs_payment_methods'][$i]['subkey']).'_PAYMENT_INFO','cs_'.$payment_methods['cs_payment_methods'][$i]['subkey'].'_payment_info');
