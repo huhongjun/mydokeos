@@ -10,7 +10,7 @@ XML
     </Contact>
 </Contacts>
 
-CSV，XML可以成功导入
+CSV，XML可以成功导入但xml导入中文乱码
 
 
 课程导入
@@ -58,4 +58,4 @@ XML文件格式如下 (字段要求加粗. ) :
 </Sessions>
 
 CSV 可以成功导入
-XML 导入失败
+XML 可以导入但中文乱码
