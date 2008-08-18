@@ -27,6 +27,8 @@ UserName;CourseCode;Status
 jdoe;course01;1
 a.dam;course01;5
 
+无XML模板
+
 导入失败
 
 
