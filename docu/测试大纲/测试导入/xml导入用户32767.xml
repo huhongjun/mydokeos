@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<Contacts>
+ <Contact>
+  <LastName>Save123</LastName> 
+  <FirstName>°²</FirstName> 
+  <UserName>save</UserName> 
+  <Password>123</Password> 
+  <Email>save@sina.com</Email> 
+  <OfficialCode>110119120</OfficialCode> 
+  <PhoneNumber>010-888-456-789</PhoneNumber> 
+  <Status>user</Status> 
+  <Courses></Courses> 
+  </Contact>
+
+</Contacts>
