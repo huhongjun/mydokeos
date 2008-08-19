@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Sessions>
+    <Users>
+        <User>
+            <Username>BJXY006</Username>
+
+        </User>
+    </Users>
+    <Courses>
+        <Course>
+            <CourseCode>K</CourseCode>
+
+        </Course>
+    </Courses>
+    <Session>
+        <SessionName>北京注协</SessionName>
+
+        <DateStart>0000-00-00</DateStart>
+        <DateEnd>0000-00-00</DateEnd>
+
+    </Session>
+</Sessions>
+
