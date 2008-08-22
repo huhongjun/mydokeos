@@ -287,14 +287,14 @@ if ($form->validate())
 			// Lets predefine some variables. Be sure to change the from address!
 			$firstname = $values['firstname'];
 			$lastname = $values['lastname'];
-			$emailto = "\"$firstname $lastname\" <".$values['email'].">";
+			$emailto = "\"$lastname $firstname\" <".$values['email'].">";//interchange firstname with lastname:edit by xiaoping
 			$emailfromaddr = api_get_setting('emailAdministrator');
 			$emailfromname = api_get_setting('siteName');
 			$emailsubject = "[".get_setting('siteName')."] ".get_lang('YourReg')." ".get_setting('siteName');
 
 			// The body can be as long as you wish, and any combination of text and variables
-
-			$emailbody = get_lang('Dear')." ".stripslashes("$firstname $lastname").",\n\n".get_lang('YouAreReg')." ".get_setting('siteName')." ".get_lang('Settings')." ".$values['username']."\n".get_lang('Pass')." : ".stripslashes($values['pass1'])."\n\n".get_lang('Address')." ".get_setting('siteName')." ".get_lang('Is')." : ".$_configuration['root_web']."\n\n".get_lang('Problem')."\n\n".get_lang('Formula').",\n\n".get_setting('administratorName')." ".get_setting('administratorSurname')."\n".get_lang('Manager')." ".get_setting('siteName')."\nT. ".get_setting('administratorTelephone')."\n".get_lang('Email')." : ".get_setting('emailAdministrator');
+			//interchange firstname with lastname:edit by xiaoping
+			$emailbody = get_lang('Dear')." ".stripslashes("$lastname $firstname").",\n\n".get_lang('YouAreReg')." ".get_setting('siteName')." ".get_lang('Settings')." ".$values['username']."\n".get_lang('Pass')." : ".stripslashes($values['pass1'])."\n\n".get_lang('Address')." ".get_setting('siteName')." ".get_lang('Is')." : ".$_configuration['root_web']."\n\n".get_lang('Problem')."\n\n".get_lang('Formula').",\n\n".get_setting('administratorName')." ".get_setting('administratorSurname')."\n".get_lang('Manager')." ".get_setting('siteName')."\nT. ".get_setting('administratorTelephone')."\n".get_lang('Email')." : ".get_setting('emailAdministrator');
 
 			// Here we are forming one large header line
 			// Every header must be followed by a \n except the last
@@ -305,8 +305,8 @@ if ($form->validate())
 			@ api_send_mail($emailto, $emailsubject, $emailbody, $emailheaders);
 		}
 	}
-
-	echo "<p>".get_lang('Dear')." ".stripslashes("$firstname $lastname").",<br><br>".get_lang('PersonalSettings').".</p>\n";
+	//interchange firstname with lastname:edit by xiaoping
+	echo "<p>".get_lang('Dear')." ".stripslashes("$lastname $firstname").",<br><br>".get_lang('PersonalSettings').".</p>\n";
 
 	if (!empty ($values['email']))
 	{
