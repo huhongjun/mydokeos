@@ -3,7 +3,7 @@
 ==============================================================================
 	Dokeos - elearning and course management software
 
-	Copyright (c) 2007 E.U.I. Universidad Politécnica de Madrid (Spain)
+	Copyright (c) 2007 E.U.I. Universidad Politï¿½cnica de Madrid (Spain)
 	Copyright (c) 2004 Dokeos S.A.
 	Copyright (c) 2003 University of Ghent (UGent)
 	Copyright (c) 2001 Universite catholique de Louvain (UCL)
