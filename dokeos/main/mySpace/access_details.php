@@ -99,7 +99,8 @@ $course_code=Database::escape_string($_REQUEST['course']);
 
 $TBL_USERINFO_DEF 		= Database :: get_course_table(TABLE_USER_INFO);
 $mainUserInfo = api_get_user_info($user_id, $course_code);
-echo '<strong>',get_lang('User'),': ',$mainUserInfo['firstName'],' ',$mainUserInfo['lastName'],'</strong> <br />';
+//interchange firstname with lastname:edit by xiaoping
+echo '<strong>',get_lang('User'),': ',$mainUserInfo['lastName'],' ',$mainUserInfo['firstName'],'</strong> <br />';
 
 $connections = get_connections_to_course($user_id, $course_code);
 echo '<strong>'.get_lang('Course').': ',$course_code,' - ',$_course['name'],'</strong><br />';
