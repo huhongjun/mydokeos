@@ -332,14 +332,14 @@ else
 								'{
 									if(isNaN(document.add_form.add_amount.value))' .
 									'{
-										alert("'.get_lang("Creditsmustbenumeric").'");'.               
+										alert("'.get_lang("Creditsmustbenumeric").'");'.       //重新定义资源文件 by xiaoping        
 										'document.add_form.add_amount.focus();
 									}' .
 									'else' .
 									'{
 										if (document.add_form.add_amount.value <= 0)' .
 										'{
-											alert("'.get_lang("Creditsmustbepositive").'");'.            
+											alert("'.get_lang("Creditsmustbepositive").'");'.  //重新定义资源文件 by xiaoping          
 											'document.add_form.add_amount.focus();
 										}' .
 										'else' .
@@ -380,7 +380,7 @@ else
 						Display::display_header($tool_name);
 						if (count($_POST['selected']) == 0)
 						{
-							Display :: display_error_message(get_lang('AnyUsersSelected').'<br/>'.'<a href="javascript:history.go(-1)">'.get_lang('GoBack').'</a>');
+							Display :: display_error_message(get_lang('AnyUsersSelected').'<br/>'.'<a href="javascript:history.go(-1)">'.get_lang('GoBack').'</a>',false);
 						}
 				break;
 			case 'save_edit' :
@@ -420,7 +420,7 @@ else
 									$errors = str_replace('<br/>','\n',$errors);
 									$error_msg .= '.<br/><a href="javascript:alert(\''.$errors.'\')">'.get_lang('Details').'</a>';
 								}
-								Display :: display_error_message($error_msg);
+								Display :: display_error_message($error_msg,false);
 							}
 				break;
 			case 'substract' :						
@@ -474,14 +474,14 @@ else
 								'{
 									if(isNaN(document.sub_form.sub_amount.value))' .
 									'{
-										alert("'.get_lang("Creditsmustbenumeric").'");' .
+										alert("'.get_lang("Creditsmustbenumeric").'");' . //redefine the 'Creditsmustbenumeric' in lang-file:by xiaoping
 										'document.sub_form.sub_amount.focus();
 									}' .
 									'else' .
 									'{
 										if (document.sub_form.sub_amount.value <= 0)'.
 										'{
-											alert("'.get_lang("Creditsmustbepositive").'");' .
+											alert("'.get_lang("Creditsmustbepositive").'");' .//redefine the 'Creditsmustbepositive' in lang-file:by xiaoping
 											'document.sub_form.sub_amount.focus();
 										}' .
 										'else' .
@@ -508,9 +508,9 @@ else
 						$sub_form .= '<form action="'.$_SERVER['PHP_SELF'].'" method="post" name="sub_form">';
 						$sub_form .= get_lang('PlzCredits').' '.get_lang('toSub').': ';
 						$sub_form .= '<input type="text" name="sub_amount" size="9" maxlength="9" onKeyPress="return submitenter(event)"><input type="hidden" name="action" value="substract">'.$sub_form_users;
-						$sub_form .= '&nbsp;<a href="javascript:validatesub();"> '.get_lang('Continue').'</a>';
+						$sub_form .= '&nbsp;<a href="javascript:validatesub();"> '.get_lang('Continue').'</a>';//Delete an unwanted tag 'get_lang('And')':by xiaoping
 						$sub_form .= '</form>';
-						Display :: display_normal_message($sub_form,false);
+						Display :: display_normal_message($sub_form,false); //Add a argument 'false' to not convert all applicable characters to HTML entities :by xiaoping
 						}else
 						{//No users selected
 							Display::display_header($tool_name);
