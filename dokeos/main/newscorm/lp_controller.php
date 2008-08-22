@@ -5,16 +5,18 @@
  * @package dokeos.learnpath
  * @author Yannick Warnier <ywarnier@beeznest.org>
  */
+ // zml edit 控制器脚本  编写共同的背景变量给脚本相应的请求
 /**
  * Initialisations
  */
 $debug = 0;
 if($debug>0) error_log('New LP -+- Entered lp_controller.php -+-',0);
-// name of the language file that needs to be included
+// name of the language file that needs to be included 
+// zml add 需要列入的语言文件的名称
 if (isset($_GET['action']))
 { 
 	if($_GET['action'] == 'export')
-	{ //only needed on export
+	{ //only needed on export 只需要export
 		$language_file[] = 'hotspot';
 		$language_file[] = 'exercice';
 	}
@@ -26,10 +28,12 @@ $language_file[] = "learnpath";
 $language_file[] = 'resourcelinker';
 
 //flag to allow for anonymous user - needs to be set before global.inc.php
+// zml edit 在 global.inc.php 之前 需要设置允许匿名用户的标识
 $use_anonymous = true;
 
 //include class definitions before session_start() to ensure availability when touching
 //session vars containing learning paths
+// zml edit 在session开始包括类的定义之前，要确保session 的 vars 中有学习路径
 require_once('learnpath.class.php');
 if($debug>0) error_log('New LP - Included learnpath',0);
 require_once('learnpathItem.class.php');
@@ -58,6 +62,7 @@ $myrefresh_id = 0;
 if(!empty($_SESSION['refresh']) && $_SESSION['refresh']==1){
 	//check if we should do a refresh of the oLP object (for example after editing the LP)
 	//if refresh is set, we regenerate the oLP object from the database (kind of flush)
+	// zml edit 检查如果我们对oLP对象做了刷新（如在编辑LP之后）如果刷新被设置，我们从数据库再生成oLP对象（各种刷新）
 	api_session_unregister('refresh');
 	$myrefresh = 1;
 	if($debug>0) error_log('New LP - Refresh asked',0);
@@ -66,6 +71,11 @@ if($debug>0) error_log('New LP - Passed refresh check',0);
 
 if(!empty($_REQUEST['dialog_box'])){
 	$dialog_box = stripslashes(urldecode($_REQUEST['dialog_box']));
+	//stripslashes()去掉反斜线字符。函数种类: 资料处理  返回值: 字符串  语法: string stripslashes(string str);
+	//内容说明：本函数可去掉字符串中的反斜线字符。若是连续二个反斜线，则去掉一个，留下一个。若只有一个反斜线，就直接去掉。
+	
+	//urldecode()还原 URL 编码字符串 函数种类: 编码处理 返回值: 字符串 语法: string urldecode(string str);
+	//内容说明：本函数将 URL 编码后字符串还原成未编码的样子。编码使用 %## 的格式。
 }
 
 $lp_controller_touched = 1;
@@ -74,7 +84,11 @@ if(isset($_SESSION['lpobject']))
 {
 	if($debug>0) error_log('New LP - SESSION[lpobject] is defined',0);
 	$oLP = unserialize($_SESSION['lpobject']);
+	//unserialize()对单一的已序列化的变量进行操作，将其转换回 PHP 的值。
+	//返回的是转换之后的值，可为 integer、float、string、array 或 object。
+	//如果传递的字符串不可解序列化，则返回 FALSE。 
 	if(is_object($oLP)){
+		//is_object 判断变量类型是否为类类型。 语法: int is_object(mixed var); 返回值: 整数 函数种类: PHP 系统功能 内容说明: 若变量为类类型则返回true，否则返回false。 
 		if($debug>0) error_log('New LP - oLP is object',0);
 		if($myrefresh == 1 OR $oLP->cc != api_get_course_id()){
 			if($debug>0) error_log('New LP - Course has changed, discard lp object',0);
@@ -96,10 +110,12 @@ if($lp_found == false
 {
 	if($debug>0) error_log('New LP - oLP is not object, has changed or refresh been asked, getting new',0);		
 	//regenerate a new lp object? Not always as some pages don't need the object (like upload?)
+	// zml edit 不是所有的页面都需要再生一个lp对象如上传
 	if(!empty($_REQUEST['lp_id']) || !empty($myrefresh_id)){
 		if($debug>0) error_log('New LP - lp_id is defined',0);
 		//select the lp in the database and check which type it is (scorm/dokeos/aicc) to generate the
 		//right object
+		// zml edit 在数据库中选择lp并检查是哪种类型（scorm/dokeos/aicc）从而产生正确的对象
 		$lp_table = Database::get_course_table('lp');
 		if(!empty($_REQUEST['lp_id'])){
 			$lp_id = learnpath::escape_string($_REQUEST['lp_id']);
@@ -149,9 +165,11 @@ if($debug>0) error_log('New LP - Passed oLP creation check',0);
 
 
 /**
- * Actions switching
+ * Actions switching  zml edit 操作开关
  */
+ // zml edit reinitialises 数组被JavaScript用来更新项目中的目录
 $_SESSION['oLP']->update_queue = array(); //reinitialises array used by javascript to update items in the TOC
+ // zml edit 应该使用 -> clear_message()方法但不工作
 $_SESSION['oLP']->message = ''; //should use ->clear_message() method but doesn't work
 
 $fck_attribute['Width'] = '100%';
@@ -186,6 +204,7 @@ switch($_REQUEST['action'])
 		
 		if(!$lp_found)
 		{	//check if the learnpath ID was defined, otherwise send back to list
+		    // zml edit 检查如果学习路径 ID 被定义了则返回到列表
 			error_log('New LP - No learnpath given for add item', 0); 
 			require('lp_list.php'); 
 		}
@@ -218,9 +237,10 @@ switch($_REQUEST['action'])
 					}
 					else
 					{	//for all other item types than documents, load the item using the item type and path rather than its ID
+						// zml edit 对于所有其他项目类型和文件相比，加载该项目使用的项目类型和路径，而非其ID
 						$new_item_id = $_SESSION['oLP']->add_item($_POST['parent'], $_POST['previous'], $_POST['type'], $_POST['path'], $_POST['title'], $_POST['description'], $_POST['prerequisites']);
 					}
-					//display 					
+					//display 	显示				
 					require('lp_add_item.php');
 				}
 			}
