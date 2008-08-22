@@ -6787,14 +6787,14 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 		
 		$return .= '<p class="lp_title">' . $lang . '</p>';
 		
-		$return .= '<a href="' .api_get_self(). '?cidReq=' . $_GET['cidReq'] . '&amp;action=edit_item&amp;view=build&amp;id=' . $item_id . '&amp;lp_id=' . $this->lp_id . '" title="Edit the current item"><img align="absbottom" alt="Edit the current item" src="../img/edit.gif" title="Edit the current item" /> '.get_lang("Edit").'</a>';
-		$return .= '<a href="' .api_get_self(). '?cidReq=' . $_GET['cidReq'] . '&amp;action=move_item&amp;view=build&amp;id=' . $item_id . '&amp;lp_id=' . $this->lp_id . '" title="Move the current item"><img align="absbottom" alt="Move the current item" src="../img/deplacer_fichier.gif" title="Move the current item" /> '.get_lang("Move").'</a>';
+		$return .= '<a href="' .api_get_self(). '?cidReq=' . $_GET['cidReq'] . '&amp;action=edit_item&amp;view=build&amp;id=' . $item_id . '&amp;lp_id=' . $this->lp_id . '" title="'.get_lang('EditTheCurrentItem').'"><img align="absbottom" alt="'.get_lang('EditTheCurrentItem').'" src="../img/edit.gif" title="'.get_lang('EditTheCurrentItem').'" /> '.get_lang("Edit").'</a>';
+		$return .= '<a href="' .api_get_self(). '?cidReq=' . $_GET['cidReq'] . '&amp;action=move_item&amp;view=build&amp;id=' . $item_id . '&amp;lp_id=' . $this->lp_id . '" title="'.get_lang('MoveTheCurrentItem').'"><img align="absbottom" alt="'.get_lang('MoveTheCurrentItem').'" src="../img/deplacer_fichier.gif" title="'.get_lang('MoveTheCurrentItem').'" /> '.get_lang("Move").'</a>';
 		// commented for now as prerequisites cannot be added to chapters
 		if($item_type != 'dokeos_chapter' && $item_type != 'chapter')
 		{
 			$return .= '<a href="' .api_get_self(). '?cidReq=' . $_GET['cidReq'] . '&amp;action=edit_item_prereq&amp;view=build&amp;id=' . $item_id . '&amp;lp_id=' . $this->lp_id . '" title="'.get_lang('Prerequisites').'"><img align="absbottom" alt="'.get_lang('Prerequisites').'" src="../img/right.gif" title="'.get_lang('Prerequisites').'" /> '.get_lang('Prerequisites').'</a>';
 		}
-		$return .= '<a href="' .api_get_self(). '?cidReq=' . $_GET['cidReq'] . '&amp;action=delete_item&amp;view=build&amp;id=' . $item_id . '&amp;lp_id=' . $this->lp_id . '" onclick="return confirmation(\'' .addslashes($s_title). '\');" title="Delete the current item"><img alt="Delete the current item" align="absbottom" src="../img/delete.gif" title="Delete the current item" /> '.get_lang("Delete").'</a>';
+		$return .= '<a href="' .api_get_self(). '?cidReq=' . $_GET['cidReq'] . '&amp;action=delete_item&amp;view=build&amp;id=' . $item_id . '&amp;lp_id=' . $this->lp_id . '" onclick="return confirmation(\'' .addslashes($s_title). '\');" title="'.get_lang('DeleteTheCurrentItem').'"><img alt="'.get_lang('DeleteTheCurrentItem').'" align="absbottom" src="../img/delete.gif" title="'.get_lang('DeleteTheCurrentItem').'" /> '.get_lang("Delete").'</a>';
 		
 		//$return .= '<br><br><p class="lp_text">' . ((trim($s_description) == '') ? ''.get_lang("NoDescription").'' : stripslashes(nl2br($s_description))) . '</p>';
 		
