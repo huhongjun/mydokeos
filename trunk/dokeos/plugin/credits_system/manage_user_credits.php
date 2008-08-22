@@ -4,8 +4,8 @@
 	Dokeos - elearning and course management software
 	
 	Copyright (c) 2004-2006 Dokeos S.A.
-	Copyright (c) E.U.I. Universidad Politécnica de Madrid (Spain)
-	Copyright (c) Borja Nuñez Salinas - Programmer (bns@alumnos.upm.es)
+	Copyright (c) E.U.I. Universidad Politï¿½cnica de Madrid (Spain)
+	Copyright (c) Borja Nuï¿½ez Salinas - Programmer (bns@alumnos.upm.es)
 	
 	For a full list of contributors, see "credits.txt".
 	The full license can be read in "license.txt".
@@ -186,13 +186,19 @@ function get_user_data($from, $number_of_items, $column, $direction)
 		$keyword_status = mysql_real_escape_string($_GET['keyword_status']);
 		$sql .= " WHERE firstname LIKE '%".$keyword_firstname."%' AND lastname LIKE '%".$keyword_lastname."%' AND username LIKE '%".$keyword_username."%'  AND email LIKE '%".$keyword_email."%'   AND official_code LIKE '%".$keyword_officialcode."%'    AND status LIKE '".$keyword_status."'";
 	}
+	//edit by xiaoping;
+	/*elseif($_POST['action']=='edit')
+	{
+		$sql .= " WHERE $user_table.user_id=".intval($_POST['selected'][0]);			
+	}*/
 	
 	$sql .= " ORDER BY col$column $direction ";
-	$sql .= " LIMIT $from,$number_of_items";
-	$res = api_sql_query($sql, __FILE__, __LINE__);
+	if($_POST['action']!='edit')$sql .= " LIMIT $from,$number_of_items";//edit by xiaoping;
+	$res = api_sql_query($sql, __FILE__, __LINE__);	
+
 	$users = array ();
 	while ($user = mysql_fetch_row($res))
-	{
+	{		
 		if (isset($_POST['action']) && $_POST['action'] == 'edit')
 		{
 			//Change Credits column to edit and dont show user_id.
@@ -230,8 +236,8 @@ if (isset($_GET['action']) and isset($_GET['selected']))
 	echo '<form action="'.api_get_path('WEB_PLUGIN_PATH').'credits_system/manage_user_credits.php" method="post" name="modify_form">';
 	echo '<input type="hidden" name="action" value="'.$_GET['action'].'">';
 	echo '<input type="hidden" name="selected[]" value="'.$_GET['selected'].'">';
-    echo '</form>';
-	echo '<script language="JavaScript">document.modify_form.submit()</script>';
+    echo '</form>';	
+    echo '<script language="JavaScript">document.modify_form.submit()</script>';
 	echo '<br />';
 	echo get_lang('IfDontLoad').' ';
 	echo '<a href="javascript:document.modify_form.submit()">'.get_lang('here').'</a>';
@@ -306,12 +312,12 @@ else
 							$show_selected = true;
 						}
 						//javascript validate function (not quickform to get the form inside the message)
-						$add_form = '<script language="JavaScript">' .
+						$add_form = '<script language="JavaScript">'.
 								'function submitenter(e)
 								{
 								var keycode;
-								if (window.event) keycode = window.event.keyCode;
-								else if (e) keycode = e.which;
+								if(window.event) keycode = window.event.keyCode;
+								else if(e) keycode = e.which;
 								else return true;
 								
 								if (keycode == 13)
@@ -326,14 +332,14 @@ else
 								'{
 									if(isNaN(document.add_form.add_amount.value))' .
 									'{
-										alert("'.get_lang('Creditsmustbenumeric').'");' .
+										alert("'.get_lang("Creditsmustbenumeric").'");'.               
 										'document.add_form.add_amount.focus();
 									}' .
 									'else' .
 									'{
 										if (document.add_form.add_amount.value <= 0)' .
 										'{
-											alert("'.get_lang('Creditsmustbepositive').'");' .
+											alert("'.get_lang("Creditsmustbepositive").'");'.            
 											'document.add_form.add_amount.focus();
 										}' .
 										'else' .
@@ -352,16 +358,16 @@ else
 							$user_info = api_get_user_info($value);
 							if ($show_selected)
 							{
-								$add_form .= '> '.$user_info['official_code'].'<br />';
+								$add_form .= $user_info['official_code'].'<br />';
 							}							
 							$add_form_users .= '<input type="hidden" name="users_to_add[]" value="'.$value.'">';
 						}						
 						$add_form .= '<form action="'.$_SERVER['PHP_SELF'].'" method="post" name="add_form">';
 						$add_form .= get_lang('PlzCredits').' '.get_lang('toAdd').': ';
 						$add_form .= '<input type="text" name="add_amount" size="9" maxlength="9" onKeyPress="return submitenter(event)"><input type="hidden" name="action" value="add">'.$add_form_users;						
-						$add_form .= ' '.get_lang('And').' <a href="javascript:validateadd();"> '.get_lang('Continue').'</a>';
+						$add_form .= '&nbsp;<a href="javascript:validateadd();"> '.get_lang('Continue').'</a>';
 						$add_form .= '</form>';
-						Display :: display_normal_message($add_form);
+						Display :: display_normal_message($add_form,false);
 						}else
 						{//no users selected
 							Display::display_header($tool_name);
@@ -448,15 +454,15 @@ else
 						}
 						
 						//javascript validate function (not quickform to get the form inside the message)
-						$sub_form = '<script language="JavaScript">' .
+						$sub_form = '<script language="JavaScript">'.
 								'function submitenter(e)
 								{
 								var keycode;
-								if (window.event) keycode = window.event.keyCode;
-								else if (e) keycode = e.which;
+								if(window.event)keycode = window.event.keyCode;
+								else if(e)keycode = e.which;
 								else return true;
 								
-								if (keycode == 13)
+								if(keycode == 13)
 								   {
 								   validatesub();
 								   return false;
@@ -468,14 +474,14 @@ else
 								'{
 									if(isNaN(document.sub_form.sub_amount.value))' .
 									'{
-										alert("'.get_lang('Creditsmustbenumeric').'");' .
+										alert("'.get_lang("Creditsmustbenumeric").'");' .
 										'document.sub_form.sub_amount.focus();
 									}' .
 									'else' .
 									'{
-										if (document.sub_form.sub_amount.value <= 0)' .
+										if (document.sub_form.sub_amount.value <= 0)'.
 										'{
-											alert("'.get_lang('Creditsmustbepositive').'");' .
+											alert("'.get_lang("Creditsmustbepositive").'");' .
 											'document.sub_form.sub_amount.focus();
 										}' .
 										'else' .
@@ -495,16 +501,16 @@ else
 							$user_info = api_get_user_info($value);
 							if ($show_selected)
 							{
-								$sub_form .= '> '.$user_info['official_code'].'<br />';
+								$sub_form .= $user_info['official_code'].'<br />';
 							}							
 							$sub_form_users .= '<input type="hidden" name="users_to_sub[]" value="'.$value.'">';
 						}
 						$sub_form .= '<form action="'.$_SERVER['PHP_SELF'].'" method="post" name="sub_form">';
 						$sub_form .= get_lang('PlzCredits').' '.get_lang('toSub').': ';
 						$sub_form .= '<input type="text" name="sub_amount" size="9" maxlength="9" onKeyPress="return submitenter(event)"><input type="hidden" name="action" value="substract">'.$sub_form_users;
-						$sub_form .= ' '.get_lang('And').'<a href="javascript:validatesub();"> '.get_lang('Continue').'</a>';
+						$sub_form .= '&nbsp;<a href="javascript:validatesub();"> '.get_lang('Continue').'</a>';
 						$sub_form .= '</form>';
-						Display :: display_normal_message($sub_form);
+						Display :: display_normal_message($sub_form,false);
 						}else
 						{//No users selected
 							Display::display_header($tool_name);
@@ -549,7 +555,7 @@ else
 		}
 		
 		// Create a sortable table with user-data
-		$column_number = 0;
+		$column_number = 0;		
 		$table = new SortableTable('users', 'get_number_of_users', 'get_user_data',2);
 		if ( !(isset($_POST['action']) && $_POST['action'] == 'edit') )
 		{
@@ -584,7 +590,7 @@ else
 				
 		if (isset($_POST['action']) && $_POST['action'] == 'edit')
 		{	//End of edit form
-			echo '<input type="submit" value="Save" />';
+			echo '<input type="submit" value="'.get_lang('Save').'" />';
 			echo'</form>';
 		}
 	}
