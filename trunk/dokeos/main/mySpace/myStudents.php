@@ -192,8 +192,8 @@ if(!empty($_GET['student']))
 	{
 		api_not_allowed();
 	}
-	
-	$a_infosUser['name'] = $a_infosUser['firstname'].' '.$a_infosUser['lastname'];
+	//interchange firstname with lastname:edit by xiaoping
+	$a_infosUser['name'] = $a_infosUser['lastname'].' '.$a_infosUser['firstname'];
 	
 	echo '<div align="right">
 		<a href="#" onclick="window.print()"><img align="absbottom" src="../img/printmgr.gif">&nbsp;'.get_lang('Print').'</a>
