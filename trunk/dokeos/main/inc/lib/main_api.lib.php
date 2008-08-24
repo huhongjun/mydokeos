@@ -1193,12 +1193,12 @@ function get_lang($variable, $notrans = 'DLTT')
 	}
 	@ eval ('$langvar = $'.$variable.';'); // Note (RH): $$var doesn't work with arrays, see PHP doc
 	if (isset ($langvar) && is_string($langvar) && strlen($langvar) > 0)
-	{
+	{		
 		return str_replace("\\'", "'", $langvar);
 	}
 	@ eval ('$langvar = $lang'.$variable.';');
 	if (isset ($langvar) && is_string($langvar) && strlen($langvar) > 0)
-	{
+	{		
 		return str_replace("\\'", "'", $langvar);
 	}
 	if ($notrans != 'DLTT')
