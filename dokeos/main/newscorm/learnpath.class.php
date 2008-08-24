@@ -4780,7 +4780,7 @@ class learnpath {
 										else
 											$selected = '';
 										
-										$return .= "\t\t\t\t\t" . '<option ' . $selected . 'value="' . $arrLP[$i]['id'] . '">'.get_lang("After").' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding) . '"</option>';
+										$return .= "\t\t\t\t\t" . '<option ' . $selected . 'value="' . $arrLP[$i]['id'] . '">'.' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding) . '"'.get_lang("After").'</option>';//edit by xiaoping
 									}
 								}
 								
@@ -5047,7 +5047,7 @@ class learnpath {
 										else
 											$selected = '';
 
-										$return .= "\t\t\t\t\t" . '<option ' . $selected . 'value="' . $arrLP[$i]['id'] . '">'.get_lang("After").' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding) . '"</option>';
+										$return .= "\t\t\t\t\t" . '<option ' . $selected . 'value="' . $arrLP[$i]['id'] . '">'.' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding)  .'"'.get_lang("After").'</option>';//edit by xiaoping
 									}
 								}
 
@@ -5303,7 +5303,7 @@ class learnpath {
 										else
 											$selected = '';
 										
-										$return .= "\t\t\t\t\t" . '<option ' . $selected . 'value="' . $arrLP[$i]['id'] . '">'.get_lang("After").' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding) . '"</option>';
+										$return .= "\t\t\t\t\t" . '<option ' . $selected . 'value="' . $arrLP[$i]['id'] . '">'.' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding) . '"'.get_lang("After").'</option>';//edit by xiaoping
 									}
 								}
 								
@@ -5559,7 +5559,7 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 										else
 											$selected = '';
 										
-										$return .= "\t\t\t\t\t" . '<option ' . $selected . 'value="' . $arrLP[$i]['id'] . '">'.get_lang("After").' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding) . '"</option>';
+										$return .= "\t\t\t\t\t" . '<option ' . $selected . 'value="' . $arrLP[$i]['id'] . '">'.' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding) . '"'.get_lang("After").'</option>';//edit by xiaoping
 									}
 								}
 								
@@ -5794,7 +5794,7 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 				elseif($action == 'add')
 					$s_selected_position=$arrLP[$i]['id'];				
 
-				$arrHide[$arrLP[$i]['id']]['value']=get_lang("After").' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding);
+				$arrHide[$arrLP[$i]['id']]['value']=' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding).'"'.get_lang("After");//edit by xiaoping
 				
 			}
 		}
@@ -5814,7 +5814,7 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 		
 		if($action != 'move')
 		{
-			$form->addElement('text','title', get_lang('Title').'&nbsp;:','id="idTitle" style="background:#F8F8F8; border:1px solid #999999; font-family:Arial, Verdana, Helvetica, sans-serif; font-size:12px; padding:1px 2px; width:300px;"');
+			$form->addElement('text','title', get_lang('_title').'&nbsp;:','id="idTitle" style="background:#F8F8F8; border:1px solid #999999; font-family:Arial, Verdana, Helvetica, sans-serif; font-size:12px; padding:1px 2px; width:300px;"');
 			//$form->addElement('textarea','description',get_lang("Description").' :', 'id="idDescription"  style="background:#F8F8F8; border:1px solid #999999; font-family:Arial, Verdana, Helvetica, sans-serif; font-size:12px; padding:1px 2px; width:300px;"');
 		}
 		else
@@ -6076,7 +6076,7 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 					elseif($action == 'add')
 						$s_selected_position=$arrLP[$i]['id'];
 					
-					$arrHide[$arrLP[$i]['id']]['value']=get_lang("After").' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding).'"';
+					$arrHide[$arrLP[$i]['id']]['value']=' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding).'"'.get_lang("After");//edit by xiaoping
 					
 				}
 			}
@@ -6096,9 +6096,8 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 			
 			if($action != 'move')
 			{
-				$form->addElement('text','title', get_lang('Title').'&nbsp;:','id="idTitle" style="background:#F8F8F8; border:1px solid #999999; font-family:Arial, Verdana, Helvetica, sans-serif; font-size:12px; width:295px;"');
+				$form->addElement('text','title', get_lang('_title').'&nbsp;:','id="idTitle" style="background:#F8F8F8; border:1px solid #999999; font-family:Arial, Verdana, Helvetica, sans-serif; font-size:12px; width:295px;"');
 
-				
 				$id_prerequisite=0;
 				if(is_array($arrLP))
 				{
@@ -6360,7 +6359,7 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 										else
 											$selected = '';
 										
-										$return .= "\t\t\t\t\t" . '<option ' . $selected . 'value="' . $arrLP[$i]['id'] . '">'.get_lang("After").' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding) . '"</option>';
+										$return .= "\t\t\t\t\t" . '<option ' . $selected . 'value="' . $arrLP[$i]['id'] . '">'.' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding).'"'.get_lang("After") . '</option>';//edit by xiaoping
 									}
 								}
 								
@@ -6621,7 +6620,7 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 										else
 											$selected = '';
 										
-										$return .= "\t\t\t\t\t" . '<option ' . $selected . 'value="' . $arrLP[$i]['id'] . '">'.get_lang("After").' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding) . '"</option>';
+										$return .= "\t\t\t\t\t" . '<option ' . $selected . 'value="' . $arrLP[$i]['id'] . '">'.' "' . mb_convert_encoding($arrLP[$i]['title'],$charset,$this->encoding).'"'.get_lang("After") . '</option>';//edit by xiaoping
 									}
 								}
 								
@@ -6863,7 +6862,7 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 		
 		while($row_zero = Database::fetch_array($res_zero))
 		{
-			$return .= 'child_name[0][' . $i . '] = "'.get_lang("After").' \"' . $row_zero['title'] . '\"";' . "\n";
+			$return .= 'child_name[0][' . $i . '] = "'.' \"' . $row_zero['title'] . '\"'.get_lang("After").'";' . "\n";//edit by xiaoping
 			$return .= 'child_value[0][' . $i++ . '] = "' . $row_zero['id'] . '";' . "\n";
 		}
 		
@@ -6892,7 +6891,7 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 			
 			while($row_parent = Database::fetch_array($res_parent))
 			{
-				$return .= 'child_name[' . $row['id'] . '][' . $i . '] = "'.get_lang("After").' \"' . $row_parent['title'] . '\"";' . "\n";
+				$return .= 'child_name[' . $row['id'] . '][' . $i . '] = "'.' \"' . $row_parent['title'] . '\"'.get_lang("After").'";' . "\n";//edit by xiaoping
 				$return .= 'child_value[' . $row['id'] . '][' . $i++ . '] = "' . $row_parent['id'] . '";' . "\n";
 			}
 			
