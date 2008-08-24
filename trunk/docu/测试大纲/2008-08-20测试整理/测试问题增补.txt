@@ -55,3 +55,10 @@
 问题描述：某个课程下 编辑某个学习路径 其中起因和主题下拉选中的选项是英文 
 
 
+日期：2008-08-24
+记录人：张明良
+是否接纳：
+
+角色:教师
+问题描述：管理课程价格  点 编辑  然后点确定 提示信息出现源码如下：
+[=PaymentOptionUpdatedError=]<a href="http://www.dokeos.com/DLTT/suggestion.php?file=trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpplugin_credits_system.inc.php&amp;variable=$PaymentOptionUpdatedError&amp;language=simpl_chinese" style="color:#FF0000"><strong>#</strong></a>
