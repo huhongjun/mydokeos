@@ -192,7 +192,7 @@ class SortableTable extends HTML_Table
 	 * Displays the table, complete with navigation buttons to browse through
 	 * the data-pages.
 	 */
-	function display()
+	function display($action=NULL)//edit by xiaoping
 	{
 		global $charset;
 		$empty_table = false;
@@ -205,7 +205,7 @@ class SortableTable extends HTML_Table
 		}
 		if (!$empty_table)
 		{
-			$form = $this->get_page_select_form();
+			$form = $this->get_page_select_form($action);//edit by xiaoping
 			$nav = $this->get_navigation_html();
 			$html = '<table style="width:100%;">';
 			$html .= '<tr>';
@@ -317,10 +317,11 @@ class SortableTable extends HTML_Table
 	 * Get the HTML-code wich represents a form to select how many items a page
 	 * should contain.
 	 */
-	function get_page_select_form()
+	//edit by xiaoping(add a argument '$action')
+	function get_page_select_form($action=NULL)
 	{
 		$total_number_of_items = $this->get_total_number_of_items();
-		if ($total_number_of_items <= $this->default_items_per_page)
+		if ($total_number_of_items <= $this->default_items_per_page || $action=='edit')
 		{
 			return '';
 		}
