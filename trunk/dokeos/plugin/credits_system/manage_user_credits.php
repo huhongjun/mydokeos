@@ -556,7 +556,7 @@ else
 		
 		// Create a sortable table with user-data
 		$column_number = 0;		
-		$table = new SortableTable('users', 'get_number_of_users', 'get_user_data',2);
+		$table = new SortableTable('users', 'get_number_of_users', 'get_user_data',4);//set the sort column 4(username):by xiaoping
 		if ( !(isset($_POST['action']) && $_POST['action'] == 'edit') )
 		{
 		$table->set_form_actions(array ('add' => get_lang('AddCredits'),
@@ -586,13 +586,18 @@ else
 		}
 		$column_number++;
 		$table->set_column_filter($column_number-4, 'email_filter');
-		$table->display();
-				
+		//edit by xiaoping
 		if (isset($_POST['action']) && $_POST['action'] == 'edit')
-		{	//End of edit form
+		{
+			$table->display('edit');
+			//End of edit form
 			echo '<input type="submit" value="'.get_lang('Save').'" />';
 			echo'</form>';
 		}
+		else 
+		{
+			$table->display();
+		}		
 	}
 }
 /*
