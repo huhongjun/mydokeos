@@ -31,7 +31,7 @@
 记录人：周蕾
 是否接纳：
 
-角色：管理员
+角色：教师
 问题描述：我的学习币-管理课程价格-当前支付选项页面
 
 日期：2008-08-22
@@ -62,6 +62,7 @@
 角色:教师
 问题描述：管理课程价格  点 编辑  然后点确定 提示信息出现源码如下：
 [=PaymentOptionUpdatedError=]<a href="http://www.dokeos.com/DLTT/suggestion.php?file=trad4all.inc.phpnotification.inc.phpaccessibility.inc.phpplugin_credits_system.inc.php&amp;variable=$PaymentOptionUpdatedError&amp;language=simpl_chinese" style="color:#FF0000"><strong>#</strong></a>
+备注：已解决
 
 日期：2008-08-24
 记录人：胡洪军
@@ -76,3 +77,12 @@
 
 角色:admin
 问题描述：进入门户主页右上角的帮助页面,没做汉化处理.
+备注：已解决
+
+
+日期：2008-08-25
+记录人：周蕾
+是否接纳：
+
+角色:admin
+问题描述：报告，点击进入培训计划页面，右上角Sessions，报告 > Sessions
