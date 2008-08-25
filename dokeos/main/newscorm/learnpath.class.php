@@ -558,7 +558,8 @@ class learnpath {
     	//check course code exists
     	//check lp_name doesn't exist, otherwise append something
     	$i = 0;
-    	$name = learnpath::escape_string(htmlentities($name)); //Kevin Van Den Haute: added htmlentities()
+    	//zml edit htmlentities no support to analyze Chinese
+    	$name = learnpath::escape_string(htmlspecialchars($name)); //Kevin Van Den Haute: added htmlentities()
     	$check_name = "SELECT * FROM $tbl_lp WHERE name = '$name'";
     	//if($this->debug>2){error_log('New LP - Checking the name for new LP: '.$check_name,0);}
     	$res_name = api_sql_query($check_name, __FILE__, __LINE__);
