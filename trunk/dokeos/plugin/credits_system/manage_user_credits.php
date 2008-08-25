@@ -187,14 +187,25 @@ function get_user_data($from, $number_of_items, $column, $direction)
 		$sql .= " WHERE firstname LIKE '%".$keyword_firstname."%' AND lastname LIKE '%".$keyword_lastname."%' AND username LIKE '%".$keyword_username."%'  AND email LIKE '%".$keyword_email."%'   AND official_code LIKE '%".$keyword_officialcode."%'    AND status LIKE '".$keyword_status."'";
 	}
 	//edit by xiaoping;
-	/*elseif($_POST['action']=='edit')
+	elseif($_POST['action']=='edit')
 	{
-		$sql .= " WHERE $user_table.user_id=".intval($_POST['selected'][0]);			
-	}*/
+		$sql .= " WHERE $user_table.user_id in (";
+		$selected = $_POST['selected'];
+		for($i=0;$i<count($selected);$i++)
+		{
+			$sql.=$selected[$i];
+			if($i+1<count($selected))
+			{
+				$sql .=',';
+			}		
+		}
+		$sql .= ')';					
+	}
 	
 	$sql .= " ORDER BY col$column $direction ";
 	if($_POST['action']!='edit')$sql .= " LIMIT $from,$number_of_items";//edit by xiaoping;
 	$res = api_sql_query($sql, __FILE__, __LINE__);	
+	//print $sql;
 
 	$users = array ();
 	while ($user = mysql_fetch_row($res))
@@ -358,14 +369,14 @@ else
 							$user_info = api_get_user_info($value);
 							if ($show_selected)
 							{
-								$add_form .= $user_info['official_code'].'<br />';
+								$add_form .= $user_info['username'].'<br />';//edit by xiaoping
 							}							
 							$add_form_users .= '<input type="hidden" name="users_to_add[]" value="'.$value.'">';
 						}						
 						$add_form .= '<form action="'.$_SERVER['PHP_SELF'].'" method="post" name="add_form">';
 						$add_form .= get_lang('PlzCredits').' '.get_lang('toAdd').': ';
 						$add_form .= '<input type="text" name="add_amount" size="9" maxlength="9" onKeyPress="return submitenter(event)"><input type="hidden" name="action" value="add">'.$add_form_users;						
-						$add_form .= '&nbsp;<a href="javascript:validateadd();"> '.get_lang('Continue').'</a>';
+						$add_form .= '&nbsp;&nbsp;<a href="javascript:validateadd();"> '.get_lang('Continue').'</a>';
 						$add_form .= '</form>';
 						Display :: display_normal_message($add_form,false);
 						}else
@@ -395,7 +406,7 @@ else
 								}
 								if (!is_numeric($value) or $value < 0){
 									$user_info = api_get_user_info($key);
-									$errors.='>'.$user_info['official_code'].' Error: '.$value.' '.get_lang('IsNotAValidValue').'.<br/>';
+									$errors.='>'.$user_info['username'].' Error: '.$value.' '.get_lang('IsNotAValidValue').'.<br/>';
 									$num_errors++;
 								}
 								else
@@ -501,14 +512,14 @@ else
 							$user_info = api_get_user_info($value);
 							if ($show_selected)
 							{
-								$sub_form .= $user_info['official_code'].'<br />';
+								$sub_form .= $user_info['username'].'<br />';
 							}							
 							$sub_form_users .= '<input type="hidden" name="users_to_sub[]" value="'.$value.'">';
 						}
 						$sub_form .= '<form action="'.$_SERVER['PHP_SELF'].'" method="post" name="sub_form">';
 						$sub_form .= get_lang('PlzCredits').' '.get_lang('toSub').': ';
 						$sub_form .= '<input type="text" name="sub_amount" size="9" maxlength="9" onKeyPress="return submitenter(event)"><input type="hidden" name="action" value="substract">'.$sub_form_users;
-						$sub_form .= '&nbsp;<a href="javascript:validatesub();"> '.get_lang('Continue').'</a>';//Delete an unwanted tag 'get_lang('And')':by xiaoping
+						$sub_form .= '&nbsp;&nbsp;<a href="javascript:validatesub();"> '.get_lang('Continue').'</a>';//Delete an unwanted tag 'get_lang('And')':by xiaoping
 						$sub_form .= '</form>';
 						Display :: display_normal_message($sub_form,false); //Add a argument 'false' to not convert all applicable characters to HTML entities :by xiaoping
 						}else
@@ -556,7 +567,7 @@ else
 		
 		// Create a sortable table with user-data
 		$column_number = 0;		
-		$table = new SortableTable('users', 'get_number_of_users', 'get_user_data',4);//set the sort column 4(username):by xiaoping
+		$table = new SortableTable('users', 'get_number_of_users', 'get_user_data',4);
 		if ( !(isset($_POST['action']) && $_POST['action'] == 'edit') )
 		{
 		$table->set_form_actions(array ('add' => get_lang('AddCredits'),
