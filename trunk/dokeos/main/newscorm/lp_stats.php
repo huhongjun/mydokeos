@@ -99,12 +99,12 @@ else
 {
 	$extend_all_link = '<a href="'.api_get_self().'?action=stats&extend_all=1'.$url_suffix.'"><img src="../img/view_more_stats.gif" alt="extend_view" border="0"></a>';
 }
-
+//htmlentities()不能转义中文,所以用htmlspecialchars():by xiaoping
 if($origin != 'tracking')
 {
-	$output .= "<tr><td><div class='title'>".htmlentities(get_lang('ScormMystatus'), ENT_QUOTES, $dokeos_charset)."</div></td></tr>";
+	$output .= "<tr><td><div class='title'>".htmlspecialchars(get_lang('ScormMystatus'), ENT_QUOTES, $dokeos_charset)."</div></td></tr>";
 }
-$output .= "<tr><td>&nbsp;</td></tr>"."<tr><td>"."<table border='0' class='data_table'><tr>\n".'<td width="16">'.$extend_all_link.'</td>'.'<td colspan="4" class="title"><div class="mystatusfirstrow">'.htmlentities(get_lang('ScormLessonTitle'), ENT_QUOTES, $dokeos_charset)."</div></td>\n".'<td colspan="2" class="title"><div class="mystatusfirstrow">'.htmlentities(get_lang('ScormStatus'), ENT_QUOTES, $dokeos_charset)."</div></td>\n".'<td colspan="2" class="title"><div class="mystatusfirstrow">'.htmlentities(get_lang('ScormScore'), ENT_QUOTES, $dokeos_charset)."</div></td>\n".'<td colspan="2" class="title"><div class="mystatusfirstrow">'.htmlentities(get_lang('ScormTime'), ENT_QUOTES, $dokeos_charset)."</div></td><td class='title'><div class='mystatusfirstrow'>".htmlentities(get_lang('Actions'), ENT_QUOTES, $dokeos_charset)."</div></td></tr>\n";
+$output .= "<tr><td>&nbsp;</td></tr>"."<tr><td>"."<table border='0' class='data_table'><tr>\n".'<td width="16">'.$extend_all_link.'</td>'.'<td colspan="4" class="title"><div class="mystatusfirstrow">'.htmlspecialchars(get_lang('ScormLessonTitle'), ENT_QUOTES, $dokeos_charset)."</div></td>\n".'<td colspan="2" class="title"><div class="mystatusfirstrow">'.htmlspecialchars(get_lang('ScormStatus'), ENT_QUOTES, $dokeos_charset)."</div></td>\n".'<td colspan="2" class="title"><div class="mystatusfirstrow">'.htmlspecialchars(get_lang('ScormScore'), ENT_QUOTES, $dokeos_charset)."</div></td>\n".'<td colspan="2" class="title"><div class="mystatusfirstrow">'.htmlspecialchars(get_lang('ScormTime'), ENT_QUOTES, $dokeos_charset)."</div></td><td class='title'><div class='mystatusfirstrow'>".htmlspecialchars(get_lang('Actions'), ENT_QUOTES, $dokeos_charset)."</div></td></tr>\n";
 //going through the items using the $items[] array instead of the database order ensures
 // we get them in the same order as in the imsmanifest file, which is rather random when using
 // the database table
@@ -200,7 +200,7 @@ foreach ($list as $my_item_id)
 		{
 			$extend_link = '<a href="'.api_get_self().'?action=stats&fold_id='.$my_item_id.$url_suffix.'"><img src="../img/visible.gif" alt="fold_view" border="0"></a>'."\n";
 		}
-		$title = $row['mytitle'];
+		$title = mb_convert_encoding($row['mytitle'],$stats_charset,$_SESSION['oLP']->encoding);//编码转换:by xiaoping
 		$title = stripslashes(html_entity_decode($title,ENT_QUOTES, $dokeos_charset));
 		
 		if (empty ($title)) 
@@ -324,7 +324,7 @@ foreach ($list as $my_item_id)
 				$color = 'black';
 			}
 			$mylanglist = array ('completed' => 'ScormCompstatus', 'incomplete' => 'ScormIncomplete', 'failed' => 'ScormFailed', 'passed' => 'ScormPassed', 'browsed' => 'ScormBrowsed', 'not attempted' => 'ScormNotAttempted',);
-			$my_lesson_status = htmlentities(get_lang($mylanglist[$lesson_status]), ENT_QUOTES, $dokeos_charset);
+			$my_lesson_status = htmlspecialchars(get_lang($mylanglist[$lesson_status]), ENT_QUOTES, $dokeos_charset);
 			//$my_lesson_status = get_lang($mylanglist[$lesson_status]);
 			if ($row['item_type'] != 'dokeos_chapter') {
 				$output .= "<tr class='$oddclass'>\n"."<td></td>\n"."<td>$extend_attempt_link</td>\n".'<td colspan="3">'.htmlentities(get_lang('Attempt'), ENT_QUOTES, $dokeos_charset).' '.$row['iv_view_count']."</td>\n"
@@ -408,7 +408,8 @@ foreach ($list as $my_item_id)
 		$time_for_total = $subtotal_time;
 		$time = learnpathItem :: get_scorm_time('js', $subtotal_time);
 		$scoIdentifier = $row['myid'];
-		$title = $row['mytitle'];		
+		//$title =iconv($row['mytitle'],$stats_charset,$_SESSION['oLP']->encoding);
+		$title = mb_convert_encoding($row['mytitle'],$stats_charset,$_SESSION['oLP']->encoding);	//编码转换:by xiaoping	
 		$title = stripslashes(html_entity_decode($title,ENT_QUOTES, $dokeos_charset));
 		
 		if ($score == 0) 
@@ -450,7 +451,7 @@ foreach ($list as $my_item_id)
 			$color = 'black';
 		}
 		$mylanglist = array ('completed' => 'ScormCompstatus', 'incomplete' => 'ScormIncomplete', 'failed' => 'ScormFailed', 'passed' => 'ScormPassed', 'browsed' => 'ScormBrowsed', 'not attempted' => 'ScormNotAttempted',);
-		$my_lesson_status = htmlentities(get_lang($mylanglist[$lesson_status]), ENT_QUOTES, $dokeos_charset);
+		$my_lesson_status = htmlspecialchars(get_lang($mylanglist[$lesson_status]), ENT_QUOTES, $dokeos_charset);
 
 		if ($row['item_type'] != 'dokeos_chapter') {
 			if($row['item_type'] == 'quiz'){

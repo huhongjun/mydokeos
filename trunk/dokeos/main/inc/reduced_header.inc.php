@@ -21,13 +21,13 @@
 //This parameter should be set in the platform configuration interface in time.
 if(empty($charset))
 {
-	$charset = 'ISO-8859-15';
+	$charset = api_get_setting('platform_charset');//使$charset和平台编码一致 by xiaoping
 }
 
 //header('Content-Type: text/html; charset='. $charset)
 //	or die ("WARNING : it remains some characters before &lt;?php bracket or after ?&gt end");
 
-header('Content-Type: text/html; charset='. $charset);
+header("Content-Type: text/html; charset=$charset");
 if ( isset($httpHeadXtra) && $httpHeadXtra )
 {
 	foreach($httpHeadXtra as $thisHttpHead)
@@ -168,8 +168,8 @@ if($my_style!='')
 ?>
 
 <link rel="top" href="<?php echo api_get_path(WEB_PATH); ?>index.php" title="" />
-<link rel="courses" href="<?php echo api_get_path(WEB_CODE_PATH) ?>auth/courses.php" title="<?php echo htmlentities(get_lang('OtherCourses'),ENT_QUOTES,$charset); ?>" />
-<link rel="profil" href="<?php echo api_get_path(WEB_CODE_PATH) ?>auth/profile.php" title="<?php echo htmlentities(get_lang('ModifyProfile'),ENT_QUOTES,$charset); ?>" />
+<link rel="courses" href="<?php echo api_get_path(WEB_CODE_PATH) ?>auth/courses.php" title="<?php echo get_lang('OtherCourses'); ?>" />
+<link rel="profil" href="<?php echo api_get_path(WEB_CODE_PATH) ?>auth/profile.php" title="<?php echo get_lang('ModifyProfile'); ?>" />
 <link href="http://www.dokeos.com/documentation.php" rel="Help" />
 <link href="http://www.dokeos.com/team.php" rel="Author" />
 <link href="http://www.dokeos.com" rel="Copyright" />

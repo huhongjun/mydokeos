@@ -726,7 +726,7 @@ switch($_REQUEST['action'])
 			$lp_id = $_SESSION['oLP']->get_id();
 			$list = $_SESSION['oLP']->get_flat_ordered_items_list($lp_id);
 			$user_id = api_get_user_id();
-			$stats_charset = $_SESSION['oLP']->encoding;
+			$stats_charset =  api_get_setting('platform_charset');//按平台设置的编码(gb2312)来设置学习路径状态页面编码:by xiaoping
 			require('lp_stats.php');
 		}
 		break;
@@ -798,7 +798,7 @@ switch($_REQUEST['action'])
             $lp_id = $_SESSION['oLP']->get_id();
             $list = $_SESSION['oLP']->get_flat_ordered_items_list($lp_id);
             $user_id = api_get_user_id();
-            $stats_charset = $_SESSION['oLP']->encoding;
+            $stats_charset = api_get_setting('platform_charset');
             header('location: ../course_home/course_home.php?'.api_get_cidreq());
         }
         break;        
