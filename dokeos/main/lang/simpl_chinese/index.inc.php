@@ -30,7 +30,7 @@ $Intranet = "局域网";
 $Englin = "英语";
 $langInvalidForSelfRegistration = "登录失败－如果你还没有注册，你可以点击<A href=\"claroline/auth/inscription.php\">注册用户</A>";
 $langSubCat = "下一级分类";
-$langMenuGeneral = "通用功能";
+$langMenuGeneral = "链接";
 $langMenuUser = "用户";
 $langMenuAdmin = "平台管理";
 $langUsersOnLineList = "线用户列表";
