@@ -168,10 +168,19 @@ $EnablePaymentOption = "支付选项";
 $EnabledCreditCourse = "启用课程收费";
 $CreditAmountRequired = "必须填写学习币数量";
 $DisabledCreditCourse = "关闭课程收费";
+$DifferentOptions = "不同选项";
+$YouHaveNoAccess = "你不能访问";
+$PlzSubscribe = "";
+$CourseInfo = "课程信息";
+$CourseTitle = "课程标题";
+$Tutor = "教师";
+$Selectapaymentoption = "选择支付选项";
+$Confirm = "确定";
+$NoOptionsAvailable = "没有可选择的支付方法";
+$NoDefaultPO = "无默认支付选项";
+$ChangesStoredSuccessfully = "添加支付选项成功";
+$PaymentOptionDeleted = "删除支付选项成功";
+$PaymentOptionUpdatedError = "支付选项更新错误";
+$PaymentOptionUpdated = "支付选项更新成功";
 //end huhj
-
-//start xiaoping
-$Creditsmustbepositive="输入必须为正数";
-$Creditsmustbenumeric="输入必须为数字";
-//end xiaoping
 ?>
