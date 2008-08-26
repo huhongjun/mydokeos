@@ -2451,8 +2451,8 @@ class learnpath {
     	//$parent = $this->items[$this->current]->get_parent();
     	//if(empty($parent)){$parent = $this->ordered_items[$this->items[$this->current]->get_previous_index()];}
     	$html.= '<div class="inner_lp_toc">'."\n" ;
-    	$html.= '<div class="scorm_title">&nbsp;&nbsp;&nbsp;&nbsp;'.mb_convert_encoding($this->get_name(),$mych,$this->encoding).'</div>';//edit by xiaoping
-    	
+    	$html.= '<div class="scorm_title">&nbsp;&nbsp;&nbsp;&nbsp;'.$this->get_name().'</div>';//edit by xiaoping
+    	    	
     	// build, display
     	if(api_is_allowed_to_edit())
     	{
