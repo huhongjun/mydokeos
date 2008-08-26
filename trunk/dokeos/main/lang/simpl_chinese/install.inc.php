@@ -17,7 +17,7 @@ $langLocalPath = "相应的本地路径";
 $langAdminEmail = "管理员电子邮件";
 $langAdminName = "管理员名字";
 $langAdminSurname = "管理员姓氏";
-$langAdminLogin = "管理员登陆";
+$langAdminLogin = "管理员登录";
 $langAdminPass = "管理员密码(<FONT color=red>你可以修改</FONT>)";
 $langEducationManager = "项目管理人";
 $langCampusName = "您的网站名称";

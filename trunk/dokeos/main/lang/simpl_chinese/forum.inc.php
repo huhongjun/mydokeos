@@ -1,4 +1,5 @@
 <?php /*
+<?php /*
 for more information: see languages.txt in the lang folder. 
 */
 $ForumDeleted = "论坛被删除";
@@ -34,7 +35,7 @@ $Replies = "答复";
 $Views = "查看";
 $LastPost = "最后帖子";
 $Quoting = "引用";
-$NotifyByEmail = "当有人回复时通过邮件通知我";
+$NotifyByEmail = "当有人回复时，发送邮件通知我";
 $StickyPost = "这是一个粘性消息（总是出现在最上层并具有特殊的粘图标）";
 $ReplyShort = "Re: ";
 $DeletePost = "你确定要删除这个帖子吗？删除这个帖子也将删除这个帖子的回复。请检查主题查看看看哪个帖子也将被删除";
@@ -57,11 +58,11 @@ $Direct = "直接";
 $ForGroup = "组";
 $ThreadLocked = "主题是被锁定的。";
 $NotAllowedHere = "你不允许在这。";
-$ReplyAdded = "回复已添加剂";
+$ReplyAdded = "回复已添加";
 $EditPost = "编辑帖子";
 $EditPostStored = "帖子已修改。";
 $NewForumPost = "论坛里的新帖";
-$YouWantedToStayInformed = "你定期想有人在主题回复时通过e-mail告知你";
+$YouWantedToStayInformed = "你想有人回复你的主题时通过电子邮件通知你";
 $MessageHasToBeApproved = "信息必须验证后才能被看到.";
 $AllowAttachments = "允许附件";
 $EditForumCategory = "编辑论坛分类";
@@ -90,9 +91,10 @@ $ForumSearch = "在论坛里查询";
 $SearchTerm  = "查询条件";
 $ForumSearchResults = "论坛查询结果";
 $ForumSearchInformation = "你查询多个词可以使用+号连接";
-$YouWillBeNotifiedOfNewPosts = "你的新帖子将通过e-mail通知你。";
-$YouWillNoLongerBeNotifiedOfNewPosts = "你的新帖子不再通过e-mail通知你";
+$YouWillBeNotifiedOfNewPosts = "你的新帖子将通过电子邮件通知你。";
+$YouWillNoLongerBeNotifiedOfNewPosts = "你的新帖子不再通过电子邮件通知你";
 
 //zhoulei add
 $ForumMoved = "论坛已移动";
+$TooShort ="查询条件太短";
 ?>
