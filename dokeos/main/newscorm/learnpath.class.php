@@ -343,9 +343,15 @@ class learnpath {
     	$previous = intval($previous);
     	$type = $this->escape_string($type);
     	$id = intval($id);
+    	// edit zml and xp
+    	$title = $this->escape_string(mb_convert_encoding(htmlspecialchars($title),$this->encoding,$charset));
+    	$description = $this->escape_string(mb_convert_encoding(htmlspecialchars($description),$this->encoding,$charset)); 
     	
+<<<<<<< .mine
+=======
     	$title = $this->escape_string(mb_convert_encoding($title,$this->encoding,$charset));
     	$description = $this->escape_string(mb_convert_encoding($description,$this->encoding,$charset));     	
+>>>>>>> .r218
     	$sql_count = "
     		SELECT COUNT(id) AS num
     		FROM " . $tbl_lp_item . "
@@ -556,8 +562,14 @@ class learnpath {
     	$tbl_lp = Database::get_course_table('lp');
     	//check course code exists
     	//check lp_name doesn't exist, otherwise append something
+<<<<<<< .mine
+    	$i = 0;
+    	//zml edit htmlentities no support to analyze Chinese
+    	$name = learnpath::escape_string(htmlspecialchars($name)); 
+=======
     	$i = 0;
     	$name = learnpath::escape_string($name); //remove htmlentities()
+>>>>>>> .r218
     	$check_name = "SELECT * FROM $tbl_lp WHERE name = '$name'";
     	//if($this->debug>2){error_log('New LP - Checking the name for new LP: '.$check_name,0);}
     	$res_name = api_sql_query($check_name, __FILE__, __LINE__);
@@ -571,7 +583,11 @@ class learnpath {
     	}
     	//new name does not exist yet; keep it
     	//escape description
+<<<<<<< .mine
+    	$description = learnpath::escape_string(htmlspecialchars($description)); //Kevin: added htmlentities()
+=======
     	$description = learnpath::escape_string($description); //remove htmlentities()
+>>>>>>> .r218
     	$type = 1;
     	switch($learnpath){
     		case 'guess':
@@ -873,7 +889,7 @@ class learnpath {
     	if($this->debug > 0){error_log('New LP - In learnpath::edit_item()', 0);}
 
     	if(empty($id) or ($id != strval(intval($id))) or empty($title)){ return false; }
-    	
+    	global $charset;
     	$tbl_lp_item = Database::get_course_table('lp_item');
     	
     	$sql_select = "
@@ -887,14 +903,18 @@ class learnpath {
     	$same_previous	= ($row_select['previous_item_id'] == $previous) ? true : false;
     	
     	if($same_parent && $same_previous)
-    	{
-    		//only update title and description
+    	{    		
+    		//only update title and description  // edit zml and xp
     		$sql_update = "
     			UPDATE " . $tbl_lp_item . "
     			SET
+<<<<<<< .mine
+    				title = '" . mb_convert_encoding($this->escape_string(htmlspecialchars($title)),$this->encoding,$charset) . "',
+=======
     				title = '" . mb_convert_encoding(htmlspecialchars($title), $this->encoding,$charset) . "',
+>>>>>>> .r218
 					prerequisite = '".$prerequisites."',
-    				description = '" . $this->escape_string(htmlentities($description)) . "'
+    				description = '" . mb_convert_encoding($this->escape_string(htmlspecialchars($description)),$this->encoding,$charset) . "'
     			WHERE id = " . $id;
     		$res_update = api_sql_query($sql_update, __FILE__, __LINE__);
     		echo $sql_update.'<br/>db_rs:'.$res_update;
@@ -1003,12 +1023,12 @@ class learnpath {
 		    	$new_order	= $row_select_old['display_order'] + 1;
     		}
 	    	
-    		//update the current item with the new data
+    		//update the current item with the new data //edit zml and xp
     		$sql_update = "
 	    		UPDATE " . $tbl_lp_item . "
 	    		SET
-	    			title = '" . $this->escape_string(htmlentities($title)) . "',
-	    			description = '" . $this->escape_string(htmlentities($description)) . "',
+	    			title = '" . mb_convert_encoding($this->escape_string(htmlspecialchars($title)),$this->encoding,$charset). "',
+	    			description = '" . mb_convert_encoding($this->escape_string(htmlspecialchars($description)),$this->encoding,$charset) . "',
 	    			parent_item_id = " . $parent . ",
 	    			previous_item_id = " . $previous . ",
 	    			next_item_id = " . $new_next . ",
@@ -4356,7 +4376,7 @@ class learnpath {
 	 */
 	function display_item($item_id, $iframe = true, $msg = '')
 	{
-		global $_course; //will disappear
+		global $_course,$charset; //will disappear
 		
 		$return = '';
 		
@@ -4382,7 +4402,16 @@ class learnpath {
 				if($msg != '')
 					$return .= $msg;
 				
+<<<<<<< .mine
+				/*if($this->encoding=='UTF-8')
+				{
+					$row['title'] = utf8_decode($row['title']);
+				}*/				
+				//edit zml and xp 
+				$return .= '<p class="lp_title">' .  mb_convert_encoding(stripslashes($row['title']),$charset,$this->encoding) . '</p>';
+=======
 				$return .= '<p class="lp_title">' . mb_convert_encoding($row['title'], $mycharset,$this->encoding) . '</p>';
+>>>>>>> .r218
 				//$return .= '<p class="lp_text">' . ((trim($row['description']) == '') ? 'no description' : stripslashes($row['description'])) . '</p>';
 				
 				//$return .= '<hr />';
@@ -4394,13 +4423,13 @@ class learnpath {
 					$result=api_sql_query($sql_doc, __FILE__, __LINE__);
 					$path_file=Database::result($result,0,0);					
 					$path_parts = pathinfo($path_file);
-					
+					//echo $sql_doc.'<br/>'.$path_file.'<br/>';
+					//print_r($path_parts);
 					if(in_array($path_parts['extension'],array('html','txt','png', 'jpg', 'JPG', 'jpeg', 'JPEG', 'gif', 'swf')))
 					{
 						$return .= $this->display_document($row['path'], true, true);
 					}
-				}
-					
+				}				
 				$return .= '</div>';
 			}
 		}
@@ -4598,8 +4627,7 @@ class learnpath {
 			FROM " . $tbl_doc . "
 			WHERE id = " . $id;
 		$res_doc = api_sql_query($sql_doc, __FILE__, __LINE__);	
-		$row_doc = Database::fetch_array($res_doc);
-		
+		$row_doc = Database::fetch_array($res_doc);		
 		//if($show_title)
 			//$return .= '<p class="lp_title">' . $row_doc['title'] . ($edit_link ? ' [ <a href="' .api_get_self(). '?cidReq=' . $_GET['cidReq'] . '&amp;action=add_item&amp;type=' . TOOL_DOCUMENT . '&amp;file=' . $_GET['file'] . '&amp;edit=true&amp;lp_id=' . $_GET['lp_id'] . '">Edit this document</a> ]' : '') . '</p>';
 		
@@ -6820,6 +6848,7 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 	 */
 	function create_js()
 	{
+		global $charset;
 		$return = '<script language="javascript" type="text/javascript">' . "\n";
 		
 		$return .= 'function load_cbo(id){' . "\n";
@@ -6856,8 +6885,8 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 		$i = 0;
 		
 		while($row_zero = Database::fetch_array($res_zero))
-		{
-			$return .= 'child_name[0][' . $i . '] = "'.' \"' . $row_zero['title'] . '\"'.get_lang("After").'";' . "\n";//edit by xiaoping
+		{   //edit by xiaoping and zml
+			$return .= 'child_name[0][' . $i . '] = "'.' \"' . mb_convert_encoding($row_zero['title'],$charset,$this->encoding) . '\"'.get_lang("After").'";' . "\n";
 			$return .= 'child_value[0][' . $i++ . '] = "' . $row_zero['id'] . '";' . "\n";
 		}
 		
@@ -6885,8 +6914,8 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 			$return .= 'child_value[' . $row['id'] . '] = new Array();' . "\n\n";
 			
 			while($row_parent = Database::fetch_array($res_parent))
-			{
-				$return .= 'child_name[' . $row['id'] . '][' . $i . '] = "'.' \"' . $row_parent['title'] . '\"'.get_lang("After").'";' . "\n";//edit by xiaoping
+			{   //edit by xiaoping and zml
+				$return .= 'child_name[' . $row['id'] . '][' . $i . '] = "'.' \"' . mb_convert_encoding($row_parent['title'],$charset,$this->encoding) . '\"'.get_lang("After").'";' . "\n";
 				$return .= 'child_value[' . $row['id'] . '][' . $i++ . '] = "' . $row_parent['id'] . '";' . "\n";
 			}
 			
