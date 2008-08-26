@@ -47,7 +47,7 @@ if ($is_allowed_in_course == false) api_not_allowed();
 -----------------------------------------------------------
 */
 //$charset = 'UTF-8';
-$charset = 'ISO-8859-1';
+$charset = api_get_setting('platform_charset');//按平台设置的编码(gb2312)来设置学习路径显示页面编码:by xiaoping
 $oLearnpath = false;
 $course_code = api_get_course_id();
 $user_id = api_get_user_id();

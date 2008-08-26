@@ -2451,13 +2451,13 @@ class learnpath {
     	//$parent = $this->items[$this->current]->get_parent();
     	//if(empty($parent)){$parent = $this->ordered_items[$this->items[$this->current]->get_previous_index()];}
     	$html.= '<div class="inner_lp_toc">'."\n" ;
-    	$html.= '<div class="scorm_title">&nbsp;&nbsp;&nbsp;&nbsp;'.mb_convert_encoding($this->get_name(),$this->encoding,$mych).'</div>';
+    	$html.= '<div class="scorm_title">&nbsp;&nbsp;&nbsp;&nbsp;'.mb_convert_encoding($this->get_name(),$mych,$this->encoding).'</div>';//edit by xiaoping
     	
     	// build, display
     	if(api_is_allowed_to_edit())
     	{
-    		$html.="<p>&nbsp;&nbsp;&nbsp;&nbsp;<a  target='_parent' href='lp_controller.php?".api_get_cidreq()."&action=build&lp_id=".$this->lp_id."' style= target='_parent'>".mb_convert_encoding(get_lang("Build"),$this->encoding,$mych)."</a>&nbsp;&#124;&nbsp;<a href='lp_controller.php?".api_get_cidreq()."&action=admin_view&lp_id=".$this->lp_id."' target='_parent'>".mb_convert_encoding(get_lang("BasicOverview"),$this->encoding,$mych)."</a>&nbsp;&#124;&nbsp;".mb_convert_encoding(get_lang("Display"),$this->encoding,$mych)."</p>";
-			unset($mych);
+    		$html.="<p>&nbsp;&nbsp;&nbsp;&nbsp;<a  target='_parent' href='lp_controller.php?".api_get_cidreq()."&action=build&lp_id=".$this->lp_id."' style= target='_parent'>".get_lang("Build")."</a>&nbsp;&#124;&nbsp;<a href='lp_controller.php?".api_get_cidreq()."&action=admin_view&lp_id=".$this->lp_id."' target='_parent'>".get_lang("BasicOverview")."</a>&nbsp;&#124;&nbsp;".get_lang("Display")."</p>";
+			//unset($mych);使$mych本函数内可用 by xiaoping
     	}
     	//		" onchange=\"javascript:document.getElementById('toc_$parent').focus();\">\n";
 		require_once('resourcelinker.inc.php');
@@ -2515,14 +2515,14 @@ class learnpath {
     			$html .= '<div class="'.$style_item.'" style="padding-left: '.($item['level']*2).'em; padding-right:'.($item['level']*1.5).'em"             title="'.$item['description'].'" >';
    			}
     			
-			$title=$item['title'];		
+			$title=mb_convert_encoding($item['title'],$mych,$this->encoding);		//编码转换 by xiaoping
     			
     		if(empty($title))
     		{
     			$title = rl_get_resource_name(api_get_course_id(),$this->get_id(),$item['id']);    			
     		}
     		
-    		$title = html_entity_decode($title,ENT_QUOTES,$this->encoding);	
+    		$title = html_entity_decode($title,ENT_QUOTES,$mych);	
     	
     		if($item['type']!='dokeos_chapter' and $item['type']!='dir' AND $item['type']!='dokeos_module')
     		{
