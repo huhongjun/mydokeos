@@ -9,11 +9,21 @@
           learnpath.class.php
           
     迷惑：数据存在哪里？插入前得到的值是否乱码，存入后推测是乱码因为从数据库查询出来就是乱码      
-          
+    learnpath.class.php 
+    learnpath::escape_string(htmlentities($name))
+    PHP中htmlentities跟 htmlspecialchars 的区别
+			htmlentities跟htmlspecialchars的功能都是格式化html代码的
+			这两个函数在格式化带有英文字符的html代码的时候基本没啥问题
+			但htmlentities对中文字符也不放过，这样得出来的结果是中文字符部分变为一堆乱码。
+			对于中文的处理用函数htmlspecialchars
+
+              
     2. 内容编辑 添加章 点击添加的章,右侧中文标题乱码，但编辑后在右侧中文标题乱码; 
        lp_add_item.php
     3. 内容编辑：在添加新步骤时，右侧中文标题乱码，点击添加的步骤在中文标题乱码".    
        lp_add_item.php
+    
+    mb_convert_encoding(变量或者htmlspecialchars(变量),$charset,$this->encoding)
     
     4. 学习路径管理  章/步骤调整:移动   
        选择一门课程(教师则选择自己的课程)->点击学习路径->
