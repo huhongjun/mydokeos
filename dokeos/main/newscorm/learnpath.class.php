@@ -347,11 +347,6 @@ class learnpath {
     	$title = $this->escape_string(mb_convert_encoding(htmlspecialchars($title),$this->encoding,$charset));
     	$description = $this->escape_string(mb_convert_encoding(htmlspecialchars($description),$this->encoding,$charset)); 
     	
-<<<<<<< .mine
-=======
-    	$title = $this->escape_string(mb_convert_encoding($title,$this->encoding,$charset));
-    	$description = $this->escape_string(mb_convert_encoding($description,$this->encoding,$charset));     	
->>>>>>> .r218
     	$sql_count = "
     		SELECT COUNT(id) AS num
     		FROM " . $tbl_lp_item . "
@@ -562,14 +557,9 @@ class learnpath {
     	$tbl_lp = Database::get_course_table('lp');
     	//check course code exists
     	//check lp_name doesn't exist, otherwise append something
-<<<<<<< .mine
     	$i = 0;
     	//zml edit htmlentities no support to analyze Chinese
     	$name = learnpath::escape_string(htmlspecialchars($name)); 
-=======
-    	$i = 0;
-    	$name = learnpath::escape_string($name); //remove htmlentities()
->>>>>>> .r218
     	$check_name = "SELECT * FROM $tbl_lp WHERE name = '$name'";
     	//if($this->debug>2){error_log('New LP - Checking the name for new LP: '.$check_name,0);}
     	$res_name = api_sql_query($check_name, __FILE__, __LINE__);
@@ -583,11 +573,7 @@ class learnpath {
     	}
     	//new name does not exist yet; keep it
     	//escape description
-<<<<<<< .mine
     	$description = learnpath::escape_string(htmlspecialchars($description)); //Kevin: added htmlentities()
-=======
-    	$description = learnpath::escape_string($description); //remove htmlentities()
->>>>>>> .r218
     	$type = 1;
     	switch($learnpath){
     		case 'guess':
@@ -885,7 +871,6 @@ class learnpath {
      */
     function edit_item($id, $parent, $previous, $title, $description, $prerequisites=0)
     {
-    	global $charset;
     	if($this->debug > 0){error_log('New LP - In learnpath::edit_item()', 0);}
 
     	if(empty($id) or ($id != strval(intval($id))) or empty($title)){ return false; }
@@ -908,16 +893,11 @@ class learnpath {
     		$sql_update = "
     			UPDATE " . $tbl_lp_item . "
     			SET
-<<<<<<< .mine
     				title = '" . mb_convert_encoding($this->escape_string(htmlspecialchars($title)),$this->encoding,$charset) . "',
-=======
-    				title = '" . mb_convert_encoding(htmlspecialchars($title), $this->encoding,$charset) . "',
->>>>>>> .r218
 					prerequisite = '".$prerequisites."',
     				description = '" . mb_convert_encoding($this->escape_string(htmlspecialchars($description)),$this->encoding,$charset) . "'
     			WHERE id = " . $id;
     		$res_update = api_sql_query($sql_update, __FILE__, __LINE__);
-    		echo $sql_update.'<br/>db_rs:'.$res_update;
     	}
     	else
     	{
@@ -4147,7 +4127,8 @@ class learnpath {
 		
 		$result = api_sql_query($sql, __FILE__, __LINE__);		
 		$arrLP = array();	
-		$mycharset=api_get_setting('platform_charset');					
+		$mycharset=api_get_setting('platform_charset');		
+				
 		while($row = Database::fetch_array($result))
 		{
 			
@@ -4392,7 +4373,7 @@ class learnpath {
 					lp.id = " . $item_id;
 			
 			$result = api_sql_query($sql, __FILE__, __LINE__);
-			$mycharset=api_get_setting('platform_charset');	
+			
 			while($row = Database::fetch_array($result))
 			{
 				$return .= $this->display_manipulate($item_id, $row['item_type']);
@@ -4402,16 +4383,12 @@ class learnpath {
 				if($msg != '')
 					$return .= $msg;
 				
-<<<<<<< .mine
 				/*if($this->encoding=='UTF-8')
 				{
 					$row['title'] = utf8_decode($row['title']);
 				}*/				
 				//edit zml and xp 
 				$return .= '<p class="lp_title">' .  mb_convert_encoding(stripslashes($row['title']),$charset,$this->encoding) . '</p>';
-=======
-				$return .= '<p class="lp_title">' . mb_convert_encoding($row['title'], $mycharset,$this->encoding) . '</p>';
->>>>>>> .r218
 				//$return .= '<p class="lp_text">' . ((trim($row['description']) == '') ? 'no description' : stripslashes($row['description'])) . '</p>';
 				
 				//$return .= '<hr />';
