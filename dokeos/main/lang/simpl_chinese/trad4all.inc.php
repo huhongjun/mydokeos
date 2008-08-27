@@ -577,5 +577,5 @@ $NoCredits = "没有学习币";
 $Please = "请";
 $SelectAnotherCourse = "选择另一门课程";
 $or = "或";
-$Audio = "音频";
+$EnabledCreditCourses = "启用收费课程";
 ?>
