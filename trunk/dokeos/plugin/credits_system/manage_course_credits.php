@@ -296,7 +296,7 @@ function modify_filter($code)
 	{
 
 		$links = '<a href="edit_pay_course.php?action=current&view='.$_GET['view'].'&code='.$code.'"><img src="../../main/img/synthese_view.gif" border="0" style="vertical-align: middle" title="'.get_lang('CurrentPaymentOptions').'" alt="'.get_lang('CurrentPaymentOptions').'"/></a>&nbsp;'.
-				'<a href="?table=pay&view='.$_GET['view'].'&action=disable&code='.$code.'" onclick="javascript:if(!confirm('."'".addslashes(htmlentities(get_lang("ConfirmYourChoice")))."'".')) return false; "><img src="img/no_coins.gif" border="0" style="vertical-align: middle" title="'.get_lang('DisablePaymentOption').'" alt="'.get_lang('DisablePaymentOption').'"/></a>&nbsp;';
+				'<a href="?table=pay&view='.$_GET['view'].'&action=disable&code='.$code.'" onclick="javascript:if(!confirm('."'".addslashes(htmlspecialchars(get_lang("ConfirmYourChoice")))."'".')) return false; "><img src="img/no_coins.gif" border="0" style="vertical-align: middle" title="'.get_lang('DisablePaymentOption').'" alt="'.get_lang('DisablePaymentOption').'"/></a>&nbsp;';
 	}
 	else 
 	{
@@ -321,7 +321,7 @@ function modify_filter($code)
 */
 
 $error_default_po = false;
-
+global $charset;	
 //Edit several courses.
 
 if (isset ($_POST['action']))
@@ -337,7 +337,7 @@ if (isset ($_POST['action']))
 				{
 					$error = cs_delete_course_payment_option($course_code);
 				}
-				Display :: display_normal_message ('You made '.count($course_codes).' courses free');
+				Display :: display_normal_message (mb_convert_encoding('你已把 '.count($course_codes).' 门课程设为免费',$charset,'utf-8'));//edit by xiaoping
 			}
 			break;
 			
@@ -371,7 +371,7 @@ if (isset ($_POST['action']))
 					}
 					if(!$error)
 					{
-						Display :: display_normal_message (get_lang('EnabledCreditCourses'));	
+						Display :: display_normal_message (get_lang('EnabledCreditCourses'),false);	
 					}
 					else Display :: display_error_message ('EnableCreditCourseError');
 				}
