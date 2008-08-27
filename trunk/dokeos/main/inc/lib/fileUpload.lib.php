@@ -84,13 +84,13 @@ function api_replace_parameter($upload_path, $buffer, $param_name="src")
  */
 
 function replace_dangerous_char($filename, $strict = 'loose')
-{
-	$filename = ereg_replace("\.+$", "", substr(strtr(ereg_replace(
-	    "[^!-~\x80-\xFF]", "_", trim($filename)), '\/:*?"<>|\'',
-        /* Keep C1 controls for UTF-8 streams */  '-----_---_'), 0, 250));
-	if ($strict != 'strict') return $filename;
-
-	return ereg_replace("[^!-~]", "x", $filename);
+{//zml edit import ------
+//	$filename = ereg_replace("\.+$", "", substr(strtr(ereg_replace(
+//	    "[^!-~\x80-\xFF]", "_", trim($filename)), '\/:*?"<>|\'',
+//        /* Keep C1 controls for UTF-8 streams */  '-----_---_'), 0, 250));
+//	if ($strict != 'strict') return $filename;
+return $filename;
+//	return ereg_replace("[^!-~]", "x", $filename);
 }
 
 /**
@@ -123,8 +123,8 @@ function replace_accents($string){
  */
 
 function php2phps ($fileName)
-{
-	$fileName = preg_replace('/\.(php.?|phtml.?)(\.){0,1}.*$/i', '.phps', $fileName);
+{//zml edit import ------
+	//$fileName = preg_replace('/\.(php.?|phtml.?)(\.){0,1}.*$/i', '.phps', $fileName);
 	return $fileName;
 }
 
