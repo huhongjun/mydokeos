@@ -4,8 +4,8 @@
 	Dokeos - elearning and course management software
 	
 	Copyright (c) 2004-2006 Dokeos S.A.
-	Copyright (c) E.U.I. Universidad Politécnica de Madrid (Spain)
-	Copyright (c) Borja Nuñez Salinas - Programmer (bns@alumnos.upm.es)
+	Copyright (c) E.U.I. Universidad Politï¿½cnica de Madrid (Spain)
+	Copyright (c) Borja Nuï¿½ez Salinas - Programmer (bns@alumnos.upm.es)
 	
 	For a full list of contributors, see "credits.txt".
 	The full license can be read in "license.txt".
@@ -165,7 +165,7 @@ if ($options != count($option))
 		} 
 		Display::display_header($tool_name);
 		
-		Display::display_warning_message(get_lang('NoCredits').'. '.get_lang('Please').', <a href="'.$back_page.'">'.get_lang('SelectAnotherCourse').'</a> '.get_lang('or').' <a href="javascript:document.buy.submit();">'.get_lang('BuyCredits').'</a>'.",false");
+		Display::display_warning_message(get_lang('NoCredits').'. '.get_lang('Please').', <a href="'.$back_page.'">'.get_lang('SelectAnotherCourse').'</a> '.get_lang('or').' <a href="javascript:document.buy.submit();">'.get_lang('BuyCredits').'</a>',false);
 				
 		//show course info and payment options.
 		echo'<br/><br/><h3>'.get_lang('CourseInfo').':</h3>';
@@ -221,7 +221,7 @@ if ($form->validate())
 		}else
 		{
 			Display::display_header($tool_name);
-			Display::display_error_message(get_lang('Error').'<br/><a href="javascript:history.go(-1)">'.get_lang('GoBack').'</a>');
+			Display::display_error_message(get_lang('Error').'<br/><a href="javascript:history.go(-1)">'.get_lang('GoBack').'</a>',false);
 			Display::display_footer();
 			exit;
 		}
@@ -246,7 +246,7 @@ if ($form->validate())
 			$to_buy_form = new FormValidator('buy','post',api_get_path(WEB_PLUGIN_PATH).'/credits_system/buy_credits.php?category='.$_GET['category']);
 			$to_buy_form->addElement('hidden','go_back',$current_page);
 			$to_buy_form->display();
-			Display::display_warning_message(get_lang('NoCredits').'. '.get_lang('Please').', <a href="'.$back_page.'">'.get_lang('SelectAnotherCourse').'</a> '.get_lang('or').' <a href="javascript:document.buy.submit();">'.get_lang('BuyCredits').'</a>');
+			Display::display_warning_message(get_lang('NoCredits').'. '.get_lang('Please').', <a href="'.$back_page.'">'.get_lang('SelectAnotherCourse').'</a> '.get_lang('or').' <a href="javascript:document.buy.submit();">'.get_lang('BuyCredits').'</a>',false);
 			Display::display_footer();
 			exit;
 		}
@@ -280,7 +280,7 @@ if ($form->validate())
 else
 {//No course selected.
 	Display::display_header($tool_name);
-	Display::display_error_message(get_lang('Error').'<br/><a href="javascript:history.go(-1)">'.get_lang('GoBack').'</a>');
+	Display::display_error_message(get_lang('Error').'<br/><a href="javascript:history.go(-1)">'.get_lang('GoBack').'</a>',false);
 }
 
 /*
