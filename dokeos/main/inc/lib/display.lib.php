@@ -361,12 +361,11 @@ class Display {
 	* @return void
 	*/
 	function display_normal_message($message,$filter=true)
-	{
-		global $charset;
+	{			
 		if($filter)
 		{
-			//filter message
-			$message = htmlentities($message,ENT_QUOTES,$charset);
+			//filter message			
+			$message = htmlspecialchars($message);
 		}
 		if (!headers_sent())
 		{
