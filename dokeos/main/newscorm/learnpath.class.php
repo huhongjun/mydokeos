@@ -7557,8 +7557,10 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 	 	//in the database. Then we convert it to HTML entities again as the "&" character
 	 	//alone is not authorized in XML (must be &amp;)
 	 	//The title is then decoded twice when extracting (see scorm::parse_manifest)
+	 	
 	 	global $charset;
-	 	$org_title = $xmldoc->createElement('title',htmlentities(htmlentities($this->get_name(),ENT_QUOTES,$charset)));
+	 	// zml edit encode chinese
+	 	$org_title = $xmldoc->createElement('title',htmlspecialchars(htmlspecialchars($this->get_name(),ENT_QUOTES,$charset)));
 	 	$organization->appendChild($org_title);
 	 	
 	 	//For each element, add it to the imsmanifest structure, then add it to the zip.
@@ -8292,7 +8294,8 @@ EOD;
 		//Send file to client
 		//$name = 'scorm_export_'.$this->lp_id.'.zip';
 		require_once(api_get_path(LIBRARY_PATH).'fileUpload.lib.php');
-		$name = preg_replace('([^a-zA-Z0-9_\.])','-',html_entity_decode($this->get_name(),ENT_QUOTES)).'.zip';
+		// zml edit export chinese ------
+		$name = htmlspecialchars($this->get_name(),ENT_QUOTES).'.zip';
 		DocumentManager::file_send_for_download($temp_zip_file,true,$name);
 	}
 	/**
