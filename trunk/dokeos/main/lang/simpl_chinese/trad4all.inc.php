@@ -573,4 +573,9 @@ $DeleteTheCurrentItem = "删除当前项目";
 $CourseTimes = "课时"; 
 $NoCourseTimes = "没有课时";
 $CREATED = "已创建";
+$NoCredits = "没有学习币";
+$Please = "请";
+$SelectAnotherCourse = "选择另一门课程";
+$or = "或";
+$Audio = "音频";
 ?>
