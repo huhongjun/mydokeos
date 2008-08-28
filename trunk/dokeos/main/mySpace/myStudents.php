@@ -193,7 +193,7 @@ if(!empty($_GET['student']))
 		api_not_allowed();
 	}
 	//interchange firstname with lastname:edit by xiaoping
-	$a_infosUser['name'] = $a_infosUser['lastname'].' '.$a_infosUser['firstname'];
+	$a_infosUser['name'] = $a_infosUser['lastname'].$a_infosUser['firstname'];
 	
 	echo '<div align="right">
 		<a href="#" onclick="window.print()"><img align="absbottom" src="../img/printmgr.gif">&nbsp;'.get_lang('Print').'</a>
@@ -496,12 +496,12 @@ if(!empty($_GET['student']))
 							if($session_course_coach_id!=0)
 							{
 								$coach_infos = UserManager :: get_user_info_by_id($session_course_coach_id);
-								$a_infosCours['tutor_name'] = $coach_infos['firstname'].' '.$coach_infos['lastname'];
+								$a_infosCours['tutor_name'] = $coach_infos['lastname'].$coach_infos['firstname'];
 							}
 							else if($session_coach_id!=0)
 							{
 								$coach_infos = UserManager :: get_user_info_by_id($session_coach_id);
-								$a_infosCours['tutor_name'] = $coach_infos['firstname'].' '.$coach_infos['lastname'];
+								$a_infosCours['tutor_name'] = $coach_infos['lastname'].$coach_infos['firstname'];
 							}
 						}
 					}
@@ -775,7 +775,7 @@ if(!empty($_GET['student']))
 			
 			$a_infosCours = CourseManager :: get_course_information($_GET['course']);
 
-			$sql='SELECT visibility FROM '.$a_infosCours['db_name'].'.'.TABLE_TOOL_LIST.' WHERE name="quiz"';
+			$sql='SELECT visibility FROM crs_'.$a_infosCours['db_name'].'_'.TABLE_TOOL_LIST.' WHERE name="quiz"';		//edit by xiaoping	
 			$resultVisibilityQuizz = api_sql_query($sql,__FILE__,__LINE__);
 			$t_quiz = Database::get_course_table(TABLE_QUIZ_TEST,$a_infosCours['db_name']);
 			
