@@ -72,4 +72,5 @@ $CourseCategoryEditStored = "类别更新";
 
 //zml add 
 $CourseTimes = "课时"; 
+$OK='确定';
 ?>
