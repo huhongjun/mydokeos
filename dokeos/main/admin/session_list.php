@@ -58,10 +58,10 @@ $from=$page * $limit;
 if(!api_is_platform_admin())
 {
 	$where = 'WHERE session_admin_id='.intval($_user['user_id']);
-	$where .= (empty($_POST['keyword']) ? " " : " AND name LIKE '%".addslashes($_POST['keyword'])."%'");
+	$where .= (empty($_POST['keyword']) ? " " : " AND name LIKE '%".addslashes(trim($_POST['keyword']))."%'");
 }
 else
-	$where .= (empty($_POST['keyword']) ? " " : " WHERE name LIKE '%".addslashes($_POST['keyword'])."%'");
+	$where .= (empty($_POST['keyword']) ? " " : " WHERE name LIKE '%".addslashes(trim($_POST['keyword']))."%'");
 
 $result=api_sql_query("SELECT id,name,nbr_courses,date_start,date_end 
 						FROM $tbl_session 
@@ -92,7 +92,7 @@ if(isset($_GET['action'])){
 
 ?>
 <form method="POST" action="session_list.php">
-	<input type="text" name="keyword" value="<?php echo Security::remove_XSS($_GET['keyword']); ?>"/>
+	<input type="text" name="keyword" value="<?php echo Security::remove_XSS(trim($_GET['keyword'])); ?>"/>
 	<input type="submit" value="<?php echo get_lang('Search'); ?>"/>
 	</form>
 <form method="post" action="<?php echo api_get_self(); ?>?action=delete&sort=<?php echo $sort; ?>" onsubmit="javascript:if(!confirm('<?php echo get_lang('ConfirmYourChoice'); ?>')) return false;">
@@ -170,10 +170,10 @@ else
 
 	<tr class="<?php echo $i?'row_odd':'row_even'; ?>">
 	  <td><input type="checkbox" name="idChecked[]" value="<?php echo $enreg['id']; ?>"></td>
-	  <td><a href="resume_session.php?id_session=<?php echo $enreg['id']; ?>"><?php echo htmlentities($enreg['name'],ENT_QUOTES,$charset); ?></a></td>
+	  <td><a href="resume_session.php?id_session=<?php echo $enreg['id']; ?>"><?php echo htmlspecialchars($enreg['name'],ENT_QUOTES,$charset); ?></a></td>
 	  <td><a href="session_course_list.php?id_session=<?php echo $enreg['id']; ?>"><?php echo $nb_courses; ?> cours</a></td>
-	  <td><?php echo htmlentities($enreg['date_start'],ENT_QUOTES,$charset); ?></td>
-	  <td><?php echo htmlentities($enreg['date_end'],ENT_QUOTES,$charset); ?></td>
+	  <td><?php echo htmlspecialchars($enreg['date_start'],ENT_QUOTES,$charset); ?></td>
+	  <td><?php echo htmlspecialchars($enreg['date_end'],ENT_QUOTES,$charset); ?></td>
 	  <td>
 		<a href="add_users_to_session.php?page=session_list.php&id_session=<?php echo $enreg['id']; ?>"><img src="../img/add_user_big.gif" border="0" align="absmiddle" title="<?php echo get_lang('SubscribeUsersToSession'); ?>"></a>
 		<a href="add_courses_to_session.php?page=session_list.php&id_session=<?php echo $enreg['id']; ?>"><img src="../img/synthese_view.gif" border="0" align="absmiddle" title="<?php echo get_lang('SubscribeCoursesToSession'); ?>"></a>

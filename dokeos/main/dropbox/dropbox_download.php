@@ -201,7 +201,7 @@ else
 
 
 
-	header( "Content-Description: " . trim( htmlentities( $file)) . "\n");
+	header( "Content-Description: " . trim( htmlspecialchars( $file)) . "\n");
 	header( "Content-Transfer-Encoding: binary\n");
 	header( "Content-Length: " . filesize( $path)."\n" );
 
@@ -441,7 +441,7 @@ header( "Cache-Control: public\n"); // IE cannot download from sessions without 
 
 
 
-header( "Content-Description: " . trim( htmlentities( $file)) . "\n");
+header( "Content-Description: " . trim( htmlspecialchars( $file)) . "\n");
 header( "Content-Transfer-Encoding: binary\n");
 header( "Content-Length: " . filesize( $path)."\n" );
 

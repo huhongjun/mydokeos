@@ -108,7 +108,7 @@ include('header_frame.inc.php');
 ?>
 
 <form name="formHidden" method="post" action="<?php echo api_get_self(); ?>">
-<input type="hidden" name="document" value="<?php echo htmlentities($document); ?>">
+<input type="hidden" name="document" value="<?php echo htmlspecialchars($document); ?>">
 <input type="hidden" name="chat_size_old" value="<?php echo $chat_size_new; ?>">
 <input type="hidden" name="connected_old" value="<?php echo $connected_new; ?>">
 <input type="hidden" name="streaming_old" value="<?php echo $streaming_new; ?>">

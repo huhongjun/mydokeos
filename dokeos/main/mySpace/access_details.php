@@ -100,11 +100,11 @@ $course_code=Database::escape_string($_REQUEST['course']);
 $TBL_USERINFO_DEF 		= Database :: get_course_table(TABLE_USER_INFO);
 $mainUserInfo = api_get_user_info($user_id, $course_code);
 //interchange firstname with lastname:edit by xiaoping
-echo '<strong>',get_lang('User'),': ',$mainUserInfo['lastName'],' ',$mainUserInfo['firstName'],'</strong> <br />';
+echo '<strong>'.get_lang('User').': '.$mainUserInfo['lastName'].$mainUserInfo['firstName'].'</strong> <br />';
 
 $connections = get_connections_to_course($user_id, $course_code);
-echo '<strong>'.get_lang('Course').': ',$course_code,' - ',$_course['name'],'</strong><br />';
-echo '<strong>',get_lang('DateAndTimeOfAccess'),' - ',get_lang('Duration'),'</strong><br />';
+echo '<strong>'.get_lang('Course').': '.$course_code.'</strong><br />';
+echo '<strong>'.get_lang('DateAndTimeOfAccess').' - '.get_lang('Duration').'</strong><br />';
 /* Login time against logout time
 foreach ($connections as $key=>$data)
 {
@@ -120,7 +120,7 @@ echo ("</table>");
 */
 foreach ($connections as $key=>$data)
 { 
-    echo '&nbsp;&nbsp;'.date('d-m-Y (H:i:s)',$data['login']).' - '.calculHours($data['logout']-$data['login']).'<br />'."\n"; 
+    echo '&nbsp;&nbsp;'.date('Y-m-d (H:i:s)',$data['login']).' - '.calculHours($data['logout']-$data['login']).'<br />'."\n"; 
 }
 Display:: display_footer();
 ?>

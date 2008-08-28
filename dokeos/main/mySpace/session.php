@@ -25,7 +25,7 @@
  * Created on 28 juil. 2006 by Elixir Interactive http://www.elixir-interactive.com
  */
 ob_start();
- $nameTools= 'Sessions';
+include_once '../inc/lib/main_api.lib.php';
  // name of the language file that needs to be included 
 $language_file = array ('registration', 'index','trad4all','tracking');
 $cidReset=true;
@@ -39,6 +39,7 @@ $this_section = "session_my_space";
  
 api_block_anonymous_users();
 $interbreadcrumb[] = array ("url" => "index.php", "name" => get_lang('MySpace'));
+$nameTools= get_lang('Sessions');
 Display :: display_header($nameTools);
 
 // Database Table Definitions 

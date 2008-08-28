@@ -735,7 +735,7 @@ class FileManager
 		$fp = fopen($file_name, "rb");
 		$buffer = fread ($fp, filesize ($file_name));
 		fclose ($fp);
-		//api_display_debug_info(htmlentities($buffer));
+		//api_display_debug_info(htmlspecialchars($buffer));
 		return $buffer;
 	}
 

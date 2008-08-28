@@ -63,7 +63,7 @@ function get_number_of_payment()
 	$sql = "SELECT COUNT(payment_id) AS total_number_of_items FROM $payment" ;
 	$sql .= "WHERE user_id = $user_id";
 	$res = api_sql_query($sql, __FILE__, __LINE__);
-	$obj = mysql_fetch_object($res);
+	$obj = mysql_fetch_object($res);	
 	return $obj->total_number_of_items;
 }
 
@@ -75,7 +75,7 @@ function get_historic_data($from, $number_of_items, $column, $direction)
 	$sql = " SELECT DATE_FORMAT(date, '%Y-%m-%d') AS col0, credits AS col1,amount AS col2, payment_method AS col3 FROM $payment";
 	$sql .= " WHERE($user_id = user_id)";
 	$sql .= " ORDER BY col$column $direction ";
-	$sql .= " LIMIT $from,$number_of_items ";
+	$sql .= " LIMIT $from,$number_of_items ";	
 	$res = api_sql_query($sql, __FILE__, __LINE__);
 	$show = array ();
 	while ($show2 = mysql_fetch_array($res))

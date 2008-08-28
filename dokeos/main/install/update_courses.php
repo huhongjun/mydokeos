@@ -212,7 +212,7 @@ else
 		<table border="0" cellpadding="5" width="100%" align="center">
 		<tr>
 		<td>Where are the courses to be updated: </td>
-		<td><input type="text" name="updatePath" size="50" value="<?php echo empty($update_path)?($badUpdatePath?htmlentities($_POST['updatePath']):$_SERVER['DOCUMENT_ROOT'].'/old_version/'):htmlentities($update_path); ?>" /></td>
+		<td><input type="text" name="updatePath" size="50" value="<?php echo empty($update_path)?($badUpdatePath?htmlspecialchars($_POST['updatePath']):$_SERVER['DOCUMENT_ROOT'].'/old_version/'):htmlspecialchars($update_path); ?>" /></td>
 		</tr>
 		</table>
 

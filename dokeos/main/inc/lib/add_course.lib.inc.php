@@ -89,7 +89,7 @@ function generate_course_code($course_title)
 	//	array('A','A','A','A','A','A','Ae','C','E','E','E','E','I','I','I','I','I','O','O','O','O','O','Oe','Oe','U','U','U','U','U','Y','Y','D','N','SS','a','a','a','a','a','a','ae','c','S','e','e','e','e','i','i','i','i','i','o','o','o','o','o','oe','oe','u','u','u','u','u','y','y','n','š','Euro'),
 	//	$course_title)
 	//	,0,20);
-	$string    = htmlentities(strtolower($course_title));
+	$string    = htmlspecialchars(strtolower($course_title));
    	$string    = strtoupper(preg_replace("/&(.)(acute|grave|cedil|circ|ring|tilde|uml|slash|elig|Elig|mp);/", "$1", $string));
    	$string    = preg_replace("/[^A-Z0-9]/", "", html_entity_decode($string));
 	return $string;

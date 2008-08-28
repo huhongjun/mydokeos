@@ -1435,7 +1435,7 @@ function remove_resource($resource_key)
 */
 function show_addresource_button($additionalparameters = '')
 {
-	echo '<label for="addresources"><img src="../img/attachment.gif" /></label><input class="link_alike" type="submit" name="addresources" id="addresources" value="'.htmlentities(get_lang('Attachment')).'" '.$additionalparameters.' />';
+	echo '<label for="addresources"><img src="../img/attachment.gif" /></label><input class="link_alike" type="submit" name="addresources" id="addresources" value="'.htmlspecialchars(get_lang('Attachment')).'" '.$additionalparameters.' />';
 }
 
 /**

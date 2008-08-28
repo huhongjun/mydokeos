@@ -558,7 +558,7 @@ class learnpath {
     	//check course code exists
     	//check lp_name doesn't exist, otherwise append something
     	$i = 0;
-    	//zml edit htmlentities no support to analyze Chinese
+    	//zml edit htmlspecialchars no support to analyze Chinese
     	$name = learnpath::escape_string(htmlspecialchars($name)); 
     	$check_name = "SELECT * FROM $tbl_lp WHERE name = '$name'";
     	//if($this->debug>2){error_log('New LP - Checking the name for new LP: '.$check_name,0);}
@@ -573,7 +573,7 @@ class learnpath {
     	}
     	//new name does not exist yet; keep it
     	//escape description
-    	$description = learnpath::escape_string(htmlspecialchars($description)); //Kevin: added htmlentities()
+    	$description = learnpath::escape_string(htmlspecialchars($description)); //Kevin: added htmlspecialchars()
     	$type = 1;
     	switch($learnpath){
     		case 'guess':
@@ -1936,7 +1936,7 @@ class learnpath {
     	$text = $percentage.$text_add;
     	$size = str_replace('%','',$percentage);
     	$output = '' 
-    	//.htmlentities(get_lang('ScormCompstatus'),ENT_QUOTES,'ISO-8859-1')."<br />"
+    	//.htmlspecialchars(get_lang('ScormCompstatus'),ENT_QUOTES,'ISO-8859-1')."<br />"
 	    .'<table border="0" cellpadding="0" cellspacing="0"><tr><td>'
 	    .'<img id="progress_img_limit_left" src="'.$css_path.'bar_1.gif" width="1" height="12">'
 	    .'<img id="progress_img_full" src="'.$css_path.'bar_1u.gif" width="'.$size.'px" height="12" id="full_portion">'
@@ -2212,14 +2212,14 @@ class learnpath {
 		$num = Database::num_rows($res);
 		if($num>0){
 			$list[] = array(
-				"order_id"=>htmlentities(get_lang('Order')),
-				"id"=>htmlentities(get_lang('InteractionID')),
-				"type"=>htmlentities(get_lang('Type')),
-				"time"=>htmlentities(get_lang('TimeFinished')),
-				"correct_responses"=>htmlentities(get_lang('CorrectAnswers')),
-				"student_response"=>htmlentities(get_lang('StudentResponse')),
-				"result"=>htmlentities(get_lang('Result')),
-				"latency"=>htmlentities(get_lang('LatencyTimeSpent')));
+				"order_id"=>htmlspecialchars(get_lang('Order')),
+				"id"=>htmlspecialchars(get_lang('InteractionID')),
+				"type"=>htmlspecialchars(get_lang('Type')),
+				"time"=>htmlspecialchars(get_lang('TimeFinished')),
+				"correct_responses"=>htmlspecialchars(get_lang('CorrectAnswers')),
+				"student_response"=>htmlspecialchars(get_lang('StudentResponse')),
+				"result"=>htmlspecialchars(get_lang('Result')),
+				"latency"=>htmlspecialchars(get_lang('LatencyTimeSpent')));
 			while ($row = Database::fetch_array($res)){
 				$list[] = array(
 					"order_id"=>($row['order_id']+1),
@@ -2266,12 +2266,12 @@ class learnpath {
 		$num = Database::num_rows($res);
 		if($num>0){
 			$list[] = array(
-				"order_id"=>htmlentities(get_lang('Order')),
-				"objective_id"=>htmlentities(get_lang('ObjectiveID')),
-				"score_raw"=>htmlentities(get_lang('ObjectiveRawScore')),
-				"score_max"=>htmlentities(get_lang('ObjectiveMaxScore')),
-				"score_min"=>htmlentities(get_lang('ObjectiveMinScore')),
-				"status"=>htmlentities(get_lang('ObjectiveStatus')));
+				"order_id"=>htmlspecialchars(get_lang('Order')),
+				"objective_id"=>htmlspecialchars(get_lang('ObjectiveID')),
+				"score_raw"=>htmlspecialchars(get_lang('ObjectiveRawScore')),
+				"score_max"=>htmlspecialchars(get_lang('ObjectiveMaxScore')),
+				"score_min"=>htmlspecialchars(get_lang('ObjectiveMinScore')),
+				"status"=>htmlspecialchars(get_lang('ObjectiveStatus')));
 			while ($row = Database::fetch_array($res)){
 				$list[] = array(
 					"order_id"=>($row['order_id']+1),
@@ -7556,11 +7556,17 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 	 	//learning path charset) as it is the encoding that defines how it is stored
 	 	//in the database. Then we convert it to HTML entities again as the "&" character
 	 	//alone is not authorized in XML (must be &amp;)
+
+	 	//The title is then decoded twice when extracting (see scorm::parse_manifest)
+	 	global $charset;
+	 	$org_title = $xmldoc->createElement('title',htmlspecialchars(htmlspecialchars($this->get_name(),ENT_QUOTES,$charset)));
+
 	 	//The title is then decoded twice when extracting (see scorm::parse_manifest)
 	 	
 	 	global $charset;
 	 	// zml edit encode chinese
 	 	$org_title = $xmldoc->createElement('title',htmlspecialchars(htmlspecialchars($this->get_name(),ENT_QUOTES,$charset)));
+
 	 	$organization->appendChild($org_title);
 	 	
 	 	//For each element, add it to the imsmanifest structure, then add it to the zip.
@@ -7623,9 +7629,9 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 		 		//get the path of the file(s) from the course directory root
 				$my_file_path = $item->get_file_path('scorm/'.$this->path.'/');
 				
-				$my_xml_file_path = htmlentities($my_file_path); 
+				$my_xml_file_path = htmlspecialchars($my_file_path); 
 				$my_sub_dir = dirname($my_file_path); 
-				$my_xml_sub_dir = htmlentities($my_sub_dir);
+				$my_xml_sub_dir = htmlspecialchars($my_sub_dir);
 		 		//give a <resource> child to the <resources> element
 		 		$my_resource = $xmldoc->createElement('resource');
 		 		$my_resource->setAttribute('identifier','RESOURCE_'.$item->get_id());
@@ -7893,9 +7899,9 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 	 					$url = $link['url'];
 	 					$title = stripslashes($link['title']);
 	 					$links_to_create[$my_file_path] = array('title'=>$title,'url'=>$url);
-						$my_xml_file_path = htmlentities($my_file_path); 
+						$my_xml_file_path = htmlspecialchars($my_file_path); 
 						$my_sub_dir = dirname($my_file_path); 
-						$my_xml_sub_dir = htmlentities($my_sub_dir);
+						$my_xml_sub_dir = htmlspecialchars($my_sub_dir);
 				 		//give a <resource> child to the <resources> element
 				 		$my_resource = $xmldoc->createElement('resource');
 				 		$my_resource->setAttribute('identifier','RESOURCE_'.$item->get_id());
@@ -7968,9 +7974,9 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 			 		if($res === false){error_log('Could not write into file '.$tmp_file_path.' '.__FILE__.' '.__LINE__,0);}
 			 		$files_cleanup[] = $tmp_file_path;
 			 		//error_log($tmp_path);die();
-					$my_xml_file_path = htmlentities($my_file_path); 
+					$my_xml_file_path = htmlspecialchars($my_file_path); 
 					$my_sub_dir = dirname($my_file_path); 
-					$my_xml_sub_dir = htmlentities($my_sub_dir);
+					$my_xml_sub_dir = htmlspecialchars($my_sub_dir);
 			 		//give a <resource> child to the <resources> element
 			 		$my_resource = $xmldoc->createElement('resource');
 			 		$my_resource->setAttribute('identifier','RESOURCE_'.$item->get_id());
@@ -8124,9 +8130,9 @@ function display_thread_form($action = 'add', $id = 0, $extra_info = '')
 		 		
 			 		//get the path of the file(s) from the course directory root
 					$my_file_path = 'non_exportable.html';
-					$my_xml_file_path = htmlentities($my_file_path); 
+					$my_xml_file_path = htmlspecialchars($my_file_path); 
 					$my_sub_dir = dirname($my_file_path); 
-					$my_xml_sub_dir = htmlentities($my_sub_dir);
+					$my_xml_sub_dir = htmlspecialchars($my_sub_dir);
 			 		//give a <resource> child to the <resources> element
 			 		$my_resource = $xmldoc->createElement('resource');
 			 		$my_resource->setAttribute('identifier','RESOURCE_'.$item->get_id());

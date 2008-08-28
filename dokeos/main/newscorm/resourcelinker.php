@@ -694,7 +694,7 @@ if ($from_learnpath != 'yes')
 }
 else
 {
-	echo "<form method=\"get\" action=\"lp_controller.php\" style=\"margin: 0px;\"><input type=\"hidden\" name=\"lp_id\" value=\"".htmlentities($learnpath_id)."\"><input type=\"hidden\" name=\"action\" value=\"admin_view\"><input type=\"submit\" value=\"".get_lang('Ok')."\"></form>";
+	echo "<form method=\"get\" action=\"lp_controller.php\" style=\"margin: 0px;\"><input type=\"hidden\" name=\"lp_id\" value=\"".htmlspecialchars($learnpath_id)."\"><input type=\"hidden\" name=\"action\" value=\"admin_view\"><input type=\"submit\" value=\"".get_lang('Ok')."\"></form>";
 }
 ?>
 

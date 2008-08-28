@@ -412,54 +412,54 @@ elseif (!empty($_POST['step5']))
 <table cellpadding="6" cellspacing="0" border="0" width="75%" align="center">
 <tr>
   <td>
-	<input type="hidden" name="updatePath"           value="<?php if(!$badUpdatePath) echo htmlentities($proposedUpdatePath); ?>" />
-	<input type="hidden" name="urlAppendPath"        value="<?php echo htmlentities($urlAppendPath); ?>" />
-	<input type="hidden" name="pathForm"             value="<?php echo htmlentities($pathForm); ?>" />
-	<input type="hidden" name="urlForm"              value="<?php echo htmlentities($urlForm); ?>" />
-	<input type="hidden" name="dbHostForm"           value="<?php echo htmlentities($dbHostForm); ?>" />
-	<input type="hidden" name="dbUsernameForm"       value="<?php echo htmlentities($dbUsernameForm); ?>" />
-	<input type="hidden" name="dbPassForm"           value="<?php echo htmlentities($dbPassForm); ?>" />
-	<input type="hidden" name="singleDbForm"         value="<?php echo htmlentities($singleDbForm); ?>" />
-	<input type="hidden" name="dbPrefixForm"         value="<?php echo htmlentities($dbPrefixForm); ?>" />
-	<input type="hidden" name="dbNameForm"           value="<?php echo htmlentities($dbNameForm); ?>" />
+	<input type="hidden" name="updatePath"           value="<?php if(!$badUpdatePath) echo htmlspecialchars($proposedUpdatePath); ?>" />
+	<input type="hidden" name="urlAppendPath"        value="<?php echo htmlspecialchars($urlAppendPath); ?>" />
+	<input type="hidden" name="pathForm"             value="<?php echo htmlspecialchars($pathForm); ?>" />
+	<input type="hidden" name="urlForm"              value="<?php echo htmlspecialchars($urlForm); ?>" />
+	<input type="hidden" name="dbHostForm"           value="<?php echo htmlspecialchars($dbHostForm); ?>" />
+	<input type="hidden" name="dbUsernameForm"       value="<?php echo htmlspecialchars($dbUsernameForm); ?>" />
+	<input type="hidden" name="dbPassForm"           value="<?php echo htmlspecialchars($dbPassForm); ?>" />
+	<input type="hidden" name="singleDbForm"         value="<?php echo htmlspecialchars($singleDbForm); ?>" />
+	<input type="hidden" name="dbPrefixForm"         value="<?php echo htmlspecialchars($dbPrefixForm); ?>" />
+	<input type="hidden" name="dbNameForm"           value="<?php echo htmlspecialchars($dbNameForm); ?>" />
 <?php
 	if($installType == 'update' OR $singleDbForm == 0)
 	{
 ?>
-	<input type="hidden" name="dbStatsForm"          value="<?php echo htmlentities($dbStatsForm); ?>" />
-	<input type="hidden" name="dbScormForm"          value="<?php echo htmlentities($dbScormForm); ?>" />
-	<input type="hidden" name="dbUserForm"           value="<?php echo htmlentities($dbUserForm); ?>" />
+	<input type="hidden" name="dbStatsForm"          value="<?php echo htmlspecialchars($dbStatsForm); ?>" />
+	<input type="hidden" name="dbScormForm"          value="<?php echo htmlspecialchars($dbScormForm); ?>" />
+	<input type="hidden" name="dbUserForm"           value="<?php echo htmlspecialchars($dbUserForm); ?>" />
 <?php
 	}
 	else
 	{
 ?>
-	<input type="hidden" name="dbStatsForm"          value="<?php echo htmlentities($dbNameForm); ?>" />
-	<input type="hidden" name="dbUserForm"           value="<?php echo htmlentities($dbNameForm); ?>" />
+	<input type="hidden" name="dbStatsForm"          value="<?php echo htmlspecialchars($dbNameForm); ?>" />
+	<input type="hidden" name="dbUserForm"           value="<?php echo htmlspecialchars($dbNameForm); ?>" />
 <?php
 	}
 ?>
-	<input type="hidden" name="enableTrackingForm"   value="<?php echo htmlentities($enableTrackingForm); ?>" />
-	<input type="hidden" name="allowSelfReg"         value="<?php echo htmlentities($allowSelfReg); ?>" />
-	<input type="hidden" name="allowSelfRegProf"     value="<?php echo htmlentities($allowSelfRegProf); ?>" />
-	<input type="hidden" name="emailForm"            value="<?php echo htmlentities($emailForm); ?>" />
-	<input type="hidden" name="adminLastName"        value="<?php echo htmlentities($adminLastName); ?>" />
-	<input type="hidden" name="adminFirstName"       value="<?php echo htmlentities($adminFirstName); ?>" />
-	<input type="hidden" name="adminPhoneForm"       value="<?php echo htmlentities($adminPhoneForm); ?>" />
-	<input type="hidden" name="loginForm"            value="<?php echo htmlentities($loginForm); ?>" />
-	<input type="hidden" name="passForm"             value="<?php echo htmlentities($passForm); ?>" />
-	<input type="hidden" name="languageForm"         value="<?php echo htmlentities($languageForm); ?>" />
-	<input type="hidden" name="campusForm"           value="<?php echo htmlentities($campusForm); ?>" />
-	<input type="hidden" name="educationForm"        value="<?php echo htmlentities($educationForm); ?>" />
-	<input type="hidden" name="institutionForm"      value="<?php echo htmlentities($institutionForm); ?>" />
-	<input type="hidden" name="institutionUrlForm"   value="<?php echo stristr($institutionUrlForm,'http://')?htmlentities($institutionUrlForm):'http://'.htmlentities($institutionUrlForm); ?>" />
-	<input type="hidden" name="checkEmailByHashSent" value="<?php echo htmlentities($checkEmailByHashSent); ?>" />
-	<input type="hidden" name="ShowEmailnotcheckedToStudent" value="<?php echo htmlentities($ShowEmailnotcheckedToStudent); ?>" />
-	<input type="hidden" name="userMailCanBeEmpty"   value="<?php echo htmlentities($userMailCanBeEmpty); ?>" />
-	<input type="hidden" name="encryptPassForm"      value="<?php echo htmlentities($encryptPassForm); ?>" />
-	<input type="hidden" name="session_lifetime"  value="<?php echo htmlentities($session_lifetime); ?>" />
-	<input type="hidden" name="old_version"  value="<?php echo htmlentities($my_old_version); ?>" />
-	<input type="hidden" name="new_version"  value="<?php echo htmlentities($new_version); ?>" />
+	<input type="hidden" name="enableTrackingForm"   value="<?php echo htmlspecialchars($enableTrackingForm); ?>" />
+	<input type="hidden" name="allowSelfReg"         value="<?php echo htmlspecialchars($allowSelfReg); ?>" />
+	<input type="hidden" name="allowSelfRegProf"     value="<?php echo htmlspecialchars($allowSelfRegProf); ?>" />
+	<input type="hidden" name="emailForm"            value="<?php echo htmlspecialchars($emailForm); ?>" />
+	<input type="hidden" name="adminLastName"        value="<?php echo htmlspecialchars($adminLastName); ?>" />
+	<input type="hidden" name="adminFirstName"       value="<?php echo htmlspecialchars($adminFirstName); ?>" />
+	<input type="hidden" name="adminPhoneForm"       value="<?php echo htmlspecialchars($adminPhoneForm); ?>" />
+	<input type="hidden" name="loginForm"            value="<?php echo htmlspecialchars($loginForm); ?>" />
+	<input type="hidden" name="passForm"             value="<?php echo htmlspecialchars($passForm); ?>" />
+	<input type="hidden" name="languageForm"         value="<?php echo htmlspecialchars($languageForm); ?>" />
+	<input type="hidden" name="campusForm"           value="<?php echo htmlspecialchars($campusForm); ?>" />
+	<input type="hidden" name="educationForm"        value="<?php echo htmlspecialchars($educationForm); ?>" />
+	<input type="hidden" name="institutionForm"      value="<?php echo htmlspecialchars($institutionForm); ?>" />
+	<input type="hidden" name="institutionUrlForm"   value="<?php echo stristr($institutionUrlForm,'http://')?htmlspecialchars($institutionUrlForm):'http://'.htmlspecialchars($institutionUrlForm); ?>" />
+	<input type="hidden" name="checkEmailByHashSent" value="<?php echo htmlspecialchars($checkEmailByHashSent); ?>" />
+	<input type="hidden" name="ShowEmailnotcheckedToStudent" value="<?php echo htmlspecialchars($ShowEmailnotcheckedToStudent); ?>" />
+	<input type="hidden" name="userMailCanBeEmpty"   value="<?php echo htmlspecialchars($userMailCanBeEmpty); ?>" />
+	<input type="hidden" name="encryptPassForm"      value="<?php echo htmlspecialchars($encryptPassForm); ?>" />
+	<input type="hidden" name="session_lifetime"  value="<?php echo htmlspecialchars($session_lifetime); ?>" />
+	<input type="hidden" name="old_version"  value="<?php echo htmlspecialchars($my_old_version); ?>" />
+	<input type="hidden" name="new_version"  value="<?php echo htmlspecialchars($new_version); ?>" />
 
 
 

@@ -195,7 +195,7 @@ if (!isset($_GET['default_po']) || isset($_GET['my_courses_direction']))
  */
 function get_number_of_pay_courses()
 {
-	$complete_name = $_SESSION['_user']['lastName'].' '.$_SESSION['_user']['firstName'];
+	$complete_name = $_SESSION['_user']['lastName'].$_SESSION['_user']['firstName'];
 	$course_table = Database :: get_main_table(TABLE_MAIN_COURSE);
 	$course_credits_table = Database :: get_main_table(CS_TABLE_COURSE_CREDITS);
 	$course_rel_user = Database :: get_main_table(TABLE_MAIN_COURSE_USER);
@@ -216,7 +216,7 @@ function get_number_of_pay_courses()
  */
 function get_number_of_free_courses()
 {
-	$complete_name = $_SESSION['_user']['lastName'].' '.$_SESSION['_user']['firstName'];
+	$complete_name = $_SESSION['_user']['lastName'].$_SESSION['_user']['firstName'];
 	$course_table = Database :: get_main_table(TABLE_MAIN_COURSE);
 	$course_credits_table = Database :: get_main_table(CS_TABLE_COURSE_CREDITS);
 	$course_rel_user = Database :: get_main_table(TABLE_MAIN_COURSE_USER);
@@ -236,7 +236,7 @@ function get_number_of_free_courses()
  */
 function get_free_course_data($from, $number_of_items, $column, $direction)
 {
-	$complete_name = $_SESSION['_user']['lastName'].' '.$_SESSION['_user']['firstName'];
+	$complete_name = $_SESSION['_user']['lastName'].$_SESSION['_user']['firstName'];
 	$course_table = Database :: get_main_table(TABLE_MAIN_COURSE);
 	$course_rel_user = Database :: get_main_table(TABLE_MAIN_COURSE_USER);
 	$course_credits_table = Database :: get_main_table(CS_TABLE_COURSE_CREDITS);
@@ -264,7 +264,7 @@ function get_free_course_data($from, $number_of_items, $column, $direction)
  */
 function get_pay_course_data($from, $number_of_items, $column, $direction)
 {
-	$complete_name = $_SESSION['_user']['lastName'].' '.$_SESSION['_user']['firstName'];
+	$complete_name = $_SESSION['_user']['lastName'].$_SESSION['_user']['firstName'];
 	$course_table = Database :: get_main_table(TABLE_MAIN_COURSE);
 	$course_rel_user = Database :: get_main_table(TABLE_MAIN_COURSE_USER);
 	$course_credits_table = Database :: get_main_table(CS_TABLE_COURSE_CREDITS);

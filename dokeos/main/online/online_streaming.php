@@ -95,7 +95,7 @@ include('header_frame.inc.php');
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 <tr>
-  <td width="1%" valign="middle"><a href="online_master.php"><img src="../img/home.gif" border="0" alt="" title="<?php echo htmlentities(get_lang('Back'),ENT_QUOTES,$charset); ?>"></a></td>
+  <td width="1%" valign="middle"><a href="online_master.php"><img src="../img/home.gif" border="0" alt="" title="<?php echo htmlspecialchars(get_lang('Back'),ENT_QUOTES,$charset); ?>"></a></td>
   <td width="99%" align="left">&nbsp;<a href="online_master.php"><?php echo get_lang('Back'); ?></a></td>
 </tr>
 </table>
@@ -107,7 +107,7 @@ include('header_frame.inc.php');
 <table border="0" cellpadding="3" cellspacing="0">
 <tr>
   <td width="45%"><?php echo get_lang('StreamURL'); ?> :</td>
-  <td width="55%"><input type="text" name="stream_url" size="10" maxlength="100" value="<?php if(!empty($stream_url)) echo htmlentities($stream_url); else echo 'http://'; ?>" style="width: 100px;"></td>
+  <td width="55%"><input type="text" name="stream_url" size="10" maxlength="100" value="<?php if(!empty($stream_url)) echo htmlspecialchars($stream_url); else echo 'http://'; ?>" style="width: 100px;"></td>
 </tr>
 <tr>
   <td width="45%" valign="middle"><?php echo get_lang('StreamType'); ?> :</td>
@@ -118,7 +118,7 @@ include('header_frame.inc.php');
   </td>
 </tr>
 <tr>
-  <td colspan="2" align="center"><input type="submit" value="<?php echo htmlentities(get_lang('Modify'),ENT_QUOTES,$charset); ?>"></td>
+  <td colspan="2" align="center"><input type="submit" value="<?php echo htmlspecialchars(get_lang('Modify'),ENT_QUOTES,$charset); ?>"></td>
 </tr>
 </table>
 </form>

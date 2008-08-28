@@ -395,7 +395,7 @@ class Display {
 		global $charset;
 		if($filter){
 			//filter message
-			$message = htmlentities($message,ENT_QUOTES,$charset);
+			$message = htmlspecialchars($message,ENT_QUOTES,$charset);
 		}
 		if (!headers_sent())
 		{
@@ -420,11 +420,11 @@ class Display {
 	* @return void
 	*/
 	function display_confirmation_message($message,$filter=true)
-	{
+	{		
 		global $charset;
 		if($filter){
 			//filter message
-			$message = htmlentities($message,ENT_QUOTES,$charset);
+			$message = htmlspecialchars($message,ENT_QUOTES,$charset);
 		}
 		if (!headers_sent())
 		{
@@ -456,7 +456,7 @@ class Display {
 		global $charset;
 		if($filter){
 			//filter message
-			$message = htmlentities($message,ENT_QUOTES,$charset);
+			$message = htmlspecialchars($message,ENT_QUOTES,$charset);
 		}
 
 		if (!headers_sent())

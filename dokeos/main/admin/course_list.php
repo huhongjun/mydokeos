@@ -45,21 +45,24 @@ api_protect_admin_script();
 require_once (api_get_path(LIBRARY_PATH).'course.lib.php');
 require_once (api_get_path(LIBRARY_PATH).'formvalidator/FormValidator.class.php');
 require_once (api_get_path(LIBRARY_PATH).'sortabletable.class.php');
+$get_keyword=trim($_GET['keyword']);
+$get_keyword_code=trim($_GET['keyword_code']);
 /**
  * Get the number of courses which will be displayed
  */
 function get_number_of_courses()
 {
+	global $get_keyword,$get_keyword_code;
 	$course_table = Database :: get_main_table(TABLE_MAIN_COURSE);
 	$sql = "SELECT COUNT(code) AS total_number_of_items FROM $course_table";
-	if (isset ($_GET['keyword']))
+	if (isset ($get_keyword))
 	{
-		$keyword = Database::escape_string($_GET['keyword']);
+		$keyword = Database::escape_string($get_keyword);
 		$sql .= " WHERE title LIKE '%".$keyword."%' OR code LIKE '%".$keyword."%'";
 	}
-	elseif (isset ($_GET['keyword_code']))
+	elseif (isset ($get_keyword_code))
 	{
-		$keyword_code = Database::escape_string($_GET['keyword_code']);
+		$keyword_code = Database::escape_string($get_keyword_code);
 		$keyword_title = Database::escape_string($_GET['keyword_title']);
 		$keyword_category = Database::escape_string($_GET['keyword_category']);
 		$keyword_language = Database::escape_string($_GET['keyword_language']);
@@ -77,19 +80,20 @@ function get_number_of_courses()
  */
 function get_course_data($from, $number_of_items, $column, $direction)
 {
+	global $get_keyword,$get_keyword_code;
 	$course_table = Database :: get_main_table(TABLE_MAIN_COURSE);
 	$users_table = Database :: get_main_table(TABLE_MAIN_USER);
 	$course_users_table = Database :: get_main_table(TABLE_MAIN_COURSE_USER);
 	
 	$sql = "SELECT code AS col0, visual_code AS col1, title AS col2, course_language AS col3, category_code AS col4, subscribe AS col5, unsubscribe AS col6, code AS col7, tutor_name as col8, code AS col9, visibility AS col10 FROM $course_table";
-	if (isset ($_GET['keyword']))
+	if (isset ($get_keyword))
 	{
-		$keyword = Database::escape_string($_GET['keyword']);
+		$keyword = Database::escape_string($get_keyword);
 		$sql .= " WHERE title LIKE '%".$keyword."%' OR code LIKE '%".$keyword."%'";
 	}
-	elseif (isset ($_GET['keyword_code']))
+	elseif (isset ($get_keyword_code))
 	{
-		$keyword_code = Database::escape_string($_GET['keyword_code']);
+		$keyword_code = Database::escape_string($get_keyword_code);
 		$keyword_title = Database::escape_string($_GET['keyword_title']);
 		$keyword_category = Database::escape_string($_GET['keyword_category']);
 		$keyword_language = Database::escape_string($_GET['keyword_language']);
@@ -125,7 +129,7 @@ function modify_filter($code)
 		'<a href="../course_home/course_home.php?cidReq='.$code.'"><img src="../img/course_home.gif" border="0" style="vertical-align: middle" title="'.get_lang('CourseHomepage').'" alt="'.get_lang('CourseHomepage').'"/></a>&nbsp;'.
 		'<a href="../tracking/courseLog.php?cidReq='.$code.'"><img src="../img/statistics.gif" border="0" style="vertical-align: middle" title="'.get_lang('Tracking').'" alt="'.get_lang('Tracking').'"/></a>&nbsp;'.
 		'<a href="course_edit.php?course_code='.$code.'"><img src="../img/edit.gif" border="0" style="vertical-align: middle" title="'.get_lang('Edit').'" alt="'.get_lang('Edit').'"/></a>&nbsp;'.
-		'<a href="course_list.php?delete_course='.$code.'"  onclick="javascript:if(!confirm('."'".addslashes(htmlentities(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset))."'".')) return false;"><img src="../img/delete.gif" border="0" style="vertical-align: middle" title="'.get_lang('Delete').'" alt="'.get_lang('Delete').'"/></a>';	
+		'<a href="course_list.php?delete_course='.$code.'"  onclick="javascript:if(!confirm('."'".addslashes(htmlspecialchars(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset))."'".')) return false;"><img src="../img/delete.gif" border="0" style="vertical-align: middle" title="'.get_lang('Delete').'" alt="'.get_lang('Delete').'"/></a>';	
 }
 /**
  * Return an icon representing the visibility of the course

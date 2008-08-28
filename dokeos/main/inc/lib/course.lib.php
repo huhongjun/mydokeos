@@ -185,7 +185,7 @@ class CourseManager
 	function get_course_information($course_code)
 	{
 		$course_table = Database :: get_main_table(TABLE_MAIN_COURSE);
-		$sql="SELECT * FROM ".$course_table." WHERE code='".$course_code."'";
+		$sql="SELECT * FROM ".$course_table." WHERE code='".$course_code."'";		
 		$sql_result = api_sql_query($sql, __FILE__, __LINE__);
 		$result = Database::fetch_array($sql_result);
 		return $result;

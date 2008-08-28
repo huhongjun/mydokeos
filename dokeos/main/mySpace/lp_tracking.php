@@ -46,7 +46,7 @@ $csv_content = array();
 
 $user_id = intval($_GET['student_id']);
 $user_infos = UserManager :: get_user_info_by_id($user_id);
-$name = $user_infos['firstname'].' '.$user_infos['lastname'];
+$name = $user_infos['lastname'].' '.$user_infos['firstname'];
 
 
 if(!api_is_platform_admin(true) && !CourseManager :: is_course_teacher($_user['user_id'], $_GET['course']) && !Tracking :: is_allowed_to_coach_student($_user['user_id'],$_GET['student_id']) && $user_infos['hr_dept_id']!==$_user['user_id'])
@@ -176,7 +176,7 @@ else
 	include_once('../newscorm/lp_stats.php');
 	$tracking_content = ob_get_contents();
 	ob_end_clean();
-	echo utf8_decode($tracking_content);   
+	echo $tracking_content;   
 	
 }
 Display :: display_footer();

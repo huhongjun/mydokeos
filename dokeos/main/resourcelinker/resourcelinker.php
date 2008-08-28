@@ -613,7 +613,7 @@ if ($from_learnpath != 'yes')
 }
 else
 {
-	echo "<form method=\"get\" action=\"../learnpath/learnpath_handler.php\" style=\"margin: 0px;\"><input type=\"hidden\" name=\"learnpath_id\" value=\"".htmlentities($learnpath_id)."\"><input type=\"submit\" value=\"".get_lang('Ok')."\"></form>";
+	echo "<form method=\"get\" action=\"../learnpath/learnpath_handler.php\" style=\"margin: 0px;\"><input type=\"hidden\" name=\"learnpath_id\" value=\"".htmlspecialchars($learnpath_id)."\"><input type=\"submit\" value=\"".get_lang('Ok')."\"></form>";
 }
 ?>
 

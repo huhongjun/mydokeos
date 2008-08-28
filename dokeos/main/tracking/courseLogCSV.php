@@ -485,7 +485,7 @@ if($is_allowedToTrack && $_configuration['tracking_enabled'])
 								while ($ar3['status'] != '') {
 									require_once('../newscorm/learnpathItem.class.php');
 									$time = learnpathItem::get_scorm_time('php',$ar3['total_time']);
-									$title = htmlentities($ar3['title'],ENT_QUOTES,$lp_charset);
+									$title = htmlspecialchars($ar3['title'],ENT_QUOTES,$lp_charset);
 									$line .= $title.";".$ar3['status'].";".$ar3['score'].";".$time;
 									$ar3=Database::fetch_array($result3);
 								}

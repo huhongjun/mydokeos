@@ -977,7 +977,7 @@ class Blog
 			$blog_post_actions .= '<a href="blog.php?action=edit_post&amp;blog_id=' . $blog_id . '&amp;post_id=' . $post_id . '&amp;article_id=' . $blog_post['post_id'] . '&amp;task_id=' . $task_id . '" title="' . get_lang('EditThisPost') . '"><img src="../img/edit.gif" /></a>';
 
 		if(api_is_allowed('BLOG_' . $blog_id, 'article_delete', $task_id))
-			$blog_post_actions .= '<a href="blog.php?action=view_post&amp;blog_id=' . $blog_id . '&amp;post_id=' . $post_id . '&amp;do=delete_article&amp;article_id=' . $blog_post['post_id'] . '&amp;task_id=' . $task_id . '" title="' . get_lang('DeleteThisArticle') . '" onclick="javascript:if(!confirm(\''.addslashes(htmlentities(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset)). '\')) return false;"><img src="../img/delete.gif" border="0" /></a>';
+			$blog_post_actions .= '<a href="blog.php?action=view_post&amp;blog_id=' . $blog_id . '&amp;post_id=' . $post_id . '&amp;do=delete_article&amp;article_id=' . $blog_post['post_id'] . '&amp;task_id=' . $task_id . '" title="' . get_lang('DeleteThisArticle') . '" onclick="javascript:if(!confirm(\''.addslashes(htmlspecialchars(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset)). '\')) return false;"><img src="../img/delete.gif" border="0" /></a>';
 
 		if(api_is_allowed('BLOG_' . $blog_id, 'article_rate'))
 			$rating_select = Blog::display_rating_form('post',$blog_id,$post_id);
@@ -1178,7 +1178,7 @@ class Blog
 			$blog_comment_date = ucfirst(format_locale_date($dateFormatLong,strtotime($comment['date_creation'])));
 			$blog_comment_time = date('H:i',strtotime($comment['date_creation']));
 			$blog_comment_actions = "";
-			if(api_is_allowed('BLOG_' . $blog_id, 'article_comments_delete', $task_id)) { $blog_comment_actions .= '<a href="blog.php?action=view_post&amp;blog_id=' . $blog_id . '&amp;post_id=' . $post_id . '&amp;do=delete_comment&amp;comment_id=' . $comment['comment_id'] . '&amp;task_id=' . $task_id . '" title="' . get_lang('DeleteThisComment') . '" onclick="javascript:if(!confirm(\''.addslashes(htmlentities(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset)). '\')) return false;"><img src="../img/delete.gif" border="0" /></a>'; }
+			if(api_is_allowed('BLOG_' . $blog_id, 'article_comments_delete', $task_id)) { $blog_comment_actions .= '<a href="blog.php?action=view_post&amp;blog_id=' . $blog_id . '&amp;post_id=' . $post_id . '&amp;do=delete_comment&amp;comment_id=' . $comment['comment_id'] . '&amp;task_id=' . $task_id . '" title="' . get_lang('DeleteThisComment') . '" onclick="javascript:if(!confirm(\''.addslashes(htmlspecialchars(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset)). '\')) return false;"><img src="../img/delete.gif" border="0" /></a>'; }
 			if(api_is_allowed('BLOG_' . $blog_id, 'article_comments_rate')) { $rating_select = Blog::display_rating_form('comment', $blog_id, $post_id, $comment['comment_id']); }
 
 			if(!is_null($comment['task_id']))
@@ -1474,7 +1474,7 @@ class Blog
 				$delete_icon = ($task['system_task'] == '1') ? "delete_na.gif" : "delete.gif";
 				$delete_title = ($task['system_task'] == '1') ? get_lang('DeleteSystemTask') : get_lang('DeleteTask');
 				$delete_link = ($task['system_task'] == '1') ? '#' : api_get_self() . '?action=manage_tasks&amp;blog_id=' . $task['blog_id'] . '&amp;do=delete&amp;task_id=' . $task['task_id'];
-				$delete_confirm = ($task['system_task'] == '1') ? '' : 'onclick="javascript:if(!confirm(\''.addslashes(htmlentities(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset)). '\')) return false;"';
+				$delete_confirm = ($task['system_task'] == '1') ? '' : 'onclick="javascript:if(!confirm(\''.addslashes(htmlspecialchars(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset)). '\')) return false;"';
 
 				echo	'<tr class="' . $css_class . '" valign="top">',
 							 '<td width="240">' . stripslashes($task['title']) . '</td>',
@@ -1535,7 +1535,7 @@ class Blog
 			$delete_icon = ($task['system_task'] == '1') ? "delete_na.gif" : "delete.gif";
 			$delete_title = ($task['system_task'] == '1') ? get_lang('DeleteSystemTask') : get_lang('DeleteTask');
 			$delete_link = ($task['system_task'] == '1') ? '#' : api_get_self() . '?action=manage_tasks&amp;blog_id=' . $task['blog_id'] . '&amp;do=delete&amp;task_id=' . $task['task_id'];
-			$delete_confirm = ($task['system_task'] == '1') ? '' : 'onclick="javascript:if(!confirm(\''.addslashes(htmlentities(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset)). '\')) return false;"';
+			$delete_confirm = ($task['system_task'] == '1') ? '' : 'onclick="javascript:if(!confirm(\''.addslashes(htmlspecialchars(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset)). '\')) return false;"';
 
 			echo	'<tr class="' . $css_class . '" valign="top">',
 						 '<td width="240">' . $assignment['firstname'] . ' ' . $assignment['lastname'] . '</td>',
@@ -1547,7 +1547,7 @@ class Blog
 							'<img src="../img/edit.gif" border="0" title="' . get_lang('EditTask') . '" />',
 							"</a>\n",
 							'<a href="' .api_get_self(). '?action=manage_tasks&amp;blog_id=' . $assignment['blog_id'] . '&amp;do=delete_assignment&amp;assignment_id=' . $assignment['task_id'] . '|' . $assignment['user_id'] . '" ',
-							'onclick="javascript:if(!confirm(\''.addslashes(htmlentities(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset)). '\')) return false;"',
+							'onclick="javascript:if(!confirm(\''.addslashes(htmlspecialchars(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset)). '\')) return false;"',
 							'<img src="../img/' . $delete_icon . '" border="0" title="' . $delete_title . '" />',
 							"</a>\n",
 						 '</td>',
@@ -2748,7 +2748,7 @@ class Blog
 							'<img src="../img/edit.gif" border="0" title="' . get_lang('EditBlog') . '" />',
 							"</a>\n",
 							'<a href="' .api_get_self(). '?action=delete&amp;blog_id=' . $blog['blog_id'] . '" ',
-							'onclick="javascript:if(!confirm(\''.addslashes(htmlentities(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset)). '\')) return false;"',
+							'onclick="javascript:if(!confirm(\''.addslashes(htmlspecialchars(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset)). '\')) return false;"',
 							'<img src="../img/delete.gif" border="0" title="' . get_lang('DeleteBlog') . '" />',
 							"</a>\n",
 							'<a href="' .api_get_self(). '?action=visibility&amp;blog_id=' . $blog['blog_id'] . '">',
