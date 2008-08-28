@@ -65,4 +65,5 @@ $RepeatYearly = "每年";
 $RepeatEnd = "重复结束日期";
 $RepeatedEventViewOriginalEvent = "浏览最初事件";
 $ICalFileImport = "导入iCal/ics文件";
+$Th='第';
 ?>

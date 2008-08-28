@@ -94,7 +94,7 @@ else
 	$values['course_language'] = get_setting('platformLanguage');
 }
 
-$values['tutor_name'] = $_user['firstName']." ".$_user['lastName'];
+$values['tutor_name'] = $_user['lastName']." ".$_user['firstName'];
 $form->setDefaults($values);
 // Validate the form
 if($form->validate())

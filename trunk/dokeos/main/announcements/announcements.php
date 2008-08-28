@@ -1423,7 +1423,7 @@ if (isset($message) && $message == true)
 							"</a></td>";
 
 
-					if (api_is_allowed_to_edit()) echo "<td valign=\"top\"><a href=\"".api_get_self()."?".api_get_cidreq()."&action=delete&id=".$myrow['id']."\" onclick=\"javascript:if(!confirm('".addslashes(htmlentities(get_lang('ConfirmYourChoice'),ENT_QUOTES,$charset))."')) return false;\">",
+					if (api_is_allowed_to_edit()) echo "<td valign=\"top\"><a href=\"".api_get_self()."?".api_get_cidreq()."&action=delete&id=".$myrow['id']."\" onclick=\"javascript:if(!confirm('".addslashes(htmlspecialchars(get_lang('ConfirmYourChoice'),ENT_QUOTES,$charset))."')) return false;\">",
 							"<img src=\"../img/delete.gif\" title=\"",get_lang('Delete'),"\" border=\"0\" align=\"absmiddle\">",
 							"</a></td>";
 

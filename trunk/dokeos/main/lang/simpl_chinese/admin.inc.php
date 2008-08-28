@@ -814,4 +814,5 @@ $LDAPFilledTutorFieldValueComment = "µ±Ñ¡Ôñµ¼Ê¦¼ø¶¨Öµ×Ö¶Îºó£¬Õâ¸öÖµÒÑ±»ÄÚ²¿µÄÒ»¸
 $IsNotWritable = "ÊÇ·ñÐ´ÏÂ";
 //huhj added
 $MyDLTT = "ÎÒµÄDLTT";
+$Liste_des_sessions="ÅàÑµ¼Æ»®ÁÐ±í";
 ?>

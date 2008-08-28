@@ -4,7 +4,7 @@
 	Dokeos - elearning and course management software
 	
 	Copyright (c) 2004-2006 Dokeos S.A.
-	Copyright (c) E.U.I. Universidad Politécnica de Madrid (Spain)
+	Copyright (c) E.U.I. Universidad Politï¿½cnica de Madrid (Spain)
 	//add your name + the name of your organisation - if any - to this list
 	
 	For a full list of contributors, see "credits.txt".
@@ -27,7 +27,7 @@
 *
 *	The user has no access to enter the credit course. Two possibilities:
 *
-*		- User´s last paid subscription expired. 
+*		- Userï¿½s last paid subscription expired. 
 *			* Show Course-renew-subscription-page link
 *
 *		- User tried to access a credit course he never paid for
@@ -64,7 +64,7 @@ Display::display_header($tool_name);
 */ 
 
 
-$tool_name = "Access Denied";
+$tool_name = get_lang('access_denied');
 api_display_tool_title($tool_name);
 
 
@@ -75,7 +75,7 @@ $dates = cs_user_last_sub_paid (api_get_user_id(),$_GET['code']);
 if (!CourseManager :: is_user_subscribed_in_course(api_get_user_id(),$_GET['code']))
 {
 	$message = get_lang('YouHaveNoAccess').'<br /> <a href="javascript:document.subscribe.submit()">'.get_lang('PlzSubscribe').'</a>';
-	$go_to = api_get_path(REL_CLARO_PATH).'auth/courses.php?action=subscribe';
+	$go_to = api_get_path(REL_CODE_PATH).'auth/courses.php?action=subscribe';
 }
 
 else 

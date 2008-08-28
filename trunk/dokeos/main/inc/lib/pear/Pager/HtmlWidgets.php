@@ -181,7 +181,7 @@ class Pager_HtmlWidgets
                         htmlentities($href)
                     );
                 } else {
-                    $href = htmlentities($this->pager->_url . str_replace('%d', $selector, $this->pager->_fileName));
+                    $href = htmlspecialchars($this->pager->_url . str_replace('%d', $selector, $this->pager->_fileName));
                 }
                 $tmp .= ' onchange="document.location.href=\''
                      . $href .'\''

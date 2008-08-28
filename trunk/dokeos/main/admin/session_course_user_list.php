@@ -54,11 +54,11 @@ $Users=api_store_result($result);
 
 $nbr_results=sizeof($Users);
 
-$tool_name = get_lang('ListOfUsersSubscribedToCourse').' &quot;'.htmlentities($course_title,ENT_QUOTES,$charset).'&quot; '.get_lang('ForTheSession').' &quot;'.htmlentities($session_name,ENT_QUOTES,$charset).'&quot;';
+$tool_name = get_lang('ListOfUsersSubscribedToCourse').' &quot;'.htmlspecialchars($course_title,ENT_QUOTES,$charset).'&quot; '.get_lang('ForTheSession').' &quot;'.htmlentities($session_name,ENT_QUOTES,$charset).'&quot;';
 
 $interbredcrump[]=array("url" => "index.php","name" => get_lang('AdministrationTools'));
 $interbredcrump[]=array("url" => "session_list.php","name" => get_lang('SessionList'));
-$interbredcrump[]=array("url" => "session_course_list.php?id_session=$id_session","name" => get_lang('ListOfCoursesOfSession')." &quot;".htmlentities($session_name,ENT_QUOTES,$charset)."&quot;");
+$interbredcrump[]=array("url" => "session_course_list.php?id_session=$id_session","name" => get_lang('ListOfCoursesOfSession')." &quot;".htmlspecialchars($session_name,ENT_QUOTES,$charset)."&quot;");
 
 Display::display_header($tool_name);
 
@@ -111,7 +111,7 @@ else
 <tr>
   <th>&nbsp;</th>
   <th><a href="<?php echo api_get_self(); ?>?id_session=<?php echo $id_session; ?>&course_code=<?php echo urlencode($course_code); ?>&sort=lastname">Nom</a></th>
-  <th><a href="<?php echo api_get_self(); ?>?id_session=<?php echo $id_session; ?>&course_code=<?php echo urlencode($course_code); ?>&sort=firstname">Prénom</a></th>
+  <th><a href="<?php echo api_get_self(); ?>?id_session=<?php echo $id_session; ?>&course_code=<?php echo urlencode($course_code); ?>&sort=firstname">Prï¿½nom</a></th>
   <th><a href="<?php echo api_get_self(); ?>?id_session=<?php echo $id_session; ?>&course_code=<?php echo urlencode($course_code); ?>&sort=username">Identifiant</a></th>
   <th>Actions</th>
 </tr>
@@ -129,9 +129,9 @@ foreach($Users as $key=>$enreg)
 
 <tr class="<?php echo $i?'row_odd':'row_even'; ?>">
   <td><input type="checkbox" name="idChecked[]" value="<?php echo $enreg['user_id']; ?>"></td>
-  <td><?php echo htmlentities($enreg['lastname'],ENT_QUOTES,$charset); ?></td>
-  <td><?php echo htmlentities($enreg['firstname'],ENT_QUOTES,$charset); ?></td>
-  <td><?php echo htmlentities($enreg['username'],ENT_QUOTES,$charset); ?></td>
+  <td><?php echo htmlspecialchars($enreg['lastname'],ENT_QUOTES,$charset); ?></td>
+  <td><?php echo htmlspecialchars($enreg['firstname'],ENT_QUOTES,$charset); ?></td>
+  <td><?php echo htmlspecialchars($enreg['username'],ENT_QUOTES,$charset); ?></td>
   <td>
 	<a href="<?php echo api_get_self(); ?>?id_session=<?php echo $id_session; ?>&course_code=<?php echo urlencode($course_code); ?>&sort=<?php echo $sort; ?>&action=delete&idChecked[]=<?php echo $enreg['user_id']; ?>" onclick="javascript:if(!confirm('<?php echo get_lang('ConfirmYourChoice'); ?>')) return false;"><img src="../img/delete.gif" border="0" align="absmiddle" title="Effacer"></a>
   </td>

@@ -558,7 +558,7 @@ function display_requirements($installType, $badUpdatePath, $updatePath='', $upd
 			<table border="0" cellpadding="5" align="center">
 			<tr>
 			<td><?php echo get_lang('OldVersionRootPath');?>:</td>
-			<td><input type="text" name="updatePath" size="50" value="<?php echo ($badUpdatePath && !empty($updatePath))?htmlentities($updatePath):$_SERVER['DOCUMENT_ROOT'].'/old_version/'; ?>" /></td>
+			<td><input type="text" name="updatePath" size="50" value="<?php echo ($badUpdatePath && !empty($updatePath))?htmlspecialchars($updatePath):$_SERVER['DOCUMENT_ROOT'].'/old_version/'; ?>" /></td>
 			</tr>
 			<tr>
 			<td colspan="2" align="center">
@@ -687,7 +687,7 @@ function display_license_agreement()
 	echo '<p><a href="../../documentation/license.html">'.get_lang('PrintVers').'</a></p>';
 	?>
 	<table><tr><td>
-		<p><textarea cols="75" rows="15" ><?php htmlentities(include('../../documentation/license.txt')); ?></textarea></p>
+		<p><textarea cols="75" rows="15" ><?php htmlspecialchars(include('../../documentation/license.txt')); ?></textarea></p>
 		</td>
 		</tr>
 		<tr>
@@ -727,11 +727,11 @@ function display_database_parameter($install_type, $parameter_name, $form_field_
 	echo "<td>$parameter_name&nbsp;&nbsp;</td>\n";
 	if ($install_type == INSTALL_TYPE_UPDATE && $display_when_update)
 	{
-		echo '<td><input type="hidden" name="'.$form_field_name.'" id="'.$form_field_name.'" value="'.htmlentities($parameter_value).'" />'.$parameter_value."</td>\n";
+		echo '<td><input type="hidden" name="'.$form_field_name.'" id="'.$form_field_name.'" value="'.htmlspecialchars($parameter_value).'" />'.$parameter_value."</td>\n";
 	}
 	else
 	{
-		echo '<td><input type="text" size="'.DATABASE_FORM_FIELD_DISPLAY_LENGTH.'" maxlength="'.MAX_FORM_FIELD_LENGTH.'" name="'.$form_field_name.'" id="'.$form_field_name.'" value="'.htmlentities($parameter_value).'" />'."</td>\n";
+		echo '<td><input type="text" size="'.DATABASE_FORM_FIELD_DISPLAY_LENGTH.'" maxlength="'.MAX_FORM_FIELD_LENGTH.'" name="'.$form_field_name.'" id="'.$form_field_name.'" value="'.htmlspecialchars($parameter_value).'" />'."</td>\n";
 		echo "<td>$extra_notice</td>\n";
 	}
 	echo "</tr>\n";
@@ -823,10 +823,10 @@ function display_database_settings_form($installType, $dbHostForm, $dbUsernameFo
 	  <td width="40%"><?php echo get_lang('DBHost'); ?> </td>
 
 	  <?php if($installType == 'update'): ?>
-	  <td width="30%"><input type="hidden" name="dbHostForm" value="<?php echo htmlentities($dbHostForm); ?>" /><?php echo $dbHostForm; ?></td>
+	  <td width="30%"><input type="hidden" name="dbHostForm" value="<?php echo htmlspecialchars($dbHostForm); ?>" /><?php echo $dbHostForm; ?></td>
 	  <td width="30%">&nbsp;</td>
 	  <?php else: ?>
-	  <td width="30%"><input type="text" size="25" maxlength="50" name="dbHostForm" value="<?php echo htmlentities($dbHostForm); ?>" /></td>
+	  <td width="30%"><input type="text" size="25" maxlength="50" name="dbHostForm" value="<?php echo htmlspecialchars($dbHostForm); ?>" /></td>
 	  <td width="30%"><?php echo get_lang('EG').' localhost'; ?></td>
 	  <?php endif; ?>
 
@@ -929,11 +929,11 @@ function display_configuration_parameter($install_type, $parameter_name, $form_f
 	echo "<td>$parameter_name&nbsp;&nbsp;</td>\n";
 	if ($install_type == INSTALL_TYPE_UPDATE && $display_when_update)
 	{
-		echo '<td><input type="hidden" name="'.$form_field_name.'" value="'.htmlentities($parameter_value).'" />'.$parameter_value."</td>\n";
+		echo '<td><input type="hidden" name="'.$form_field_name.'" value="'.htmlspecialchars($parameter_value).'" />'.$parameter_value."</td>\n";
 	}
 	else
 	{
-		echo '<td><input type="text" size="'.FORM_FIELD_DISPLAY_LENGTH.'" maxlength="'.MAX_FORM_FIELD_LENGTH.'" name="'.$form_field_name.'" value="'.htmlentities($parameter_value).'" />'."</td>\n";
+		echo '<td><input type="text" size="'.FORM_FIELD_DISPLAY_LENGTH.'" maxlength="'.MAX_FORM_FIELD_LENGTH.'" name="'.$form_field_name.'" value="'.htmlspecialchars($parameter_value).'" />'."</td>\n";
 	}
 	echo "</tr>\n";
 }
@@ -959,7 +959,7 @@ function display_configuration_settings_form($installType, $urlForm, $languageFo
 	echo '<td>'.get_lang('MainLang')."&nbsp;&nbsp;</td>\n";
 	if($installType == 'update')
 	{
-		echo '<td><input type="hidden" name="languageForm" value="'.htmlentities($languageForm).'" />'.$languageForm."</td>\n";
+		echo '<td><input type="hidden" name="languageForm" value="'.htmlspecialchars($languageForm).'" />'.$languageForm."</td>\n";
 	}
 	else // new installation
 	{
@@ -994,8 +994,8 @@ function display_configuration_settings_form($installType, $urlForm, $languageFo
 	echo "<tr>\n";
 	echo '<td>'.get_lang('DokeosURL').' (<font color="#cc0033">'.get_lang('ThisFieldIsRequired')."</font>)&nbsp;&nbsp;</td>\n";
 	
-	if($installType == 'update') echo '<td>'.htmlentities($urlForm)."</td>\n";
-	else echo '<td><input type="text" size="40" maxlength="100" name="urlForm" value="'.htmlentities($urlForm).'" />'."</td>\n";
+	if($installType == 'update') echo '<td>'.htmlspecialchars($urlForm)."</td>\n";
+	else echo '<td><input type="text" size="40" maxlength="100" name="urlForm" value="'.htmlspecialchars($urlForm).'" />'."</td>\n";
 	
 	echo "</tr>\n";
 

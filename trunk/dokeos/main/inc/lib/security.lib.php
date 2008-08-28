@@ -243,7 +243,7 @@ class Security{
 	/**
 	 * This function tackles the XSS injections.
 	 * 
-	 * Filtering for XSS is very easily done by using the htmlentities() function.
+	 * Filtering for XSS is very easily done by using the htmlspecialchars() function.
 	 * This kind of filtering prevents JavaScript snippets to be understood as such.
 	 * @param	string	The variable to filter for XSS
 	 * @return	string	Filtered string
@@ -251,7 +251,7 @@ class Security{
 	function remove_XSS($var)
 	{
 		global $charset;
-		return htmlentities($var,ENT_QUOTES,$charset);
+		return htmlspecialchars($var,ENT_QUOTES,$charset);
 	}
 }
 ?>

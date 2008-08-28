@@ -48,8 +48,9 @@ else
 //$stats_charset = $_SESSION['oLP']->encoding
 if(!isset($origin))
 	$origin = '';
+$charset=api_get_setting('platform_charset');
 if($origin != 'tracking')
-{
+{	
 	if (!empty ($stats_charset)) {
 		$charset_lang = $stats_charset;
 	} else {
@@ -99,7 +100,7 @@ else
 {
 	$extend_all_link = '<a href="'.api_get_self().'?action=stats&extend_all=1'.$url_suffix.'"><img src="../img/view_more_stats.gif" alt="extend_view" border="0"></a>';
 }
-//htmlentities()不能转义中文,所以用htmlspecialchars():by xiaoping
+//htmlspecialchars()不能转义中文,所以用htmlspecialchars():by xiaoping
 if($origin != 'tracking')
 {
 	$output .= "<tr><td><div class='title'>".htmlspecialchars(get_lang('ScormMystatus'), ENT_QUOTES, $dokeos_charset)."</div></td></tr>";
@@ -200,9 +201,17 @@ foreach ($list as $my_item_id)
 		{
 			$extend_link = '<a href="'.api_get_self().'?action=stats&fold_id='.$my_item_id.$url_suffix.'"><img src="../img/visible.gif" alt="fold_view" border="0"></a>'."\n";
 		}
-		$title = mb_convert_encoding($row['mytitle'],$stats_charset,$_SESSION['oLP']->encoding);//编码转换:by xiaoping
-		$title = stripslashes(html_entity_decode($title,ENT_QUOTES, $dokeos_charset));
-		
+		//edit by xiaoping
+		if($origin != 'tracking')
+		{
+			$title = mb_convert_encoding($row['mytitle'],$stats_charset,$_SESSION['oLP']->encoding);	//编码转换:by xiaoping	
+			$title = stripslashes(html_entity_decode($title,ENT_QUOTES, $dokeos_charset));		
+		}
+		else
+		{
+			$title = mb_convert_encoding($row['mytitle'],$charset,'utf-8');		
+			$title = stripslashes(html_entity_decode($title,ENT_QUOTES));		
+		}		
 		if (empty ($title)) 
 		{
 			$title = rl_get_resource_name(api_get_course_id(), $lp_id, $row['myid']);
@@ -262,7 +271,7 @@ foreach ($list as $my_item_id)
 				$correct_test_link='-';
 			}
 			//new attempt
-			$output .= "<tr class='$oddclass'>\n"."<td>$extend_link</td>\n".'<td colspan="4" class="content"><div class="mystatus">'.htmlentities($title,ENT_QUOTES,$charset_lang)."</div></td>\n".'<td colspan="2" class="content"></td>'."\n".'<td colspan="2" class="content"></td>'."\n".'<td colspan="2" class="content"></td><td class="content"></td>'."\n"."</tr>\n";
+			$output .= "<tr class='$oddclass'>\n"."<td>$extend_link</td>\n".'<td colspan="4" class="content"><div class="mystatus">'.htmlspecialchars($title,ENT_QUOTES,$charset_lang)."</div></td>\n".'<td colspan="2" class="content"></td>'."\n".'<td colspan="2" class="content"></td>'."\n".'<td colspan="2" class="content"></td><td class="content"></td>'."\n"."</tr>\n";
 		}
 
 		$counter ++;
@@ -327,8 +336,8 @@ foreach ($list as $my_item_id)
 			$my_lesson_status = htmlspecialchars(get_lang($mylanglist[$lesson_status]), ENT_QUOTES, $dokeos_charset);
 			//$my_lesson_status = get_lang($mylanglist[$lesson_status]);
 			if ($row['item_type'] != 'dokeos_chapter') {
-				$output .= "<tr class='$oddclass'>\n"."<td></td>\n"."<td>$extend_attempt_link</td>\n".'<td colspan="3">'.htmlentities(get_lang('Attempt'), ENT_QUOTES, $dokeos_charset).' '.$row['iv_view_count']."</td>\n"
-				//."<td><font color='$color'><div class='mystatus'>".htmlentities($array_status[$lesson_status],ENT_QUOTES,$charset_lang)."</div></font></td>\n"
+				$output .= "<tr class='$oddclass'>\n"."<td></td>\n"."<td>$extend_attempt_link</td>\n".'<td colspan="3">'.htmlspecialchars(get_lang('Attempt'), ENT_QUOTES, $dokeos_charset).' '.$row['iv_view_count']."</td>\n"
+				//."<td><font color='$color'><div class='mystatus'>".htmlspecialchars($array_status[$lesson_status],ENT_QUOTES,$charset_lang)."</div></font></td>\n"
 				.'<td colspan="2"><font color="'.$color.'"><div class="mystatus">'.$my_lesson_status."</div></font></td>\n".'<td colspan="2"><div class="mystatus" align="center">'. ($score == 0 ? '-' : ($maxscore==0?$score:$score.'/'.$maxscore))."</div></td>\n".'<td colspan="2"><div class="mystatus">'.$time."</div></td><td></td>\n"."</tr>\n";
 			}
 
@@ -342,7 +351,7 @@ foreach ($list as $my_item_id)
 						$oddclass = "row_even";
 					}
 					$output .= "<tr class='$oddclass'>\n".'<td></td>'."\n".'<td></td>'."\n".'<td>&nbsp;</td>'."\n".'<td>'.$interaction['order_id'].'</td>'."\n".'<td>'.$interaction['id'].'</td>'."\n"
-					//."<td><font color='$color'><div class='mystatus'>".htmlentities($array_status[$lesson_status],ENT_QUOTES,$charset_lang)."</div></font></td>\n"
+					//."<td><font color='$color'><div class='mystatus'>".htmlspecialchars($array_status[$lesson_status],ENT_QUOTES,$charset_lang)."</div></font></td>\n"
 					.'<td colspan="2">'.$interaction['type']."</td>\n"
 					//.'<td>'.$interaction['correct_responses']."</td>\n"
 					.'<td>'.urldecode($interaction['student_response'])."</td>\n".'<td>'.$interaction['result']."</td>\n".'<td>'.$interaction['latency']."</td>\n".'<td>'.$interaction['time']."</td>\n<td></td>\n</tr>\n";
@@ -409,9 +418,17 @@ foreach ($list as $my_item_id)
 		$time = learnpathItem :: get_scorm_time('js', $subtotal_time);
 		$scoIdentifier = $row['myid'];
 		//$title =iconv($row['mytitle'],$stats_charset,$_SESSION['oLP']->encoding);
-		$title = mb_convert_encoding($row['mytitle'],$stats_charset,$_SESSION['oLP']->encoding);	//编码转换:by xiaoping	
-		$title = stripslashes(html_entity_decode($title,ENT_QUOTES, $dokeos_charset));
-		
+		//edit by xiaoping
+		if($origin != 'tracking')
+		{
+			$title = mb_convert_encoding($row['mytitle'],$stats_charset,$_SESSION['oLP']->encoding);	//编码转换:by xiaoping	
+			$title = stripslashes(html_entity_decode($title,ENT_QUOTES, $dokeos_charset));		
+		}
+		else
+		{
+			$title = mb_convert_encoding($row['mytitle'],$charset,'utf-8');		
+			$title = stripslashes(html_entity_decode($title,ENT_QUOTES));		
+		}
 		if ($score == 0) 
 		{
 			$maxscore = 0;
@@ -507,8 +524,8 @@ foreach ($list as $my_item_id)
 				$correct_test_link='-';
 			}
 			
-			$output .= "<tr class='$oddclass'>\n"."<td>$extend_link</td>\n".'<td colspan="4"><div class="mystatus">'.htmlentities($title,ENT_QUOTES,$charset_lang).'</div></td>'."\n"
-			//."<td><font color='$color'><div class='mystatus'>".htmlentities($array_status[$lesson_status],ENT_QUOTES,$charset_lang)."</div></font></td>\n"
+			$output .= "<tr class='$oddclass'>\n"."<td>$extend_link</td>\n".'<td colspan="4"><div class="mystatus">'.htmlspecialchars($title,ENT_QUOTES,$charset_lang).'</div></td>'."\n"
+			//."<td><font color='$color'><div class='mystatus'>".htmlspecialchars($array_status[$lesson_status],ENT_QUOTES,$charset_lang)."</div></font></td>\n"
 			.'<td colspan="2"><font color="'.$color.'"><div class="mystatus">'.$my_lesson_status."</div></font></td>\n".'<td colspan="2"><div class="mystatus" align="center">'. ($score == 0 ? '-' : ($maxscore==0?$score:$score.'/'.$maxscore))."</div></td>\n".'<td colspan="2"><div class="mystatus">'.$time."</div></td><td>$correct_test_link</td>\n"."</tr>\n";
 						
 			if($export_csv)
@@ -533,7 +550,7 @@ foreach ($list as $my_item_id)
 					$oddclass = "row_even";
 				}
 				$output .= "<tr class='$oddclass'>\n".'<td></td>'."\n".'<td></td>'."\n".'<td>&nbsp;</td>'."\n".'<td>'.$interaction['order_id'].'</td>'."\n".'<td>'.$interaction['id'].'</td>'."\n"
-				//."<td><font color='$color'><div class='mystatus'>".htmlentities($array_status[$lesson_status],ENT_QUOTES,$charset_lang)."</div></font></td>\n"
+				//."<td><font color='$color'><div class='mystatus'>".htmlspecialchars($array_status[$lesson_status],ENT_QUOTES,$charset_lang)."</div></font></td>\n"
 				.'<td colspan="2">'.$interaction['type']."</td>\n"
 				//.'<td>'.$interaction['correct_responses']."</td>\n"
 				.'<td>'.urldecode($interaction['student_response'])."</td>\n".'<td>'.$interaction['result']."</td>\n".'<td>'.$interaction['latency']."</td>\n".'<td>'.$interaction['time']."</td>\n<td></td>\n</tr>\n";
@@ -593,8 +610,8 @@ if (($counter % 2) == 0) {
 	$oddclass = "row_even";
 }
 
-$output .= "<tr class='$oddclass'>\n"."<td></td>\n".'<td colspan="4"><div class="mystatus"><i>'.htmlentities(get_lang('AccomplishedStepsTotal'), ENT_QUOTES, $dokeos_charset)."</i></div></td>\n"
-//."<td><font color='$color'><div class='mystatus'>".htmlentities($array_status[$lesson_status],ENT_QUOTES,$charset_lang)."</div></font></td>\n"
+$output .= "<tr class='$oddclass'>\n"."<td></td>\n".'<td colspan="4"><div class="mystatus"><i>'.htmlspecialchars(get_lang('AccomplishedStepsTotal'), ENT_QUOTES, $dokeos_charset)."</i></div></td>\n"
+//."<td><font color='$color'><div class='mystatus'>".htmlspecialchars($array_status[$lesson_status],ENT_QUOTES,$charset_lang)."</div></font></td>\n"
 .'<td colspan="2"></td>'."\n".'<td colspan="2"><div class="mystatus" align="center">'. $final_score."</div></td>\n".'<td colspan="2"><div class="mystatus">'.$total_time.'</div></td><td></td>'."\n"."</tr>\n";
 
 $output .= "</table></td></tr></table>";
@@ -613,7 +630,6 @@ if($origin != 'tracking')
 {
 	$output .= "</body></html>";
 } 
-
 if(!$export_csv)
 {
 	echo $output;

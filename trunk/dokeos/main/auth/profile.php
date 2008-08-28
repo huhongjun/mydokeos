@@ -60,7 +60,7 @@ function confirmation(name)
 
 if (!empty ($_GET['coursePath']))
 {
-	$course_url = api_get_path(WEB_COURSE_PATH).htmlentities(strip_tags($_GET['coursePath'])).'/index.php';
+	$course_url = api_get_path(WEB_COURSE_PATH).htmlspecialchars(strip_tags($_GET['coursePath'])).'/index.php';
 	$interbreadcrumb[] = array ('url' => $course_url, 'name' => Security::remove_XSS($_GET['courseCode']));
 }
 $warning_msg = '';
@@ -125,14 +125,14 @@ if (is_profile_editable())
 	$form->addElement('submit', null, get_lang('Ok'), array('style' => 'visibility:hidden;'));
 
 //	SUBMIT (visible)
-if (is_profile_editable())
+/*if (is_profile_editable())
 {
 	$form->addElement('submit', 'apply_change', get_lang('Ok'));
 }
 else
 {
 	$form->freeze();
-}
+}*/
 
 //THEME
 if (is_profile_editable() && api_get_setting('user_selected_theme') == 'true')

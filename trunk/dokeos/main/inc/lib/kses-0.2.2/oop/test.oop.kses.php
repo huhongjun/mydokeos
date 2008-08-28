@@ -141,7 +141,7 @@
 		}
 		else
 		{
-			return htmlentities($text);
+			return htmlspecialchars($text);
 		}
 	}
 

@@ -80,7 +80,7 @@ $langLoginsAndAccessTools = "登录并使用工具";
 $langWorkUploads = "上传贡献";
 $langErrorUserNotInGroup = "非法用户: 此用户在小组中不存在.";
 $langListStudents = "小组中的用户列表";
-$langPeriodHour = "灏忔椂";
+$langPeriodHour = "小时";
 $langPeriodDay = "日";
 $langPeriodWeek = "周";
 $langPeriodMonth = "月";
@@ -217,4 +217,5 @@ $FirstLogin = "第一次连接";
 $AccessDetails = "访问详细资料";
 $DateAndTimeOfAccess = "访问日期和时间";
 $Duration = "为期";
+$Sessions='培训计划';
 ?>

@@ -89,7 +89,7 @@ function modify_filter($class_id)
 	$class_id = Security::remove_XSS($class_id);
 	$result = '<a href="class_information.php?id='.$class_id.'"><img src="../img/synthese_view.gif" border="0" title="'.get_lang('Info').'" alt="'.get_lang('Info').'"/></a>';
 	$result .= '<a href="class_edit.php?idclass='.$class_id.'"><img src="../img/edit.gif" border="0" title="'.get_lang('Edit').'" alt="'.get_lang('Edit').'"/></a>';
-	$result .= '<a href="class_list.php?action=delete_class&amp;class_id='.$class_id.'" onclick="javascript:if(!confirm('."'".addslashes(htmlentities(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset))."'".')) return false;"><img src="../img/delete.gif" border="0" title="'.get_lang('Delete').'" alt="'.get_lang('Delete').'"/></a>';
+	$result .= '<a href="class_list.php?action=delete_class&amp;class_id='.$class_id.'" onclick="javascript:if(!confirm('."'".addslashes(htmlspecialchars(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset))."'".')) return false;"><img src="../img/delete.gif" border="0" title="'.get_lang('Delete').'" alt="'.get_lang('Delete').'"/></a>';
 	$result .= '<a href="subscribe_user2class.php?idclass='.$class_id.'"><img src="../img/add_multiple_users.gif" border="0" alt="'.get_lang('AddUsersToAClass').'" title="'.get_lang('AddUsersToAClass').'"/></a>';
 	return $result;
 }
@@ -139,7 +139,7 @@ $form->addElement('submit','submit',get_lang('Search'));
 $form->display();
 // Create the sortable table with class information
 $table = new SortableTable('classes', 'get_number_of_classes', 'get_class_data', 1);
-$table->set_additional_parameters(array('keyword'=>$_GET['keyword']));
+$table->set_additional_parameters(array('keyword'=>trim($_GET['keyword'])));
 $table->set_header(0, '', false);
 $table->set_header(1, get_lang('ClassName'));
 $table->set_header(2, get_lang('NumberOfUsers'));

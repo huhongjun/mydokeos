@@ -559,7 +559,7 @@ function modify_filter($user_id,$url_params, $row)
 {
 	$url_params_id="id[]=".$row[0];
 	//$url_params_id="id=".$row[0];	
-	$result .= '<a href="ldap_users_list.php?action=add_user&amp;user_id='.$user_id.'&amp;id_session='.Security::remove_XSS($_GET['id_session']).'&amp;'.$url_params_id.'&amp;sec_token='.$_SESSION['sec_token'].'"  onclick="javascript:if(!confirm('."'".addslashes(htmlentities(get_lang("ConfirmYourChoice")))."'".')) return false;"><img src="../img/add_user.gif" border="0" style="vertical-align: middle;" title="'.get_lang('AddUsers').'" alt="'.get_lang('AddUsers').'"/></a>';
+	$result .= '<a href="ldap_users_list.php?action=add_user&amp;user_id='.$user_id.'&amp;id_session='.Security::remove_XSS($_GET['id_session']).'&amp;'.$url_params_id.'&amp;sec_token='.$_SESSION['sec_token'].'"  onclick="javascript:if(!confirm('."'".addslashes(htmlspecialchars(get_lang("ConfirmYourChoice")))."'".')) return false;"><img src="../img/add_user.gif" border="0" style="vertical-align: middle;" title="'.get_lang('AddUsers').'" alt="'.get_lang('AddUsers').'"/></a>';
 	return $result;
 }
 

@@ -80,7 +80,7 @@ function display_user_list($user_list, $_plugins)
 			$url = '?id='.$uid.$course_url;
 			if(strlen($user_info['picture_uri']) > 0)
 			{
-				$table_row[] = '<span style="display:none;">1</span><a href="'.$url.'"><img src="'.api_get_path(WEB_CODE_PATH).'upload/users/'.$user_info['picture_uri'].'" alt="'.htmlentities($user_info['firstName'],ENT_QUOTES,$charset).'" width="40" border="0"/></a>';
+				$table_row[] = '<span style="display:none;">1</span><a href="'.$url.'"><img src="'.api_get_path(WEB_CODE_PATH).'upload/users/'.$user_info['picture_uri'].'" alt="'.htmlspecialchars($user_info['firstName'],ENT_QUOTES,$charset).'" width="40" border="0"/></a>';
 			}
 			else
 			{
@@ -292,7 +292,7 @@ else
 	Display::display_header(get_lang('UsersOnLineList'));
 	Display::display_error_message(get_lang('AccessNotAllowed'));
 }
-$referer = empty($_GET['referer'])?'index.php':htmlentities(strip_tags($_GET['referer']),ENT_QUOTES,$charset);
+$referer = empty($_GET['referer'])?'index.php':htmlspecialchars(strip_tags($_GET['referer']),ENT_QUOTES,$charset);
 echo '<a href="'.(Security::remove_XSS($_GET['id'])?'javascript:window.history.back();':$referer).'">&lt; '.get_lang('Back').'</a>';
 
 /*

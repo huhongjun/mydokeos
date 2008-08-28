@@ -180,17 +180,17 @@ foreach($Courses as $enreg)
 				if($session_course_coach_id!=0)
 				{
 					$coach_infos = UserManager :: get_user_info_by_id($session_course_coach_id);
-					$a_infosCours['tutor_name'] = $coach_infos['firstname'].' '.$coach_infos['lastname'];
+					$a_infosCours['tutor_name'] = $coach_infos['lastname'].' '.$coach_infos['firstname'];
 				}
 				else if($session_coach_id!=0)
 				{
 					$coach_infos = UserManager :: get_user_info_by_id($session_coach_id);
-					$a_infosCours['tutor_name'] = $coach_infos['firstname'].' '.$coach_infos['lastname'];
+					$a_infosCours['tutor_name'] = $coach_infos['lastname'].' '.$coach_infos['firstname'];
 				}
 			}
 		} // end if(api_get_setting('use_session_mode')=='true')
 		
-		$tableTitle = $a_infosCours['title'].' | Coach : '.$a_infosCours['tutor_name'].((!empty($session_name)) ? ' | '.get_lang('Session').' : '.$session_name : '');
+		$tableTitle = $a_infosCours['title'].' | '.mb_convert_encoding('教师',$charset,'utf-8').' : '.$a_infosCours['tutor_name'].((!empty($session_name)) ? ' | '.get_lang('Session').' : '.$session_name : '');
 		
 
 		?>

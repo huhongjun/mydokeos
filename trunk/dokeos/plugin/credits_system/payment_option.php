@@ -88,7 +88,7 @@ function modify_filter($code)
 	{
 		return
 			'<a href="option_edit.php?&option_id='.$code.'"><img src="../../main/img/edit.gif" border="0" style="vertical-align: middle" title="'.get_lang('Edit').'" alt="'.get_lang('Edit').'"/></a>&nbsp;'.
-			'<a href="credits_system_settings.php?select=cspaymentoptions&delete_option='.$code.'"  onclick="javascript:if(!confirm('."'".addslashes(htmlentities(get_lang("ConfirmYourChoice")))."'".')) return false;"><img src="../../main/img/delete.gif" border="0" style="vertical-align: middle" title="'.get_lang('Delete').'" alt="'.get_lang('Delete').'"/></a>';	
+			'<a href="credits_system_settings.php?select=cspaymentoptions&delete_option='.$code.'"  onclick="javascript:if(!confirm('."'".addslashes(htmlspecialchars(get_lang("ConfirmYourChoice")))."'".')) return false;"><img src="../../main/img/delete.gif" border="0" style="vertical-align: middle" title="'.get_lang('Delete').'" alt="'.get_lang('Delete').'"/></a>';	
 	}
 
 if (isset($_GET['option']))

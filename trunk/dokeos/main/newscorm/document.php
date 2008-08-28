@@ -180,7 +180,7 @@ unset($attribute);
  * Display
  */
 Display::display_header($nameTools,"Path");
-$dspCurDirName = htmlentities($curDirName);
+$dspCurDirName = htmlspecialchars($curDirName);
 $cmdCurDirPath = rawurlencode($curDirPath);
 $cmdParentDir  = rawurlencode($parentDir);
 
@@ -297,7 +297,7 @@ if ($fileList)
     if (($counter % 2)==0) { $oddclass="row_odd"; } else { $oddclass="row_even"; }
 
     if ($fileList['type'][$fileKey] == A_FILE) continue;  // RH: added
-    $dspFileName = htmlentities($fileName);
+    $dspFileName = htmlspecialchars($fileName);
     $cmdFileName = rawurlencode($curDirPath."/".$fileName);
     if ($fileList['visibility'][$fileKey] == "i")
     {

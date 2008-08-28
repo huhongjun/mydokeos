@@ -753,7 +753,7 @@ class Pager_Common
                 $href = str_replace('%d', $this->_linkData[$this->_urlVar], $this->_fileName);
             }
             return sprintf('<a href="%s"%s%s%s title="%s">%s</a>',
-                           htmlentities($this->_url . $href),
+                           htmlspecialchars($this->_url . $href),
                            empty($this->_classString) ? '' : ' '.$this->_classString,
                            empty($this->_attributes)  ? '' : ' '.$this->_attributes,
                            empty($this->_accesskey)   ? '' : ' accesskey="'.$this->_linkData[$this->_urlVar].'"',
@@ -816,7 +816,7 @@ class Pager_Common
         }
         
         // We /shouldn't/ need to escape the URL ...
-        $str .= sprintf('form.action = "%s"; ', htmlentities($formAction));
+        $str .= sprintf('form.action = "%s"; ', htmlspecialchars($formAction));
         $str .= sprintf('form.method = "%s"; ', $this->_httpMethod);
         foreach ($data as $key => $val) {
             $str .= $this->_generateFormOnClickHelper($val, $key);
@@ -864,7 +864,7 @@ class Pager_Common
             if (!$this->_isEncoded($escapedData)) {
                 $escapedData = urlencode($escapedData);
             }
-            $escapedData = htmlentities($escapedData, ENT_QUOTES, 'UTF-8');
+            $escapedData = htmlspecialchars($escapedData, ENT_QUOTES, 'UTF-8');
 
             $str .= 'input = document.createElement("input"); ';
             $str .= 'input.type = "hidden"; ';
@@ -1118,7 +1118,7 @@ class Pager_Common
         } else {
             $href = str_replace('%d', $this->_linkData[$this->_urlVar], $this->_fileName);
         }
-        return htmlentities($this->_url . $href);
+        return htmlspecialchars($this->_url . $href);
     }
     
     // }}}
@@ -1244,7 +1244,7 @@ class Pager_Common
     /**
      * This is a slightly modified version of the http_build_query() function;
      * it heavily borrows code from PHP_Compat's http_build_query().
-     * The main change is the usage of htmlentities instead of urlencode,
+     * The main change is the usage of htmlspecialchars instead of urlencode,
      * since it's too aggressive
      *
      * @author Stephan Schmidt <schst@php.net>
@@ -1262,7 +1262,7 @@ class Pager_Common
         }
         $separator = ini_get('arg_separator.output');
         if ($separator == '&amp;') {
-            $separator = '&'; //the string is escaped by htmlentities anyway...
+            $separator = '&'; //the string is escaped by htmlspecialchars anyway...
         }
         $tmp = array ();
         foreach ($data as $key => $val) {
@@ -1274,7 +1274,7 @@ class Pager_Common
             }
             // If the value is an array, recursively parse it
             if (is_array($val)) {
-                array_push($tmp, $this->__http_build_query($val, htmlentities($key)));
+                array_push($tmp, $this->__http_build_query($val, htmlspecialchars($key)));
                 continue;
             }
         }
@@ -1295,15 +1295,15 @@ class Pager_Common
         $tmp = array ();
         $separator = ini_get('arg_separator.output');
         if ($separator == '&amp;') {
-            $separator = '&'; //the string is escaped by htmlentities anyway...
+            $separator = '&'; //the string is escaped by htmlspecialchars anyway...
         }
         foreach ($array as $key => $value) {
             if (is_array($value)) {
                 //array_push($tmp, $this->__http_build_query($value, sprintf('%s[%s]', $name, $key)));
                 array_push($tmp, $this->__http_build_query($value, $name.'%5B'.$key.'%5D'));
             } elseif (is_scalar($value)) {
-                //array_push($tmp, sprintf('%s[%s]=%s', $name, htmlentities($key), htmlentities($value)));
-                array_push($tmp, $name.'%5B'.htmlentities($key).'%5D='.htmlentities($value));
+                //array_push($tmp, sprintf('%s[%s]=%s', $name, htmlspecialchars($key), htmlspecialchars($value)));
+                array_push($tmp, $name.'%5B'.htmlspecialchars($key).'%5D='.htmlspecialchars($value));
             } elseif (is_object($value)) {
                 //array_push($tmp, $this->__http_build_query(get_object_vars($value), sprintf('%s[%s]', $name, $key)));
                 array_push($tmp, $this->__http_build_query(get_object_vars($value), $name.'%5B'.$key.'%5D'));

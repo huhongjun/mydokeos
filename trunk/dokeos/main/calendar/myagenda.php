@@ -79,7 +79,7 @@ $nameTools = get_lang('MyAgenda');
 // in the breadcrumbs
 if(!empty($_GET['coursePath']))
 {
-	$course_path = htmlentities(strip_tags($_GET['coursePath']),ENT_QUOTES,$charset);
+	$course_path = htmlspecialchars(strip_tags($_GET['coursePath']),ENT_QUOTES,$charset);
 }
 if (!empty ($course_path))
 {

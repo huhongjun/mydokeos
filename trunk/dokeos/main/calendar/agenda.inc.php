@@ -1656,7 +1656,7 @@ function display_agenda_items()
     		echo '<a href="'.api_get_self().'?'.api_get_cidreq().'&origin='.$_GET['origin'].'&amp;action=edit&amp;id='.$myrow['id'].'" title="'.get_lang("ModifyCalendarItem").'">';
     		echo "<img src=\"../img/edit.gif\" border=\"0\" alt=\"".get_lang("ModifyCalendarItem")."\" /></a>";
     		
-    		echo "<a href=\"".api_get_self()."?".api_get_cidreq()."&origin=".$_GET['origin']."&amp;action=delete&amp;id=".$myrow['id']."\" onclick=\"javascript:if(!confirm('".addslashes(htmlentities(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset))."')) return false;\"  title=\"".get_lang("Delete")."\">";
+    		echo "<a href=\"".api_get_self()."?".api_get_cidreq()."&origin=".$_GET['origin']."&amp;action=delete&amp;id=".$myrow['id']."\" onclick=\"javascript:if(!confirm('".addslashes(htmlspecialchars(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset))."')) return false;\"  title=\"".get_lang("Delete")."\">";
     		echo "<img src=\"../img/delete.gif\" border=\"0\" alt=\"".get_lang("Delete")."\"/></a>";
     		 	 
     		echo '<a href="'.api_get_self().'?'.api_get_cidreq().'&origin='.$_GET['origin'].'&amp;action=announce&amp;id='.$myrow['id'].'" title="'.get_lang("AddAnnouncement").'">';				
@@ -1921,7 +1921,7 @@ function display_one_agenda_item($agenda_id)
 		// edit
 		echo 	"<a href=\"".api_get_self()."?".api_get_cidreq()."&origin=".$_GET['origin']."&amp;action=edit&amp;id=".$myrow['id']."\">",
 				"<img src=\"../img/edit.gif\" border=\"0\" alt=\"".get_lang("ModifyCalendarItem")."\" /></a>",
-				"<a href=\"".api_get_self()."?".api_get_cidreq()."&origin=".$_GET['origin']."&amp;action=delete&amp;id=".$myrow['id']."\" onclick=\"javascript:if(!confirm('".addslashes(htmlentities(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset))."')) return false;\">",
+				"<a href=\"".api_get_self()."?".api_get_cidreq()."&origin=".$_GET['origin']."&amp;action=delete&amp;id=".$myrow['id']."\" onclick=\"javascript:if(!confirm('".addslashes(htmlspecialchars(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset))."')) return false;\">",
 				"<img src=\"../img/delete.gif\" border=\"0\" alt=\"".get_lang("Delete")."\" /></a>";
 		if ($myrow['visibility']==1)
 			{
@@ -2702,7 +2702,7 @@ function display_daycalendar($agendaitems, $day, $month, $year, $weekdaynames, $
 	$forewardsURL = api_get_self()."?coursePath=".urlencode($course_path)."&amp;courseCode=".Security::remove_XSS($_GET['courseCode'])."&amp;action=view&amp;view=day&amp;day=".date("j", $nextday)."&amp;month=".date("n", $nextday)."&amp;year=".date("Y", $nextday);
 	// The title row containing the day
 	echo "<tr class=\"title\">\n", "<td width=\"10%\"><a href=\"", $backwardsURL, "\">&#171;</a></td>\n", "<td>";
-	echo $DaysLong[$day_of_the_week]." ".date("j", $today)." ".$MonthsLong[date("n", $today) - 1]." ".date("Y", $today);
+	echo date("Y", $today)."&nbsp;".$MonthsLong[date("n", $today) - 1]."&nbsp;".date("j", $today)."&nbsp;&nbsp;&nbsp;".$DaysLong[$day_of_the_week];
 	echo "</td>";
 	echo "<td width=\"10%\"><a href=\"", $forewardsURL, "\">&#187;</a></td>\n";
 	echo "</tr>\n";
@@ -2772,8 +2772,8 @@ function display_weekcalendar($agendaitems, $month, $year, $weekdaynames, $month
 	// The title row containing the the week information (week of the year (startdate of week - enddate of week)
 	echo "<tr class=\"title\">\n";
 	echo "<td width=\"10%\"><a href=\"", $backwardsURL, "\">&#171;</a></td>\n";
-	echo "<td colspan=\"5\">".get_lang("Week")." ".$week_number;
-	echo " (".$DaysShort['1']." ".date("j", $timestamp_first_date_of_week)." ".$MonthsLong[date("n", $timestamp_first_date_of_week) - 1]." ".date("Y", $timestamp_first_date_of_week)." - ".$DaysShort['0']." ".date("j", $timestamp_last_date_of_week)." ".$MonthsLong[date("n", $timestamp_last_date_of_week) - 1]." ".date("Y", $timestamp_last_date_of_week).')';
+	echo "<td colspan=\"5\">".get_lang("Th")."&nbsp;".$week_number."&nbsp;".get_lang("Week");
+	echo " (".date("Y", $timestamp_first_date_of_week).'-'.date("n",$timestamp_first_date_of_week)."-".date("j", $timestamp_first_date_of_week)." ".$DaysShort['1']."&nbsp;&nbsp;&nbsp;".date("Y", $timestamp_last_date_of_week).'-'.date("n",$timestamp_last_date_of_week)."-".date("j", $timestamp_last_date_of_week)." ".$DaysShort['0'].')';
 	echo "</td>";
 	echo "<td width=\"10%\"><a href=\"", $forewardsURL, "\">&#187;</a></td>\n", "</tr>\n";
 	// The second row containing the short names of the days of the week
@@ -2788,7 +2788,7 @@ function display_weekcalendar($agendaitems, $month, $year, $weekdaynames, $month
 		{
 			echo "<font color=#CC3300>";
 		}
-		echo $DaysShort[$ii % 7]." ".date("j", $tmp_timestamp)." ".$MonthsLong[date("n", $tmp_timestamp) - 1];
+		echo $DaysShort[$ii % 7]."&nbsp;&nbsp;&nbsp;".$MonthsLong[date("n", $tmp_timestamp) - 1].'&nbsp;'.date("j", $tmp_timestamp);
 		if ($is_today)
 		{
 			echo "</font>";

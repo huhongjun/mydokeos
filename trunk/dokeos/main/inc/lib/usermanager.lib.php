@@ -631,10 +631,10 @@ class UserManager
 	
 		foreach ($productions as $file)
 		{
-			$production_list .= '<li><a href="'.$production_dir.urlencode($file).'" target="_blank">'.htmlentities($file).'</a>';
+			$production_list .= '<li><a href="'.$production_dir.urlencode($file).'" target="_blank">'.htmlspecialchars($file).'</a>';
 			if ($showdelete)
 			{
-				$production_list .= '<input type="image" name="remove_production['.urlencode($file).']" src="'.$del_image.'" alt="'.$del_text.'" title="'.$del_text.' '.htmlentities($file).'" onclick="return confirmation(\''.htmlentities($file).'\');" /></li>';
+				$production_list .= '<input type="image" name="remove_production['.urlencode($file).']" src="'.$del_image.'" alt="'.$del_text.'" title="'.$del_text.' '.htmlspecialchars($file).'" onclick="return confirmation(\''.htmlspecialchars($file).'\');" /></li>';
 			}
 		}
 	

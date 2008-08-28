@@ -186,7 +186,7 @@ $is_allowedToTrackEverybodyInCourse = $is_allowedToTrack; // allowed to track al
 */
 
 /**
- * Shortcut function to use htmlentities on many, many strings in this script
+ * Shortcut function to use htmlspecialchars on many, many strings in this script
  * @param		string	String in a supposed encoding
  * @param		string	Supposed initial encoding (default: 'ISO-8859-15')
  * @return	string	HTML string (no encoding dependency)
@@ -194,7 +194,7 @@ $is_allowedToTrackEverybodyInCourse = $is_allowedToTrack; // allowed to track al
  */
 function myEnc($isostring,$supposed_encoding='ISO-8859-15')
 {
-	return htmlentities($isostring,ENT_QUOTES,$supposed_encoding);
+	return htmlspecialchars($isostring,ENT_QUOTES,$supposed_encoding);
 }
 
 /**
@@ -856,7 +856,7 @@ if( ( $is_allowedToTrack || $is_allowedToTrackEverybodyInCourse ) && $_configura
        							while ($ar3['status'] != '') {
 									require_once('../newscorm/learnpathItem.class.php');
 									$time = learnpathItem::get_scorm_time('php',$ar3['total_time']);
-									$title = htmlentities($ar3['title'],ENT_QUOTES,$lp_charset);
+									$title = htmlspecialchars($ar3['title'],ENT_QUOTES,$lp_charset);
        								echo "<tr><td>&nbsp;&nbsp;&nbsp;</td><td>";
        								echo "$title</td><td align=right>{$ar3['status']}</td><td     align=right>{$ar3['score']}</td><td align=right>$time</td>";
        								echo "</tr>";

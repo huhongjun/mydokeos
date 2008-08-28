@@ -115,6 +115,13 @@ $htmlHeadXtra[] = '		<style>
 $this_section = SECTION_PLATFORM_ADMIN;
 
 api_protect_admin_script();
+$get_keyword=trim($_GET['keyword']);
+$get_keyword_firstname=trim($_GET['keyword_firstname']);
+$get_keyword_lastname=trim($_GET['keyword_lastname']);
+$get_keyword_email=trim($_GET['keyword_email']);
+$get_keyword_username=trim($_GET['keyword_username']);
+$get_keyword_status=trim($_GET['keyword_status']);
+
 /**
 *	Make sure this function is protected
 *	because it does NOT check password!
@@ -233,21 +240,27 @@ function login_user($user_id)
  */
 function get_number_of_users()
 {
+	global $get_keyword,
+	       $get_keyword_firstname,
+	       $get_keyword_lastname,
+	       $get_keyword_email,
+	       $get_keyword_username,
+	       $get_keyword_status;
 	$user_table = Database :: get_main_table(TABLE_MAIN_USER);
 	$sql = "SELECT COUNT(u.user_id) AS total_number_of_items FROM $user_table u";
-	if (isset ($_GET['keyword']))
+	if (isset($get_keyword))
 	{
-		$keyword = Database::escape_string($_GET['keyword']);
+		$keyword = Database::escape_string($get_keyword);
 		$sql .= " WHERE u.firstname LIKE '%".$keyword."%' OR u.lastname LIKE '%".$keyword."%'  OR u.email LIKE '%".$keyword."%'  OR u.official_code LIKE '%".$keyword."%'";
 	}
-	elseif (isset ($_GET['keyword_firstname']))
+	elseif (isset ($get_keyword_firstname))
 	{
 		$admin_table = Database :: get_main_table(TABLE_MAIN_ADMIN);
-		$keyword_firstname = Database::escape_string($_GET['keyword_firstname']);
-		$keyword_lastname = Database::escape_string($_GET['keyword_lastname']);
-		$keyword_email = Database::escape_string($_GET['keyword_email']);
-		$keyword_username = Database::escape_string($_GET['keyword_username']);
-		$keyword_status = Database::escape_string($_GET['keyword_status']);
+		$keyword_firstname = Database::escape_string($get_keyword_firstname);
+		$keyword_lastname = Database::escape_string($get_keyword_lastname);
+		$keyword_email = Database::escape_string($get_keyword_email);
+		$keyword_username = Database::escape_string($get_keyword_username);
+		$keyword_status = Database::escape_string($get_keyword_status);
 		$query_admin_table = '';
 		$keyword_admin = '';
 		if($keyword_status == 10)
@@ -285,6 +298,12 @@ function get_number_of_users()
  */
 function get_user_data($from, $number_of_items, $column, $direction)
 {
+	global $get_keyword,
+		   $get_keyword_firstname,
+		   $get_keyword_lastname,
+	       $get_keyword_email,
+	       $get_keyword_username,
+	       $get_keyword_status;
 	$user_table = Database :: get_main_table(TABLE_MAIN_USER);
 	$sql = "SELECT
                  u.user_id			AS col0,
@@ -299,19 +318,19 @@ function get_user_data($from, $number_of_items, $column, $direction)
 
              FROM
                  $user_table u";
-	if (isset ($_GET['keyword']))
+	if (isset($get_keyword))
 	{
-		$keyword = Database::escape_string($_GET['keyword']);
+		$keyword = Database::escape_string($get_keyword);
 		$sql .= " WHERE u.firstname LIKE '%".$keyword."%' OR u.lastname LIKE '%".$keyword."%'  OR u.username LIKE '%".$keyword."%'  OR u.official_code LIKE '%".$keyword."%'";
 	}
-	elseif (isset ($_GET['keyword_firstname']))
+	elseif (isset ($get_keyword_firstname))
 	{
 		$admin_table = Database :: get_main_table(TABLE_MAIN_ADMIN);
-		$keyword_firstname = Database::escape_string($_GET['keyword_firstname']);
-		$keyword_lastname = Database::escape_string($_GET['keyword_lastname']);
-		$keyword_email = Database::escape_string($_GET['keyword_email']);
-		$keyword_username = Database::escape_string($_GET['keyword_username']);
-		$keyword_status = Database::escape_string($_GET['keyword_status']);
+		$keyword_firstname = Database::escape_string($get_keyword_firstname);
+		$keyword_lastname = Database::escape_string($get_keyword_lastname);
+		$keyword_email = Database::escape_string($get_keyword_email);
+		$keyword_username = Database::escape_string($get_keyword_username);
+		$keyword_status = Database::escape_string($get_keyword_status);
 		$query_admin_table = '';
 		$keyword_admin = '';
 		if($keyword_status == 10)
@@ -388,7 +407,7 @@ function modify_filter($user_id,$url_params,$row)
 	}
 
 	$result .= '<a href="user_edit.php?user_id='.$user_id.'"><img src="../img/edit.gif" border="0" style="vertical-align: middle;" title="'.get_lang('Edit').'" alt="'.get_lang('Edit').'"/></a>&nbsp;';
-	$result .= '<a href="user_list.php?action=delete_user&amp;user_id='.$user_id.'&amp;'.$url_params.'&amp;sec_token='.$_SESSION['sec_token'].'"  onclick="javascript:if(!confirm('."'".addslashes(htmlentities(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset))."'".')) return false;"><img src="../img/delete.gif" border="0" style="vertical-align: middle;" title="'.get_lang('Delete').'" alt="'.get_lang('Delete').'"/></a>';
+	$result .= '<a href="user_list.php?action=delete_user&amp;user_id='.$user_id.'&amp;'.$url_params.'&amp;sec_token='.$_SESSION['sec_token'].'"  onclick="javascript:if(!confirm('."'".addslashes(htmlspecialchars(get_lang("ConfirmYourChoice"),ENT_QUOTES,$charset))."'".')) return false;"><img src="../img/delete.gif" border="0" style="vertical-align: middle;" title="'.get_lang('Delete').'" alt="'.get_lang('Delete').'"/></a>';
 	return $result;
 }
 
@@ -596,19 +615,19 @@ else
 	$form->addElement('submit','submit',get_lang('Search'));
 	$form->addElement('static','search_advanced_link',null,'<a href="user_list.php?search=advanced">'.get_lang('AdvancedSearch').'</a>');
 	$form->display();
-	if (isset ($_GET['keyword']))
+	if (isset($get_keyword))
 	{
-		$parameters = array ('keyword' => $_GET['keyword']);
+		$parameters = array ('keyword' => $get_keyword);
 	}
-	elseif (isset ($_GET['keyword_firstname']))
+	elseif (isset ($get_keyword_firstname))
 	{
-		$parameters['keyword_firstname'] = $_GET['keyword_firstname'];
-		$parameters['keyword_lastname'] = $_GET['keyword_lastname'];
-		$parameters['keyword_email'] = $_GET['keyword_email'];
+		$parameters['keyword_firstname'] = $get_keyword_firstname;
+		$parameters['keyword_lastname'] = $get_keyword_lastname;
+		$parameters['keyword_email'] = $get_keyword_email;
 		$parameters['keyword_officialcode'] = $_GET['keyword_officialcode'];
-		$parameters['keyword_status'] = $_GET['keyword_status'];
-		$parameters['keyword_active'] = $_GET['keyword_active'];
-		$parameters['keyword_inactive'] = $_GET['keyword_inactive'];
+		$parameters['keyword_status'] = $get_keyword_status;
+		$parameters['keyword_active'] = trim($_GET['keyword_active']);
+		$parameters['keyword_inactive'] = trim($_GET['keyword_inactive']);
 	}
 	// Create a sortable table with user-data
 	$parameters['sec_token'] = Security::get_token();

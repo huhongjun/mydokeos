@@ -3,7 +3,7 @@
 ==============================================================================
 	Dokeos - elearning and course management software
 
-	Copyright (c) 2007 E.U.I. Universidad Politécnica de Madrid (Spain)
+	Copyright (c) 2007 E.U.I. Universidad Politï¿½cnica de Madrid (Spain)
 	Copyright (c) 2004 Dokeos S.A.
 	Copyright (c) 2003 University of Ghent (UGent)
 	Copyright (c) 2001 Universite catholique de Louvain (UCL)
@@ -212,7 +212,7 @@ function modify_filter($active,$url_params,$row,$column)
 	$option_id = $row[0];
 	
 	return ('<a href="edit_pay_course.php?action=edit&view='.$_GET['view'].'&option_id='.$option_id.'"><img src="../../main/img/edit.gif" border="0" style="vertical-align: middle" title="'.get_lang('Edit').'" alt="'.get_lang('Edit').'"/></a>&nbsp;'.
-			'<a href="edit_pay_course.php?action=delete&view='.$_GET['view'].'&option_id='.$option_id.'"  onclick="javascript:if(!confirm('."'".addslashes(htmlentities(get_lang("ConfirmYourChoice")))."'".')) return false;"><img src="../../main/img/delete.gif" border="0" style="vertical-align: middle" title="'.get_lang('Delete').'" alt="'.get_lang('Delete').'"/></a>');
+			'<a href="edit_pay_course.php?action=delete&view='.$_GET['view'].'&option_id='.$option_id.'"  onclick="javascript:if(!confirm('."'".addslashes(htmlspecialchars(get_lang("ConfirmYourChoice")))."'".')) return false;"><img src="../../main/img/delete.gif" border="0" style="vertical-align: middle" title="'.get_lang('Delete').'" alt="'.get_lang('Delete').'"/></a>');
 				
 }
 

@@ -137,9 +137,9 @@ if( isset ($_GET['action']))
 //	Optional extra http or html header
 //	If you need to add some HTTP/HTML headers code 
 //	like JavaScript functions, stylesheets, redirects, put them here.
-
+global $charset;
 $interbreadcrumb[] = array ("url" => api_get_path(PLUGIN_PATH).'my_credits.php', "name" => get_lang('CreditsSystem'));
-$tool_name = "History"; // title of the page (should come from the language file) 
+$tool_name = mb_convert_encoding('记录',$charset,'utf-8'); // title of the page (should come from the language file) 
 Display::display_header($tool_name);
 
 if( isset ($_GET['action']))

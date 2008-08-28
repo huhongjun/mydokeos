@@ -107,7 +107,7 @@ return $filename;
  * @return	string	The escaped string, not absolutely correct but satisfying
  */
 function replace_accents($string){
-	$string = htmlentities($string,ENT_QUOTES);
+	$string = htmlspecialchars($string,ENT_QUOTES);
 	return preg_replace("/&([a-z])[a-z]+;/i","$1",$string);
 }
 
@@ -1741,7 +1741,7 @@ function api_replace_parameter($upload_path, $buffer, $param_name="src")
 
 		foreach($tag_list as $this_tag)
 		{
-			//Display::display_normal_message(htmlentities($this_tag)); //debug
+			//Display::display_normal_message(htmlspecialchars($this_tag)); //debug
 			if ( preg_match("~".$param_name."[\s]*=[\s]*[\"]{1}([^\"]+)[\"]{1}~i",
 						$this_tag, $matches) )
 
@@ -1797,7 +1797,7 @@ function api_replace_parameter($upload_path, $buffer, $param_name="src")
 			//$message .= "Local anchor, don't change: ";
 			$replaceBy[$count] = $replaceWhat[$count];
 		}
-		//$message .= "In tag $count, <b>" . htmlentities($tag_list[$count])
+		//$message .= "In tag $count, <b>" . htmlspecialchars($tag_list[$count])
 		//	. "</b>, parameter <b>" . $replaceWhat[$count] . "</b> replaced by <b>" . $replaceBy[$count] . "</b><br>"; //debug
 	}
 	//if (isset($message) && $message == true) api_display_debug_info($message); //debug

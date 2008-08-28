@@ -217,7 +217,7 @@ function modify_filter($code)
 		$current_pay = (cs_course_payment_options_number($_SESSION['_course']['sysCode']))>0;
 	}
 	$links = ((($_GET['table']=='pay')&&(!isset($_SESSION['_course'])))||$current_pay)?'<a href="edit_pay_course.php?action=current&code='.$code.'"><img src="../../main/img/synthese_view.gif" border="0" style="vertical-align: middle" title="'.get_lang('CurrentPaymentOptions').'" alt="'.get_lang('CurrentPaymentOptions').'"/></a>&nbsp;'.
-			'<a href="?table=pay&view='.$_GET['view'].'&action=disable&code='.$code.'" onclick="javascript:if(!confirm('."'".addslashes(htmlentities(get_lang("ConfirmYourChoice")))."'".')) return false; "><img src="img/note_cancelled.gif" border="0" style="vertical-align: middle" title="'.get_lang('DisablePaymentOption').'" alt="'.get_lang('DisablePaymentOption').'"/></a>&nbsp;'
+			'<a href="?table=pay&view='.$_GET['view'].'&action=disable&code='.$code.'" onclick="javascript:if(!confirm('."'".addslashes(htmlspecialchars(get_lang("ConfirmYourChoice")))."'".')) return false; "><img src="img/note_cancelled.gif" border="0" style="vertical-align: middle" title="'.get_lang('DisablePaymentOption').'" alt="'.get_lang('DisablePaymentOption').'"/></a>&nbsp;'
 			:'<a href="?table=free&view='.$_GET['view'].'&action=enable&code='.$code.'"><img src="img/note.gif" border="0" style="vertical-align: middle" title="'.get_lang('EnablePaymentOption').'" alt="'.get_lang('EnablePaymentOption').'"/></a>&nbsp;';
 	$links.= '<a href="../course_home/course_home.php?cidReq='.$code.'"><img src="../../main/img/course_home.gif" border="0" style="vertical-align: middle" title="'.get_lang('CourseHomepage').'" alt="'.get_lang('CourseHomepage').'"/></a>&nbsp;';
 	return ($links);
