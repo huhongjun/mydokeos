@@ -151,7 +151,7 @@ function show_add_forumcategory_form($inputvalues=array())
 	$form->addElement('header', '', get_lang('AddForumCategory'));
 	$form->addElement('text', 'forum_category_title', get_lang('Title'),'class="input_titles"');
 	$form->addElement('html_editor', 'forum_category_comment', get_lang('Comment'));
-	$form->addElement('submit', 'SubmitForumCategory', 'OK');
+	$form->addElement('submit', 'SubmitForumCategory', get_lang('OK'));
 
 	// setting the rules
 	$form->addRule('forum_category_title', '<div class="required">'.get_lang('ThisFieldIsRequired'), 'required');
@@ -284,7 +284,7 @@ function show_add_forum_form($inputvalues=array())
 
 
 	// The OK button
-	$form->addElement('submit', 'SubmitForum', 'OK');
+	$form->addElement('submit', 'SubmitForum', get_lang('OK'));
 
 	// setting the rules
 	$form->addRule('forum_title', get_lang('ThisFieldIsRequired'), 'required');
@@ -361,7 +361,7 @@ function show_edit_forumcategory_form($inputvalues=array())
 	$form->addElement('hidden', 'forum_category_id');
 	$form->addElement('text', 'forum_category_title', get_lang('Title'),'class="input_titles"');
 	$form->addElement('html_editor', 'forum_category_comment', get_lang('Comment'));
-	$form->addElement('submit', 'SubmitEditForumCategory', 'OK');
+	$form->addElement('submit', 'SubmitEditForumCategory', get_lang('OK'));
 	global $charset;
 	// setting the default values
 	$defaultvalues['forum_category_id']=$inputvalues['cat_id'];
@@ -2619,7 +2619,7 @@ function move_thread_form()
 	$form->addElement('html',$htmlcontent);
 
 	// The OK button
-	$form->addElement('submit', 'SubmitForum', 'OK');
+	$form->addElement('submit', 'SubmitForum', get_lang('OK'));
 
 	// The validation or display
 	if( $form->validate())
@@ -2668,7 +2668,7 @@ function move_post_form()
 
 
 	// The OK button
-	$form->addElement('submit', 'SubmitForum', 'OK');
+	$form->addElement('submit', 'SubmitForum', get_lang('OK'));
 
 	// setting the rules
 	$form->addRule('thread', get_lang('ThisFieldIsRequired'), 'required');
