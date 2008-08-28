@@ -277,7 +277,7 @@ function subscribe_user($course_code)
 		$return.='<input type="hidden" name="sec_token" value="'.$stok.'" />';
 		$return.="<input type=\"hidden\" name=\"subscribe\" value=\"".$all_course_information['code']."\" />";
 		$return.="<input type=\"text\" name=\"course_registration_code\" value=\"".$_POST['course_registration_code']."\" />";
-		$return.="<input type=\"Submit\" name=\"submit_course_registration_code\" value=\"OK\" alt=\"".get_lang("SubmitRegistrationCode")."\" /></form>";
+		$return.="<input type=\"Submit\" name=\"submit_course_registration_code\" value=\"".get_lang('OK')."\" alt=\"".get_lang("SubmitRegistrationCode")."\" /></form>";
 		return $return;
 	}
 }
