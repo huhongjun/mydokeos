@@ -604,8 +604,8 @@ if(api_is_platform_admin() && $view=='admin'){
 	$table = new SortableTable('tracking_list_coaches', 'count_coaches');
 	$parameters['view'] = 'admin';
 	$table->set_additional_parameters($parameters);
-	$table -> set_header(0, get_lang('FirstName'), true, 'align="center"');
-	$table -> set_header(1, get_lang('LastName'), true, 'align="center"');
+	$table -> set_header(0, get_lang('LastName'), true, 'align="center"');
+	$table -> set_header(1, get_lang('FirstName'), true, 'align="center"');
 	$table -> set_header(2, get_lang('TimeSpentOnThePlatform'), false);
 	$table -> set_header(3, get_lang('LastConnexion'), true, 'align="center"');
 	$table -> set_header(4, get_lang('NbStudents'), false);
@@ -614,8 +614,8 @@ if(api_is_platform_admin() && $view=='admin'){
 	$table -> set_header(7, get_lang('Sessions'), false,'align="center"');
 	
 	$csv_content[] = array(
-						get_lang('FirstName'),
 						get_lang('LastName'),
+						get_lang('FirstName'),
 						get_lang('TimeSpentOnThePlatform'),
 						get_lang('LastConnexion'),
 						get_lang('NbStudents'),
@@ -665,8 +665,8 @@ if(api_is_platform_admin() && $view=='admin'){
 		$nb_sessions = count(Tracking :: get_sessions_coached_by_user($a_coachs['user_id']));
 		
 		$table_row = array();
-		$table_row[] = $a_coachs['firstname'];
 		$table_row[] = $a_coachs['lastname'];
+		$table_row[] = $a_coachs['firstname'];
 		$table_row[] = $time_on_platform;
 		$table_row[] = $last_connection;
 		$table_row[] = $nb_students;
@@ -676,8 +676,8 @@ if(api_is_platform_admin() && $view=='admin'){
 		$all_datas[] = $table_row;
 		
 		$csv_content[] = array(
-								html_entity_decode($a_coachs['firstname']),
 								html_entity_decode($a_coachs['lastname']),
+								html_entity_decode($a_coachs['firstname']),
 								$time_on_platform,
 								$last_connection,
 								$nb_courses,
