@@ -82,7 +82,7 @@ foreach ($rows as $row)
 	}
 	else 
 	{
-		$name=$row['firstname'].' '.$row['lastname'];
+		$name=$row['lastname'].' '.$row['firstname'];
 	}
 	if($origin!='learnpath')
 	{

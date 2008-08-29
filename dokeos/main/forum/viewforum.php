@@ -282,7 +282,7 @@ if(is_array($threads))
 			}
 			else
 			{
-				$name=$row['firstname'].' '.$row['lastname'];
+				$name=$row['lastname'].' '.$row['firstname'];
 			}			
 			echo "\t\t<td>".$row['thread_views']."</td>\n";
 			
@@ -292,7 +292,7 @@ if(is_array($threads))
 			}
 			else
 			{
-				$name=$row['last_poster_firstname'].' '.$row['last_poster_lastname'];
+				$name=$row['last_poster_lastname'].' '.$row['last_poster_firstname'];
 			}
 			
 			if($origin != 'learnpath')
