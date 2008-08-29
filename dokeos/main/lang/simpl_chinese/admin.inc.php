@@ -297,7 +297,7 @@ $EditNews = "编辑新闻";
 $EditCategories = "编辑分类";
 $EditHomePage = "编辑主页";
 $AllowUserHeadingsComment = "课程管理员是否可以定义用户标题查看更多用户信息吗?";
-$Platform = "平台";
+$Platform = "平台设置";
 $Course = "课程";
 $Languages = "语言";
 $Privacy = "隐私";
@@ -815,4 +815,5 @@ $IsNotWritable = "是否写下";
 //huhj added
 $MyDLTT = "我的DLTT";
 $Liste_des_sessions="培训计划列表";
+$OK='确定';
 ?>
