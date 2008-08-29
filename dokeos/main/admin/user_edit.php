@@ -263,7 +263,7 @@ foreach($extra as $id => $field_details)
 
 
 // Submit button
-$form->addElement('submit', 'submit', 'OK');
+$form->addElement('submit', 'submit', get_lang('OK'));
 
 // Set default values
 $expiration_date=$user_data['expiration_date'];
@@ -400,9 +400,11 @@ if( $form->validate())
 Display::display_header($tool_name);
 //api_display_tool_title($tool_name);
 // Show the users picture
+//edit by xiaoping
+$image_path = UserManager::get_user_picture_path_by_id($user_data['user_id'],'web');
 if (strlen($user_data['picture_uri']) > 0)
 {
-	$picture_url = api_get_path(WEB_CODE_PATH).'upload/users/'.$user_data['picture_uri'];
+	$picture_url = $image_path['dir'].$image_path['file'];
 }
 else
 {

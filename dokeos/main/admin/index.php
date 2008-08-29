@@ -227,6 +227,7 @@ if(api_is_platform_admin()){
 	<!-- dynamic ldap code -->
 	<?php 
 	}
+/*
 ?>
 <div class="admin_section">
  <h4>
@@ -249,6 +250,7 @@ if(api_is_platform_admin()){
  </ul>
 </div>
 <?php
+*/
 }
 
 /**
