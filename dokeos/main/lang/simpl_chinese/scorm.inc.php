@@ -51,5 +51,5 @@ $GenericScorm = "普通Scorm";
 $UnknownPackageFormat = "包格式不能通过验证。请确定它的形成不包含错误。问题可能是由于所有的ZIP格式或传递长文件。如果不确定ZIP，请试着使用最低限度的压缩功能。";
 $Attempt = "尝试";
 $MoveTheCurrentForum = "移动当前论坛";
-$WarningWhenEditingScorm = "警告！<br />当你编辑scrom步骤的内容时，你可能会改变学习路径或损害步骤。";
+$WarningWhenEditingScorm = "警告！\n当你编辑scrom步骤的内容时，你可能会改变学习路径或损害步骤。";
 ?>
