@@ -37,6 +37,7 @@
 $language_file = 'admin';
 $cidReset = true;
 require ('../inc/global.inc.php');
+include_once (api_get_path(LIBRARY_PATH).'usermanager.lib.php');
 $this_section=SECTION_PLATFORM_ADMIN;
 
 api_protect_admin_script();
@@ -48,7 +49,7 @@ if( ! isset($_GET['user_id']))
 	api_not_allowed();	
 }
 $user = api_get_user_info($_GET['user_id']);
-$tool_name = $user['firstName'].' '.$user['lastName'].(empty($user['official_code'])?'':' ('.$user['official_code'].')');
+$tool_name = $user['lastName'].' '.$user['firstName'].(empty($user['official_code'])?'':' ('.$user['official_code'].')');
 Display::display_header($tool_name);
 $table_course_user = Database :: get_main_table(TABLE_MAIN_COURSE_USER);
 $table_course = Database :: get_main_table(TABLE_MAIN_COURSE);
@@ -70,10 +71,11 @@ if( isset($_GET['action']) )
 	}	
 }
 api_display_tool_title($tool_name);
+$image_path = UserManager::get_user_picture_path_by_id($user['user_id'],'web');
 echo '<div align="right" style="margin-right:4em;"><a href="'.api_get_path(WEB_CODE_PATH).'mySpace/myStudents.php?student='.$_GET['user_id'].'" title="'.get_lang('Reporting').'"><img src="'.api_get_path(WEB_CODE_PATH).'img/statistics.gif" /></a></div>'."\n";
-if ($user['picture_uri'] != '')
+if ($image_path['file'] != '')
 {
-	echo '<p><img src="'.api_get_path(WEB_CODE_PATH).'upload/users/'.$user['picture_uri'].'" style="width:150px;"/></p>';
+	echo '<p><img src="'.$image_path['dir'].$image_path['file'].'" style="width:150px;"/></p>';
 }
 echo '<p>'. ($user['status'] == 1 ? get_lang('Teacher') : get_lang('Student')).'</p>';
 echo '<p>'.Display :: encrypted_mailto_link($user['mail'], $user['mail']).'</p>';
