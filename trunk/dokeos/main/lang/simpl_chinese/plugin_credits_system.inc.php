@@ -158,8 +158,8 @@ $AmountOfCredits = "学习币数量";
 $PaymentMethod = "支付方法";
 $CreditsSpentPerUser = "每用户花费学习币";
 $PaymentDataPerUser = "每用户支付日期";
-$EditPaymentOptions = "编辑支付选项";
-$DeleteOption = "删除选项";
+$EditPaymentOption = "编辑支付选项";
+$DeleteOptions = "删除选项";
 $add = "添加";
 $edit = "修改";
 
@@ -189,5 +189,6 @@ $months = "月";
 $access_denied="拒绝访问";
 $PlzSubscribe="请认证";
 $Admin_payment="支付管理";
+$PaymentOptionExist='该项已存在';
 $DeleteOptions = "删除选项";
 ?>
