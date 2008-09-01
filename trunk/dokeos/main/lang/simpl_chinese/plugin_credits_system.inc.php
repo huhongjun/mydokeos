@@ -189,4 +189,5 @@ $months = "月";
 $access_denied="拒绝访问";
 $PlzSubscribe="请认证";
 $Admin_payment="支付管理";
+$DeleteOptions = "删除选项";
 ?>

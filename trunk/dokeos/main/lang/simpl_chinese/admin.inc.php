@@ -288,7 +288,7 @@ $SplitUsersUploadDirectory = "分离用户\'上传目录";
 $SplitUsersUploadDirectoryComment = "对于使用非常高的门户网站有大量的注册用户和发送他们的照片，上传目录（主体/上传/用户）可能包含太多的由文件系统处理的文件（据说在Debian服务器上有大于36000文件）。改变这个选项将启用上传目录中的水平分离目录。9个目录将被用于基本目录和所有并发用户目录将保存在9个目录之一。这个选项的改变将不会影响硬盘上的目录结构，但会影响Elcms代码的行为，因此如果你想改变这个选项，你必须创建新的目录和移动现在目录到你的服务吕上。请注意，当创建或移动目录时，你将必须移动1到9用户目录到有相同名称的子目录里。如果你不确定这个选项，那就不要激活它。";
 $CourseQuota = "课程数量限制";
 $EditNotice = "编辑通知";
-$General = "普通";
+$General = "链接";
 $LostPassword = "密码丢失";
 $Registration = "注册";
 $Password = "密码";
@@ -297,7 +297,7 @@ $EditNews = "编辑新闻";
 $EditCategories = "编辑分类";
 $EditHomePage = "编辑主页";
 $AllowUserHeadingsComment = "课程管理员是否可以定义用户标题查看更多用户信息吗?";
-$Platform = "平台设置";
+$Platform = "平台";
 $Course = "课程";
 $Languages = "语言";
 $Privacy = "隐私";
@@ -815,5 +815,4 @@ $IsNotWritable = "是否写下";
 //huhj added
 $MyDLTT = "我的DLTT";
 $Liste_des_sessions="培训计划列表";
-$OK='确定';
 ?>
