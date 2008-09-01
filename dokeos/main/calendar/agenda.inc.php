@@ -328,8 +328,7 @@ function move(fbox,	tbox)
 {
 	var	arrFbox	= new Array();
 	var	arrTbox	= new Array();
-	var	arrLookup =	new	Array();
-
+	var	arrLookup =	new	Array();	
 	var	i;
 	for	(i = 0;	i <	tbox.options.length; i++)
 	{
@@ -517,13 +516,13 @@ echo "\n<table id=\"recipient_list\" style=\"display: none;\">\n";
 	// the buttons for adding or removing groups/users
 	echo "\n\t\t<td valign=\"middle\">\n";
 	echo "\t\t<input type=\"button\" ",
-				"onclick=\"move(this.form.elements[2],this.form.elements[5])\" ",
+				"onclick=\"move(this.form.elements['s1'],this.form.elements['s2'])\" ",
 				"value=\"   &gt;&gt;   \" />",
 
 				"\n\t\t<p>&nbsp;</p>",
 
 				"\n\t\t<input type=\"button\" ",
-				"onclick=\"move(this.form.elements[5],this.form.elements[2])\" ",
+				"onclick=\"move(this.form.elements['s2'],this.form.elements['s1'])\" ",
 				"value=\"   &lt;&lt;   \" />";
 	echo "\t\t</td>\n";
 	echo "\n\t\t<td>\n";
@@ -541,7 +540,8 @@ echo "</table>";
 */
 function construct_not_selected_select_form($group_list=null, $user_list=null,$to_already_selected=array())
 {
-	echo "\t\t<select name=\"not_selected_form[]\" size=\"5\" multiple=\"multiple\" style=\"width:200px\">\n";
+	//add a argument "id" by xiaoping
+	echo "\t\t<select id=\"s1\" name=\"not_selected_form[]\" size=\"5\" multiple=\"multiple\" style=\"width:200px\">\n";
 
 	// adding the groups to the select form
 	if (is_array($group_list))
@@ -596,7 +596,8 @@ function construct_selected_select_form($group_list=null, $user_list=null,$to_al
 	$ref_array_users=get_course_users();
 
 	// we construct the form of the already selected groups / users
-	echo "\t\t<select name=\"selectedform[]\" size=\"5\" multiple=\"multiple\" style=\"width:200px\">";
+	//add a argument "id" by xiaoping
+	echo "\t\t<select id=\"s2\" name=\"selectedform[]\" size=\"5\" multiple=\"multiple\" style=\"width:200px\">";
 	if(is_array($to_already_selected))
 	{
 		foreach($to_already_selected as $groupuser)
