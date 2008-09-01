@@ -189,7 +189,7 @@ class Statistics
 		{
 			case 'month':
 				$period = get_lang('PeriodMonth');
-				$sql = "SELECT DATE_FORMAT( login_date, '%Y %b' ) AS stat_date , count( login_id ) AS number_of_logins FROM ".$table." GROUP BY stat_date ORDER BY login_date ";
+				$sql = "SELECT DATE_FORMAT( login_date, '%Y %m' ) AS stat_date , count( login_id ) AS number_of_logins FROM ".$table." GROUP BY stat_date ORDER BY login_date ";
 				break;
 			case 'hour':
 				$period = get_lang('PeriodHour');
