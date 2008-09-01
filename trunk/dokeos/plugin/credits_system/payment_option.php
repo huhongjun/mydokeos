@@ -76,7 +76,14 @@ function get_payment_option_data($from, $number_of_items, $column, $direction)
 		$res = api_sql_query($sql, __FILE__, __LINE__);
 		$options = array();
 		while ($option = mysql_fetch_row($res))
-		{
+		{//edit by xiaoping
+			switch ($option[2])
+			{
+				case 'day':$option[2]='天';break;
+				case 'week':$option[2]='周';break;
+				case 'month':$option[2]='月';break;
+				case 'year':$option[2]='年';							
+			}
 			$options[] = $option;
 		}
 
