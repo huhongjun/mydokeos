@@ -66,4 +66,7 @@ $FolderCreated = "创建新文件夹";
 $LinkAdded = "添加新链接";
 $AnnouncementAdded = "添加公告";
 $AgendaAdded = "添加日程项目";
+
+// zml add
+$MenuUserCourse = "课程";
 ?>
