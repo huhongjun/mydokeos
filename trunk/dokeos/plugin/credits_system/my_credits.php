@@ -4,8 +4,8 @@
 	Dokeos - elearning and course management software
 	
 	Copyright (c) 2004-2006 Dokeos S.A.
-	Copyright (c) E.U.I. Universidad Politécnica de Madrid (Spain)
-	Copyright (c) Borja Nuñez Salinas - Programmer (bns@alumnos.upm.es)
+	Copyright (c) E.U.I. Universidad Politï¿½cnica de Madrid (Spain)
+	Copyright (c) Borja Nuï¿½ez Salinas - Programmer (bns@alumnos.upm.es)
 	
 	For a full list of contributors, see "credits.txt".
 	The full license can be read in "license.txt".
@@ -86,7 +86,7 @@ echo '<h3';
 if (!cs_get_user_credits()){
 	echo ' style="color:red;"';
 }
-echo'>'.get_lang('YouHave').' '.cs_get_user_credits().' '.get_lang('Credits').'.</h3>';
+echo'>'.get_lang('YouHave').' '.cs_get_user_credits().' '.get_lang('Credits').'</h3>';
 echo '</li>';
 echo "</ul>";
 echo "</div>";
