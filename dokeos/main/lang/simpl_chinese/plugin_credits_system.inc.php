@@ -111,7 +111,7 @@ $NumberOfOptionsDeleted = "删除选项个数";
 $CurrentCredits = "现有学习币";
 $MyCoursesHistory = "课程历史记录";
 $PlatformHistory = "平台历史记录";
-$USDSymbol = "美元符号";
+$USDSymbol = "元";
 $SelectPaymentMethod = "选择支付方法";
 $CoursesSubscription = "课程订购";
 $AmountCreditsToBuy = "购买学习币数量";
@@ -191,4 +191,6 @@ $PlzSubscribe="请认证";
 $Admin_payment="支付管理";
 $PaymentOptionExist='该项已存在';
 $DeleteOptions = "删除选项";
+// zml add
+$Buy = "购买";
 ?>
