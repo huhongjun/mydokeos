@@ -1011,7 +1011,7 @@ if (!empty($menu_navigation))
 
 // api_display_language_form(); // moved to the profile page.
 echo '<div class="menusection">';
-echo '<span class="menusectioncaption">'.get_lang('MenuUser').'</span>';
+echo '<span class="menusectioncaption">'.get_lang('MenuUserCourse').'</span>';
 echo '<ul class="menulist">';
 
 $display_add_course_link = api_is_allowed_to_create_course() && ($_SESSION["studentview"] != "studentenview");
