@@ -342,13 +342,13 @@ if( $form->validate())
 		{
 			//we want to add more. Prepare report message and redirect to the same page (to clean the form)
 			$tok = Security::get_token();
-			header('Location: user_add.php?message='.urlencode(get_lang('UserAdded').'&sec_token='.$tok));
+			header('Location: user_add.php?message='.urlencode(get_lang('UserAdded')));//.'&sec_token='.$tok)); zml edit
 			exit ();
 		}
 		else
 		{
 			$tok = Security::get_token();
-			header('Location: user_list.php?action=show_message&message='.urlencode(get_lang('UserAdded').'&sec_token='.$tok));
+			header('Location: user_list.php?action=show_message&message='.urlencode(get_lang('UserAdded')));//.'&sec_token='.$tok)); zml edit
 			exit ();
 		}
 	}
