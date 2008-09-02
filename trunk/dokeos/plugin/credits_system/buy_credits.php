@@ -3,7 +3,7 @@
 ==============================================================================
 	Dokeos - elearning and course management software
 	
-	Copyright (c) 2007 E.U.I. Universidad Politécnica de Madrid (Spain)
+	Copyright (c) 2007 E.U.I. Universidad Politï¿½cnica de Madrid (Spain)
 	Copyright (c) 2004-2006 Dokeos S.A.
 	
 	For a full list of contributors, see "credits.txt".
@@ -147,7 +147,7 @@ if (cs_get_user_credits(api_get_user_id())< '999999.9')
 	}
 	$form->addGroup($group, 'payment_methods', get_lang('SelectPaymentMethod').':', '<br />', false);
 	
-	$form->addElement('submit','submit_buy','Buy');
+	$form->addElement('submit','submit_buy',get_lang('Buy'));
 	
 	//Validation Rules
 	$form->registerRule('valid_amount','regex','/^\d*\.{0,1}\d+$/');
@@ -191,7 +191,7 @@ if (cs_get_user_credits(api_get_user_id())< '999999.9')
 			
 			while ($row = mysql_fetch_array($result))
 			{
-			//Fill payment form´s variable fields of the payment method.
+			//Fill payment formï¿½s variable fields of the payment method.
 				if (ereg("^GET:", $row['selected_value']))
 				{
 					list($get, $variable) = split(':',$row['selected_value']);
