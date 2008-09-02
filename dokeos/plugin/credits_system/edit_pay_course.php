@@ -3,7 +3,7 @@
 ==============================================================================
 	Dokeos - elearning and course management software
 
-	Copyright (c) 2007 E.U.I. Universidad Polit锟絚nica de Madrid (Spain)
+	Copyright (c) 2007 E.U.I. Universidad Polit锟?cnica de Madrid (Spain)
 	Copyright (c) 2004 Dokeos S.A.
 	Copyright (c) 2003 University of Ghent (UGent)
 	Copyright (c) 2001 Universite catholique de Louvain (UCL)
@@ -196,7 +196,14 @@ function get_payment_data($from, $number_of_items, $column, $direction)
 	$res = api_sql_query($sql, __FILE__, __LINE__);
 	$courses = array ();
 	while ($course = mysql_fetch_row($res))
-	{
+	{//edit by xiaoping
+		switch ($course[2])
+		{
+			case 'day':$course[2] ='天';break;
+			case 'month':$course[2] ='月';break;
+			case 'week':$course[2] ='周';break;
+			case 'year':$course[2] ='年';
+		}
 		$courses[] = $course;
 	}
 	
