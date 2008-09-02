@@ -817,4 +817,5 @@ $MyDLTT = "我的DLTT";
 $Liste_des_sessions="培训计划列表";
 //zml add 
 $cours = "课程";
+$Dates = "日期";
 ?>
