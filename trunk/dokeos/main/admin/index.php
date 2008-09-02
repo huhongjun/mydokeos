@@ -203,12 +203,12 @@ if(api_is_platform_admin()){
   <?php echo ucfirst(get_lang('ConfigureExtensions')); ?>
  </h4>
  <ul>
-  <li><a href="configure_extensions.php?display=visio"><?php echo get_lang('Visioconf'); ?></a></li>
+  <!--li><a href="configure_extensions.php?display=visio"><?php //echo get_lang('Visioconf'); ?></a></li-->
   <li><a href="configure_extensions.php?display=ppt2lp"><?php echo get_lang('Ppt2lp'); ?></a></li>
-  <li><a href="configure_extensions.php?display=ephorus"><?php echo get_lang('EphorusPlagiarismPrevention'); ?></a></li>
-  <li><a href="configure_extensions.php?display=search"><?php echo get_lang('SearchEngine'); ?></a></li>
-  <li><a href="configure_extensions.php?display=serverstats"><?php echo get_lang('ServerStatistics'); ?></a></li>
-  <li><a href="configure_extensions.php?display=bandwidthstats"><?php echo get_lang('BandWidthStatistics'); ?></a></li>
+  <!--li><a href="configure_extensions.php?display=ephorus"><?php //echo get_lang('EphorusPlagiarismPrevention'); ?></a></li-->
+  <!--li><a href="configure_extensions.php?display=search"><?php //echo get_lang('SearchEngine'); ?></a></li-->
+  <!--li><a href="configure_extensions.php?display=serverstats"><?php //echo get_lang('ServerStatistics'); ?></a></li-->
+  <!--li><a href="configure_extensions.php?display=bandwidthstats"><?php //echo get_lang('BandWidthStatistics'); ?></a></li-->
   </ul>
 </div>
 <?php
