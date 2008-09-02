@@ -815,4 +815,6 @@ $IsNotWritable = "是否写下";
 //huhj added
 $MyDLTT = "我的DLTT";
 $Liste_des_sessions="培训计划列表";
+//zml add 
+$cours = "课程";
 ?>
