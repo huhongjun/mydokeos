@@ -121,7 +121,7 @@ $get_keyword_lastname=trim($_GET['keyword_lastname']);
 $get_keyword_email=trim($_GET['keyword_email']);
 $get_keyword_username=trim($_GET['keyword_username']);
 $get_keyword_status=trim($_GET['keyword_status']);
-
+$get_keyword_officialcode=trim($_GET['keyword_officialcode']);
 /**
 *	Make sure this function is protected
 *	because it does NOT check password!
@@ -245,16 +245,16 @@ function get_number_of_users()
 	       $get_keyword_lastname,
 	       $get_keyword_email,
 	       $get_keyword_username,
-	       $get_keyword_status;
+	       $get_keyword_status,
+	       $get_keyword_officialcode;
 	$user_table = Database :: get_main_table(TABLE_MAIN_USER);
 	$sql = "SELECT COUNT(u.user_id) AS total_number_of_items FROM $user_table u";
 	if (isset($get_keyword))
 	{
 		$keyword = Database::escape_string($get_keyword);
 		$sql .= " WHERE u.firstname LIKE '%".$keyword."%' OR u.lastname LIKE '%".$keyword."%'  OR u.email LIKE '%".$keyword."%'  OR u.official_code LIKE '%".$keyword."%'";
-	echo $sql.'zml1'.'<br>';
 	}
-	elseif (isset ($get_keyword_firstname))
+	elseif (isset($get_keyword_firstname)||isset($get_keyword_lastname)||isset($get_keyword_email)||isset($get_keyword_officialcode)||isset($get_keyword_status)||isset($_GET['keyword_active'])||isset($_GET['keyword_inactive']))
 	{
 		$admin_table = Database :: get_main_table(TABLE_MAIN_ADMIN);
 		$keyword_firstname = Database::escape_string($get_keyword_firstname);
@@ -262,6 +262,7 @@ function get_number_of_users()
 		$keyword_email = Database::escape_string($get_keyword_email);
 		$keyword_username = Database::escape_string($get_keyword_username);
 		$keyword_status = Database::escape_string($get_keyword_status);
+		$keyword_officialcode = Database::escape_string($get_keyword_officialcode);
 		$query_admin_table = '';
 		$keyword_admin = '';
 		if($keyword_status == 10)
@@ -277,7 +278,7 @@ function get_number_of_users()
 				"AND u.lastname LIKE '%".$keyword_lastname."%' " .
 				"AND u.username LIKE '%".$keyword_username."%'  " .
 				"AND u.email LIKE '%".$keyword_email."%'   " .
-				//"AND u.official_code LIKE '%".$keyword_officialcode."%'    " .
+				"AND u.official_code LIKE '%".$keyword_officialcode."%'    " .
 				"AND u.status LIKE '".$keyword_status."'" .
 				$keyword_admin;
 		if($keyword_active && !$keyword_inactive)
@@ -288,7 +289,7 @@ function get_number_of_users()
 		{
 			$sql .= " AND u.active='0'";
 		}
-	}echo $sql.'zml2';
+	}
 	$res = api_sql_query($sql, __FILE__, __LINE__);
 	$obj = Database::fetch_object($res);
 	return $obj->total_number_of_items;
@@ -304,7 +305,8 @@ function get_user_data($from, $number_of_items, $column, $direction)
 		   $get_keyword_lastname,
 	       $get_keyword_email,
 	       $get_keyword_username,
-	       $get_keyword_status;
+	       $get_keyword_status,
+	       $get_keyword_officialcode;
 	$user_table = Database :: get_main_table(TABLE_MAIN_USER);
 	$sql = "SELECT
                  u.user_id			AS col0,
@@ -319,12 +321,12 @@ function get_user_data($from, $number_of_items, $column, $direction)
 
              FROM
                  $user_table u";
-	if (isset($get_keyword))
+	if (isset($get_keyword) && $get_keyword!='')
 	{
 		$keyword = Database::escape_string($get_keyword);
 		$sql .= " WHERE u.firstname LIKE '%".$keyword."%' OR u.lastname LIKE '%".$keyword."%'  OR u.username LIKE '%".$keyword."%'  OR u.official_code LIKE '%".$keyword."%'";
 	}
-	elseif (isset ($get_keyword_firstname))
+	elseif (isset($get_keyword_firstname)||isset($get_keyword_lastname)||isset($get_keyword_email)||isset($get_keyword_officialcode)||isset($get_keyword_status)||isset($_GET['keyword_active'])||isset($_GET['keyword_inactive']))
 	{
 		$admin_table = Database :: get_main_table(TABLE_MAIN_ADMIN);
 		$keyword_firstname = Database::escape_string($get_keyword_firstname);
@@ -332,6 +334,7 @@ function get_user_data($from, $number_of_items, $column, $direction)
 		$keyword_email = Database::escape_string($get_keyword_email);
 		$keyword_username = Database::escape_string($get_keyword_username);
 		$keyword_status = Database::escape_string($get_keyword_status);
+		$keyword_officialcode = Database::escape_string($get_keyword_officialcode);
 		$query_admin_table = '';
 		$keyword_admin = '';
 		if($keyword_status == 10)
@@ -346,7 +349,7 @@ function get_user_data($from, $number_of_items, $column, $direction)
 				"AND u.lastname LIKE '%".$keyword_lastname."%' " .
 				"AND u.username LIKE '%".$keyword_username."%'  " .
 				"AND u.email LIKE '%".$keyword_email."%'   " .
-				//"AND u.official_code LIKE '%".$keyword_officialcode."%'    " .
+				"AND u.official_code LIKE '%".$keyword_officialcode."%'    " .
 				"AND u.status LIKE '".$keyword_status."'" .
 				$keyword_admin;
 		if($keyword_active && !$keyword_inactive)
@@ -360,6 +363,7 @@ function get_user_data($from, $number_of_items, $column, $direction)
 	}
 	$sql .= " ORDER BY col$column $direction ";
 	$sql .= " LIMIT $from,$number_of_items";
+	//echo $get_keyword.'<br/>'.$sql;
 	$res = api_sql_query($sql, __FILE__, __LINE__);
 	$users = array ();
 	while ($user = Database::fetch_row($res))
@@ -386,6 +390,7 @@ function email_filter($email)
 function modify_filter($user_id,$url_params,$row)
 {
 	global $charset;
+	
 // zml edit 	
 //	$result .= '<span id="tooltip">
 //				<span class="toolbox">
@@ -620,12 +625,12 @@ else
 	{
 		$parameters = array ('keyword' => $get_keyword);
 	}
-	elseif (isset ($get_keyword_firstname))
+	elseif(isset($get_keyword_firstname)||isset($get_keyword_lastname)||isset($get_keyword_email)||isset($get_keyword_officialcode)||isset($get_keyword_status)||isset($_GET['keyword_active'])||isset($_GET['keyword_inactive']))
 	{
 		$parameters['keyword_firstname'] = $get_keyword_firstname;
 		$parameters['keyword_lastname'] = $get_keyword_lastname;
 		$parameters['keyword_email'] = $get_keyword_email;
-		$parameters['keyword_officialcode'] = $_GET['keyword_officialcode'];
+		$parameters['keyword_officialcode'] = $get_keyword_officialcode;
 		$parameters['keyword_status'] = $get_keyword_status;
 		$parameters['keyword_active'] = trim($_GET['keyword_active']);
 		$parameters['keyword_inactive'] = trim($_GET['keyword_inactive']);
