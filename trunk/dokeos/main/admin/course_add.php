@@ -74,7 +74,7 @@ $form->add_textfield( 'visual_code', get_lang('CourseCode'),false,array('size'=>
 $form->applyFilter('visual_code','strtoupper');
 $form->addRule('wanted_code',get_lang('Max'),'maxlength',20);
 $form->addElement('select', 'tutor_id', get_lang('CourseTitular'), $teachers);
-$form->addElement('select', 'course_teachers', get_lang('CourseTeachers'), $teachers, 'multiple=multiple size=5');
+//$form->addElement('select', 'course_teachers', get_lang('CourseTeachers'), $teachers, 'multiple=multiple size=5');
 $form->add_textfield('title', get_lang('Title'),true, array ('size' => '60'));
 $categories_select = $form->addElement('select', 'category_code', get_lang('CourseFaculty'), $categories);
 CourseManager::select_and_sort_categories($categories_select);
