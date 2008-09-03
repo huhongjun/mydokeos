@@ -191,6 +191,9 @@ $PlzSubscribe="请认证";
 $Admin_payment="支付管理";
 $PaymentOptionExist='该项已存在';
 $DeleteOptions = "删除选项";
+
+$Incorrect='请输入正确的值';
+
 // zml add
 $Buy = "购买";
 $day = "天";
@@ -199,4 +202,5 @@ $month = "月";
 $year = "年";
 $EditPaymentOptions = "修改支付选项";
 $TestPaymentOptionNotAllowed = "支付选项更新错误";
+
 ?>
