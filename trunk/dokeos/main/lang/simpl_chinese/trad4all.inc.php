@@ -82,7 +82,7 @@ $langAllowed = "同意";
 $langBackHome = "返回主页";
 $langPropositions = "提出建议";
 $langMaj = "更新";
-$langModify = "操作";
+$langModify = "修改";
 $langDelete = "删除";
 $langInvisible = "隐蒇";
 $langSave = "保存";
@@ -578,4 +578,5 @@ $Please = "请";
 $SelectAnotherCourse = "选择另一门课程";
 $or = "或";
 $EnabledCreditCourses = "启用收费课程";
+$actions = "操作";
 ?>

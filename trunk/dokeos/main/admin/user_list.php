@@ -252,6 +252,7 @@ function get_number_of_users()
 	{
 		$keyword = Database::escape_string($get_keyword);
 		$sql .= " WHERE u.firstname LIKE '%".$keyword."%' OR u.lastname LIKE '%".$keyword."%'  OR u.email LIKE '%".$keyword."%'  OR u.official_code LIKE '%".$keyword."%'";
+	echo $sql.'zml1'.'<br>';
 	}
 	elseif (isset ($get_keyword_firstname))
 	{
@@ -287,7 +288,7 @@ function get_number_of_users()
 		{
 			$sql .= " AND u.active='0'";
 		}
-	}
+	}echo $sql.'zml2';
 	$res = api_sql_query($sql, __FILE__, __LINE__);
 	$obj = Database::fetch_object($res);
 	return $obj->total_number_of_items;
@@ -385,14 +386,14 @@ function email_filter($email)
 function modify_filter($user_id,$url_params,$row)
 {
 	global $charset;
-	
-	$result .= '<span id="tooltip">
-				<span class="toolbox">
-				<a style="position: relative;" class="tooltipLinkInner" href="#">
-				<img src="../img/courses.gif" id="coursesofuser'.$user_id.'" onmouseover="xajax_courses_of_user('.$user_id.');" style="vertical-align:middle;"/>
-				<span id="user'.$user_id.'" style="margin-left: -100px; border:1px solid black; width: 200px; background-color:white; z-index:99; padding: 3px; display: none; margin-right:inherit;">
-				<div style="text-align:center;"><img src="../img/anim-loader.gif" height="20" /></div>
-				</span></a></span></span>';	
+// zml edit 	
+//	$result .= '<span id="tooltip">
+//				<span class="toolbox">
+//				<a style="position: relative;" class="tooltipLinkInner" href="#">
+//				<img src="../img/courses.gif" id="coursesofuser'.$user_id.'" onmouseover="xajax_courses_of_user('.$user_id.');" style="vertical-align:middle;"/>
+//				<span id="user'.$user_id.'" style="margin-left: -100px; border:1px solid black; width: 200px; background-color:white; z-index:99; padding: 3px; display: none; margin-right:inherit;">
+//				<div style="text-align:center;"><img src="../img/anim-loader.gif" height="20" /></div>
+//				</span></a></span></span>';	
 	$result .= '<a href="user_information.php?user_id='.$user_id.'"><img src="../img/synthese_view.gif" border="0" style="vertical-align: middle;" title="'.get_lang('Info').'" alt="'.get_lang('Info').'"/></a>&nbsp;';
 	$result .= '<a href="user_list.php?action=login_as&amp;user_id='.$user_id.'&amp;sec_token='.$_SESSION['sec_token'].'"><img src="../img/login_as.gif" border="0" style="vertical-align: middle;" alt="'.get_lang('LoginAs').'" title="'.get_lang('LoginAs').'"/></a>&nbsp;';
 
@@ -641,7 +642,7 @@ else
 	$table->set_header(5, get_lang('Email'));
 	$table->set_header(6, get_lang('Status'));
 	$table->set_header(7, get_lang('Active'));
-	$table->set_header(8, get_lang('Modify'));
+	$table->set_header(8, get_lang('actions'));
 	$table->set_column_filter(5, 'email_filter');
 	$table->set_column_filter(6, 'status_filter');
 	$table->set_column_filter(7, 'active_filter');
