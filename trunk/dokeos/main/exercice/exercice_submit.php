@@ -201,15 +201,16 @@ if($formSent)
 
 // if the object is not in the session
 if(!isset($_SESSION['objExercise']) || $origin == 'learnpath' || $_SESSION['objExercise']->id != $_REQUEST['exerciseId'])
-{
-    if($debug>0){echo str_repeat('&nbsp;',0).'$_SESSION[objExercise] was unset'."<br />\n";}
+{	
+    //echo '<br/>$exerciseId:'.$exerciseId.'  $_REQUEST["exerciseId"]:'.$_REQUEST['exerciseId'];
+	if($debug>0){echo str_repeat('&nbsp;',0).'$_SESSION[objExercise] was unset'."<br />\n";}
     // construction of Exercise
     $objExercise=new Exercise();
     unset($_SESSION['questionList']);
 
     // if the specified exercise doesn't exist or is disabled
     if(!$objExercise->read($exerciseId) || (!$objExercise->selectStatus() && !$is_allowedToEdit && ($origin != 'learnpath') ))
-    {
+    {    	
     	unset($objExercise);
     	$error = get_lang('ExerciseNotFound');
         //die(get_lang('ExerciseNotFound'));
@@ -481,8 +482,8 @@ else
 		$onsubmit = "onsubmit=\"return validateFlashVar('".$number_of_hotspot_questions."', '".get_lang('HotspotValidateError1')."', '".get_lang('HotspotValidateError2')."');\"";
 	}
 	$s="<p>$exerciseDescription</p>";
-	
-	if($origin == 'learnpath' && $exerciseType==2){
+	//edit by xiaoping
+	if($exerciseType==2){
 		$s2 = "&exerciseId=".$exerciseId;
 	}
 	$s.=" <form method='post' action='".api_get_self()."?autocomplete=off".$s2."' name='frm_exercise' $onsubmit>
