@@ -1590,7 +1590,7 @@ class learnpath {
 		$mycurrentitemid = $this->get_current_item_id();
 
 		if($this->mode == 'fullscreen'){
-
+//edit by xiaoping
 			$navbar = '<table cellpadding="0" cellspacing="0" align="left">'."\n".
 
     			  '  <tr> '."\n" .
@@ -1601,9 +1601,9 @@ class learnpath {
 
      			  '        <a href="lp_controller.php?action=stats" onclick="window.parent.API.save_asset();return true;" target="content_name_blank" title="stats" id="stats_link"><img border="0" src="../img/lp_stats.gif" title="'.get_lang('ScormMystatus').'"></a>&nbsp;'."\n" .
 
-    			  '        <a href="" onclick="dokeos_xajax_handler.switch_item('.$mycurrentitemid.',\'previous\');return false;" title="previous"><img border="0" src="../img/lp_leftarrow.gif" title="'.get_lang('ScormPrevious').'"></a>&nbsp;'."\n" .
+    			  '        <a href="lp_controller.php?'.api_get_cidreq().'&action=previous&lp_id='.$this->get_id().'&item_id='.$mycurrentitemid.'" title="previous" target="content_name"><img border="0" src="../img/lp_leftarrow.gif" title="'.get_lang('ScormPrevious').'"></a>&nbsp;'."\n" .
 
-    			  '        <a href="" onclick="dokeos_xajax_handler.switch_item('.$mycurrentitemid.',\'next\');return false;" title="next"  ><img border="0" src="../img/lp_rightarrow.gif" title="'.get_lang('ScormNext').'"></a>&nbsp;'."\n" .
+    			  '        <a href="lp_controller.php?'.api_get_cidreq().'&action=next&lp_id='.$this->get_id().'&item_id='.$mycurrentitemid.'" title="next" target="content_name"><img border="0" src="../img/lp_rightarrow.gif" title="'.get_lang('ScormNext').'"></a>&nbsp;'."\n" .
 
 				  '        <a href="lp_controller.php?action=mode&mode=embedded" target="_top" title="embedded mode"><img border="0" src="../img/view_choose.gif" title="'.get_lang('ScormExitFullScreen').'"></a>'."\n" .
 
@@ -1620,7 +1620,7 @@ class learnpath {
 				
 
 		}else{
-
+//edit by xiaoping
 			$navbar = '<table cellpadding="0" cellspacing="0" align="left">'."\n".
 
     			  '  <tr> '."\n" .
@@ -1631,9 +1631,9 @@ class learnpath {
 
     			  '        <a href="lp_controller.php?action=stats" onclick="window.parent.API.save_asset();return true;" target="content_name" title="stats" id="stats_link"><img border="0" src="../img/lp_stats.gif" title="'.get_lang('ScormMystatus').'"></a>&nbsp;'."\n" .
 
-    			  '        <a href="" onclick="dokeos_xajax_handler.switch_item('.$mycurrentitemid.',\'previous\');return false;" title="previous"><img border="0" src="../img/lp_leftarrow.gif" title="'.get_lang('ScormPrevious').'"></a>&nbsp;'."\n" .
+    			  '        <a href="lp_controller.php?'.api_get_cidreq().'&action=previous&lp_id='.$this->get_id().'&item_id='.$mycurrentitemid.'" title="previous" target="content_name"><img border="0" src="../img/lp_leftarrow.gif" title="'.get_lang('ScormPrevious').'"></a>&nbsp;'."\n" .
 
-    			  '        <a href="" onclick="dokeos_xajax_handler.switch_item('.$mycurrentitemid.',\'next\');return false;" title="next"  ><img border="0" src="../img/lp_rightarrow.gif" title="'.get_lang('ScormNext').'"></a>&nbsp;'."\n" .
+    			  '        <a href="lp_controller.php?'.api_get_cidreq().'&action=next&lp_id='.$this->get_id().'&item_id='.$mycurrentitemid.'" title="next" target="content_name"><img border="0" src="../img/lp_rightarrow.gif" title="'.get_lang('ScormNext').'"></a>&nbsp;'."\n" .
 
 				  '        <a href="lp_controller.php?action=mode&mode=fullscreen" target="_top" title="fullscreen"><img border="0" src="../img/view_fullscreen.gif" width="18" height="18" title="'.get_lang('ScormFullScreen').'"></a>'."\n" .
 
@@ -2528,14 +2528,15 @@ class learnpath {
 			{
 				//$html .= "<a href='lp_controller.php?".api_get_cidreq()."&action=content&lp_id=".$this->get_id()."&item_id=".$item['id']."' target='lp_content_frame_name'>".$title."</a>" ;
 				$url = $this->get_link('http',$item['id']);
-				//$html .= '<a href="'.$url.'" target="content_name" onclick="top.load_item('.$item['id'].',\''.$url.'\');">'.$title.'</a>' ;
+				//urldecode() edit by xiaoping 
+				$html .= '<a href="'.urldecode($url).'" target="content_name" onclick="top.load_item('.$item['id'].',\''.urldecode($url).'\');">'.$title.'</a>' ;
 				//$html .= '<a href="" onclick="top.load_item('.$item['id'].',\''.$url.'\');return false;">'.$title.'</a>' ;
 
 				//<img align="absbottom" width="13" height="13" src="../img/lp_document.png">&nbsp;
-				$html .= '<a href="" onclick="dokeos_xajax_handler.switch_item(' .
-				$mycurrentitemid.',' .
-				$item['id'].');' .
-						'return false;" >'.stripslashes($title).'</a>' ;
+				//$html .= '<a href="" onclick="dokeos_xajax_handler.switch_item(' .
+				//$mycurrentitemid.',' .
+				//$item['id'].');' .
+				//		'return false;" >'.stripslashes($title).'</a>' ;
 			}
 			elseif($item['type']=='dokeos_module' || $item['type']=='dokeos_chapter')
 			{
@@ -4327,7 +4328,7 @@ class learnpath {
 		}
 
 		$table_doc = Database::get_course_table(TABLE_DOCUMENT);
-
+		
 		$sql = "
 			SELECT path
 			FROM " . $table_doc . "
@@ -4336,7 +4337,6 @@ class learnpath {
 		$row = Database::fetch_array($res);
 		$content	= stripslashes($_POST['content_lp']);
 		$file		= $filepath . $row['path'];
-
 
 		if($fp = @fopen($file, 'w'))
 		{
@@ -4359,8 +4359,7 @@ class learnpath {
 	{
 		global $_course,$charset; //will disappear
 
-		$return = '';
-
+		$return = '';		
 		if(is_numeric($item_id))
 		{
 			$tbl_lp_item	= Database::get_course_table('lp_item');
@@ -4437,7 +4436,7 @@ class learnpath {
 				
 			$res = api_sql_query($sql, __FILE__, __LINE__);
 			$row = Database::fetch_array($res);
-
+			
 			switch($row['item_type'])
 			{
 				case 'dokeos_chapter': case 'dir' : case 'asset' : case 'sco' :
@@ -5695,7 +5694,7 @@ class learnpath {
 			$item_title			= '';
 			$item_description	= '';
 		}
-
+		
 		$return = '<div style="margin:10px 12px;">';
 			
 		if($id != 0 && is_array($extra_info))
@@ -5726,7 +5725,7 @@ class learnpath {
 				'previous_item_id' => $row['previous_item_id'],
 				'next_item_id' => $row['next_item_id'],
 				'display_order' => $row['display_order']);			
-		}		
+		}	
 		$this->tree_array($arrLP);
 		$arrLP = $this->arrMenu;
 		unset($this->arrMenu);
@@ -5829,8 +5828,8 @@ class learnpath {
 		if($item_type == 'module' || $item_type == 'dokeos_module')
 		{
 			$form->addElement('hidden', 'parent', '0');
-		}
-
+		}		
+		
 		$extension = pathinfo($item_path, PATHINFO_EXTENSION);
 		if(($item_type=='asset' || $item_type=='sco') && ($extension == 'html' || $extension == 'htm'))
 		{

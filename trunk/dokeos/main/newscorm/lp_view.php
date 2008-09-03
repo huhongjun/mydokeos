@@ -47,7 +47,7 @@ if ($is_allowed_in_course == false) api_not_allowed();
 -----------------------------------------------------------
 */
 //$charset = 'UTF-8';
-$charset = api_get_setting('platform_charset');//æŒ‰å¹³å°è®¾ç½®çš„ç¼–ç (gb2312)æ¥è®¾ç½®å­¦ä¹ è·¯å¾„æ˜¾ç¤ºé¡µé¢ç¼–ç :by xiaoping
+$charset = api_get_setting('platform_charset');//???å¹³å?°è?¾ç½®???ç¼????(gb2312)??¥è?¾ç½®å­?ä¹?è·?å¾???¾ç¤ºé¡µé?¢ç?????:by xiaoping
 $oLearnpath = false;
 $course_code = api_get_course_id();
 $user_id = api_get_user_id();
@@ -86,7 +86,7 @@ switch($lp_type)
 		$htmlHeadXtra[] = '<script src="scorm_api.php" type="text/javascript" language="javascript"></script>';
     	$prereq_check = $_SESSION['oLP']->prerequisites_match($lp_item_id);
 		if($prereq_check === true){
-			$src = $_SESSION['oLP']->get_link('http',$lp_item_id);
+			$src = urldecode($_SESSION['oLP']->get_link('http',$lp_item_id));//edit by xiaoping
 			$_SESSION['oLP']->start_current_item(); //starts time counter manually if asset
 		}else{
 			$src = 'blank.php?error=prerequisites';
@@ -125,7 +125,6 @@ $nameTools = $_SESSION['oLP']->get_name();
 $save_setting = get_setting("show_navigation_menu");
 global $_setting;
 $_setting['show_navigation_menu'] = false;
-
 $scorm_css_header=true; 	
 $lp_theme_css=$_SESSION['oLP']->get_theme(); //sets the css theme of the LP this call is also use at the frames (toc, nav, message)
 	

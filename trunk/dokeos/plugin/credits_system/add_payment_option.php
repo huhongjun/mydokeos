@@ -39,7 +39,7 @@ require_once(dirname(__FILE__).'/inc/cs_functions.inc.php');
 require_once (api_get_path(LIBRARY_PATH).'/formvalidator/FormValidator.class.php');
 $interbreadcrumb[] = array ("url" => api_get_path(PLUGIN_PATH).'my_credits.php', "name" => get_lang('CreditsSystem'));
 $interbreadcrumb[] = array ("url" => api_get_path(PLUGIN_PATH).'credits_system_settings.php?select=cspaymentoptions', "name" => get_lang('Settings'));
-$tool_name = "Add Payment Option"; // title of the page (should come from the language file) 
+$tool_name = "添加支付选项"; // title of the page (should come from the language file) 
 
 /*
 -----------------------------------------------------------
@@ -57,7 +57,7 @@ include_once(dirname(__FILE__).'/inc/cs_database.lib.php');
 // Put your main code here. Keep this section short,
 // it's better to use functions for any non-trivial code
 
-$different_payment_options = array(1 => 'day',2 =>'week',3 => 'month',4 =>'year' );
+$different_payment_options = array(1 => '天',2 =>'周',3 => '月',4 =>'年' );//edit by xiaoping
 $form = new FormValidator('add_payment_options');
 $form->addElement('select', 'options', get_lang('DifferentOptions'), $different_payment_options);
 $form->add_textfield('optionlength', get_lang('Length'),false, array ('size' => '4','maxlength' => '3'));
