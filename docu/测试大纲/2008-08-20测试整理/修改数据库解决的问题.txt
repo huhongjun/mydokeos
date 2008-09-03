@@ -1,0 +1,65 @@
+1.（管理员）平台管理中用户查询：中文查询存在问题 比如查“王”结果里有“马”的记录
+    优先级A
+2.（管理员）用户高级查询中： 1.官方代码查询无效 2.联合查询官方代码无效 3. 姓名中文查询有问题	
+    优先级B
+Mysql数据库本身bug 对中文检索 支持很差 
+解决方案：把检索字段(firstname,lastname)加上 binary 属性就OK了
+
+
+
+3. 课程主页--三列视图--手动建立course_modle
+  （管理员）平台配置 >> elcms设置 >> 课程 
+   1 主页--你喜欢哪种主页? 三列视图 教师身份登录具体课程下显示课程工具页面报错
+
+可视化操作手动建立表提取出来的执行语句：
+
+CREATE TABLE `dokeos_main`.`course_module` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NOT NULL DEFAULT '',
+  `link` VARCHAR(225) NOT NULL DEFAULT '',
+  `image` VARCHAR(100) NOT NULL DEFAULT '',
+  `row` INTEGER UNSIGNED NOT NULL DEFAULT 0,
+  `column` INTEGER UNSIGNED NOT NULL DEFAULT 0,
+  `position` VARCHAR(20) NOT NULL DEFAULT 'basic',
+  PRIMARY KEY(`id`)
+)
+ENGINE = InnoDB;
+
+
+sql原始语言：
+CREATE TABLE course_module (
+  id int(10) unsigned NOT NULL auto_increment,
+  name varchar(100) NOT NULL,
+  link varchar(255) NOT NULL,
+  image varchar(100) default NULL,
+  row int(10) unsigned NOT NULL default '0',
+  column int(10) unsigned NOT NULL default '0',
+  position varchar(20) NOT NULL default 'basic',
+  PRIMARY KEY  (id)
+);
+
+INSERT INTO course_module VALUES
+(1,'calendar_event','calendar/agenda.php','agenda.gif',1,1,'basic'),
+(2,'link','link/link.php','links.gif',4,1,'basic'),
+(3,'document','document/document.php','documents.gif',3,1,'basic'),
+(4,'student_publication','work/work.php','works.gif',3,2,'basic'),
+(5,'announcement','announcements/announcements.php','valves.gif',2,1,'basic'),
+(6,'user','user/user.php','members.gif',2,3,'basic'),
+(7,'forum','forum/index.php','forum.gif',1,2,'basic'),
+(8,'quiz','exercice/exercice.php','quiz.gif',2,2,'basic'),
+(9,'group','group/group.php','group.gif',3,3,'basic'),
+(10,'course_description','course_description/','info.gif',1,3,'basic'),
+(11,'chat','chat/chat.php','chat.gif',0,0,'external'),
+(12,'dropbox','dropbox/index.php','dropbox.gif',4,2,'basic'),
+(13,'tracking','tracking/courseLog.php','statistics.gif',1,3,'courseadmin'),
+(14,'homepage_link','link/link.php?action=addlink','npage.gif',1,1,'courseadmin'),
+(15,'course_setting','course_info/infocours.php','reference.gif',1,1,'courseadmin'),
+(16,'External','','external.gif',0,0,'external'),
+(17,'AddedLearnpath','','scormbuilder.gif',0,0,'external'),
+(18,'conference','conference/index.php?type=conference','conf.gif',0,0,'external'),
+(19,'conference','conference/index.php?type=classroom','conf.gif',0,0,'external'),
+(20,'learnpath','newscorm/lp_controller.php','scorm.gif',5,1,'basic'),
+(21,'blog','blog/blog.php','blog.gif',1,2,'basic'),
+(22,'blog_management','blog/blog_admin.php','blog_admin.gif',1,2,'courseadmin'),
+(23,'course_maintenance','course_info/maintenance.php','backup.gif',2,3,'courseadmin'),
+(24,'survey','survey/survey_list.php','survey.gif',2,1,'courseadmin');
