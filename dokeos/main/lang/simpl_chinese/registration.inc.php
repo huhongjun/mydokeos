@@ -158,4 +158,5 @@ $PictureUploaded = "你的照片已上传";
 $ProductionUploaded = "你的产品文件已上传";
 $FolderUpdated = "文件夹已更新";
 $UsersRegistered = "这些用户已注册到这个课程";
+$OK='确定';
 ?>
