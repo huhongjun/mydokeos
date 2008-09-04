@@ -178,7 +178,7 @@ else
 	
 	echo get_lang('SelectBackupFile').'<br /><br />';
 	
-	include (api_get_path(LIBRARY_PATH).'formvalidator/FormValidator.class.php');
+	include_once (api_get_path(LIBRARY_PATH).'formvalidator/FormValidator.class.php');
 	$form = new FormValidator('import_backup_form','POST','import_backup.php', '','multipart/form-data');
 	
 	$renderer = $form->defaultRenderer();

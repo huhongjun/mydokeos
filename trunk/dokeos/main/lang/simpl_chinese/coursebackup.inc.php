@@ -46,4 +46,7 @@ $UploadError = "更新失败，请检查文件大小上限限制和文件夹权限。";
 $DocumentsWillBeAddedToo = "文档将也被添加";
 $ToExportLearnpathWithQuizYouHaveToSelectQuiz = "如果你想导出学习路径包含测试，你必须确定相应的测试是包括在导出中，所以你必须在测试列表中选择他们。";
 $ArchivesDirectoryNotWriteableContactAdmin = "存档目录，使用这个工具，是不能写入的。请联系你的平台管理员。";
+
+//zml edit
+$TryAgain = "重试";
 ?>
