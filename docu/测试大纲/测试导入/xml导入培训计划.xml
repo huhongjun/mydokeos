@@ -1,23 +1,52 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+﻿<?xml version="1.0" encoding="utf8"?>
 <Sessions>
     <Users>
         <User>
             <Username>BJXY006</Username>
-
+            <Lastname>李</Lastname>
+            <Firstname>天天</Firstname>
+            <Password>123</Password>
+            <Email>litt@sina.com</Email>
+            <OfficialCode>bjltt</OfficialCode>
+            <Phone>010</Phone>
+            <Status>student</Status>
+        </User>
+        <User>
+            <Username>BJXY005</Username>
+            <Lastname>李</Lastname>
+            <Firstname>想</Firstname>
+            <Password>123</Password>
+            <Email>litt@sina.com</Email>
+            <OfficialCode>bjltt</OfficialCode>
+            <Phone>010</Phone>
+            <Status>student</Status>
         </User>
     </Users>
     <Courses>
-        <Course>
-            <CourseCode>K</CourseCode>
-
+         <Course>
+            <CourseCode>M</CourseCode>
+            <CourseTeacher>xxx</CourseTeacher>
+            <CourseLanguage>xxx</CourseLanguage>
+            <CourseTitle>xxx</CourseTitle>
+            <CourseDescription>xxx</CourseDescription>
         </Course>
     </Courses>
     <Session>
-        <SessionName>北京注协</SessionName>
+        <SessionName>北京注协A</SessionName>
+
+       <Coach>xxx</Coach>
 
         <DateStart>0000-00-00</DateStart>
         <DateEnd>0000-00-00</DateEnd>
 
+        <User>xxx</User>
+        <User>xxx</User>
+    	<Course>
+    		<CourseCode>coursecode1</CourseCode>
+    		<Coach>coach1</Coach>
+       <User>username1</User>
+	    	<User>username2</User>
+    	</Course>
     </Session>
 </Sessions>
 
