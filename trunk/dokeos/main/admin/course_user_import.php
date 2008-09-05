@@ -33,6 +33,7 @@ function validate_data($users_courses)
 {
 	$errors = array ();
 	$coursecodes = array ();
+	//print_r($users_courses);
 	foreach ($users_courses as $index => $user_course)
 	{
 		$user_course['line'] = $index +1;
@@ -124,16 +125,19 @@ function save_data($users_courses)
 //		echo "DB SUBSCRIPTION\n";
 //		print_r($db_subscriptions);
 //		echo "TO SUBSCRIBE\n";
-//		print_r($to_subscribe);
+//	    print_r($to_subscribe);
 //		echo "TO UNSUBSCRIBE\n";
 //		print_r($to_unsubscribe);
+//		echo '$_POST[]<br/>';
+//		print_r($_POST);
 //		echo '</pre>';
+		
 		if($_POST['subscribe'])
 		{
 			foreach($to_subscribe as $index => $course_code)
 			{
 				CourseManager::add_user_to_course($user_id,$course_code,$csv_subscriptions[$course_code]);
-				echo get_lang('Subscription').' : '.$course_code.'<br />';
+				//echo get_lang('Subscription').' : '.$course_code.'<br />';
 			}
 		}
 		if($_POST['unsubscribe'])
@@ -141,7 +145,7 @@ function save_data($users_courses)
 			foreach($to_unsubscribe as $index => $course_code)
 			{
 				CourseManager::unsubscribe_user($user_id,$course_code);
-				echo get_lang('Unsubscription').' : '.$course_code.'<br />';
+				//echo get_lang('Unsubscription').' : '.$course_code.'<br />';
 			}
 		}
 	}
@@ -204,7 +208,7 @@ if (count($errors) != 0)
 		$error_message .= '</li>';
 	}
 	$error_message .= '</ul>';
-	Display :: display_error_message($error_message);
+	Display :: display_error_message($error_message,false);
 }
 
 $form->display();
