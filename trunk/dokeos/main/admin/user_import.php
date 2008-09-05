@@ -154,7 +154,7 @@ function save_data($users)
 		$user = complete_missing_data($user);
 		
 		$user['Status'] = api_status_key($user['Status']);
-		
+		//$user['FirstName']=mb_convert_encoding($user['FirstName'],'iso-8859-1','utf-8');
 		$user_id = UserManager :: create_user($user['FirstName'], $user['LastName'], $user['Status'], $user['Email'], $user['UserName'], $user['Password'], $user['OfficialCode'], api_get_setting('PlatformLanguage'), $user['PhoneNumber'], '', $user['AuthSource']);
 		foreach ($user['Courses'] as $index => $course)
 		{
