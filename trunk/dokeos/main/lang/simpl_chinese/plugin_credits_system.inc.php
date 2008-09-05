@@ -202,5 +202,10 @@ $month = "月";
 $year = "年";
 $EditPaymentOptions = "修改支付选项";
 $TestPaymentOptionNotAllowed = "支付选项更新错误";
-
+$ThePaymentOption='这个支付选项';
+$IsInUseAndIsThePaymentOptionByDefault='正在被使用并且是缺省设置';
+$Confirm='你确定要执行这个操作吗?';
+$or='或';
+$yes='是';
+$no='否';
 ?>
