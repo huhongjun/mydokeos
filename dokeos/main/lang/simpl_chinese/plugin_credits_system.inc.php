@@ -197,7 +197,7 @@ $Incorrect='请输入正确的值';
 // zml add
 $Buy = "购买";
 $day = "天";
-$week = "星期";
+$week = "周";
 $month = "月";
 $year = "年";
 $EditPaymentOptions = "修改支付选项";
@@ -208,4 +208,5 @@ $Confirm='你确定要执行这个操作吗?';
 $or='或';
 $yes='是';
 $no='否';
+$ManageCourseCreditsAccessDenied='访问拒绝';
 ?>
