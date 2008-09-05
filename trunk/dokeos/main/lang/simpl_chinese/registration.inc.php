@@ -14,7 +14,7 @@ $password_request = "ÄúÒÑ¾­ÇëÇóÖØÐÂÉèÖÃÄúµÄÃÜÂë, Èç¹ûÄúÈ·ÈÏ, ¿ÉÒÔºöÂÔ´ËÓÊ¼þ, µã»
 $YourPasswordHasBeenEmailed = "ÃÜÂëÒÑ¾­Í¨¹ýÓÊ¼þ·¢ËÍ¸øÄú. ";
 $lang_enter_email_and_well_send_you_password = "ÊäÈëÄú×¢²áÊ±µÄµç×ÓÓÊ¼þ, ÄúµÄÃÜÂë½«Í¨¹ýµç×ÓÓÊ¼þ·¢ËÍ¸øÄú. ";
 $langLogin = "µÇÂ¼";
-$langAction = "¶¯×÷";
+$langAction = "Ñ¡Ïî";
 $langPreserved = "±£³Ö";
 $langDeleted = "É¾³ý";
 $langAdded = "Ìí¼Ó";
@@ -159,4 +159,6 @@ $ProductionUploaded = "ÄãµÄ²úÆ·ÎÄ¼þÒÑÉÏ´«";
 $FolderUpdated = "ÎÄ¼þ¼ÐÒÑ¸üÐÂ";
 $UsersRegistered = "ÕâÐ©ÓÃ»§ÒÑ×¢²áµ½Õâ¸ö¿Î³Ì";
 $OK='È·¶¨';
+$Line='ÐÐ';
+$UserNameMandatory='ÓÃ»§Ãû²»ÄÜÎª¿Õ';
 ?>
