@@ -392,14 +392,15 @@ function email_filter($email)
 function modify_filter($user_id,$url_params,$row)
 {
 	global $charset;
-	
-	$result .= '<span id="tooltip">
-				<span class="toolbox">
-				<a style="position: relative;" class="tooltipLinkInner" href="#">
-				<img src="../img/courses.gif" id="coursesofuser'.$user_id.'" onmouseover="xajax_courses_of_user('.$user_id.');" style="vertical-align:middle;"/>
-				<span id="user'.$user_id.'" style="margin-left: -100px; border:1px solid black; width: 200px; background-color:white; z-index:99; padding: 3px; display: none; margin-right:inherit;">
-				<div style="text-align:center;"><img src="../img/anim-loader.gif" height="20" /></div>
-				</span></a></span></span>';	
+
+//zml edit	
+//	$result .= '<span id="tooltip">
+//				<span class="toolbox">
+//				<a style="position: relative;" class="tooltipLinkInner" href="#">
+//				<img src="../img/courses.gif" id="coursesofuser'.$user_id.'" onmouseover="xajax_courses_of_user('.$user_id.');" style="vertical-align:middle;"/>
+//				<span id="user'.$user_id.'" style="margin-left: -100px; border:1px solid black; width: 200px; background-color:white; z-index:99; padding: 3px; display: none; margin-right:inherit;">
+//				<div style="text-align:center;"><img src="../img/anim-loader.gif" height="20" /></div>
+//				</span></a></span></span>';	
 	$result .= '<a href="user_information.php?user_id='.$user_id.'"><img src="../img/synthese_view.gif" border="0" style="vertical-align: middle;" title="'.get_lang('Info').'" alt="'.get_lang('Info').'"/></a>&nbsp;';
 	$result .= '<a href="user_list.php?action=login_as&amp;user_id='.$user_id.'&amp;sec_token='.$_SESSION['sec_token'].'"><img src="../img/login_as.gif" border="0" style="vertical-align: middle;" alt="'.get_lang('LoginAs').'" title="'.get_lang('LoginAs').'"/></a>&nbsp;';
 
