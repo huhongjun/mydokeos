@@ -1,4 +1,8 @@
 Code;Title;CourseCategory;Teacher;
+M;毛泽东思想;GDK;teacher;
+E;大学英语;GDK;teacher;
+Y;大学语文;GDK;teacher;
+S;高等数学;GDK;teacher;
 W;物理;GDK;teacher;
 C;成本会计;GDK;teacher;
 B;商务会计;GDK;teacher;

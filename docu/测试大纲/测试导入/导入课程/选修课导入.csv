@@ -1,3 +1,13 @@
 Code;Title;CourseCategory;Teacher;
-K;韩语;XXK;teacher;
-EC;电子商务;XXK;teacher;
+Px;计算机基础(XXK);XXK;teacher;
+Dx;大学心理学(XXK);XXK;teacher;
+Kx;韩语(XXK);XXK;teacher;
+ECx;电子商务(XXK);XXK;teacher;
+Mx;毛泽东思想(XXK);XXK;teacher;
+Ex;大学英语(XXK);XXK;teacher;
+Yx;大学语文(XXK);XXK;teacher;
+Sx;高等数学(XXK);XXK;teacher;
+Wx;物理(XXK);XXK;teacher;
+Cx;成本会计(XXK);XXK;teacher;
+Bx;商务会计(XXK);XXK;teacher;
+Ax;财务会计(XXK);XXK;teacher;
