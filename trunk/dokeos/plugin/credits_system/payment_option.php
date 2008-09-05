@@ -65,7 +65,19 @@ function get_number_of_payment_option()
 		$obj = mysql_fetch_object($res);
 		return $obj->total_number_of_items;
 	}
-
+//edit by xiaoping
+function get_language_unit($unit)
+{
+	$value='unknown';
+	switch ($unit)
+	{
+		case 'day':$value=get_lang('day');break;
+		case 'week':$value=get_lang('week');break;
+		case 'month':$value=get_lang('month');break;
+		case 'year':$value=get_lang('year');							
+	}
+	return $value;
+}
 //Get the payment option data
 function get_payment_option_data($from, $number_of_items, $column, $direction)
 	{
@@ -77,13 +89,7 @@ function get_payment_option_data($from, $number_of_items, $column, $direction)
 		$options = array();
 		while ($option = mysql_fetch_row($res))
 		{//edit by xiaoping
-			switch ($option[2])
-			{
-				case 'day':$option[2]='天';break;
-				case 'week':$option[2]='周';break;
-				case 'month':$option[2]='月';break;
-				case 'year':$option[2]='年';							
-			}
+			$option[2]=get_language_unit($option[2]);
 			$options[] = $option;
 		}
 
@@ -169,18 +175,18 @@ if (isset ($_POST['action'])||isset($_GET['Payment_options_per_page']))
 						}
 						else if (($number[0] != 0) && ($payment_option_default != $option_code))
 						{	
-							Display::display_warning_message(get_lang('ThePaymentOption').' '.$amount.' '.$name.' '.get_lang('IsInUse').','.get_lang('Confirm').' <a href="'.$same_page.'">'.get_lang('no').'</a> '.get_lang('or').' <a href="'.$delete.'">'.get_lang('yes').'</a>',false);
+							Display::display_warning_message(get_lang('ThePaymentOption').' '.$amount.' '.get_language_unit($name).' '.get_lang('IsInUse').','.get_lang('Confirm').'<br/><a href="'.$delete.'">'.get_lang('yes').'</a> '.get_lang('or').' <a href="'.$same_page.'">'.get_lang('no').'</a> ',false);
 							//$sql = "UPDATE $payment_options_table SET enabled = '".get_lang('No')."' WHERE option_id = '".mysql_real_escape_string($option_code)."'";
 							//api_sql_query($sql,__FILE__,__LINE__);
 							//$apears = 1;
 						}
 						else if (($number[0] != 0) && ($payment_option_default == $option_code))
 						{
-							Display::display_warning_message(get_lang('ThePaymentOption').' '.$amount.' '.$name.' '.get_lang('IsInUseAndIsThePaymentOptionByDefault').', '.get_lang('Confirm').'<a href="'.$same_page.'">'.get_lang('no').'</a> '.get_lang('or').' <a href="'.$update.'">'.get_lang('yes').'</a>',false);							
+							Display::display_warning_message(get_lang('ThePaymentOption').' '.$amount.' '.get_language_unit($name).' '.get_lang('IsInUseAndIsThePaymentOptionByDefault').', '.get_lang('Confirm').'<br/><a href="'.$update.'">'.get_lang('yes').'</a> '.get_lang('or').' <a href="'.$same_page.'">'.get_lang('no').'</a> ',false);							
 						}
 						else if (($number[0] == 0) && ($payment_option_default == $option_code))
 						{
-							Display::display_warning_message(get_lang('ThePaymentOption').' '.$amount.' '.$name.' '.get_lang('IsThePaymentOptionByDefault').','.get_lang('Confirm').' <a href="'.$same_page.'">'.get_lang('no').'</a> '.get_lang('or').' <a href="'.$update.'">'.get_lang('yes').'</a>',false);							
+							Display::display_warning_message(get_lang('ThePaymentOption').' '.$amount.' '.get_language_unit($name).' '.get_lang('IsThePaymentOptionByDefault').','.get_lang('Confirm').'<br/><a href="'.$update.'">'.get_lang('yes').'</a> '.get_lang('or').' <a href="'.$same_page.'">'.get_lang('no').'</a> ',false);							
 						} 
 					}
 					
@@ -225,18 +231,18 @@ if (isset ($_GET['delete_option']))
 		}
 		else if (($number[0] != 0) && ($payment_option_default != $option_id))
 		{	
-			Display::display_warning_message(get_lang('ThePaymentOption').' '.$amount.' '.$name.' '.get_lang('IsInUse').', '.get_lang('Confirm').'<a href="'.$same_page.'">'.get_lang('no').'</a> '.get_lang('or').' <a href="'.$delete.'">'.get_lang('yes').'</a>',false);
+			Display::display_warning_message(get_lang('ThePaymentOption').' '.$amount.' '.get_language_unit($name).' '.get_lang('IsInUse').', '.get_lang('Confirm').'<br/><a href="'.$delete.'">'.get_lang('yes').'</a> '.get_lang('or').' <a href="'.$same_page.'">'.get_lang('no').'</a> ',false);
 			//$sql = "UPDATE $payment_options_table SET enabled = '".get_lang('No')."' WHERE option_id = '".mysql_real_escape_string($option_code)."'";
 		    //api_sql_query($sql,__FILE__,__LINE__);
 			//$apears = 1;
 		}
 		else if (($number[0] != 0) && ($payment_option_default == $option_id))
 		{
-			Display::display_warning_message(get_lang('ThePaymentOption').' '.$amount.' '.$name.' '.get_lang('IsInUseAndIsThePaymentOptionByDefault').','.get_lang('Confirm').' <a href="'.$same_page.'">'.get_lang('no').'</a> '.get_lang('or').' <a href="'.$update.'">'.get_lang('yes').'</a>',false);							
+			Display::display_warning_message(get_lang('ThePaymentOption').' '.$amount.' '.get_language_unit($name).' '.get_lang('IsInUseAndIsThePaymentOptionByDefault').','.get_lang('Confirm').'<br/><a href="'.$update.'">'.get_lang('yes').'</a> '.get_lang('or').' <a href="'.$same_page.'">'.get_lang('no').'</a> ',false);							
 		}
 		else if (($number[0] == 0) && ($payment_option_default == $option_id))
 		{
-			Display::display_warning_message(get_lang('ThePaymentOption').' '.$amount.' '.$name.' '.get_lang('IsThePaymentOptionByDefault').','.get_lang('Confirm').' <a href="'.$same_page.'">'.get_lang('no').'</a> '.get_lang('or').' <a href="'.$update.'">'.get_lang('yes').'</a>',false);							
+			Display::display_warning_message(get_lang('ThePaymentOption').' '.$amount.' '.get_language_unit($name).' '.get_lang('IsThePaymentOptionByDefault').','.get_lang('Confirm').'<br/><a href="'.$update.'">'.get_lang('yes').'</a> '.get_lang('or').' <a href="'.$same_page.'">'.get_lang('no').'</a> ',false);							
 		} 
 	}				
 		
