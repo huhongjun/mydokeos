@@ -77,20 +77,20 @@ function api_replace_parameter($upload_path, $buffer, $param_name="src")
  * replaces "forbidden" characters in a filename string
  *
  * @author - Hugues Peeters <peeters@ipm.ucl.ac.be>
- * @author - Renï¿½ Haentjens, UGent (RH)
+ * @author - Renï¿? Haentjens, UGent (RH)
  * @param  - string $filename
  * @param  - string $strict (optional) remove all non-ASCII
  * @return - the cleaned filename
  */
 
 function replace_dangerous_char($filename, $strict = 'loose')
-{//zml edit import ------
-//	$filename = ereg_replace("\.+$", "", substr(strtr(ereg_replace(
-//	    "[^!-~\x80-\xFF]", "_", trim($filename)), '\/:*?"<>|\'',
-//        /* Keep C1 controls for UTF-8 streams */  '-----_---_'), 0, 250));
-//	if ($strict != 'strict') return $filename;
-return $filename;
-//	return ereg_replace("[^!-~]", "x", $filename);
+{
+	$filename = ereg_replace("\.+$", "", substr(strtr(ereg_replace(
+	    "[^!-~\x80-\xFF]", "_", trim($filename)), '\/:*?"<>|\'',
+        /* Keep C1 controls for UTF-8 streams */  '-----_---_'), 0, 250));
+	if ($strict != 'strict') return $filename;
+
+	return ereg_replace("[^!-~]", "x", $filename);
 }
 
 /**
@@ -123,8 +123,8 @@ function replace_accents($string){
  */
 
 function php2phps ($fileName)
-{//zml edit import ------
-	//$fileName = preg_replace('/\.(php.?|phtml.?)(\.){0,1}.*$/i', '.phps', $fileName);
+{
+	$fileName = preg_replace('/\.(php.?|phtml.?)(\.){0,1}.*$/i', '.phps', $fileName);
 	return $fileName;
 }
 
@@ -1924,7 +1924,7 @@ $handle=opendir($path);
 
 // could be usefull in some cases...
 function remove_accents($string){
-	$string = strtr ( $string, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "AAAAAAaaaaaaOOOOOOooooooEEEEeeeeCcIIIIiiiiUUUUuuuuyNn");
+	$string = strtr ( $string, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?", "AAAAAAaaaaaaOOOOOOooooooEEEEeeeeCcIIIIiiiiUUUUuuuuyNn");
 	return $string;
 }
 ?>
