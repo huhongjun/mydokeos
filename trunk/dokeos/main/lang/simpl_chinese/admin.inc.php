@@ -794,7 +794,7 @@ $Component = "组成";
 $SelectStudents = "选择学生";
 $LDAPUsersAdded = "LDAP添加用户";
 $NoUserAdded = "没有添加用户";
-$ImportLDAPUsersIntoCourse = "导入LDAP用户到课程";
+$ImportLDAPUsersIntoCourse1 = "导入LDAP用户到课程";
 $ImportLDAPUsersAndStepIntoSession = "导入LDAP用户和步骤到培训计划";
 $LDAPSynchroImportUsersAndStepsInSessions = "LDAP同步：导入/步骤到培训计划";
 $TabsMyGradebook = "我的成绩册标签";
@@ -821,4 +821,5 @@ $Liste_des_sessions="培训计划列表";
 $cours = "课程";
 $Dates = "日期";
 $actions = "操作";
+$UsersAreSubscibedToCourse = "所选课程已注册到所选用户";
 ?>
