@@ -138,7 +138,7 @@ if(!empty($category) && empty($action))
 	}
 	?>
 	
-	<a href="<?php echo api_get_self(); ?>?category=<?php echo Security::remove_XSS($parent_id); ?>">&lt;&lt; <?php echo get_lang("Back"); if(!empty($parent_id)) echo ' ('.$parent_id.')'; ?></a>
+	<a href="<?php echo api_get_self(); ?>?category=<?php echo Security::remove_XSS($parent_id); ?>">&lt;&lt; <?php echo get_lang("Back"); //if(!empty($parent_id)) echo ' ('.$parent_id.')'; ?></a>
 	
 	<?php
 }
