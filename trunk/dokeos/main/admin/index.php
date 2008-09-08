@@ -114,7 +114,7 @@ $keyword_url = Security::remove_XSS((empty($_GET['keyword'])?'':$_GET['keyword']
 <li><a href="course_import.php"><?php echo get_lang('AddCourse').' CSV'; ?></a></li>
 <!--<li><a href="course_virtual.php"><?php //echo get_lang('AdminManageVirtualCourses') ?></a></li>-->
 <li><a href="course_category.php"><?php echo get_lang("AdminCategories"); ?></a></li>
-<li><a href="subscribe_class2course.php"><?php echo get_lang('AddClassesToACourse'); ?></a></li>
+<!--<li><a href="subscribe_class2course.php"><?php //echo get_lang('AddClassesToACourse'); ?></a></li>-->
 <li><a href="subscribe_user2course.php"><?php echo get_lang('AddUsersToACourse'); ?></a></li>
 <li><a href="course_user_import.php"><?php echo get_lang('AddUsersToACourse').' CSV'; ?></a></li>
 </ul>
