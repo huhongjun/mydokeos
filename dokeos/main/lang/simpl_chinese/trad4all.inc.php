@@ -579,4 +579,5 @@ $SelectAnotherCourse = "选择另一门课程";
 $or = "或";
 $EnabledCreditCourses = "启用收费课程";
 $UnknownPackageFormat = "未知的格式包";
+$CoursesCategories = "课程";
 ?>

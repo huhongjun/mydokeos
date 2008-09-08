@@ -216,7 +216,7 @@ if(count($Categories)>0)
 		<a href="<?php echo api_get_self(); ?>?category=<?php echo Security::remove_XSS($category); ?>&amp;action=delete&amp;id=<?php echo Security::remove_XSS($enreg['code']); ?>" onclick="javascript:if(!confirm('<?php echo addslashes(htmlentities(get_lang('ConfirmYourChoice'),ENT_QUOTES,$charset)); ?>')) return false;"><img src="../img/delete.gif" border="0" title="<?php echo get_lang("DeleteNode"); ?>" alt="<?php echo get_lang("DeleteNode"); ?>" /></a>
 		<a href="<?php echo api_get_self(); ?>?category=<?php echo Security::remove_XSS($category); ?>&amp;action=moveUp&amp;id=<?php echo Security::remove_XSS($enreg['code']); ?>&amp;tree_pos=<?php echo $enreg['tree_pos']; ?>"><img src="../img/up.gif" border="0" title="<?php echo get_lang("UpInSameLevel"); ?>" alt="<?php echo get_lang("UpInSameLevel"); ?>" /></a>
 		<?php echo $enreg['name']; ?>
-		(<?php echo $enreg['children_count']; ?> <?php echo get_lang("Categories"); ?> - <?php echo $enreg['nbr_courses']; ?> <?php echo get_lang("Courses"); ?>)
+		(<?php echo $enreg['children_count']; ?> <?php echo get_lang("Categories"); ?> - <?php echo $enreg['nbr_courses']; ?> <?php echo get_lang("CoursesCategories"); ?>)
 	  </li>
 	<?php
 	}
