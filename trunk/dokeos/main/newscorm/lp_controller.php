@@ -671,7 +671,7 @@ switch($_REQUEST['action'])
 		if(!$lp_found){ error_log('New LP - No learnpath given for next',0); require('lp_list.php'); }
 		else{
 			$_SESSION['oLP']->next();
-			require('lp_view_content.php');//edit by xiaoping
+			require('lp_view.php');
 		}
 		break;
 	case 'previous':
@@ -679,7 +679,7 @@ switch($_REQUEST['action'])
 		if(!$lp_found){ error_log('New LP - No learnpath given for previous',0); require('lp_list.php'); }
 		else{
 			$_SESSION['oLP']->previous();
-			require('lp_view_content.php');//edit by xiaoping
+			require('lp_view.php');
 		}
 		break;
 	case 'content':
