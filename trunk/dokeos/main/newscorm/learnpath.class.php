@@ -5866,7 +5866,30 @@ class learnpath {
 			$renderer->setElementTemplate('<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{label}<br />{element}','content_lp');
 			$form->addElement('html_editor','content_lp','');
 			//$form->addElement('html_editor','content_lp','');
-			$defaults["content_lp"]=file_get_contents($item_path);
+			$content=file_get_contents($item_path);
+			
+			//把html文件中的图片相对路径改为webroot路径 by xiaoping			
+			$dir=dirname($item_path).'/';
+			$regExp_src="/('|\")[^'\"]+\.(jpg|gif|png|jpeg|bmp)\s*('|\")/i";
+			$regExp_img="/<img\s+.+>/i";
+			$regExp_done="/^('|\")\//";
+			$str=preg_split($regExp_img,$content);			
+			preg_match_all($regExp_img,$content,$matches);							
+			for($i=0;$i<count($matches[0]);$i++)
+			{				
+				preg_match($regExp_src,$matches[0][$i],$match);	
+				if(preg_match($regExp_done,$match[0]))
+				{
+					$str[$i].=$matches[0][$i];
+				}
+				else
+				{
+					$str[$i].=preg_replace($regExp_src,substr($match[0],-1,1).$dir.substr($match[0],1),$matches[0][$i]);
+				}				
+			}
+			$content=join('',$str);	
+								
+			$defaults["content_lp"]=$content;
 			//echo '<br/>锟斤拷锟斤拷:'.$defaults["content_lp"];
 		}
 		//echo '<br/>锟斤拷锟斤拷:'.$defaults['content_lp'];
@@ -5950,7 +5973,7 @@ class learnpath {
 			$result = api_sql_query($sql_doc, __FILE__, __LINE__);
 			$row = Database::fetch_array($result);
 
-			$explode = explode('.', $row['title']);
+			$explode = explode('.',$row['title']);
 
 			if(count($explode)>1){
 				for($i = 0; $i < count($explode) - 1; $i++)
@@ -5961,7 +5984,7 @@ class learnpath {
 			}
 
 			$item_title = str_replace('_', ' ', $item_title);
-
+			//echo $row['title'].':'.$item_title;
 			if(empty($item_title))
 			{
 				$path_parts = pathinfo($row['path']);
@@ -6046,9 +6069,17 @@ class learnpath {
 		require_once (api_get_path(LIBRARY_PATH).'formvalidator/FormValidator.class.php');
 
 		$form = new FormValidator('form','POST',api_get_self()."?".$_SERVER["QUERY_STRING"]);
-		$defaults["title"]=mb_convert_encoding($item_title,$charset,$this->encoding);
-		$defaults["description"]=mb_convert_encoding($item_description,$charset,$this->encoding);
-
+		//edit by xiaoping
+		if($action=="add")
+		{
+			$defaults["title"]=$item_title;
+			$defaults["description"]=$item_description;
+		}
+		else
+		{
+			$defaults["title"]=mb_convert_encoding($item_title,$charset,$this->encoding);
+			$defaults["description"]=mb_convert_encoding($item_description,$charset,$this->encoding);
+		}		
 
 		$form->addElement('html',$return);
 
