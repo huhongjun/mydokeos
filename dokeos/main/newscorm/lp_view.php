@@ -86,7 +86,7 @@ switch($lp_type)
 		$htmlHeadXtra[] = '<script src="scorm_api.php" type="text/javascript" language="javascript"></script>';
     	$prereq_check = $_SESSION['oLP']->prerequisites_match($lp_item_id);
 		if($prereq_check === true){
-			$src = urldecode($_SESSION['oLP']->get_link('http',$lp_item_id));//edit by xiaoping
+			$src = $_SESSION['oLP']->get_link('http',$lp_item_id);
 			$_SESSION['oLP']->start_current_item(); //starts time counter manually if asset
 		}else{
 			$src = 'blank.php?error=prerequisites';
