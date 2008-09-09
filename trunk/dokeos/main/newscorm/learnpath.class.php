@@ -2457,7 +2457,7 @@ class learnpath {
 		if(api_is_allowed_to_edit())
 		{
 			$html.="<p>&nbsp;&nbsp;&nbsp;&nbsp;<a  target='_parent' href='lp_controller.php?".api_get_cidreq()."&action=build&lp_id=".$this->lp_id."' style= target='_parent'>".get_lang("Build")."</a>&nbsp;&#124;&nbsp;<a href='lp_controller.php?".api_get_cidreq()."&action=admin_view&lp_id=".$this->lp_id."' target='_parent'>".get_lang("BasicOverview")."</a>&nbsp;&#124;&nbsp;".get_lang("Display")."</p>";
-			//unset($mych);ä½?$mych?????½æ?°å???????? by xiaoping
+			//unset($mych);ï¿½?$mych?????ï¿½ï¿½?ï¿½ï¿½???????? by xiaoping
 		}
 		//		" onchange=\"javascript:document.getElementById('toc_$parent').focus();\">\n";
 		require_once('resourcelinker.inc.php');
@@ -2515,7 +2515,7 @@ class learnpath {
 				$html .= '<div class="'.$style_item.'" style="padding-left: '.($item['level']*2).'em; padding-right:'.($item['level']*1.5).'em"             title="'.$item['description'].'" >';
 			}
 
-			$title=mb_convert_encoding($item['title'],$mych,$this->encoding);		//ç¼????è½???? by xiaoping
+			$title=mb_convert_encoding($item['title'],$mych,$this->encoding);		//ï¿½????ï¿½???? by xiaoping
 
 			if(empty($title))
 			{
@@ -5867,9 +5867,9 @@ class learnpath {
 			$form->addElement('html_editor','content_lp','');
 			//$form->addElement('html_editor','content_lp','');
 			$defaults["content_lp"]=file_get_contents($item_path);
-			//echo '<br/>ÄÚÈÝ:'.$defaults["content_lp"];
+			//echo '<br/>ï¿½ï¿½ï¿½ï¿½:'.$defaults["content_lp"];
 		}
-		//echo '<br/>ÄÚÈÝ:'.$defaults['content_lp'];
+		//echo '<br/>ï¿½ï¿½ï¿½ï¿½:'.$defaults['content_lp'];
 		$form->addElement('hidden', 'type', 'dokeos_'.$item_type);
 		$form->addElement('hidden', 'post_time', time());
 		$form->setDefaults($defaults);
@@ -8325,7 +8325,7 @@ EOD;
 		//Send file to client
 		//$name = 'scorm_export_'.$this->lp_id.'.zip';
 		require_once(api_get_path(LIBRARY_PATH).'fileUpload.lib.php');
-		$name = preg_replace('([^a-zA-Z0-9_\.])','-',html_entity_decode($this->get_name(),ENT_QUOTES)).'.zip';
+		$name = htmlspecialchars($this->get_name(),ENT_QUOTES).'.zip';
 		DocumentManager::file_send_for_download($temp_zip_file,true,$name);
 }
 /**
