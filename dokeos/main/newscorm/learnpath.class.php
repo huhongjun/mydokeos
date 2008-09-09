@@ -1590,7 +1590,7 @@ class learnpath {
 		$mycurrentitemid = $this->get_current_item_id();
 
 		if($this->mode == 'fullscreen'){
-			//edit by xiaoping
+			
 			$navbar = '<table cellpadding="0" cellspacing="0" align="left">'."\n".
 
 			'  <tr> '."\n" .
@@ -1601,9 +1601,9 @@ class learnpath {
 
 			'        <a href="lp_controller.php?action=stats" onclick="window.parent.API.save_asset();return true;" target="content_name_blank" title="stats" id="stats_link"><img border="0" src="../img/lp_stats.gif" title="'.get_lang('ScormMystatus').'"></a>&nbsp;'."\n" .
 
-			'        <a href="lp_controller.php?'.api_get_cidreq().'&action=previous&lp_id='.$this->get_id().'&item_id='.$mycurrentitemid.'" title="previous" target="content_name"><img border="0" src="../img/lp_leftarrow.gif" title="'.get_lang('ScormPrevious').'"></a>&nbsp;'."\n" .
+			'        <a href="" onclick="dokeos_xajax_handler.switch_item('.$mycurrentitemid.',\'previous\');return false;" title="previous"><img border="0" src="../img/lp_leftarrow.gif" title="'.get_lang('ScormPrevious').'"></a>&nbsp;'."\n" .
 
-			'        <a href="lp_controller.php?'.api_get_cidreq().'&action=next&lp_id='.$this->get_id().'&item_id='.$mycurrentitemid.'" title="next" target="content_name"><img border="0" src="../img/lp_rightarrow.gif" title="'.get_lang('ScormNext').'"></a>&nbsp;'."\n" .
+    		'        <a href="" onclick="dokeos_xajax_handler.switch_item('.$mycurrentitemid.',\'next\');return false;" title="next"  ><img border="0" src="../img/lp_rightarrow.gif" title="'.get_lang('ScormNext').'"></a>&nbsp;'."\n" .
 
 			'        <a href="lp_controller.php?action=mode&mode=embedded" target="_top" title="embedded mode"><img border="0" src="../img/view_choose.gif" title="'.get_lang('ScormExitFullScreen').'"></a>'."\n" .
 
@@ -1620,7 +1620,7 @@ class learnpath {
 
 
 		}else{
-			//edit by xiaoping
+			
 			$navbar = '<table cellpadding="0" cellspacing="0" align="left">'."\n".
 
 			'  <tr> '."\n" .
@@ -1631,9 +1631,9 @@ class learnpath {
 
 			'        <a href="lp_controller.php?action=stats" onclick="window.parent.API.save_asset();return true;" target="content_name" title="stats" id="stats_link"><img border="0" src="../img/lp_stats.gif" title="'.get_lang('ScormMystatus').'"></a>&nbsp;'."\n" .
 
-			'        <a href="lp_controller.php?'.api_get_cidreq().'&action=previous&lp_id='.$this->get_id().'&item_id='.$mycurrentitemid.'" title="previous" target="content_name"><img border="0" src="../img/lp_leftarrow.gif" title="'.get_lang('ScormPrevious').'"></a>&nbsp;'."\n" .
+		    '        <a href="" onclick="dokeos_xajax_handler.switch_item('.$mycurrentitemid.',\'previous\');return false;" title="previous"><img border="0" src="../img/lp_leftarrow.gif" title="'.get_lang('ScormPrevious').'"></a>&nbsp;'."\n" .
 
-			'        <a href="lp_controller.php?'.api_get_cidreq().'&action=next&lp_id='.$this->get_id().'&item_id='.$mycurrentitemid.'" title="next" target="content_name"><img border="0" src="../img/lp_rightarrow.gif" title="'.get_lang('ScormNext').'"></a>&nbsp;'."\n" .
+    	    '        <a href="" onclick="dokeos_xajax_handler.switch_item('.$mycurrentitemid.',\'next\');return false;" title="next"  ><img border="0" src="../img/lp_rightarrow.gif" title="'.get_lang('ScormNext').'"></a>&nbsp;'."\n" .
 
 			'        <a href="lp_controller.php?action=mode&mode=fullscreen" target="_top" title="fullscreen"><img border="0" src="../img/view_fullscreen.gif" width="18" height="18" title="'.get_lang('ScormFullScreen').'"></a>'."\n" .
 
@@ -2457,7 +2457,7 @@ class learnpath {
 		if(api_is_allowed_to_edit())
 		{
 			$html.="<p>&nbsp;&nbsp;&nbsp;&nbsp;<a  target='_parent' href='lp_controller.php?".api_get_cidreq()."&action=build&lp_id=".$this->lp_id."' style= target='_parent'>".get_lang("Build")."</a>&nbsp;&#124;&nbsp;<a href='lp_controller.php?".api_get_cidreq()."&action=admin_view&lp_id=".$this->lp_id."' target='_parent'>".get_lang("BasicOverview")."</a>&nbsp;&#124;&nbsp;".get_lang("Display")."</p>";
-			//unset($mych);ï¿½?$mych?????ï¿½ï¿½?ï¿½ï¿½???????? by xiaoping
+			//unset($mych);ï¿??$mych?????ï¿½ï¿½?ï¿½ï¿½???????? by xiaoping
 		}
 		//		" onchange=\"javascript:document.getElementById('toc_$parent').focus();\">\n";
 		require_once('resourcelinker.inc.php');
@@ -2515,7 +2515,7 @@ class learnpath {
 				$html .= '<div class="'.$style_item.'" style="padding-left: '.($item['level']*2).'em; padding-right:'.($item['level']*1.5).'em"             title="'.$item['description'].'" >';
 			}
 
-			$title=mb_convert_encoding($item['title'],$mych,$this->encoding);		//ï¿½????ï¿½???? by xiaoping
+			$title=mb_convert_encoding($item['title'],$mych,$this->encoding);		//ï¿?????ï¿????? by xiaoping
 
 			if(empty($title))
 			{
@@ -2529,14 +2529,14 @@ class learnpath {
 				//$html .= "<a href='lp_controller.php?".api_get_cidreq()."&action=content&lp_id=".$this->get_id()."&item_id=".$item['id']."' target='lp_content_frame_name'>".$title."</a>" ;
 				$url = $this->get_link('http',$item['id']);
 				//urldecode() edit by xiaoping
-				$html .= '<a href="'.urldecode($url).'" target="content_name" onclick="top.load_item('.$item['id'].',\''.urldecode($url).'\');">'.$title.'</a>' ;
+				//$html .= '<a href="'.urldecode($url).'" target="content_name" onclick="top.load_item('.$item['id'].',\''.urldecode($url).'\');">'.$title.'</a>' ;
 				//$html .= '<a href="" onclick="top.load_item('.$item['id'].',\''.$url.'\');return false;">'.$title.'</a>' ;
 
 				//<img align="absbottom" width="13" height="13" src="../img/lp_document.png">&nbsp;
-				//$html .= '<a href="" onclick="dokeos_xajax_handler.switch_item(' .
-				//$mycurrentitemid.',' .
-				//$item['id'].');' .
-				//		'return false;" >'.stripslashes($title).'</a>' ;
+				$html .= '<a href="" onclick="dokeos_xajax_handler.switch_item(' .
+						$mycurrentitemid.',' .
+						$item['id'].');' .
+						'return false;" >'.stripslashes($title).'</a>' ;
 			}
 			elseif($item['type']=='dokeos_module' || $item['type']=='dokeos_chapter')
 			{
