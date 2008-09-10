@@ -7055,6 +7055,7 @@ class learnpath {
 	 */
 	function display_item_small_form($item_type, $title = '', $data)
 	{
+		global $charset;
 		$return .= '<div class="lp_small_form">' . "\n";
 
 		$return .= '<p class="lp_title">' . $title . '</p>';
@@ -7065,15 +7066,15 @@ class learnpath {
 
 		$return .= "\t\t" . '<tr>' . "\n";
 
-		$return .= "\t\t\t" . '<td class="label"><label for="idTitle">Title&nbsp;:</label></td>' . "\n";
-		$return .= "\t\t\t" . '<td class="input"><input class="small_form" id="idTitle" name="title" type="text" value="' . $data['title'] . '" /></td>' . "\n";
+		$return .= "\t\t\t" . '<td class="label"><label for="idTitle">'.get_lang("Title").'&nbsp;:</label></td>' . "\n";
+		$return .= "\t\t\t" . '<td class="input"><input class="small_form" id="idTitle" name="title" type="text" value="' . mb_convert_encoding($data['title'],$charset,$this->encoding) . '" /></td>' . "\n";//encoding by xiaoping
 
 		$return .= "\t\t" . '</tr>' . "\n";
 
 		$return .= "\t\t" . '<tr>' . "\n";
 
-		$return .= "\t\t\t" . '<td class="label"><label for="idDescription">Description&nbsp;:</label></td>' . "\n";
-		$return .= "\t\t\t" . '<td class="input"><textarea class="small_form" id="idDescription" name="description" rows="4">' . $data['description'] . '</textarea></td>' . "\n";
+		$return .= "\t\t\t" . '<td class="label"><label for="idDescription">'.get_lang("Description").'&nbsp;:</label></td>' . "\n";
+		$return .= "\t\t\t" . '<td class="input"><textarea class="small_form" id="idDescription" name="description" rows="4">' . mb_convert_encoding($data['description'],$charset,$this->encoding)  . '</textarea></td>' . "\n";//encoding by xiaoping
 
 		$return .= "\t\t" . '</tr>' . "\n";
 
