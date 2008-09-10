@@ -7616,13 +7616,13 @@ class learnpath {
 
 		//The title is then decoded twice when extracting (see scorm::parse_manifest)
 		global $charset;
-		$org_title = $xmldoc->createElement('title',htmlspecialchars(htmlspecialchars($this->get_name(),ENT_QUOTES,$charset)));
+		$org_title = $xmldoc->createElement('title',htmlspecialchars($this->get_name(),ENT_QUOTES,$charset));
 
 		//The title is then decoded twice when extracting (see scorm::parse_manifest)
 
 		global $charset;
 		// zml edit encode chinese
-		$org_title = $xmldoc->createElement('title',htmlspecialchars(htmlspecialchars($this->get_name(),ENT_QUOTES,$charset)));
+		$org_title = $xmldoc->createElement('title',htmlspecialchars($this->get_name(),ENT_QUOTES,$charset));
 
 		$organization->appendChild($org_title);
 
