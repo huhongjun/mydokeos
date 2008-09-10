@@ -197,15 +197,23 @@ $Incorrect='请输入正确的值';
 // zml add
 $Buy = "购买";
 $day = "天";
-$week = "星期";
+$week = "周";
 $month = "月";
 $year = "年";
 $EditPaymentOptions = "修改支付选项";
 $TestPaymentOptionNotAllowed = "支付选项更新错误";
-$ThePaymentOption = "支付选项";
+$ThePaymentOption = "这个支付选项";
 $IsInUse = "是否正在使用";
 $no ="否";
 $yes ="是";
-$ManageCourseCreditsAccessDenied = "管理课程价格拒绝访问";
+$ManageCourseCreditsAccessDenied = "拒绝访问";
 $NoMorePaymentOptionsAvailable = "没有其他可供选择的付款方式";
+$AddDefaultPaymentOption='添加缺省支付选项';
+$IsInUseAndIsThePaymentOptionByDefault='正在被使用并且是缺省设置';
+$Confirm='你确定要执行这个操作吗?';
+$or='或';
+$SetUpDefaultPaymentOption='设置缺省支付选项';
+$here='点这里';
+$Creditsmustbenumeric='输入值必须为数字';
+$Creditsmustbepositive='输入值必须为正数';
 ?>
