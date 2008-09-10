@@ -3,7 +3,7 @@
 ==============================================================================
 	Dokeos - elearning and course management software
 
-	Copyright (c) 2007 E.U.I. Universidad Polit�cnica de Madrid (Spain)
+	Copyright (c) 2007 E.U.I. Universidad Polit�?cnica de Madrid (Spain)
 	Copyright (c) 2004 Dokeos S.A.
 	Copyright (c) 2003 University of Ghent (UGent)
 	Copyright (c) 2001 Universite catholique de Louvain (UCL)
@@ -337,7 +337,7 @@ if (isset ($_POST['action']))
 				{
 					$error = cs_delete_course_payment_option($course_code);
 				}
-				Display :: display_normal_message (mb_convert_encoding('你已把 '.count($course_codes).' 门课程设为免费',$charset,'utf-8'));//edit by xiaoping
+				Display :: display_normal_message (mb_convert_encoding(get_lang('YouHaveDone').count($course_codes).get_lang('LetCoursesFree'),$charset,'utf-8'));//edit by xiaoping
 			}
 			break;
 			
