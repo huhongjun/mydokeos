@@ -59,4 +59,11 @@ $save_setting = get_setting("show_navigation_menu");
 global $_setting;
 $_setting['show_navigation_menu'] = false;
 if($debug>0){error_log('New LP - In lp_content.php - Loading '.$src,0);}
-header("Location: ".urldecode($src));
+//½â¾öÒ³Ãæ403´íÎó by xiaoping
+//header("Location: ".urldecode($src));
+echo ''.
+'<script type="text/javascript">
+ document.location.href="'.urldecode($src).'";
+</script>
+';
+?>
