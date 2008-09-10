@@ -70,7 +70,7 @@ class UserManager
 	  */
 	function create_user($firstName, $lastName, $status, $email, $loginName, $password, $official_code = '', $language='', $phone = '', $picture_uri = '', $auth_source = PLATFORM_AUTH_SOURCE, $expiration_date = '0000-00-00 00:00:00', $active = 1, $hr_dept_id=0, $extra=null)
 	{
-		global $_user, $userPasswordCrypted,$charset;
+		global $_user, $userPasswordCrypted;
 		
 		// database table definition
 		$table_user = Database::get_main_table(TABLE_MAIN_USER);
@@ -93,10 +93,8 @@ class UserManager
 		if (! UserManager::is_username_available($loginName))
 			return api_set_failure('login-pass already taken');
 		//$password = "PLACEHOLDER";
-		$password = ($userPasswordCrypted ? md5($password) : $password);
-		//echo $charset;
-		//$lastName=mb_convert_encoding($lastName,$charset,'utf-8');
-		//$firstName=mb_convert_encoding($firstName,$charset,'utf-8');
+		$password = ($userPasswordCrypted ? md5($password) : $password);		
+		
 		$sql = "INSERT INTO $table_user
 					                SET lastname = '".Database::escape_string($lastName)."',
 					                firstname = '".Database::escape_string($firstName)."',
