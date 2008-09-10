@@ -145,16 +145,23 @@ function complete_missing_data($user)
 /**
  * Save the imported data
  */
-function save_data($users)
+function save_data($users,$file_type)
 {
 	$user_table = Database :: get_main_table(TABLE_MAIN_USER);
 	$sendMail = $_POST['sendMail'] ? 1 : 0;
+	global $charset;
 	foreach ($users as $index => $user)
 	{
 		$user = complete_missing_data($user);
 		
 		$user['Status'] = api_status_key($user['Status']);
-		//$user['FirstName']=mb_convert_encoding($user['FirstName'],'iso-8859-1','utf-8');
+		//encoding by xiaoping
+		if($file_type=='xml')
+		{
+			$user['LastName']=mb_convert_encoding( $user['LastName'],$charset,'utf-8');
+			$user['FirstName']=mb_convert_encoding($user['FirstName'],$charset,'utf-8');
+		}	
+			
 		$user_id = UserManager :: create_user($user['FirstName'], $user['LastName'], $user['Status'], $user['Email'], $user['UserName'], $user['Password'], $user['OfficialCode'], api_get_setting('PlatformLanguage'), $user['PhoneNumber'], '', $user['AuthSource']);
 		foreach ($user['Courses'] as $index => $course)
 		{
@@ -306,7 +313,7 @@ if ($_POST['formSent'] AND $_FILES['import_file']['size'] !== 0)
 	$errors = validate_data($users);
 	if (count($errors) == 0)
 	{
-		save_data($users);
+		save_data($users,$file_type);
 		header('Location: user_list.php?action=show_message&message='.urlencode(get_lang('FileImported')));
 		exit ();
 	}
