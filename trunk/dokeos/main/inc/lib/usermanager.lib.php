@@ -95,8 +95,8 @@ class UserManager
 		//$password = "PLACEHOLDER";
 		$password = ($userPasswordCrypted ? md5($password) : $password);
 		//echo $charset;
-		$lastName=mb_convert_encoding($lastName,$charset,'utf-8');
-		$firstName=mb_convert_encoding($firstName,$charset,'utf-8');
+		//$lastName=mb_convert_encoding($lastName,$charset,'utf-8');
+		//$firstName=mb_convert_encoding($firstName,$charset,'utf-8');
 		$sql = "INSERT INTO $table_user
 					                SET lastname = '".Database::escape_string($lastName)."',
 					                firstname = '".Database::escape_string($firstName)."',
