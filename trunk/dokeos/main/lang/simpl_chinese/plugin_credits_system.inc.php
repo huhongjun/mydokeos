@@ -216,4 +216,6 @@ $SetUpDefaultPaymentOption='设置缺省支付选项';
 $here='点这里';
 $Creditsmustbenumeric='输入值必须为数字';
 $Creditsmustbepositive='输入值必须为正数';
+$YouHaveDone='你已把';
+$LetCoursesFree='门课程设为免费';
 ?>
