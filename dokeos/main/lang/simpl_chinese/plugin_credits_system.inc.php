@@ -206,4 +206,5 @@ $ThePaymentOption = "支付选项";
 $IsInUse = "是否正在使用";
 $no ="否";
 $yes ="是";
+$ManageCourseCreditsAccessDenied = "管理课程价格拒绝访问";
 ?>
