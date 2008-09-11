@@ -4,8 +4,8 @@
 	Dokeos - elearning and course management software
 	
 	Copyright (c) 2004-2006 Dokeos S.A.
-	Copyright (c) E.U.I. Universidad Politï¿½cnica de Madrid (Spain)
-	Copyright (c) Borja Nuï¿½ez Salinas - Programmer (bns@alumnos.upm.es)
+	Copyright (c) E.U.I. Universidad Politï¿?cnica de Madrid (Spain)
+	Copyright (c) Borja Nuï¿?ez Salinas - Programmer (bns@alumnos.upm.es)
 	
 	For a full list of contributors, see "credits.txt".
 	The full license can be read in "license.txt".
@@ -109,13 +109,13 @@ if(!$form->validate())
 		{
 			$option_text = get_lang('Testcourse')." ";
 			$option_text .= $values['amount'].' '.$values['name'];
-			$option_text .= ($values['amount'] > 1)?'s ':' ';
+			//$option_text .= ($values['amount'] > 1)?'s ':' '; by xiaoping
 			$option_text .= " ".get_lang('forfree').".";
 		}
 		else
 		{
 			$option_text = $values['amount'].' ';
-			$option_text .= ($values['amount'] > 1)?get_lang($values['name'].'s'):get_lang($values['name']);
+			$option_text .= $values['name'];//$option_text .= ($values['amount'] > 1)?get_lang($values['name'].'s'):get_lang($values['name']);by xiaoping
 			$option_text .= ' = ';
 			$option_text .= ($values['credits'] - floor($values['credits']) == 0)?floor($values['credits']):$values['credits'];
 			$option_text .= ' ';
@@ -165,7 +165,7 @@ if ($options != count($option))
 		} 
 		Display::display_header($tool_name);
 		
-		Display::display_warning_message(get_lang('NoCredits').'. '.get_lang('Please').', <a href="'.$back_page.'">'.get_lang('SelectAnotherCourse').'</a> '.get_lang('or').' <a href="javascript:document.buy.submit();">'.get_lang('BuyCredits').'</a>',false);
+		Display::display_warning_message(get_lang('NoCredits').'. '.get_lang('Please').' <a href="'.$back_page.'">'.get_lang('SelectAnotherCourse').'</a> '.get_lang('or').' <a href="javascript:document.buy.submit();">'.get_lang('BuyCredits').'</a>',false);
 				
 		//show course info and payment options.
 		echo'<br/><br/><h3>'.get_lang('CourseInfo').':</h3>';
@@ -246,7 +246,7 @@ if ($form->validate())
 			$to_buy_form = new FormValidator('buy','post',api_get_path(WEB_PLUGIN_PATH).'/credits_system/buy_credits.php?category='.$_GET['category']);
 			$to_buy_form->addElement('hidden','go_back',$current_page);
 			$to_buy_form->display();
-			Display::display_warning_message(get_lang('NoCredits').'. '.get_lang('Please').', <a href="'.$back_page.'">'.get_lang('SelectAnotherCourse').'</a> '.get_lang('or').' <a href="javascript:document.buy.submit();">'.get_lang('BuyCredits').'</a>',false);
+			Display::display_warning_message(get_lang('NoCredits').'. '.get_lang('Please').' <a href="'.$back_page.'">'.get_lang('SelectAnotherCourse').'</a> '.get_lang('or').' <a href="javascript:document.buy.submit();">'.get_lang('BuyCredits').'</a>',false);
 			Display::display_footer();
 			exit;
 		}
