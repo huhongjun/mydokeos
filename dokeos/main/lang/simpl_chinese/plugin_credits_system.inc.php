@@ -218,4 +218,17 @@ $Creditsmustbenumeric='输入值必须为数字';
 $Creditsmustbepositive='输入值必须为正数';
 $YouHaveDone='你已把';
 $LetCoursesFree='门课程设为免费';
+$CreditsUsers = "学习币用户";
+$January  = "1月";
+$February  = "2月";
+$March  = "3月";
+$April  = "4月";
+$May  = "5月";
+$June = "6月";
+$July  = "7月";
+$Aguest = "8月";
+$September  = "9月";
+$October  = "10月";
+$November  = "11月";
+$December  = "12月";
 ?>
