@@ -65,7 +65,7 @@ if(api_get_setting('stylesheets')<>'')
 </head>
 <body>
 <div style="margin:10px;">
-<div style="text-align:right;"><a href="javascript:window.close();"><?php echo get_lang('Close'); ?></a></div>
+<!--<div style="text-align:right;"><a href="javascript:window.close();"><?//php echo get_lang('Close'); ?></a></div>-->
 <h4>
 <?php 
 echo get_lang('Faq'); 

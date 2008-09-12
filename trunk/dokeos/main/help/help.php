@@ -113,8 +113,8 @@ if(api_get_setting('stylesheets')<>'')
 </head>
 <body>
 <div style="margin:10px;">
-<div style="text-align:right;"><a href="javascript:window.close();"><?php echo get_lang('Close'); ?></a></div>
-<a href="faq.php"><?php echo get_lang('AccessToFaq') ?></a>
+<!--<div style="text-align:right;"><a href="javascript:window.close();"><?//php echo get_lang('Close'); ?></a></div>
+<a href="faq.php"><?//php echo get_lang('AccessToFaq') ?></a>-->
 <h4>
 <?php echo get_lang('H'.$helpName); ?>
 </h4>

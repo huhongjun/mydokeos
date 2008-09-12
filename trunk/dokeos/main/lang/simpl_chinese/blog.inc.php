@@ -61,7 +61,7 @@ $ExecuteThisTask = "执行这个任务";
 $WrittenBy = "写";
 $InBlog = "在博客里";
 $ViewPostsOfThisDay = "浏览这天的邮件";
-$PostsOf = "邮件的";
+$PostsOf = "邮件";
 $NoArticleMatches = "没有文章被发现。检查词的拼写或试着用另一个进行查询。";
 $langTask1 = "任务1";
 $langTask2 = "任务2";
@@ -82,4 +82,5 @@ $EditBlog = "编辑标题和副题";
 $DeleteBlog = "删除这个博客";
 $NoTasks = "无任务";
 $Shared = "共享";
+$Go='开始';
 ?>

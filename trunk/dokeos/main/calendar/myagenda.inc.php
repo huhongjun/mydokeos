@@ -357,30 +357,15 @@ function show_new_personal_item_form($id = "")
 	echo "\t<tr class=\"subtitle\">\n\t\t<td>\n";
 	echo "<!-- date: 1 -> 31 -->\n";
 	echo "\t\t".get_lang("Date").": \n";
-	// ********** The form containing the days (0->31) ********** \\
-	echo "<select name=\"frm_day\">\n";
-	// small loop for filling all the dates
-	// 2do: the available dates should be those of the selected month => february is from 1 to 28 (or 29) and not to 31
-	for ($i = 1; $i <= 31; $i ++)
+	// ********** The form containing the years ********** \\
+	echo "<!-- year -->\n";
+	echo "<select name=\"frm_year\">";
+	echo "<option value=\"". ($year -1)."\">". ($year -1)."</option>\n";
+	echo "<option value=\"".$year."\" selected>".$year."</option>\n";
+	for ($i = 1; $i <= 5; $i ++)
 	{
-		// values have to have double digits
-		if ($i <= 9)
-		{
-			$value = "0".$i;
-		}
-		else
-		{
-			$value = $i;
-		}
-		// the current day is indicated with [] around the date
-		if ($value == $day)
-		{
-			echo "\t\t\t\t <option value=\"".$value."\" selected>".$i."</option>\n";
-		}
-		else
-		{
-			echo "\t\t\t\t <option value=\"".$value."\">".$i."</option>\n";
-		}
+		$value = $year + $i;
+		echo "\t<option value=\"".$value."\">".$value."</option>\n";
 	}
 	echo "</select>\n\n";
 	// ********** The form containing the months (jan->dec) ********** \\
@@ -408,17 +393,32 @@ function show_new_personal_item_form($id = "")
 		}
 	}
 	echo "</select>\n\n";
-	// ********** The form containing the years ********** \\
-	echo "<!-- year -->\n";
-	echo "<select name=\"frm_year\">";
-	echo "<option value=\"". ($year -1)."\">". ($year -1)."</option>\n";
-	echo "<option value=\"".$year."\" selected>".$year."</option>\n";
-	for ($i = 1; $i <= 5; $i ++)
+	// ********** The form containing the days (0->31) ********** \\
+	echo "<select name=\"frm_day\">\n";
+	// small loop for filling all the dates
+	// 2do: the available dates should be those of the selected month => february is from 1 to 28 (or 29) and not to 31
+	for ($i = 1; $i <= 31; $i ++)
 	{
-		$value = $year + $i;
-		echo "\t<option value=\"".$value."\">".$value."</option>\n";
+		// values have to have double digits
+		if ($i <= 9)
+		{
+			$value = "0".$i;
+		}
+		else
+		{
+			$value = $i;
+		}
+		// the current day is indicated with [] around the date
+		if ($value == $day)
+		{
+			echo "\t\t\t\t <option value=\"".$value."\" selected>".$i."</option>\n";
+		}
+		else
+		{
+			echo "\t\t\t\t <option value=\"".$value."\">".$i."</option>\n";
+		}
 	}
-	echo "</select>";
+	echo "</select>\n\n";	
 	echo "<a title=\"Kalender\" href=\"javascript:openCalendar('newedit_form', 'frm_')\"><img src=\"../img/calendar_select.gif\" border=\"0\" valign=\"absmiddle\"/></a>";
 	echo "</td><td width=\"50%\">";
 	// ********** The form containing the hours  (00->23) ********** \\
@@ -669,13 +669,13 @@ function show_personal_agenda()
 			/*--------------------------------------------------
 					display: the month bar
 			  --------------------------------------------------*/
-			if ($month_bar != date("m", strtotime($myrow["date"])).date("Y", strtotime($myrow["date"])))
+			if ($month_bar != date("Y", strtotime($myrow["date"])).date("m", strtotime($myrow["date"])))
 			{
-				$month_bar = date("m", strtotime($myrow["date"])).date("Y", strtotime($myrow["date"]));
-				echo "<tr><td class=\"title\" colspan=\"2\" class=\"month\" valign=\"top\">".$MonthsLong[date("n", strtotime($myrow["date"])) - 1]." ".date("Y", strtotime($myrow["date"]))."</td></tr>\n";
+				$month_bar = date("Y", strtotime($myrow["date"])).date("m", strtotime($myrow["date"]));
+				echo "<tr><td class=\"title\" colspan=\"2\" class=\"month\" valign=\"top\">".date("Y", strtotime($myrow["date"]))." ".$MonthsLong[date("n", strtotime($myrow["date"])) - 1]."</td></tr>\n";
 			}
 			// highlight: if a date in the small calendar is clicked we highlight the relevant items
-			$db_date = (int) date("d", strtotime($myrow["date"])).date("n", strtotime($myrow["date"])).date("Y", strtotime($myrow["date"]));
+			$db_date = (int) date("Y", strtotime($myrow["date"])).date("n", strtotime($myrow["date"])).date("d", strtotime($myrow["date"]));
 			if ($_GET["day"].$_GET["month"].$_GET["year"] <> $db_date)
 			{
 				$style = "data";
@@ -693,7 +693,7 @@ function show_personal_agenda()
 			echo '<td class="'.$style.'">';
 			// adding an internal anchor
 			echo "<a name=\"".$myrow["id"]."\"></a>";
-			echo date("d", strtotime($myrow["date"]))." ".$MonthsLong[date("n", strtotime($myrow["date"])) - 1]." ".date("Y", strtotime($myrow["date"]))."&nbsp;";
+			echo date("Y", strtotime($myrow["date"]))." ".$MonthsLong[date("n", strtotime($myrow["date"])) - 1]."&nbsp;".date("d", strtotime($myrow["date"]))."&nbsp;";
 			echo ucfirst(strftime(get_lang("timeNoSecFormat"), strtotime($myrow["date"])));
 			echo "</td>";
 			echo '<td class="'.$style.'">';

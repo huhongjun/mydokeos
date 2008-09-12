@@ -30,14 +30,14 @@
  * @author Olivier Cauberghe <olivier.cauberghe@UGent.be>, Ghent University
  */
 function get_email_headers()
-{
+{//edit by xiaoping
 	global $charset;
-	$emailHeaders = "From: \"".addslashes(get_setting('administratorSurname')." ".get_setting('administratorName'))."\" <".get_setting('emailAdministrator').">\n";
-	$emailHeaders .= "Reply-To: ".get_setting('emailAdministrator')."\n";
-	$emailHeaders .= "X-Sender: ".get_setting('emailAdministrator')."\n";
-	$emailHeaders .= "X-Mailer: PHP / ".phpversion()."\n";
-	$emailHeaders .= "Content-Type: text/plain;\n\tcharset=\"".$charset."\"\n";
-	$emailHeaders .= "Mime-Version: 1.0";
+	$emailHeaders = "From:".get_setting('emailAdministrator')."\r\n";//	$emailHeaders = "From: \"".addslashes(get_setting('administratorSurname')." ".get_setting('administratorName'))."\" <".get_setting('emailAdministrator').">\r\n";
+	$emailHeaders .= "Reply-To:".get_setting('emailAdministrator')."\r\n";
+	//$emailHeaders .= "X-Sender:".get_setting('emailAdministrator')."\r\n";
+	$emailHeaders .= "X-Mailer:PHP/".phpversion();
+	//$emailHeaders .= "Content-Type: text/plain;charset=\"".$charset."\"\r\n";
+	//$emailHeaders .= "Mime-Version: 1.0";
 	return $emailHeaders;
 }
 /**
@@ -87,6 +87,7 @@ function send_password_to_user($user)
 	$emailBody = get_lang('YourAccountParam')." ".$_configuration['root_web']."\n\n$userAccountList";
 	// SEND MESSAGE
 	$emailTo = $user[0]["email"];
+	//echo '$emailTo:'.$emailTo.' $emailSubject'.$emailSubject.' $emailBody:'.$emailBody.' $emailHeaders:'.$emailHeaders;exit;
 	if (@ api_send_mail($emailTo, $emailSubject, $emailBody, $emailHeaders))
 	{
 		Display::display_confirmation_message(get_lang('YourPasswordHasBeenEmailed'));
@@ -119,6 +120,7 @@ function handle_encrypted_password($user)
 	$emailBody .= "-----------------------------------------------\n".$userAccountList."\n-----------------------------------------------\n\n";
 	$emailBody .=get_lang('PasswordEncryptedForSecurity');
 	$emailBody .="\n\n".get_lang('Formula').",\n".get_lang('PlataformAdmin');
+	//echo '$emailTo:'.$emailTo.' $emailSubject'.$emailSubject.' $emailBody:'.$emailBody.' $emailHeaders:'.$emailHeaders;exit;
 	if (@ api_send_mail($emailTo, $emailSubject, $emailBody, $emailHeaders))
 	{
 		Display::display_confirmation_message(get_lang('YourPasswordHasBeenEmailed'));

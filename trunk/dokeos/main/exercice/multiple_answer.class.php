@@ -66,7 +66,7 @@ class MultipleAnswer extends Question {
 		$fck_attribute['Config']['IMUploadPath'] = 'upload/test/';
 		$fck_attribute['Config']['FlashUploadPath'] = 'upload/test/';
 
-		$nb_answers = isset($_POST['nb_answers']) ? $_POST['nb_answers'] : 2;
+		$nb_answers = isset($_POST['nb_answers']) ? $_POST['nb_answers'] : 5;//default options 5 edit by xiaoping
 		$nb_answers += (isset($_POST['lessAnswers']) ? -1 : (isset($_POST['moreAnswers']) ? 1 : 0));
 
 		$html='

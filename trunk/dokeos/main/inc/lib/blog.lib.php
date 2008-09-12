@@ -2129,7 +2129,7 @@ class Blog
 		{
 			while($blog_post = mysql_fetch_array($result))
 			{
-				echo '<a href="blog.php?action=execute_task&amp;blog_id=' . $blog_id . '&amp;task_id=' . $task_id . '&amp;post_id=' . $blog_post['post_id'] . '#add_comment">'.stripslashes($blog_post['title']) . '</a>, ' . get_lang('WrittenBy') . ' ' . $blog_post['firstname'] . ' '.stripslashes($blog_post['lastname']) . '<br />';
+				echo '<a href="blog.php?action=execute_task&amp;blog_id=' . $blog_id . '&amp;task_id=' . $task_id . '&amp;post_id=' . $blog_post['post_id'] . '#add_comment">'.stripslashes($blog_post['title']) . '</a>, ' . get_lang('WrittenBy') . ' ' . $blog_post['lastname'] . ' '.stripslashes($blog_post['firstname']) . '<br />';
 			}
 		}
 		else
@@ -2583,7 +2583,7 @@ class Blog
 		echo 	'<table id="smallcalendar">',
 				"<tr id=\"title\">\n",
 				"<td width=\"10%\"><a href=\"", $backwardsURL, "\">&laquo;</a></td>\n",
-				"<td align=\"center\" width=\"80%\" colspan=\"5\">", $monthName, " ", $year, "</td>\n",
+				"<td align=\"center\" width=\"80%\" colspan=\"5\">",$year , " ", $monthName, "</td>\n",
 				"<td width=\"10%\" align=\"right\"><a href=\"", $forewardsURL, "\">&raquo;</a></td>\n", "</tr>\n";
 
 		echo "<tr>\n";
@@ -2631,7 +2631,7 @@ class Blog
 							// Add tasks to calendar
 							foreach ($tasks[$curday] as $task)
 							{
-								echo '<a href="blog.php?action=execute_task&amp;blog_id=' . $task['blog_id'] . '&amp;task_id='.stripslashes($task['task_id']) . '" title="ï¿½ ' . $task['title'] . ' ï¿½ ' . get_lang('InBlog') . ' ï¿½ ' . $task['blog_name'] . ' ï¿½ - ' . get_lang('ExecuteThisTask') . '"><img src="../img/blog_task.gif" alt="Task" /></a>';
+								echo '<a href="blog.php?action=execute_task&amp;blog_id=' . $task['blog_id'] . '&amp;task_id='.stripslashes($task['task_id']) . '" title="ï¿? ' . $task['title'] . ' ï¿? ' . get_lang('InBlog') . ' ï¿? ' . $task['blog_name'] . ' ï¿? - ' . get_lang('ExecuteThisTask') . '"><img src="../img/blog_task.gif" alt="Task" /></a>';
 							}
 						}
 					}

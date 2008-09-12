@@ -4,7 +4,7 @@ include_once(dirname(__FILE__).'/cs_database.lib.php');
 
 /**
  * Get current credits system settings. If variable is provided just get that setting.
- * @author Borja Nuï¿½ez
+ * @author Borja Nuï¿?ez
  * @param integer $variable - The name of the variable.
  * @return array $option - All info about every setting with scope="cs" :
  * 				If there is no $variable or that variable have more than one row:
@@ -57,7 +57,7 @@ function cs_get_current_settings($variable=0)
  * Check:
  * 		  - if Credits System Tables are set and if not, it set up the tables.
  * 		  - if initial settings are set and if not, it set up those rows.
- * @author Borja Nuï¿½ez
+ * @author Borja Nuï¿?ez
  */
 function cs_check_database()
 {
@@ -106,7 +106,7 @@ function cs_check_database()
  *	Update subscription table when a payment option of a course is going
  *	to get changed.
  *	Also save the previous values of the payment option on options_history table.
- * @author Borja Nuï¿½ez
+ * @author Borja Nuï¿?ez
  * @param integer $option_id - Id of the payment option that is going to change.
  * @param integer $code - Id of the course that have the payment option that is going
  * 							to change.
@@ -144,7 +144,7 @@ function cs_update_course_options_history($option_id=false, $code=false)
  *	Update subscription table when a payment option is going
  *	to get changed for the entire platform.
  *	Also save the previous values of the payment option on options_history table.
- * @author Borja Nuï¿½ez
+ * @author Borja Nuï¿?ez
  * @param integer $option_id - Id of the payment option that is going to change.
  */
 function cs_update_platform_options_history($option_id=false)
@@ -262,7 +262,7 @@ function cs_course_payment_options_number($code)
 
 /**
  * Get the payment options of the course.
- * @author Borja Nuï¿½ez
+ * @author Borja Nuï¿?ez
  * @param integer $code - Id of the Course.
  * @return array $option - All info about every payment option of the course:
  * 				 ['option_id']
@@ -366,7 +366,7 @@ function cs_get_course_possible_payment_options($code)
 
 /**
  * Subscribe a user to a pay course.
- * @author Borja Nuï¿½ez
+ * @author Borja Nuï¿?ez
  * @param integer $code - Id of he Course.
  * @param $option_id
  * @param $option_amount
@@ -390,7 +390,7 @@ function cs_subscribe_user($code, $option_id, $option_amount, $option_name, $use
 
 /**
  * Get the credits of the user.
- * @author Borja Nuï¿½ez
+ * @author Borja Nuï¿?ez
  * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
  * @return integer $credits - Amount of credits of the user.
  */
@@ -423,7 +423,7 @@ function cs_get_user_credits($user_id = 0)
 	
 	/**
  * Set the credits of the user.
- * @author Borja Nuï¿½ez
+ * @author Borja Nuï¿?ez
  * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
  * @param integer $amount - Optional, amount of credits to set. If there is not, uses 0.
  * @return integer $amount - Amount of credits of the user.
@@ -455,7 +455,7 @@ function cs_set_user_credits($amount=0, $user_id = 0)
 
 /**	
  * Checks if an user is already stored on the Credits System Database.
- * @author Jose C. Hueso Vï¿½zquez
+ * @author Jose C. Hueso Vï¿?zquez
  * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
  * @return boolean - False if User does not exist on the Credit System. 
  */
@@ -474,7 +474,7 @@ function cs_is_new_user($user_id = 0)
 
 	/**	
  * Creates a new User on the Credits System Database.
- * @author Jose C. Hueso Vï¿½zquez
+ * @author Jose C. Hueso Vï¿?zquez
  * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
  * @return integer - Result of the SQL Query. 
  */
@@ -493,7 +493,7 @@ function cs_new_user($user_id = 0)
 
 		/**
  * Save payment's data on payment table.
- * @author Borja Nuï¿½ez
+ * @author Borja Nuï¿?ez
  * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
  * @param integer $amount -  Amount of credits to set. If there is not, uses 0
  * @return integer $payment_id - Id of the payment inserted.
@@ -519,7 +519,7 @@ function cs_pay($credits, $amount, $user_id = 0, $method=0)
  
  		/**
  * Save payment's data on payment method table.
- * @author Borja Nuï¿½ez
+ * @author Borja Nuï¿?ez
  * @param integer $user_id - Optional, User id to look for. If there is not, uses id of the current user.
  * @param integer $amount -  Amount of credits to set. If there is not, uses 0
  * @return integer $payment_id - Id of the payment inserted.
@@ -580,7 +580,7 @@ function cs_user_last_sub_paid($user_id,$course_id)
  * @author Jose C. Hueso
  * @param integer $user_id - Id of the User to check. 
  * @param string $course_id - Id of he Course which the user may be subscribed.
- * @return boolean. 'False' if the Userï¿½s subscriptions has expired. True if the user still has access.
+ * @return boolean. 'False' if the Userï¿?s subscriptions has expired. True if the user still has access.
  */
 function cs_can_user_access($user_id,$course_id)
 	{
@@ -592,7 +592,7 @@ function cs_can_user_access($user_id,$course_id)
 	}
 /**
  *	Get the credit courses that user have paid.
- * @author Borja Nuï¿½ez Salinas
+ * @author Borja Nuï¿?ez Salinas
  * @param integer $user_id - Id of the User to check. 
  * @return array $rows - all rows as result of sql query.
  */
@@ -663,7 +663,7 @@ function cs_get_payment_options()
 /**
  * 	NOT USED! there is no more enable/disable.
  * Get enabled payment options 
- * @author Borja Nuï¿½ez Salinas
+ * @author Borja Nuï¿?ez Salinas
  * @return array $option - All info about every payment option of the course:
  * 				 $option['option_id']['name'] = day | week | month | year
  * 				 $option['option_id']['amount'] = amount of payment option (3 days, 6 months...)
@@ -702,7 +702,7 @@ function cs_get_enabled_payment_options()
 
 /**
  * Set the default payment options of a course
- * @author Jose C. Hueso Vï¿½zquez
+ * @author Jose C. Hueso Vï¿?zquez
  * @param integer $code - Id of the Course.
  * @return boolean. True if there was no problem
  */

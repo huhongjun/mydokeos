@@ -157,7 +157,7 @@ function display_minimonthcalendar($agendaitems, $month, $year, $monthName)
 	echo 	"<table id=\"smallcalendar\">\n",
 			"<tr class=\"title\">\n",
 			"<td width=\"10%\"><a href=\"", $backwardsURL, "\"> &laquo; </a></td>\n",
-			"<td width=\"80%\" colspan=\"5\">", $monthName, " ", $year, "</td>\n",
+			"<td width=\"80%\" colspan=\"5\">", $year , " ",$monthName, "</td>\n",
 			"<td width=\"10%\"><a href=\"", $forewardsURL, "\"> &raquo; </a></td>\n", "</tr>\n";
 
 	echo "<tr>\n";
@@ -1567,7 +1567,7 @@ function display_agenda_items()
 		{
             $month_bar = date("m",strtotime($myrow["start_date"])).date("Y",strtotime($myrow["start_date"]));
 			echo "\t<tr>\n\t\t<td class=\"agenda_month_divider\" colspan=\"3\" valign=\"top\">".
-			ucfirst(format_locale_date("%B %Y",strtotime($myrow["start_date"]))).
+			ucfirst(format_locale_date("%Y %B",strtotime($myrow["start_date"]))).
 			"</td>\n\t</tr>\n";
 		}
 

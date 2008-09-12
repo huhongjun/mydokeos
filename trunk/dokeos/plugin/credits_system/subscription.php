@@ -119,7 +119,7 @@ if(!$form->validate())
 			$option_text .= ' = ';
 			$option_text .= ($values['credits'] - floor($values['credits']) == 0)?floor($values['credits']):$values['credits'];
 			$option_text .= ' ';
-			$option_text .= ($values['credits'] > 1)?get_lang('Credits').'.':get_lang('Credit').'.';
+			$option_text .= get_lang('Credits');//$option_text .= ($values['credits'] > 1)?get_lang('Credits').'.':get_lang('Credit').'.';by xiaoping
 		}
 		
 		
@@ -192,14 +192,13 @@ if ($subscribe)
 	
 if ($form->validate())
 {
-	$selected_payment_option = $form->exportValues();
-	
+	$selected_payment_option = $form->exportValues();	
 	//Check, again, if user have enought credits to subscribe this option.
 	if ((cs_get_user_credits() - $option[$selected_payment_option['option']]['credits']) >= 0)
 	{
 		//Subscribe user to this course in credit system.
 		$res = cs_subscribe_user($_GET['paycourse'],$selected_payment_option['option'],$option[$selected_payment_option['option']]['amount'],$option[$selected_payment_option['option']]['name']);
-			
+		
 		//Update User Credits.
 		cs_set_user_credits(cs_get_user_credits() - $option[$selected_payment_option['option']]['credits']);
 				

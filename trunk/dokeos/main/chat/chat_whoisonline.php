@@ -87,7 +87,7 @@ if (!empty($course))
 	?>
 	<tr>
 	  <td width="1%" valign="top"><?php if($status == 1) echo '<img src="../img/teachers.gif" align="absbottom" border="0" alt="" style="margin: 1px;">'; else echo '<img src="../img/students.gif" align="absbottom" border="0" alt="" style="margin: 1px;">';?></td>
-	  <td width="99%"><a <?php if($status == 1) echo 'class="master"'; ?> name="user_<?php echo $enreg['user_id']; ?>" href="<?php echo api_get_self(); ?>?showPic=<?php if($showPic == $enreg['user_id']) echo '0'; else echo $enreg['user_id']; ?>#user_<?php echo $enreg['user_id']; ?>"><?php echo ucfirst($enreg['firstname']).' '.ucfirst($enreg['lastname']); ?></a></td>
+	  <td width="99%"><a <?php if($status == 1) echo 'class="master"'; ?> name="user_<?php echo $enreg['user_id']; ?>" href="<?php echo api_get_self(); ?>?showPic=<?php if($showPic == $enreg['user_id']) echo '0'; else echo $enreg['user_id']; ?>#user_<?php echo $enreg['user_id']; ?>"><?php echo ucfirst($enreg['lastname']).' '.ucfirst($enreg['firstname']); ?></a></td>
 	</tr>
 	<?php
 	$user_image=UserManager::get_user_picture_path_by_id($enreg['user_id'],'web',false,true);
