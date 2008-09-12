@@ -57,7 +57,7 @@ include_once(dirname(__FILE__).'/inc/cs_database.lib.php');
 // Put your main code here. Keep this section short,
 // it's better to use functions for any non-trivial code
 
-$different_payment_options = array(1 => '天',2 =>'周',3 => '月',4 =>'年' );//edit by xiaoping
+$different_payment_options = array(1 =>get_lang('day'),2 =>get_lang('week'),3 =>get_lang('month'),4 =>get_lang('year') );//edit by xiaoping
 $form = new FormValidator('add_payment_options');
 $form->addElement('select', 'options', get_lang('DifferentOptions'), $different_payment_options);
 $form->add_textfield('optionlength', get_lang('Length'),false, array ('size' => '4','maxlength' => '3'));

@@ -149,7 +149,7 @@ function get_myagendaitems($courses_dbs, $month, $year)
 			{
 				$items[$agendaday][$item['start_date']] = '';
 			}
-			$items[$agendaday][$item['start_date']] .= "<i>".$time."</i> <a href=\"$URL\" title=\"".Security::remove_XSS($array_course_info['title'])."\">".$agenda_link."</a>  ".Security::remove_XSS($item['title'])."<br />";
+			$items[$agendaday][$item['start_date']] .= "<br/><i>".$time."</i>&nbsp;&nbsp;".Security::remove_XSS($item['title'])."<br/><a href=\"$URL\" title=\"".Security::remove_XSS($array_course_info['title'])."\">".$agenda_link."</a>";
 		}
 	}
 	// sorting by hour for every day
@@ -218,7 +218,7 @@ function display_mymonthcalendar($agendaitems, $month, $year, $weekdaynames=arra
 				$dayheader = "<b>$curday</b>";
 				if (($curday == $today['mday']) && ($year == $today['year']) && ($month == $today['mon']))
 				{
-					$dayheader = "$curday - ".get_lang("Today")."<br />";
+					$dayheader = "$curday - ".get_lang("Today");
 					$class = "class=\"days_today\"";
 				}
 				echo "<td ".$class.">", "".$dayheader;

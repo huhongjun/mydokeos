@@ -60,7 +60,7 @@ MAIN CODE
 // it's better to use functions for any non-trivial code
 
 //Array with the different payment options
-$different_payment_options = array(1 => '天',2 =>'周',3 => '月',4 =>'年' );//edit by xiaoping
+$different_payment_options = array(1 =>get_lang('day'),2 =>get_lang('week'),3 =>get_lang('month'),4 =>get_lang('year'));//edit by xiaoping
 
 if (isset ($_GET['option_id']))
 {
@@ -72,10 +72,10 @@ if (isset ($_GET['option_id']))
 	$options = mysql_fetch_array($res);
 	switch ($options['name'])
 	{
-		case 'day':$opti = '天';break;
-		case 'week':$opti = '周';break;
-		case 'month':$opti = '月';break;
-		case 'year':$opti = '年';
+		case 'day':$opti = get_lang('day');break;
+		case 'week':$opti = get_lang('week');break;
+		case 'month':$opti = get_lang('month');break;
+		case 'year':$opti = get_lang('year');
 	}
 	$leng = $options['amount'];
 

@@ -47,7 +47,19 @@ require_once (api_get_path(LIBRARY_PATH)."debug.lib.inc.php");
 require_once (api_get_path(LIBRARY_PATH)."events.lib.inc.php");
 require_once (api_get_path(LIBRARY_PATH)."export.lib.inc.php");
 require_once (api_get_path(LIBRARY_PATH)."course.lib.php");
-
+//edit by xiaoping
+function get_language_unit($unit)
+{
+	$value='unknown';
+	switch ($unit)
+	{
+		case 'day':$value=get_lang('day');break;
+		case 'week':$value=get_lang('week');break;
+		case 'month':$value=get_lang('month');break;
+		case 'year':$value=get_lang('year');							
+	}
+	return $value;
+}
 if( isset ($_GET['action']))
 {
 	if ($_GET['type']=='csv')
@@ -182,6 +194,7 @@ function get_subscription_data($from, $number_of_items, $column, $direction)
 		$subscritions = array();
 		while ($subscription = mysql_fetch_row($res))
 		{
+			$subscription[5]=get_language_unit($subscription[5]);//edit by xiaoping
 			$subscriptions[] = $subscription;
 		}
 		echo "<div align=\"right\">";
