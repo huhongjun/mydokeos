@@ -649,7 +649,7 @@ function display_anonymous_course_list()
 					$htmlListCat .= "<a href=\"".api_get_self()."?category=".$catLine['code']."\">".$catLine['name']."</a>";
 					if (api_get_setting('show_number_of_courses') == 'true')
 					{
-						$htmlListCat .= " (".$catLine['nbCourse']." ".get_lang("Courses").")";
+						$htmlListCat .= " (".$catLine['nbCourse']." ".get_lang("").")";
 					}
 					$htmlListCat .= "</li>\n";
 					$thereIsSubCat = true;
