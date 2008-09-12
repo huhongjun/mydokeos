@@ -19,7 +19,7 @@
 	Contact: Dokeos, 181 rue Royale, B-1000 Brussels, Belgium, info@dokeos.com
 ==============================================================================
 */
-
+$language_file = 'plugin_credits_system';
 /*
 ==============================================================================
 		INIT SECTION
@@ -128,12 +128,39 @@ class CreditSystem
 		//$period = get_lang('AmountCreditsMonth');
 		$sql = "SELECT DATE_FORMAT(date, '%M') AS stat_date, firstname AS name, lastname AS last_name, SUM(credits) AS amount_of_credits FROM $payment_table T1,$main_user_table T2 WHERE (T1.user_id = T2.user_id) AND (date LIKE '$type%') GROUP BY stat_date,name, last_name ORDER BY  amount_of_credits";
 		$res = api_sql_query($sql,__FILE__,__LINE__);
-		$result = array();
+		$result = array();echo $sql;
 		while($obj = mysql_fetch_object($res))
 		{
-			$result[$obj->name.' '.$obj->last_name] = $obj->amount_of_credits;
+			$result[$obj->last_name.' '.$obj->name] = $obj->amount_of_credits;//zml edit 
 			$period = $obj->stat_date;
+			//zml edit
+		    if($period == "January"){
+				$period = get_lang('January');
+			}elseif($period == "February"){
+				$period = get_lang('February');
+			}elseif($period == "March"){
+				$period = get_lang('March');
+			}elseif($period == "April"){
+				$period = get_lang('April');
+			}elseif($period == "May"){
+				$period = get_lang('May');
+			}elseif($period == "June"){
+				$period = get_lang('June');
+			}elseif($period == "July"){
+				$period = get_lang('July');
+			}elseif($period == "Aguest"){
+				$period = get_lang('Aguest');
+			}elseif($period == "September"){
+				$period = get_lang('September');
+			}elseif($period == "October"){
+				$period = get_lang('October');
+			}elseif($period == "November"){
+				$period = get_lang('November');
+			}elseif($period == "December"){
+				$period = get_lang('December');
+			}
 		}
+			
 		CreditSystem::print_stats2(get_lang('CreditsUsers').' ('.$period.')',$result,true);
 	}
 	
