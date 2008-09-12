@@ -832,4 +832,20 @@ $Sat = "星期六";
 $Sun = "星期天";
 
 $Days = "天数：";
+
+$announcement = "通知";
+$assignment = "作业";
+$calendar_event = "日程";
+$chat = "聊天";
+$conference = "调查";
+$course_description = " 课程简介";
+$document = "文档";
+$dropbox = "天数：";
+$group = "小组";
+$learnpath = "学习路径";
+$link = "链接";
+$quiz = "测验";
+$student_publication = "学习跟踪";
+$user = "用户";
+$bb_forum = "论坛";
 ?>

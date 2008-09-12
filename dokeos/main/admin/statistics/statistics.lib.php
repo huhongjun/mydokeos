@@ -26,6 +26,7 @@ require_once (api_get_path(LIBRARY_PATH).'formvalidator/FormValidator.class.php'
 * @package dokeos.statistics
 ==============================================================================
 */
+$language_file = 'admin';
 class Statistics
 {
 	/**
@@ -129,9 +130,11 @@ class Statistics
 	{
 		$total = 0;
 		$data = Statistics::rescale($stats);
+		
 		echo '<table class="data_table" cellspacing="0" cellpadding="3">
 			  		  <tr><th colspan="'.($show_total ? '4' : '3').'">'.$title.'</th></tr>';
 		$i = 0;
+
 		foreach($stats as $subtitle => $number)
 		{
 			$total += $number;
@@ -151,8 +154,26 @@ class Statistics
 			{
 				$number_label = Statistics::make_size_string($number);
 			}
+			
+			//zml edit
+			$weekday =$subtitle;  
+			if($weekday == "Mon"){
+				$weekday = get_lang('Mon');
+			}elseif($weekday == "Tue"){
+				$weekday = get_lang('Tue');
+			}elseif($weekday == "Wed"){
+				$weekday = get_lang('Wed');
+			}elseif($weekday == "Thu"){
+				$weekday = get_lang('Thu');
+			}elseif($weekday == "Fri"){
+				$weekday = get_lang('Fri');
+			}elseif($weekday == "Sat"){
+				$weekday = get_lang('Sat');
+			}elseif($weekday == "Sun"){
+				$weekday = get_lang('Sun');
+			}			
 			echo '<tr class="row_'.($i%2 == 0 ? 'odd' : 'even').'">
-								<td width="150">'.$subtitle.'</td>
+								<td width="150">'.$weekday.'</td>
 								<td width="550">
 						 			<img src="../../img/bar_1u.gif" width="'.$data[$subtitle].'" height="10"/>
 								</td>
@@ -227,6 +248,8 @@ class Statistics
 		}
 		Statistics::print_stats(get_lang('Logins'),$total_logins,false);
 	}
+	
+
 	/**
 	 * Show some stats about the accesses to the different course tools
 	 */
@@ -239,6 +262,34 @@ class Statistics
 		$result = array();
 		while($obj = mysql_fetch_object($res))
 		{
+			// zml edit
+			if($obj->access_tool == "announcement"){
+				$obj->access_tool = get_lang('assignment');
+			}elseif($obj->access_tool == "calendar_event"){
+				$obj->access_tool = get_lang('calendar_event');
+			}elseif($obj->access_tool == "chat"){
+				$obj->access_tool = get_lang('chat');
+			}elseif($obj->access_tool == "course_description"){
+				$obj->access_tool = get_lang('course_description');
+			}elseif($obj->access_tool == "document"){
+				$obj->access_tool = get_lang('document');
+			}elseif($obj->access_tool == "dropbox"){
+				$obj->access_tool = get_lang('dropbox');
+			}elseif($obj->access_tool == "group"){
+				$obj->access_tool = get_lang('group');
+			}elseif($obj->access_tool == "learnpath"){
+				$obj->access_tool = get_lang('learnpath');
+			}elseif($obj->access_tool == "link"){
+				$obj->access_tool = get_lang('link');
+			}elseif($obj->access_tool == "quiz"){
+				$obj->access_tool = get_lang('quiz');
+			}elseif($obj->access_tool == "student_publication"){
+				$obj->access_tool = get_lang('student_publication');
+			}elseif($obj->access_tool == "user"){
+				$obj->access_tool = get_lang('user');
+			}elseif($obj->access_tool == "bb_forum"){
+				$obj->access_tool = get_lang('bb_forum');
+			}			
 			$result[$obj->access_tool] = $obj->number_of_logins;
 		}
 		Statistics::print_stats(get_lang('PlatformToolAccess'),$result,true);
