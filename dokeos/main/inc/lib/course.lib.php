@@ -930,9 +930,9 @@ class CourseManager
 		$user_id = intval($user_id);
 		$course_code = addslashes($course_code);
 		
-		$table = Database :: get_main_table(TABLE_MAIN_COURSE_USER);
-
+		$table = Database :: get_main_table(TABLE_MAIN_COURSE_USER);		
 		$sql_query = "SELECT * FROM $table WHERE `user_id` = '$user_id' AND `course_code` = '$course_code'";
+		//$sql_query = "SELECT * FROM `dokeos_main`.`cs_subscriptions` WHERE `user_id` = '$user_id' AND `code` = '$course_code'";
 		$sql_result = api_sql_query($sql_query, __FILE__, __LINE__);
 		$result = Database::fetch_array($sql_result);
 

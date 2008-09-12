@@ -723,7 +723,7 @@ if ($_POST['submitWork'] && $is_course_member && $check)
 
 			if (!$authors)
 			{
-				$authors = $currentUserFirstName . " " . $currentUserLastName;
+				$authors = $currentUserLastName . $currentUserFirstName;
 			}
 
 			// compose a unique file name to avoid any conflict
@@ -1015,7 +1015,7 @@ if ($is_course_member)
 
 		if (empty ($authors)) 
 		{
-			$authors = $_user['firstName'] . " " . $_user['lastName'];
+			$authors = $_user['lastName'] . $_user['firstName'];
 		}
 
 		$defaults["authors"] = ($edit ? stripslashes($workAuthor) : stripslashes($authors));

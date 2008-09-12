@@ -93,7 +93,7 @@ if (!cs_get_payment_options() ||(!api_is_platform_admin() && ($settings == 'no')
 }
 	
 $default_po = cs_get_current_settings('cs_default_payment_option');
-if ((isset($_GET['default_po'])|| $_GET['action']=='enabled') && !isset($_GET['my_courses_direction']))
+if ((isset($_GET['default_po'])|| $_GET['action']=='enabled') && !isset($_GET['my_courses_direction'])||$_POST['action']=='enable')//edit by xiaoping
 {
 	$payment_options = cs_get_payment_options(); 
 	foreach ($payment_options as $key => $value)
@@ -112,9 +112,9 @@ if ((isset($_GET['default_po'])|| $_GET['action']=='enabled') && !isset($_GET['m
 	$form_new_options -> registerRule('valid_amount','regex','/^\d*\.{0,1}\d+$/');
 
 	$group[] = $form_new_options->createElement('static','','',get_lang('Set'));
-	$group[] = $form_new_options->createElement('text','credits','number_of_credits[]',array('size'=>'8','maxlength'=>'8'));
-	$group[] = $form_new_options->createElement('static','','',get_lang('CreditsPer'));
 	$group[] = $form_new_options->createElement('select','payment_option','payment_option',$select_options);
+	$group[] = $form_new_options->createElement('text','credits','number_of_credits[]',array('size'=>'8','maxlength'=>'8'));
+	$group[] = $form_new_options->createElement('static','','',get_lang('CreditsPer'));	
 	
 	$form_new_options -> addGroup ($group,'add_option_group');
 	$form_new_options -> addGroupRule('add_option_group',array(array(),array(array(get_lang('CreditAmountRequired'),'required'),array(get_lang('Creditsmustbepositive'),'valid_amount'),$nonzero_rule),array(),array(array(get_lang('SelectValidPaymentOption'),'nonzero'))));
@@ -337,7 +337,7 @@ if (isset ($_POST['action']))
 				{
 					$error = cs_delete_course_payment_option($course_code);
 				}
-				Display :: display_normal_message (mb_convert_encoding(get_lang('YouHaveDone').count($course_codes).get_lang('LetCoursesFree'),$charset,'utf-8'));//edit by xiaoping
+				Display :: display_normal_message (get_lang('YouHaveDone').count($course_codes).get_lang('LetCoursesFree'));//edit by xiaoping
 			}
 			break;
 			

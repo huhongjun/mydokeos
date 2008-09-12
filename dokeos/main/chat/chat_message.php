@@ -133,7 +133,7 @@ if (!empty($course))
 			}
 			else
 			{
-				fputs($fp,"<b>$firstname $lastname</b> : $message<br>\n");
+				fputs($fp,"<b>$lastname $firstname</b> : $message<br>\n");
 			}
 	
 			fclose($fp);

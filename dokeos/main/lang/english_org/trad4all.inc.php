@@ -14,7 +14,7 @@
 	  +----------------------------------------------------------------------+
 	  | Authors: Thomas Depraetere <depraetere@ipm.ucl.ac.be>                |
 	  |          Hugues Peeters    <peeters@ipm.ucl.ac.be>                   |
-	  |          Christophe Gesché <gesche@ipm.ucl.ac.be>                    |
+	  |          Christophe Gesch? <gesche@ipm.ucl.ac.be>                    |
 	  |          Olivier Brouckaert <oli.brouckaert@skynet.be>               |
 	  +----------------------------------------------------------------------+
 	  | Translator :                                                         |
@@ -75,7 +75,7 @@ $langMonthNames['long'] = array('January', 'February', 'March', 'April', 'May', 
 // ci-dessous
 
 $dateFormatShort =  "%b %d, %y";
-$dateFormatLong  = '%A %B %d, %Y';
+$dateFormatLong  = '%Y %B %d,%A ';
 $dateTimeFormatLong  = '%B %d, %Y at %I:%M %p';
 $timeNoSecFormat = '%I:%M %p';
 
