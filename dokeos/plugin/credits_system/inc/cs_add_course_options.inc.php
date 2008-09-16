@@ -27,7 +27,18 @@
 //$nameTools = get_lang('MyCourses');
 //require_once(dirname(__FILE__).'/header2_and_3.php');
 api_block_anonymous_users();
-
+function get_language_unit($unit)
+{
+	$value='unknown';
+	switch ($unit)
+	{
+		case 'day':$value=get_lang('day');break;
+		case 'week':$value=get_lang('week');break;
+		case 'month':$value=get_lang('month');break;
+		case 'year':$value=get_lang('year');							
+	}
+	return $value;
+}
 
 //Display :: display_header($nameTools);
 
@@ -65,7 +76,7 @@ $select_options[0]=get_lang('SelectPaymentOption');
 foreach ($new_options as $key => $value){
 	
 		//echo $key.'->'.$value.'';
-		$select_options[$key]=$value['amount'].' '.$value['name'];
+		$select_options[$key]=$value['amount'].' '.get_language_unit($value['name']);//by xiaoping
 //		$group_current[] = $formOptions -> createElement('checkbox',$course_payment_options[$key]['option_id'],'',$course_payment_options[$key]['credits'].'&nbsp;&nbsp; '.get_lang('CreditsPer').'&nbsp;&nbsp;'.$course_payment_options[$key]['amount'].' '.$course_payment_options[$key]['name']);
 //		$group_current[] = $formOptions -> createElement ('static','','','<br />');
 }
