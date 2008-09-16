@@ -325,7 +325,7 @@ if (is_array($flat_list))
 						'</a>&nbsp;';
 			}
 			*/
-			if($details['lp_prevent_reinit']==1){
+			/*if($details['lp_prevent_reinit']==1){
 				$dsp_reinit = '<a href="lp_controller.php?'.api_get_cidreq().'&action=switch_reinit&lp_id='.$id.'">' .
 						'<img src="../img/kaboodleloop_gray.gif" border="0" alt="Allow reinit" title="'.get_lang("AllowMultipleAttempts").'"/>' .
 						'</a>&nbsp;';
@@ -333,7 +333,7 @@ if (is_array($flat_list))
 				$dsp_reinit = '<a href="lp_controller.php?'.api_get_cidreq().'&action=switch_reinit&lp_id='.$id.'">' .
 						'<img src="../img/kaboodleloop.gif" border="0" alt="Prevent reinit" title="'.get_lang("PreventMultipleAttempts").'"/>' .
 						'</a>&nbsp;';
-			}
+			}zml edit */ 
 			if($details['lp_type']==1 || $details['lp_type']==2){
 				$dsp_build = '<a href="lp_controller.php?'.api_get_cidreq().'&amp;action=build&amp;lp_id='.$id.'"><img src="../img/wizard.gif" border="0" title="'.get_lang("Build").'"></a>&nbsp;';
 			}else{
