@@ -110,10 +110,10 @@ else
 <table class="data_table" width="100%">
 <tr>
   <th>&nbsp;</th>
-  <th><a href="<?php echo api_get_self(); ?>?id_session=<?php echo $id_session; ?>&course_code=<?php echo urlencode($course_code); ?>&sort=lastname">Nom</a></th>
-  <th><a href="<?php echo api_get_self(); ?>?id_session=<?php echo $id_session; ?>&course_code=<?php echo urlencode($course_code); ?>&sort=firstname">Pr�nom</a></th>
-  <th><a href="<?php echo api_get_self(); ?>?id_session=<?php echo $id_session; ?>&course_code=<?php echo urlencode($course_code); ?>&sort=username">Identifiant</a></th>
-  <th>Actions</th>
+  <th><a href="<?php echo api_get_self(); ?>?id_session=<?php echo $id_session; ?>&course_code=<?php echo urlencode($course_code); ?>&sort=lastname"><?php echo get_lang('lastName'); ?></a></th>
+  <th><a href="<?php echo api_get_self(); ?>?id_session=<?php echo $id_session; ?>&course_code=<?php echo urlencode($course_code); ?>&sort=firstname"><?php echo get_lang('firstName'); ?></a></th>
+  <th><a href="<?php echo api_get_self(); ?>?id_session=<?php echo $id_session; ?>&course_code=<?php echo urlencode($course_code); ?>&sort=username"><?php echo get_lang('students'); ?></a></th>
+  <th><?php echo get_lang('actions'); ?></th>
 </tr>
 
 <?php
@@ -187,7 +187,7 @@ else
 <br>
 
 <select name="action">
-<option value="delete"><?php get_lang('UnsubscribeSelectedUsersFromSession');?></option>
+<option value="delete"><?php echo get_lang('UnsubscribeSelectedUsersFromSession');?></option>
 </select>
 <input type="submit" value="<?php echo get_lang('Ok'); ?>">
 
