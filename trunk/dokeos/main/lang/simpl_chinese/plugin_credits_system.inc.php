@@ -51,7 +51,7 @@ $DefaultOptionsexp = "激活课程的支付功能时需设定默认支付选项和学习币价格需指定";
 $Thx = "谢谢";
 $MyCourses = "我的课程";
 $BackToSubscribe = "返回[订购]";
-$RenewSubscription = "刷新订购";
+$RenewSubscription = "课程f订购";
 $addCredits = "你正在为选中用户添加学习币";
 $subCredits = "你正在为选中用户减少学习币";
 $PlzCredits = "请选择学习币数量";
@@ -187,7 +187,7 @@ $weeks = "周";
 $months = "月";
 //end huhj
 $access_denied="拒绝访问";
-$PlzSubscribe="请注册";
+$PlzSubscribe="请订购";
 $Admin_payment="支付管理";
 $PaymentOptionExist='该项已存在';
 $DeleteOptions = "删除选项";
