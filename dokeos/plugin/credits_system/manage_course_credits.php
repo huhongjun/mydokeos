@@ -240,11 +240,12 @@ function get_free_course_data($from, $number_of_items, $column, $direction)
 	$course_table = Database :: get_main_table(TABLE_MAIN_COURSE);
 	$course_rel_user = Database :: get_main_table(TABLE_MAIN_COURSE_USER);
 	$course_credits_table = Database :: get_main_table(CS_TABLE_COURSE_CREDITS);
-	$sql = "SELECT code AS col0, visual_code AS col1, title AS col2, course_language AS col3, category_code AS col4, subscribe AS col5, unsubscribe AS col6, code AS col7 FROM $course_table WHERE code NOT IN (SELECT code FROM $course_credits_table)";
+	$main_category_table = Database :: get_main_table(TABLE_MAIN_CATEGORY);
+	$sql = "SELECT t1.code AS col0, visual_code AS col1, title AS col2, course_language AS col3, t2.name AS col4, subscribe AS col5, unsubscribe AS col6, t1.code AS col7 FROM $course_table t1 inner join $main_category_table t2 on t1.category_code=t2.code WHERE t1.code NOT IN (SELECT code FROM $course_credits_table)";
 	
 	if (!($_GET['view'] == 'admin' && api_is_platform_admin()))
 	{
-		$sql.= 'AND '.$course_table.'.code IN (SELECT course_code FROM '.$course_rel_user.' WHERE user_id="'.api_get_user_id().'" AND status = 1)';	
+		$sql.= 'AND '.$course_table.'.t1.code IN (SELECT course_code FROM '.$course_rel_user.' WHERE user_id="'.api_get_user_id().'" AND status = 1)';	
 	}
 	$sql .= " ORDER BY col$column $direction ";
 	$sql .= " LIMIT $from,$number_of_items";
@@ -252,8 +253,9 @@ function get_free_course_data($from, $number_of_items, $column, $direction)
 	$courses = array ();
 	while ($course = mysql_fetch_row($res))
 	{
-		$course[5] = $course[5] == SUBSCRIBE_ALLOWED ? get_lang('Yes') : get_lang('No');
-		$course[6] = $course[6] == UNSUBSCRIBE_ALLOWED ? get_lang('Yes') : get_lang('No');
+		$course[3] = $course[3] == 'simpl_chinese'?get_lang('simpl_chinese') : $course[3];//by xiaoping
+		$course[5] = $course[5] == SUBSCRIBE_ALLOWED ? get_lang('yes') : get_lang('no');
+		$course[6] = $course[6] == UNSUBSCRIBE_ALLOWED ? get_lang('yes') : get_lang('no');
 		$courses[] = $course;
 	}
 	return $courses;
@@ -268,10 +270,11 @@ function get_pay_course_data($from, $number_of_items, $column, $direction)
 	$course_table = Database :: get_main_table(TABLE_MAIN_COURSE);
 	$course_rel_user = Database :: get_main_table(TABLE_MAIN_COURSE_USER);
 	$course_credits_table = Database :: get_main_table(CS_TABLE_COURSE_CREDITS);
-	$sql = "SELECT code AS col0, visual_code AS col1, title AS col2, course_language AS col3, category_code AS col4, subscribe AS col5, unsubscribe AS col6, code AS col7 FROM $course_table WHERE code IN (SELECT code FROM $course_credits_table)";
+	$main_category_table = Database :: get_main_table(TABLE_MAIN_CATEGORY);
+	$sql = "SELECT t1.code AS col0, visual_code AS col1, title AS col2, course_language AS col3, t2.name AS col4, subscribe AS col5, unsubscribe AS col6, t1.code AS col7 FROM $course_table t1 inner join $main_category_table t2 on t1.category_code=t2.code WHERE t1.code IN (SELECT code FROM $course_credits_table)";
 	if (!($_GET['view'] == 'admin' && api_is_platform_admin()))
 	{
-		$sql.= 'AND '.$course_table.'.code IN (SELECT course_code FROM '.$course_rel_user.' WHERE user_id="'.api_get_user_id().'" AND status = 1)';	
+		$sql.= 'AND '.$course_table.'.t1.code IN (SELECT course_code FROM '.$course_rel_user.' WHERE user_id="'.api_get_user_id().'" AND status = 1)';	
 	}
 	$sql .= " ORDER BY col$column $direction ";
 	$sql .= " LIMIT $from,$number_of_items";
@@ -279,8 +282,9 @@ function get_pay_course_data($from, $number_of_items, $column, $direction)
 	$courses = array ();
 	while ($course = mysql_fetch_row($res))
 	{
-		$course[5] = $course[5] == SUBSCRIBE_ALLOWED ? get_lang('Yes') : get_lang('No');
-		$course[6] = $course[6] == UNSUBSCRIBE_ALLOWED ? get_lang('Yes') : get_lang('No');
+		$course[3] = $course[3] == 'simpl_chinese'?get_lang('simpl_chinese') : $course[3];//by xiaoping
+		$course[5] = $course[5] == SUBSCRIBE_ALLOWED ? get_lang('yes') : get_lang('no');
+		$course[6] = $course[6] == UNSUBSCRIBE_ALLOWED ? get_lang('yes') : get_lang('no');
 		$courses[] = $course;
 	}
 	return $courses;
