@@ -322,7 +322,7 @@ foreach ($group_cats as $index => $category)
 			{
 				foreach($tutorsids_of_group as $tutor_id){
 					$tutor = api_get_user_info($tutor_id);
-					$tutor_info .= Display::encrypted_mailto_link($tutor['mail'],$tutor['firstName'].' '.$tutor['lastName']).', ';
+					$tutor_info .= Display::encrypted_mailto_link($tutor['mail'],$tutor['lastName'].' '.$tutor['firstName']).', ';//zml edit
 				}
 			}
 			$tutor_info = substr($tutor_info,0,strlen($tutor_info)-2);
@@ -331,9 +331,9 @@ foreach ($group_cats as $index => $category)
 			if (api_is_allowed_to_edit())
 			{
 				$edit_actions = '<a href="group_edit.php?'.api_get_cidreq().'&gidReq='.$this_group['id'].'"  title="'.get_lang('Edit').'"><img src="../img/edit.gif" alt="'.get_lang('Edit').'"/></a>&nbsp;';
-				$edit_actions .= '<a href="'.api_get_self().'?'.api_get_cidreq().'&category='.$category['id'].'&amp;action=delete_one&amp;id='.$this_group['id'].'" onclick="javascript:if(!confirm('."'".addslashes(htmlentities(get_lang('ConfirmYourChoice')))."'".')) return false;" title="'.get_lang('Delete').'"><img src="../img/delete.gif" alt="'.get_lang('Delete').'"/></a>&nbsp;';
-				$edit_actions .= '<a href="'.api_get_self().'?'.api_get_cidreq().'&category='.$category['id'].'&amp;action=empty_one&amp;id='.$this_group['id'].'" onclick="javascript:if(!confirm('."'".addslashes(htmlentities(get_lang('ConfirmYourChoice')))."'".')) return false;" title="'.get_lang('EmptyGroup').'"><img src="../img/group_delete.gif" alt="'.get_lang('EmptyGroup').'"/></a>&nbsp;';
-				$edit_actions .= '<a href="'.api_get_self().'?'.api_get_cidreq().'&category='.$category['id'].'&amp;action=fill_one&amp;id='.$this_group['id'].'" onclick="javascript:if(!confirm('."'".addslashes(htmlentities(get_lang('ConfirmYourChoice')))."'".')) return false;" title="'.get_lang('FillGroup').'"><img src="../img/add_user.gif" alt="'.get_lang('FillGroup').'"/></a>';
+				$edit_actions .= '<a href="'.api_get_self().'?'.api_get_cidreq().'&category='.$category['id'].'&amp;action=delete_one&amp;id='.$this_group['id'].'" onclick="javascript:if(!confirm('."'".addslashes(htmlspecialchars(get_lang('ConfirmYourChoice')))."'".')) return false;" title="'.get_lang('Delete').'"><img src="../img/delete.gif" alt="'.get_lang('Delete').'"/></a>&nbsp;';
+				$edit_actions .= '<a href="'.api_get_self().'?'.api_get_cidreq().'&category='.$category['id'].'&amp;action=empty_one&amp;id='.$this_group['id'].'" onclick="javascript:if(!confirm('."'".addslashes(htmlspecialchars(get_lang('ConfirmYourChoice')))."'".')) return false;" title="'.get_lang('EmptyGroup').'"><img src="../img/group_delete.gif" alt="'.get_lang('EmptyGroup').'"/></a>&nbsp;';
+				$edit_actions .= '<a href="'.api_get_self().'?'.api_get_cidreq().'&category='.$category['id'].'&amp;action=fill_one&amp;id='.$this_group['id'].'" onclick="javascript:if(!confirm('."'".addslashes(htmlspecialchars(get_lang('ConfirmYourChoice')))."'".')) return false;" title="'.get_lang('FillGroup').'"><img src="../img/add_user.gif" alt="'.get_lang('FillGroup').'"/></a>';
 				$row[] = $edit_actions;
 			}
 			$totalRegistered = $totalRegistered + $this_group['nbMember'];
