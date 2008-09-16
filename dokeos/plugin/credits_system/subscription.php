@@ -100,6 +100,18 @@ $form = new FormValidator('cs_pay','post',$current_page);
 $select =& $form->addElement('select','option',get_lang('Selectapaymentoption').':');
 $user_credits = cs_get_user_credits();
 $options = count($option);
+function get_language_unit($unit)
+{
+	$value='unknown';
+	switch ($unit)
+	{
+		case 'day':$value=get_lang('day');break;
+		case 'week':$value=get_lang('week');break;
+		case 'month':$value=get_lang('month');break;
+		case 'year':$value=get_lang('year');							
+	}
+	return $value;
+}
 if(!$form->validate())
 {
 	foreach ($option as $option_id => $values)
@@ -108,14 +120,14 @@ if(!$form->validate())
 		if ($values['credits'] == 0)
 		{
 			$option_text = get_lang('Testcourse')." ";
-			$option_text .= $values['amount'].' '.$values['name'];
+			$option_text .= $values['amount'].' '.get_language_unit($values['name']);//by xiaoping
 			//$option_text .= ($values['amount'] > 1)?'s ':' '; by xiaoping
 			$option_text .= " ".get_lang('forfree').".";
 		}
 		else
 		{
 			$option_text = $values['amount'].' ';
-			$option_text .= $values['name'];//$option_text .= ($values['amount'] > 1)?get_lang($values['name'].'s'):get_lang($values['name']);by xiaoping
+			$option_text .= get_language_unit($values['name']);//$option_text .= ($values['amount'] > 1)?get_lang($values['name'].'s'):get_lang($values['name']);by xiaoping
 			$option_text .= ' = ';
 			$option_text .= ($values['credits'] - floor($values['credits']) == 0)?floor($values['credits']):$values['credits'];
 			$option_text .= ' ';
