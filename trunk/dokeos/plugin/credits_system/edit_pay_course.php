@@ -222,7 +222,18 @@ function modify_filter($active,$url_params,$row,$column)
 			'<a href="edit_pay_course.php?action=delete&view='.$_GET['view'].'&option_id='.$option_id.'"  onclick="javascript:if(!confirm('."'".addslashes(htmlspecialchars(get_lang("ConfirmYourChoice")))."'".')) return false;"><img src="../../main/img/delete.gif" border="0" style="vertical-align: middle" title="'.get_lang('Delete').'" alt="'.get_lang('Delete').'"/></a>');
 				
 }
-
+function get_language_unit($unit)
+{
+	$value='unknown';
+	switch ($unit)
+	{
+		case 'day':$value=get_lang('day');break;
+		case 'week':$value=get_lang('week');break;
+		case 'month':$value=get_lang('month');break;
+		case 'year':$value=get_lang('year');							
+	}
+	return $value;
+}
 
 /*	
 ==============================================================================
@@ -265,7 +276,7 @@ if (($_GET['action'] == 'add') || ($_POST['action'] == 'add'))
 	$select_options[0]=get_lang('SelectPaymentOption');
 	foreach ($new_options as $key => $value)
 	{
-		$select_options[$key]=$value['amount'].' '.$value['name'];
+		$select_options[$key]=$value['amount'].' '.get_language_unit($value['name']);//by xiaoping
 	}
 	
 //User selected more than one option to add
