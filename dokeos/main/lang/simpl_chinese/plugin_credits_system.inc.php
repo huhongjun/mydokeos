@@ -79,7 +79,7 @@ $NotValidSub = "你尚未购买任何收费课程";
 $RenewSubscription = "刷新订购";
 $Title = "标题";
 $visual_code = "代码";
-$tutor_name = "讲师名称";
+$tutor_name = "教师";
 $SubscriptionDate = "开始日期";
 $SubscriptionEndDate = "结束日期";
 //END BORJA
