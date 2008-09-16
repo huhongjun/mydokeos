@@ -232,4 +232,5 @@ $November  = "11月";
 $December  = "12月";
 $Need=' 需要 ';
 $unit='个';
+//$learn='学习';
 ?>
