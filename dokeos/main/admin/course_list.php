@@ -84,12 +84,13 @@ function get_course_data($from, $number_of_items, $column, $direction)
 	$course_table = Database :: get_main_table(TABLE_MAIN_COURSE);
 	$users_table = Database :: get_main_table(TABLE_MAIN_USER);
 	$course_users_table = Database :: get_main_table(TABLE_MAIN_COURSE_USER);
-	
-	$sql = "SELECT code AS col0, visual_code AS col1, title AS col2, course_language AS col3, category_code AS col4, subscribe AS col5, unsubscribe AS col6, code AS col7, tutor_name as col8, code AS col9, visibility AS col10 FROM $course_table";
+	$main_category_table = Database :: get_main_table(TABLE_MAIN_CATEGORY);
+	//edit by xiaoping
+	$sql = "SELECT t1.code AS col0, visual_code AS col1, title AS col2, course_language AS col3, t2.name AS col4, subscribe AS col5, unsubscribe AS col6, t1.code AS col7, tutor_name as col8, t1.code AS col9, visibility AS col10 FROM $course_table t1 inner join $main_category_table t2 on t1.category_code=t2.code";
 	if (isset ($get_keyword))
 	{
 		$keyword = Database::escape_string($get_keyword);
-		$sql .= " WHERE title LIKE '%".$keyword."%' OR code LIKE '%".$keyword."%'";
+		$sql .= " WHERE title LIKE '%".$keyword."%' OR t1.code LIKE '%".$keyword."%'";
 	}
 	elseif (isset ($get_keyword_code))
 	{
@@ -110,9 +111,10 @@ function get_course_data($from, $number_of_items, $column, $direction)
 	{
 		//place colour icons in front of courses
 		$course[1] = get_course_visibility_icon($course[10]).$course[1];
-		$course[5] = $course[5] == SUBSCRIBE_ALLOWED ? get_lang('Yes') : get_lang('No');
-		$course[6] = $course[6] == UNSUBSCRIBE_ALLOWED ? get_lang('Yes') : get_lang('No');
-		$course[7] = CourseManager :: is_virtual_course_from_system_code($course[7]) ? get_lang('Yes') : get_lang('No');
+		$course[3] = $course[3] == 'simpl_chinese'?get_lang('simpl_chinese') : $course[3];//by xiaoping
+		$course[5] = $course[5] == SUBSCRIBE_ALLOWED ? get_lang('yes') : get_lang('no');
+		$course[6] = $course[6] == UNSUBSCRIBE_ALLOWED ? get_lang('yes') : get_lang('no');
+		$course[7] = CourseManager :: is_virtual_course_from_system_code($course[7]) ? get_lang('yes') : get_lang('no');
 		$course_rem = array($course[0],$course[1],$course[2],$course[3],$course[4],$course[5],$course[6],$course[7],$course[8],$course[9]);
 		$courses[] = $course_rem;
 	}
