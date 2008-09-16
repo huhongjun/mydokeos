@@ -149,7 +149,7 @@ if ($show=='result' && $_REQUEST['comments']=='update' && ($is_allowedToEdit || 
 	$emailid = $_GET['emailid'];
 	$test  = $_GET['test'];
 	$from = $_SESSION['_user']['mail'];
-	$from_name = $_SESSION['_user']['firstName']." ".$_SESSION['_user']['lastName'];
+	$from_name = $_SESSION['_user']['lastName']." ".$_SESSION['_user']['firstName'];
 	$url = api_get_path(WEB_CODE_PATH).'exercice/exercice.php?'.api_get_cidreq().'&show=result';
 
 	foreach ($_POST as $key=>$v)
