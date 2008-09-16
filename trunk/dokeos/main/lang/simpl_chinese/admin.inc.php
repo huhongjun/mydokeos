@@ -848,4 +848,8 @@ $quiz = "测验";
 $student_publication = "学习跟踪";
 $user = "用户";
 $bb_forum = "论坛";
+
+$firstName = "名";
+$lastName = "姓";
+$students = "学员";
 ?>
