@@ -97,7 +97,7 @@ $current_page = $current_page.$get_variables;
 $form = new FormValidator('cs_pay','post',$current_page);
 			
 //Adding show just possible payment options
-$select =& $form->addElement('select','option',get_lang('Selectapaymentoption').':');
+$select =& $form->addElement('select','option',get_lang('Selectapaymentoption'));
 $user_credits = cs_get_user_credits();
 $options = count($option);
 function get_language_unit($unit)
@@ -126,11 +126,11 @@ if(!$form->validate())
 		}
 		else
 		{
-			$option_text = $values['amount'].' ';
+			$option_text = /*get_lang('learn').' '.*/$values['amount'].' ';
 			$option_text .= get_language_unit($values['name']);//$option_text .= ($values['amount'] > 1)?get_lang($values['name'].'s'):get_lang($values['name']);by xiaoping
-			$option_text .= ' = ';
+			$option_text .= get_lang('Need');
 			$option_text .= ($values['credits'] - floor($values['credits']) == 0)?floor($values['credits']):$values['credits'];
-			$option_text .= ' ';
+			$option_text .= ' '.get_lang('unit');
 			$option_text .= get_lang('Credits');//$option_text .= ($values['credits'] > 1)?get_lang('Credits').'.':get_lang('Credit').'.';by xiaoping
 		}
 		
@@ -225,8 +225,8 @@ if ($form->validate())
 			exit;
 		}
 		elseif($res)
-		{
-			//load the course main page.
+		{//load the course main page.
+			CourseManager::add_user_to_course(api_get_user_id(), $course_info['code']);//课程订购成功后直接注册到"我的课程"中 edit by xiaoping			
 			echo'<script type="text/javascript">document.location.href="'.api_get_path(WEB_COURSE_PATH).$course_info['directory'].'/?id_session=0";</script>';
 			exit;
 		}else
