@@ -187,7 +187,7 @@ $weeks = "周";
 $months = "月";
 //end huhj
 $access_denied="拒绝访问";
-$PlzSubscribe="请认证";
+$PlzSubscribe="请注册";
 $Admin_payment="支付管理";
 $PaymentOptionExist='该项已存在';
 $DeleteOptions = "删除选项";
