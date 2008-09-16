@@ -283,20 +283,7 @@ function cs_get_course_payment_options($code)
 					
 		$option = '(';
 		for($i=0; $i < sizeof($rows); $i++)
-		{
-			if($rows[$i]['name'] == 'day'){
-				$rows[$i]['name'] = get_lang("day");
-			}
-			if($rows[$i]['name'] == 'week'){
-				$rows[$i]['name'] = get_lang("week");
-			}
-			if($rows[$i]['name'] == 'month'){
-				$rows[$i]['name'] = get_lang("month");
-			}
-			if($rows[$i]['name'] == 'year'){
-				$rows[$i]['name'] = get_lang("year");
-			}
-			
+		{			
 			$option .= '"'.$rows[$i]['option_id'].'" => array("amount" => "'.$rows[$i]['amount'].'", "name" => "'.$rows[$i]['name'].'", "credits" => "'.$rows[$i]['credits'].'")';
 			if ($i+1 < sizeof($rows))
 			{
@@ -340,19 +327,7 @@ function cs_get_course_possible_payment_options($code)
 		for($i=0; $i < sizeof($rows); $i++)
 		{
 			$fields[amount]=$rows[$i]['amount'];
-			$fields[name]=$rows[$i]['name'];
-			if($fields[name] == 'day'){
-				$fields[name] = get_lang("day");
-			}
-			if($fields[name] == 'week'){
-				$fields[name] = get_lang("week");
-			}
-			if($fields[name] == 'month'){
-				$fields[name] = get_lang("month");
-			}
-			if($fields[name] == 'year'){
-				$fields[name] = get_lang("year");
-			}
+			$fields[name]=$rows[$i]['name'];			
 			$fields[credits]=$rows[$i]['credits'];
 			$option [$rows[$i]['option_id']]= $fields;
 		}
