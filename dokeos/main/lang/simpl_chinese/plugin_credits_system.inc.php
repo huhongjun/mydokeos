@@ -173,7 +173,7 @@ $PlzSubscribe = "";
 $CourseInfo = "课程信息";
 $CourseTitle = "课程标题";
 $Tutor = "教师";
-$Selectapaymentoption = "选择支付选项";
+$Selectapaymentoption = "请选择";
 $Confirm = "确定";
 $NoOptionsAvailable = "没有可选择的支付方法";
 $NoDefaultPO = "无默认支付选项";
@@ -230,4 +230,6 @@ $September  = "9月";
 $October  = "10月";
 $November  = "11月";
 $December  = "12月";
+$Need=' 需要 ';
+$unit='个';
 ?>
