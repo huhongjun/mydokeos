@@ -233,4 +233,5 @@ $December  = "12月";
 $Need=' 需要 ';
 $unit='个';
 //$learn='学习';
+$simpl_chinese='简体中文';
 ?>
