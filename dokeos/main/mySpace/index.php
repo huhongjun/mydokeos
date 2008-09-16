@@ -95,7 +95,23 @@ $isPlatformAdmin = api_is_platform_admin();
 $view = isset($_GET['view']) ? $_GET['view'] : 'teacher';
 
 $menu_items = array();
-
+/*function get_data($from, $number_of_items)
+{
+	global $tbl_course_user,$tbl_course,$_user;
+	if(api_is_allowed_to_create_course())
+	{	
+		$sqlNbCours = "	SELECT course_rel_user.course_code, course.title
+						FROM $tbl_course_user as course_rel_user
+						INNER JOIN $tbl_course as course
+						ON course.code = course_rel_user.course_code
+					  	WHERE course_rel_user.user_id='".$_user['user_id']."' AND course_rel_user.status='1'
+					  	ORDER BY course.title";
+		$sqlNbCours .= " LIMIT $from,$number_of_items";
+		$resultNbCours = api_sql_query($sqlNbCours, __FILE__, __LINE__);
+		$a_courses = api_store_result($resultNbCours);
+		return $a_courses;
+	}
+}*/
 if(api_is_allowed_to_create_course())
 {
 	
@@ -483,7 +499,7 @@ if(api_is_allowed_to_create_course() && $view=='teacher')
 	{
 		
 				  
-		$table = new SortableTable('tracking_list_course', 'count_teacher_courses');
+		$table = new SortableTable('tracking_list_course', 'count_teacher_courses','',2,500,'DESC');//$table = new SortableTable('tracking_list_course', 'count_teacher_courses');by xiaoping
 		$parameters['view'] = 'teacher';
 		$table->set_additional_parameters($parameters);
 		$table -> set_header(0, get_lang('CourseTitle'), false, 'align="center"');
@@ -601,7 +617,7 @@ if(api_is_platform_admin() && $view=='admin'){
 	//prepare array for column order - when impossible, use lastname
 	$order = array(0=>'firstname',1=>'lastname',2=>'lastname',3=>'login_date',4=>'lastname',5=>'lastname');
 	
-	$table = new SortableTable('tracking_list_coaches', 'count_coaches');
+	$table = new SortableTable('tracking_list_coaches', 'count_coaches',2,500,'DESC');//Don't display the selecting menu .edit by xiaoping
 	$parameters['view'] = 'admin';
 	$table->set_additional_parameters($parameters);
 	$table -> set_header(0, get_lang('LastName'), true, 'align="center"');
