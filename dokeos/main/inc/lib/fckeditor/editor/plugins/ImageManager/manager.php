@@ -18,7 +18,7 @@ $dirs = $manager->getDirs();
 <html>
 <head>
 <title><?php echo get_lang('InsertImage'); ?></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
 <link href="assets/manager.css" rel="stylesheet" type="text/css" />	
 
 <script type="text/javascript">
@@ -107,7 +107,7 @@ $dirs = $manager->getDirs();
 
 
 <!-- image properties -->
-<input type="file" name="upload" id="upload"/>&nbsp;<button type="submit" name="submit" onclick="doUpload();"/><?php echo get_lang('Send'); ?></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="file" name="upload" id="upload"/>&nbsp;<button type="submit" name="submit" onclick="doUpload();"/><?php echo get_lang('UpLoad'); ?></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		  <button type="button" class="buttons" onclick="return refresh();" style="display: none"><?php echo get_lang('Regresh'); ?></button>
           <button type="button" class="buttons" onclick="return onOK();"><?php echo get_lang('Ok'); ?></button>
           <button type="button" class="buttons" onclick="return onCancel();"><?php echo get_lang('Cancel'); ?></button>
@@ -115,7 +115,7 @@ $dirs = $manager->getDirs();
 		  
 		  if(api_is_allowed_to_edit()){
 		  ?>
-		  	<span style="cursor: pointer" onclick="showAdvancedSettings();"><?php echo utf8_encode(get_lang('AdvancedSettings'));?></span>
+		  	<span style="cursor: pointer" onclick="showAdvancedSettings();"><?php echo htmlspecialchars(get_lang('AdvancedSettings'));?></span>
 		  	
 		  <?php
 		  }
@@ -164,16 +164,16 @@ $dirs = $manager->getDirs();
 			<td align="right"><label for="f_align"><?php echo get_lang('Align'); ?></label></td>
 			<td colspan="2">
 				<select size="1" id="f_align"  title="Positioning of this image">
-				  <option value=""                             >Not Set</option>
-				  <option value="left"                         >Left</option>
-				  <option value="right"                        >Right</option>
-				  <option value="texttop"                      >Texttop</option>
-				  <option value="absmiddle"                    >Absmiddle</option>
-				  <option value="baseline" selected="selected" >Baseline</option>
-				  <option value="absbottom"                    >Absbottom</option>
-				  <option value="bottom"                       >Bottom</option>
-				  <option value="middle"                       >Middle</option>
-				  <option value="top"                          >Top</option>
+				  <option value=""                             ><?php echo get_lang('NotSet'); ?></option>
+				  <option value="left"                         ><?php echo get_lang('Left'); ?></option>
+				  <option value="right"                        ><?php echo get_lang('Right'); ?></option>
+				  <option value="texttop"                      ><?php echo get_lang('Texttop'); ?></option>
+				  <option value="absmiddle"                    ><?php echo get_lang('Absmiddle'); ?></option>
+				  <option value="baseline" selected="selected" ><?php echo get_lang('Baseline'); ?></option>
+				  <option value="absbottom"                    ><?php echo get_lang('Absbottom'); ?></option>
+				  <option value="bottom"                       ><?php echo get_lang('Bottom'); ?></option>
+				  <option value="middle"                       ><?php echo get_lang('Middle'); ?></option>
+				  <option value="top"                          ><?php echo get_lang('Top'); ?></option>
 				</select>
 			</td>
 			<td align="right"><label for="f_border"><?php echo get_lang('Border'); ?></label></td>

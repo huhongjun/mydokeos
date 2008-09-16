@@ -581,4 +581,16 @@ $EnabledCreditCourses = "启用收费课程";
 $UnknownPackageFormat = "未知的格式包";
 $CoursesCategories = "课程";
 $actions = "操作";
+
+$UpLoad  = "上传";
+$NotSet = "不设置"; 
+$Left = "向左对齐"; 
+$Right = "向右对齐"; 
+$Texttop = "向文字顶部对齐"; 
+$Absmiddle = "绝对置中"; 
+$Baseline = "向文字底部对齐"; 
+$Absbottom = "绝对置下"; 
+$Bottom  = "向下对齐"; 
+$Middle  = "向中对齐"; 
+$Top  = "向上对齐";
 ?>
