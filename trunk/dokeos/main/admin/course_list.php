@@ -101,7 +101,7 @@ function get_course_data($from, $number_of_items, $column, $direction)
 		$keyword_visibility = Database::escape_string($_GET['keyword_visibility']);
 		$keyword_subscribe = Database::escape_string($_GET['keyword_subscribe']);
 		$keyword_unsubscribe = Database::escape_string($_GET['keyword_unsubscribe']);
-		$sql .= " WHERE code LIKE '%".$keyword_code."%' AND title LIKE '%".$keyword_title."%' AND category_code LIKE '%".$keyword_category."%'  AND course_language LIKE '%".$keyword_language."%'   AND visibility LIKE '%".$keyword_visibility."%'    AND subscribe LIKE '".$keyword_subscribe."'AND unsubscribe LIKE '".$keyword_unsubscribe."'";
+		$sql .= " WHERE t1.code LIKE '%".$keyword_code."%' AND title LIKE '%".$keyword_title."%' AND category_code LIKE '%".$keyword_category."%'  AND course_language LIKE '%".$keyword_language."%'   AND visibility LIKE '%".$keyword_visibility."%'    AND subscribe LIKE '".$keyword_subscribe."'AND unsubscribe LIKE '".$keyword_unsubscribe."'";
 	}
 	$sql .= " ORDER BY col$column $direction ";
 	$sql .= " LIMIT $from,$number_of_items";
