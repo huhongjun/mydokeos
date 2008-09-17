@@ -381,7 +381,8 @@ if($is_allowed_to_edit || $group_member_with_upload_rights) // TEACHER ONLY
 		}
 		else
 		{
-			Display::display_error_message(get_lang('DocDeleteError'));
+			Display::display_confirmation_message(get_lang('DocDeleted'));
+			//Display::display_error_message(get_lang('DocDeleteError'));
 		}
 	}
 
