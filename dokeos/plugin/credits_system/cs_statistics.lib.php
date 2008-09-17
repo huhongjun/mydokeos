@@ -128,7 +128,8 @@ class CreditSystem
 		//$period = get_lang('AmountCreditsMonth');
 		$sql = "SELECT DATE_FORMAT(date, '%M') AS stat_date, firstname AS name, lastname AS last_name, SUM(credits) AS amount_of_credits FROM $payment_table T1,$main_user_table T2 WHERE (T1.user_id = T2.user_id) AND (date LIKE '$type%') GROUP BY stat_date,name, last_name ORDER BY  amount_of_credits";
 		$res = api_sql_query($sql,__FILE__,__LINE__);
-		$result = array();echo $sql;
+		$result = array();
+		//echo sql;
 		while($obj = mysql_fetch_object($res))
 		{
 			$result[$obj->last_name.' '.$obj->name] = $obj->amount_of_credits;//zml edit 
