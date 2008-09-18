@@ -128,7 +128,7 @@ $query = "select user_id from $main_admin_table";
 $admin_id = mysql_result(api_sql_query($query),0,"user_id");
 $uinfo = api_get_user_info($admin_id);
 $from = $uinfo['mail'];
-$from_name = $uinfo['firstname'].' '.$uinfo['lastname'];
+$from_name = $uinfo['lastname'].' '.$uinfo['firstname'];
 $str = $_SERVER['REQUEST_URI'];
 $arr = explode('/',$str);
 $url = api_get_path(WEB_CODE_PATH).'exercice/exercice.php?'.api_get_cidreq().'&show=result';
@@ -936,7 +936,7 @@ $msg .= '</head>
 
 	$msg1= str_replace("#url#",$url,$msg);
 	$mail_content = stripslashes($msg1);
-	$student_name = $_SESSION['_user']['firstName'].' '.$_SESSION['_user']['lastName'];
+	$student_name = $_SESSION['_user']['lastName'].' '.$_SESSION['_user']['firstName'];
 	$subject = get_lang('OpenQuestionsAttempted');
 	api_mail_html($student_name, $to, $subject, $mail_content, $from_name, $from, array('encoding'=>$mycharset,'charset'=>$mycharset));
 }
