@@ -126,9 +126,8 @@ else {
 }
 
 Display::display_header($nameTools,"Exercise");
-
 $emailId = $_REQUEST['email'];
-$user_name = $_REQUEST['user'];
+$user_name = isset($_REQUEST['user'])?$_REQUEST['user']:$_user['lastName'].$_user['firstName']; //解决了学员查看测验结果时不显示用户的问题 by xiaoping
 $test 	   = $_REQUEST['test'];
 $dt	 	   = $_REQUEST['dt'];
 $marks 	   = $_REQUEST['res'];
@@ -352,7 +351,7 @@ $result =api_sql_query($query, __FILE__, __LINE__);
 			{
 			$questionList[] = $row['question_id'];
 			$exerciseResult[] = $row['answer'];
-			}
+			}		
 		foreach($questionList as $questionId)
 			{
 				$counter++;
@@ -619,15 +618,16 @@ $result =api_sql_query($query, __FILE__, __LINE__);
 	
 	elseif($answerType == MATCHING)
 	{
-
+		
 		$objAnswerTmp=new Answer($questionId);
 		
 		$table_ans = Database :: get_course_table(TABLE_QUIZ_ANSWER);
 		$TBL_TRACK_ATTEMPT		= Database::get_statistic_table(TABLE_STATISTIC_TRACK_E_ATTEMPT);
-		
+		//解决了学员在查看测验结果时配对问题答案不一致问题
 		$sql_select_answer = 'SELECT id, answer, correct, position FROM '.$table_ans.' WHERE question_id="'.$questionId.'" AND correct<>0';
-		$res_answers = api_sql_query($sql_select_answer, __FILE__, __LINE__);
-		
+		$sql_select_answer1 = 'SELECT id, answer, correct, position FROM '.$table_ans.' WHERE question_id="'.$questionId.'" AND correct=0';//edit by xiaoping
+		$res_answers = api_sql_query($sql_select_answer, __FILE__, __LINE__);	
+		$res_answers1 = api_sql_query($sql_select_answer1, __FILE__, __LINE__);	//edit by xiaoping
 		echo '<table width="355" height="71" border="0">';
 		echo '<tr><td colspan="2">&nbsp;</td></tr>';
 		echo '<tr>
@@ -638,13 +638,12 @@ $result =api_sql_query($query, __FILE__, __LINE__);
 		
 		$questionScore=0;
 		
-		while($a_answers = mysql_fetch_array($res_answers)){
-			
+		while(($a_answers = mysql_fetch_array($res_answers)) && ($a_answers1 = mysql_fetch_array($res_answers1))){	//edit by xiaoping		
 			$i_answer_id = $a_answers['id'];
 			$s_answer_label = $a_answers['answer'];
 			$i_answer_correct_answer = $a_answers['correct'];
 			$i_answer_position = $a_answers['position'];
-			
+			$s_answer_label1 = $a_answers1['answer'];//edit by xiaoping
 			$sql_user_answer = 
 					'SELECT answers.answer 
 					FROM '.$TBL_TRACK_ATTEMPT.' as track_e_attempt 
@@ -658,9 +657,8 @@ $result =api_sql_query($query, __FILE__, __LINE__);
 			
 			
 			$res_user_answer = api_sql_query($sql_user_answer, __FILE__, __LINE__);
-			$s_user_answer = mysql_result($res_user_answer,0,0);
-			
-			$s_correct_answer = $s_answer_label;
+			$s_user_answer = mysql_result($res_user_answer,0,0);			
+			$s_correct_answer = $s_answer_label1;//edit by xiaoping
 			
 			$i_answerWeighting=$objAnswerTmp->selectWeighting($i_answer_id);
 			
