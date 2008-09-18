@@ -774,7 +774,7 @@ $exerciseTitle=api_parse_tex($exerciseTitle);
 			if ($answerType==MULTIPLE_ANSWER )
 			{
 				$reply = array_keys($choice);
-				for ($i=0;$i<sizeof($reply);$i++)
+				for ($i=0;$i<=sizeof($reply);$i++)//解决了多选题无操作时不写入数据库的问题 即如果学员没做多选题则该题在查看时不显示 by xiaoping
 				{
 					$ans = $reply[$i];
 					exercise_attempt($questionScore,$ans,$quesId,$exeId,$i);
