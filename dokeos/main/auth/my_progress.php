@@ -190,7 +190,7 @@ foreach($Courses as $enreg)
 			}
 		} // end if(api_get_setting('use_session_mode')=='true')
 		
-		$tableTitle = $a_infosCours['title'].' | '.mb_convert_encoding('鏁欏笀',$charset,'utf-8').' : '.$a_infosCours['tutor_name'].((!empty($session_name)) ? ' | '.get_lang('Session').' : '.$session_name : '');
+		$tableTitle = $a_infosCours['title'].' | '.get_lang('Teacher').' : '.$a_infosCours['tutor_name'].((!empty($session_name)) ? ' | '.get_lang('Session').' : '.$session_name : '');
 		
 
 		?>
@@ -206,10 +206,8 @@ foreach($Courses as $enreg)
 			  <th class="head"><?php echo get_lang('Progress'); ?></th>
 			  <th class="head"><?php echo get_lang('LastConnexion'); ?></th>
 			</tr>
-			<?php
-				$sqlLearnpath = "	SELECT lp.name,lp.id
-									FROM ".$a_infosCours['db_name'].".".$tbl_course_lp." AS lp
-								";
+			<?php //解决sql错误 by xiaoping
+				$sqlLearnpath = "SELECT lp.name,lp.id FROM crs_".$a_infosCours['db_name']."_lp AS lp";
 
 				$resultLearnpath = api_sql_query($sqlLearnpath);
 
@@ -223,9 +221,10 @@ foreach($Courses as $enreg)
 
 
 						// calculates last connection time
+						//解决sql错误 by xiaoping
 						$sql = 'SELECT MAX(start_time)
-									FROM '.$a_infosCours['db_name'].'.'.$tbl_course_lp_view_item.' AS item_view
-									INNER JOIN '.$a_infosCours['db_name'].'.'.$tbl_course_lp_view.' AS view
+									FROM crs_'.$a_infosCours['db_name'].'_lp_item_view AS item_view
+									INNER JOIN crs_'.$a_infosCours['db_name'].'_lp_view AS view
 										ON item_view.lp_view_id = view.id
 										AND view.lp_id = '.$a_learnpath['id'].'
 										AND view.user_id = '.$_user['user_id'];
@@ -233,9 +232,10 @@ foreach($Courses as $enreg)
 						$start_time = Database::result($rs, 0, 0);
 
 						// calculates time
+						//解决sql错误 by xiaoping
 						$sql = 'SELECT SUM(total_time)
-									FROM '.$a_infosCours['db_name'].'.'.$tbl_course_lp_view_item.' AS item_view
-									INNER JOIN '.$a_infosCours['db_name'].'.'.$tbl_course_lp_view.' AS view
+									FROM crs_'.$a_infosCours['db_name'].'_lp_item_view AS item_view
+									INNER JOIN crs_'.$a_infosCours['db_name'].'_lp_view AS view
 										ON item_view.lp_view_id = view.id
 										AND view.lp_id = '.$a_learnpath['id'].'
 										AND view.user_id = '.$_user['user_id'];
@@ -291,18 +291,15 @@ foreach($Courses as $enreg)
 			</tr>
 
 			<?php
-				
-				$sql='SELECT visibility FROM '.$a_infosCours['db_name'].'.'.TABLE_TOOL_LIST.' WHERE name="quiz"';
+				//解决sql错误 by xiaoping
+				$sql='SELECT visibility FROM crs_'.$a_infosCours['db_name'].'_'.TABLE_TOOL_LIST.' WHERE name="quiz"';
 				$resultVisibilityTests = api_sql_query($sql);
 				
 				if(Database::result($resultVisibilityTests,0,'visibility')==1){
-				
-					$sqlExercices = "	SELECT quiz.title,id
-									FROM ".$a_infosCours['db_name'].".".$tbl_course_quiz." AS quiz
-									WHERE active='1'
-									";
-	
-	
+				    //解决sql错误 by xiaoping
+					$sqlExercices = "SELECT quiz.title,id
+									FROM crs_".$a_infosCours['db_name']."_quiz AS quiz 
+									WHERE active='1'";	
 					$resuktExercices = api_sql_query($sqlExercices);
 					if(Database::num_rows($resuktExercices)>0){
 						while($a_exercices = Database::fetch_array($resuktExercices))
@@ -320,8 +317,7 @@ foreach($Courses as $enreg)
 										 WHERE exe_user_id = ".$_user['user_id']."
 										 AND exe_cours_id = '".$a_infosCours['code']."'
 										 AND exe_exo_id = ".$a_exercices['id']."
-										ORDER BY exe_date DESC LIMIT 1"
-											;
+										ORDER BY exe_date DESC LIMIT 1";
 		
 							$resultScore = api_sql_query($sqlScore);
 							$score = 0;
@@ -346,24 +342,21 @@ foreach($Courses as $enreg)
 							echo "<tr>
 									<td>
 								 ";
-							echo 		$a_exercices['title'];
-							echo "	</td>
-								 ";
-							echo "	<td align='center'>
-								  ";
+							echo $a_exercices['title'];
+							echo "</td> ";
+							echo "<td>";
 							echo $pourcentageScore.'%';
-							echo "	</td>
-		
-									<td align='center'>
+							echo "</td>		
+								  <td>
 								 ";
-							echo 		$a_essais['essais'];
-							echo '	</td>
-									<td align="center" width="25">
+							echo $a_essais['essais'];
+							echo '</td>
+								  <td align="center" width="200">
 								 ';
 							if($a_essais['essais']>0)
 								echo '<a href="../exercice/exercise_show.php?origin=student_progress&id='.$exe_id.'&cidReq='.$a_infosCours['code'].'&id_session='.$_GET['id_session'].'"> <img src="'.api_get_path(WEB_IMG_PATH).'quiz.gif" border="0"> </a>';
-							echo "	</td>
-								  </tr>
+							echo "</td>
+								 </tr>
 								 ";
 						}
 					}
