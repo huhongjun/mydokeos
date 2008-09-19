@@ -1,0 +1,620 @@
+代码清单：
+
+一、文字显示的修改：
+
+      （1）学习币管理中的问题：
+
+            01. 现象：（管理员或教师）学习币系统 > 管理课程价格 页面提示信息是英文
+                解决：main\lang\simpl_chinese\plugin_credits_system.inc.php 
+                      新增  ManageCourseCreditsAccessDenied = 管理课程价格拒绝访问
+             
+             
+            02. 现象：(教师) 学习币系统 > 管理课程价格 > 收费课程 > 当前支付选项菜单 > 添加支付选项 
+                      信息提示为英文（管理员设置了几种付费方式教师这里就有几种付费方式）
+                解决：main\lang\simpl_chinese\plugin_credits_system.inc.php 
+                      新增 NoMorePaymentOptionsAvailable = 没有其他可供选择的付款方式  
+
+
+            03. 现象：（管理员）学习币系统 > 设置 > 支付选项 列表选项 本地化
+                解决：plugin/credits_system/subscription.php  
+                      修增加函数get_language_unit 对day week month year对应本地化
+                      main\lang\simpl_chinese\plugin_credits_system.inc.php
+                      增加：$day = "天";$week = "周";$month = "月";$year = "年";
+
+
+            04. 现象：学习币系统统计 > 点击 "学习币 (按月学习币数量)"->"信息" 
+                      页面字段"CreditsUsers (September)"没有汉化. 
+                解决：elcms\plugin\credits_system\cs_statistics.lib.php 
+                      修改代码line 134 姓名颠倒  line 136 本地化 
+                      elcms\main\lang\simpl_chinese\plugin_credits_system.inc.php  
+                      增加十二月本地化
+
+
+            05. 现象："学习币系统 > 管理课程价格" 和 "平台管理 > 课程列表"
+                      页面中的"语言","分类","允许注册","允许注消"字段内容显示不友好;
+                      "语言"和"分类"应显示中文,例如:分类:固定课程;"允许...
+                      "字段其内容应为"是"或"否"而不是"确定"或"取消".
+                解决：elcms\plugin\credits_system\manage_course_credits.php 
+                      修改两个函数get_free_course_data 和 get_pay_course_data
+                      elcms\main\admin\course_list.php  
+                      修改函数get_course_data
+                      elcms\main\lang\simpl_chinese\plugin_credits_system.inc.php 
+                      新增 simpl_chinese='简体中文';
+                      elcms\main\lang\simpl_chinese\admin.inc.php  
+                      新增 $yes = "是";$no = "否";$simpl_chinese='简体中文';
+
+      
+            06. 现象：学习币系统 > 管理课程价格 列表字段 本地化
+                解决：main/lang/simpl_chinese/plugin_credits_system.inc.php  
+                      修改内容为：visual_code = "课程代码";
+
+
+            07. 现象：学习币系统 > 平台历史记录 > 信息(每课程订阅数据)页面选项字段没有汉化.
+                解决：plugin/credits_system/add_payment_option.php 
+                      修改代码line 60
+                      plugin/credits_system/course_information.php 
+                      增加函数get_language_unit 在line51 及修改代码line 197
+                      plugin/credits_system/option_edit.php 
+                      修改代码line 63，75--78
+
+
+            08. 现象：学习币系统支付选项页面显示及汉化问题
+                解决：plugin/credits_system/payment_option.php
+                      修改代码：line 172、179、183、228、235、239 
+                      main/lang/simpl_chinese/plugin_credits_system.inc.php
+                      增加汉化内容：$ThePaymentOption  $IsInUseAndIsThePaymentOptionByDefault  
+                                   $Confirm   $or $yes $Incorrect
+
+
+            09. 现象：学习币系统 购买学习币  buy 按钮 汉化
+                解决：main/lang/simpl_chinese/plugin_credits_system.inc.php 
+                      增加$Buy  修改$USDSymbol 
+                      plugin/credits_system/buy_credits.php 
+                      修改代码： line 150
+
+
+            10. 现象：（学员）学习币系统，点击记录，右上角History，学习币系统 > History
+                解决：elcms\main\lang\simpl_chinese  修改内容$History = "记录";
+
+
+            11. 现象：学习币系统管理课程价格页面显示及汉化问题
+                解决：plugin/credits_system/subscription.php  
+                       代码修改：line 7、168、224、248、249、283
+                      plugin/credits_system/manage_course_credits.php  
+                       代码修改：line 299、324、340、374
+                      main/inc/lib/display.lib.php   
+                       代码修改：line 36
+      
+            12. 现象：学习币管理 功能中的乱码问题
+                解决：plugin/credits_system/manage_user_credits.php
+                       修改代码：line 189--193、196、240、315、319、320、335、342、361、
+                                      457、461、477、482、484、504、511、513、593
+
+
+      （2）平台管理中的问题：
+
+            01. 现象：平台管理 > 学习跟踪 "工具权限"页面没有汉化;"最后使用"页面显示"* 日 [60]"; "登录 (日)"页面没有汉化. 
+                解决：elcms\main\admin\statistics\statistics.lib.php 
+                     修改代码：line 158 星期本地化 line 265 工具本地化 line 344 最后使用"页面显示"* 日 [60]";   
+                     main\lang\simpl_chinese\admin.inc.php 
+                     修改内容为：增加days=天数 星期 和 工具 对应的键值
+
+            02. 现象：（管理员）平台管理的“新建课程”页面有两个教师字段（第二个不可用）；
+                原来的解决方案：根据需求只有一个教师有权限建立管理课程，所以课程指定教师只留一个就可以
+                现在的解决方案：采用名称区分  CourseTitular  课程管理教师 CourseTeachers  课程指导教师  
+                理由：CourseTitular （教师）对应课程列表页 教师字段，是维护课程的教师，根据需求我们只有一个教师
+                      而课程指导教师 则是多个，admin任意指派。 但课程管理教师一定在课程指导教师中，逻辑上也可以说过去。
+                修改文件：main\lang\simpl_chinese\admin.inc.php  
+                        修改内容：CourseTitular = 课程管理教师；  CourseTeachers = 课程指导教师 
+ 
+ 
+            03. 现象：平台管理 > 平台管理 显示两个平台管理，面包屑重复
+                解决：main/admin/index.php  修改代码line 49 注释代码
+               
+               
+            04. 现象：平台管理 > 教务管理 > 课程添加用户  的提示信息 需要修改“所选课程已注册到所选培训计划”
+                解决：main/lang/simpl_chinese/admin.inc.php 添加内容：UsersAreSubscibedToCourse = "所选课程已注册到所选用户";
+
+
+            05. 现象：平台管理 > 课程列表 > 课程图片显示乱码  
+                      是鼠标事件 没有找到对应的处理代码 不是主体功能 所以暂时选择屏蔽
+                解决：main/admin/user_list.php 代码修改：line 397到403 注释
+
+
+            06. 现象：系统管理员 > 培训计划列表  cours 改成课课程
+                      系统管理员 > 培训计划列表  培训计划概览 dates 改成日期
+                解决：main/admin/resume_session.php 修改代码：line 139
+                      main/admin/session_list.php  修改代码：line 174
+                      main/lang/simpl_chinese/admin.inc.php  增加$cours   $Date
+
+
+            07. 现象：连续创建用户的提示信息:用户已添加&sec_token=235f7d69e6dc8a6d48cd3c16a45f26cf
+                      去掉：&sec_token=235f7d69e6dc8a6d48cd3c16a45f26cf
+                      连续添加用户成功的提示信息改为：用户已添加
+                解决：main/admin/user_add.php  修改代码line 345 和 353   
+                
+                
+            08. 现象：平台管理 > 课程分类 > 打开该分类  返回上一页 后多显示(Array)
+                解决：main/admin/course_category.php 
+                修改代码：line 141 去掉这个参数注释if(!empty($parent_id)) echo ' ('.$parent_id.')'; 
+               
+               
+            09. 现象：平台管理->学习跟踪，工具权限、登录（月）页面有英文
+                解决：main\admin\statistics\statistics.lib.php  
+                     修改函数print_tool_stats 和 print_stats    
+                
+                
+            10. 现象：（admin）报告，点击进入培训计划页面，右上角Sessions，报告 > Sessions
+                       平台管理 >> 学习跟踪 >> 用户 >>  登陆 (灏忔椂)  出现乱码（资源文件中就是乱码）
+                解决：elcms\main\lang\simpl_chinese\tracking.inc.php  
+                      修改内容：langPeriodHour = "小时";  Sessions='培训计划';
+
+
+            11. 现象：（管理员）培训计划 > 课程 > 用户列表订购课程 "大学语文" 为培训计划 "天津注协200809班" 
+                      列表页下的选择下拉列表没有任何显示，当勾选一些记录进行批量删除操作后，页面列表字段出现英文 和 乱码
+                解决：main\admin\session_course_user_list.php 
+                       修改代码：line 113，114，115，116 显示列表字段名称  line190 显示下拉列表中的值
+                      main\lang\simpl_chinese\admin.inc.php
+                       增加内容为：$firstName = "名";  $lastName = "姓";  $students = "学员";
+                       
+            12. 现象：新增或修改课程，提交按钮没有汉化 同时两个确定按钮去掉一个
+                解决：main\auth\courses.php 修改代码：line 280
+                      main\auth\profile.php 修改代码：line 63、128--135
+                      
+                      
+            13. 现象：平台管理 > 系统公告 中  提交之后提示信息乱码
+                解决：main/admin/system_announcements.php  修改代码：line 280
+                      main/announcements/announcements.php  修改代码：line 1426        
+                
+                      
+            14. 现象：(管理员)平台管理 > 平台 > 配置主页 > 编辑主页(是文本编辑器)插入图片的页面出现乱码(如按钮信息)
+                解决：main\inc\lib\fckeditor\editor\lang 
+                       把zh.js 改成 zh-ch.js  原来的zh.js是繁体中文，现在改为简体中文  
+                      main\inc\lib\fckeditor\editor\plugins\ImageManager\manager.php 
+                       修改代码：line 21、110、118、167--176
+                      main/lang/simpl_chinese/trad4all.inc.php
+                       新增 对齐方式的本地化         
+         
+      （3）学习路径： 
+            
+            01. 现象：增加学习路径时，标题乱码问题
+                解决： newscorm/lp_add.php   修改代码：line 142
+                
+                
+            02. 现象：手工建立的学习路径->组织->编辑章 (乱码和汉化)
+                解决：main/newscorm/learnpath.class.php  
+                      修改函数display_item_small_form    
+                
+                
+            03. 现象：添加学习路径:新建学习路径，在输入中文标题名称时显示乱码。
+                      两个位置：一是列表页；二是建立下左侧的菜单。
+                解决： ewscorm/learnpath.class.php  
+                       代码修改：line 561、575、859、4375                
+            
+            
+            04. 现象：解决学习路径乱中添加章点击添加的章,右侧中文标题乱码，
+                      但编辑后在右侧中文标题乱码;
+                      内容编辑：在添加新步骤时，右侧中文标题乱码，点击添加的步骤在中文标题乱码
+                解决： newscorm/learnpath.class.php  
+                      代码修改：line 347、348、560、 修改函数 display_item line 4360、4375、4385
+                               修改函数 create_js line 6828、6865
+
+
+            05. 现象：学习路径中 我的状态页面乱码 学习路径显示页面乱码
+                       由于学习路径中乱码问题比较多修改的文件都是learnpath.class.php 
+                解决：main/newscorm/lp_view.php   代码line 89  字符转换函数的使用
+                       main/newscorm/resourcelinker.inc.php  代码line 1465   字符转换函数的使用             
+
+
+            06. 问题：学习路径中的“允许多种尝试”，不清楚功能是用来做什么的，建议屏蔽
+                      实际应用中并没有发现有什么特殊功能，所以屏蔽了 
+                修改：main\newscorm\lp_list.php  line 328 - 336 注释    
+               
+               
+            07. 现象：学习路径中汉化乱码问题
+                解决：main/newscorm/learnpath.class.php 
+                      学习路径的乱码问题基本都是在标题，描述使用字符转码函数mb_convert_encoding()和htmlspecialchars
+                      main/lang/simpl_chinese/scorm.inc.php修改内容$UnknownPackageFormat  
+                      
+   
+    
+      （4）关于课程的问题：   
+                
+            01. 现象：学员登录，课程 > 小组 列表页有两个"注册"字段. 教师的姓名颠倒。
+                      点“删除”“删除所有用户”“添加所有用户”的提示信息是乱码
+                 解决：main\group\group.php line325 教师姓名颠倒；
+                        代码:line 344，345，346  htmlentities 改用 htmlspecialchars（乱码问题）
+                      main\lang\simpl_chinese 同时修改以下变量的文字说明：langRegistered    
+                      langGroupSelfRegistration   langGroupSelfRegInf  FillGroup     
+                      langGroupAllowStudentUnregistration   langGroupSelfUnRegInf     
+                
+                
+            02. 现象：（教师）文档 > 列表页   当执行删除操作后文档成功删除但提示信息是错误的提示信息
+                        程序做了一个判断如果为根目录则报删除错误的信息提示，实际应用是可以删除的
+                 修改：elcms\main\document\document.php  
+                       修改代码：line 384  修改提示信息为成功的提示的信息   
+                
+                
+            03. 现象：毛泽东思想 > 测验 > 学生的分数 页面日期格式.
+                       （注明：关于日期的修改比较凌乱暂时只能做表面整理）
+                 解决：main/lang/simpl_chinese/trad4all.inc.php 
+                      修改内容为：dateTimeFormatLong = "%Y %B&nbsp;%d, %I:%M %p";   
+                 
+
+            04. 现象：教师创建课程后在"我的日程"中显示颠倒:XX(课程名) 创建课程 .
+                      修改为“ 创建课程 XX(课程名)”
+                解决：main/calendar/myagenda.inc.php  代码修改 line 152 和 221
+
+
+            05. 现象：学员登录 课程中博客 查询后面的按钮 是英文  姓名颠倒
+                解决：main/blog/blog.php 修改代码line276 get_lang('Go')  
+                      main/lang/simpl_chinese/blog.inc.php 增加Go='开始';
+                      main/inc/lib/blog.lib.php 修改代码line 2132
+                      
+            06. 现象：课程下博客中乱码问题
+                解决：main/inc/lib/blog.lib.php 修改代码：line 980、1881、1477、1538、1550、2751
+                
+                
+            07. 现象：课程下文档中乱码问题
+                解决：main/inc/lib/fileManage.lib.php  修改代码：line 738
+                      main/inc/lib/fileUpload.lib.php  修改代码：line 110、1744、1800
+
+
+            08. 现象：课程下链接中乱码问题
+                解决：main/link/link.php  修改代码： line 214到395
+                     main/online/online_master.php  修改代码： line 1348
+
+
+            09. 现象：课程下聊天中乱码问题 
+                解决：main/online/online_chat.php       修改代码： line 111、112
+                      main/online/online_hidden1.php    修改代码： line 111
+                      main/online/online_master.php     修改代码： line 129、132、205
+                
+                
+            10. 现象：课程下日志中乱码问题
+                解决：main/tracking/userLog.php       修改代码：line 157、859
+                      main/tracking/userlogCSV.php    修改代码：line 182、634
+
+
+            11. 现象：课程下论坛中 提交按钮没有本地化
+                解决：main/forum/forumfunction.inc.php 修改代码line 154、287、364、2622、2671
+
+
+            12. 现象：论坛中 人员姓名颠倒问题
+                解决：main/forum/index.php   修改代码：line 369
+                     main/forum/viewforum.php 修改代码：line 285、 295
+                     main/forum/viewthread_flat.inc.php  修改代码：line 85
+
+
+            13. 现象：论坛中的乱码问题
+                解决：main/forum/index.php  修改代码：line 215、385
+                     main/forum/viewforum.php  修改代码： line 332
+                     main/forum/viewforumcategory.php 修改代码： line 198、335
+                     main/forum/viewthread_flat.inc.php 修改代码： line 109
+                     main/forum/viewthread_nested.inc.php 修改代码： line 100
+                     main/forum/viewthread_threaded.inc.php 修改代码： line 231
+
+
+            14. 现象：课程的学生作业上传文档里的作者姓名颠倒. 
+                        (学员角色)课程里的聊天页面重复显示自己并且姓名颠倒.
+                解决：main/chat/chat_message.php 修改代码 line 136
+                      main/chat/chat_whoisonline.php  修改代码 line 69
+                      main/work/work.php  修改代码 line 762
+
+
+            15. 现象：测验管理 测验修改 
+                     1.问题删除前弹出的确认对话框显示乱码
+                     2.图片地区题在修改时中文热点描述和摘要为乱码
+                解决：main/exercice/answer_admin.inc.php  
+                     修改代码：line 959到1440 有部分修改 乱码问题htmlentities改用htmlspecialchars
+                      main/exercice/exercice.php  
+                      修改代码：line 643到822部分代码修改 乱码问题htmlentities改用htmlspecialchars
+                      exercice/hotspot_admin.inc.php
+                      修改代码：line 305、333、334
+                      main/exercice/question_list_admin.inc.php  修改代码：line 110
+
+
+            16. 现象：课程下 测验 乱码问题；测验中人员姓名颠倒
+                解决：main\exercice\exercice.php  
+                      代码修改line 152（姓名颠倒） ；
+                      643、644、645、651、658、663、665、807、808、815、822乱码问题
+
+
+
+
+      （5）报告，我的进展，日程管理等问题： 
+
+            01. 现象：报告中 统计页面 时间显示的修改
+                解决：admin/statistics/statistics.lib.php 修改代码：line 192
+                
+            
+            02. 现象：教师 我的进展中 详细资料 教师姓名颠倒 且乱码
+                解决：main/auth/my_progress.php  修改代码183、188、193
+ 
+ 
+            03. 现象：学习跟踪中 人员姓名颠倒  时间显示和乱码问题
+                解决：main/mySpace/index.php            修改代码：line 608、618、669、680
+                      main/mySpace/access_details.php   修改代码：line 103、106、123
+                      main/mySpace/session.php          修改代码：line 28、42
+                      
+            04. 现象：日程管理 中时间显示问题和乱码问题
+                解决：main/calendar/agenda.inc.php   修改代码：line 1659、1924、2705、2775、2791
+                      main/calendar/myagenda.php    修改代码：line 82
+                      main/calendar/print.php       修改代码：line 44、81
+
+
+            05. 现象：课程的通知和日程以及"我的日程"里"添加个人议项"页面存在日期格式问题.
+                解决：main/calendar/agenda.inc.php 
+                      修改代码：line 160和line 1570
+                      main/calendar/myagenda.inc.php   
+                      修改代码：line 360、385、392、411、672、678、696  
+                      main/lang/english/trad4all.inc.php 
+                      修改75 $dateFormatLong  和432 $DateFormatLongWithoutDay 的格式
+                      
+                      
+            06. 现象：面包屑中乱码问题
+                解决：main/inc/header.inc.php 修改代码line 155、156 
+
+
+            07. 现象：学员在访问计划内课程时,如果该课程是支付课程则需验证身份并且页面无法显示;免费课程则可以.
+                解决：此处用固定课和选修课做区分——意思就是同一个课程用不同的标识建立一个为固定课一个为选修课
+
+
+            08. 现象：我的课程页面 中 课程  和  教务管理用的是同一个 资源文件中的变量  
+                解决：main/admin/course_category.php 
+                      修改代码：line 219
+                      main/lang/simpl_chinese/trad4all.inc.php 
+                       增加$CoursesCategories = "课程";   
+    
+    
+      （6）首页中的问题：      
+      
+            01. 现象：进入门户主页右上角的帮助页面,没做汉化处理.
+                解决：elcms\main\help\help.php 代码修改：line 116、117 注释
+                      elcms\main\help\faq.php  代码修改：line 68 注释
+                      
+                      
+            02. 现象：姓名显示颠倒问题（用户注册  注册成功后,页面显示姓名颠倒）
+                解决：main/mySpace/myStudents.php   修改代码：line 196
+                      main/mySpace/access_details.php  修改代码：line 103
+                      main/auth/inscription.php    修改代码：line 290、297、309
+
+
+            03. 现象：首页右上角的帮助链接没有内容并且多出一行"访问的常见问题  关闭".
+                解决：main/help/faq.php  修改代码 line 68 注释
+                      main/help/help.php 修改代码 line 116和117 注释 
+ 
+ 
+            04.  现象：首页的课程列表出现"固定课 (9 教务管理)"其中'教务管理'不知什么意思.
+                 起因：教务管理是原来的"课程"经修改由于读取的资源文件同一个变量,
+                       所以出现这样的问题，首页不显示，只显示数字就可以 
+                 解决：elcms下index.php  修改代码：line 652 get_lang('Courses');改为get_lang('')
+
+
+
+
+    
+二、程序逻辑的修改：
+
+      （1）学习币管理中的问题：
+      
+            01. 现象："管理用户存款"页面修改学习币时出现的不能编辑的问题:
+                       当action=edit时 sql语句追加where判断并且屏蔽limit语句.
+                       （在"管理用户存款"页面点击"编辑"时,个别用户信息不显示:
+                         当点击某些用户字段进行排序时,则可把信息显示出来.）
+                解决： plugin/credits_system/manage_user_credits.php  
+                       代码修改：line 190--203、372、409、515、522、570
+                 
+                 
+            02：现象：学习币管理 管理用户存款-部分用户不能修改学习币
+                解决： plugin/credits_system/manage_user_credits.php   
+                        修改代码：line 559--599部分代码修改
+                       main/inc/lib/sortabletable.class.php
+                       修改代码：line 195、208、321、324
+
+
+            03. 现象：管理用户存款-批量添、减、修改学习币，添加和减少显示页面源代码
+                       管理用户存款-添加学习币 和 减少学习币显示页面源代码
+                       管理用户存款-部分用户不能修改学习币
+                解决：plugin/credits_system/manage_user_credits.php
+                      修改代码：line 335、342、383、423、477、484、511、513
+                 
+                 
+            04. 现象：（管理员）在"管理用户存款"页面进行批量修改时,如果选择用户数超过20(从21开始)
+                      修改页面上下各显示一个下拉菜单(正常情况在修改页面没有下拉菜单),
+                      如果选择下拉菜单的值页面会转向上一个页面("管理用户存款"页面);
+                      并且修改页面下面的保存按钮不可用.
+                解决：修改页面manage_user_credits.php 190行
+                
+      
+            05. 现象：学习币系统 > （教师）管理课程价格 > 列表页有Mysql 错误
+                解决：main\admin\course_list.php 
+                       修改函数 get_course_data 
+                      plugin\credits_system\manage_course_credits.php  
+                       修改函数 get_free_course_data
+   
+            
+      
+      （2）平台管理中的问题：    
+      
+            01. 现象：（管理员）平台配置 >> elcms设置 >> 课程 1 主页--你喜欢哪种主页? 
+                       三列视图 教师身份登录具体课程下显示课程工具页面报错
+                解决：用sql修改数据库对应的信息可以解决这个问题        
+      
+      
+            02. 现象：平台管理 > 用户管理 > 查询或高级查询 的处理（包括官方代码的查询），
+                       平台管理的用户查询关键字后加空格后则查无结果。
+                       对中文检索的支持
+                解决：main/admin/user_list.php 修改代码：line 325 ；用trim函数去掉空格；
+                      对中文检索的支持需要修改数据库user表firstname和lastname字段的属性值加上 binary 属性    
+
+
+            03. 现象：平台管理 > 教务管理 > 课程名称乱码  关键字查询的问题
+                解决：main/admin/course_list.php  
+                      修改代码：line 48、49  修改函数get_number_of_courses和get_course_data
+      
+
+            04. 现象：平台管理 -> 用户列表 -> 点击教师的信息，照片是叉。
+                      注：以教师登录，个人资料里的照片可见
+                解决：main/gradebook/user_info.php  修改代码36、56、57
+            
+            
+                 现象：解决用户信息的照片路径问题和乱码问题(包括个人资料中的个人信息)
+                 解决：main/admin/index.php      修改代码：line 230到253
+                       main/admin/user_edit.php  修改代码：line 266、404、407
+                       main/admin/user_information.php  修改代码：line 40、52、74、76--78
+                       main/user/userInfo.php           修改代码：line 272                
+                
+                
+            05. 现象：平台管理 > 课程导入用户页面出现源代码
+                解决：main/admin/course_user_import.php  修改代码：line 加上参数false     
+
+
+            06. 现象：平台管理 > 导入用户CSV/XML 中文姓名乱码
+                解决：main/inc/lib/usermanager.lib.php  修改函数create_user
+                      admin/user_import.php 修改函数save_data
+
+            07. 现象：平台管理 > 导入培训计划 > CSV样例模板
+                解决：以指定的目录增加文件：main/admin/exempleSession.csv 
+
+
+            08. 现象：平台管理  培训计划  关键字查询和部分页面乱码问题
+                解决：main/admin/session_list.php 
+                       修改代码：line 61、95、173、175
+                      admin/session_course_user_list.php 
+                       修改代码：line 57、61、132--134
+
+            09. 现象：平台管理 》教务管理 》管理课程—培训计划  培训计划列表下无数据
+                起因：此处的培训计划 和 平台管理》培训计划 数据存的是两个不同的表，
+                     现在可以确定的是系统没有用到class和class_user表，所以此处没有数据。
+                解决：屏蔽该功能 main/admin/index.php  修改代码： line 117 注释
+
+                
+            10. 现象：平台管理 > 服务配置  只留ppt 转为学习路径 其他的 屏蔽
+                解决：main/admin/configure_extensions.php 修改代码：line 50到133、287到334、409到544 代码注释
+                      main/admin/index.php  修改代码：line 208到210
+                      main/lang/simpl_chinese/admin.inc.php  修改内容：$langConfigureExtensions = "服务配置";               
+
+
+
+      （3）学习路径：      
+
+            01. 现象：解决学习路径测验问题 提示信息和程序错误
+                解决：main/exercice/exercice_submit.php  
+                       修改代码： line 206 和 486 
+                      main/lang/simpl_chinese/exercice.inc.php  
+                       修改内容为：$notCorrectedYe  $ExerciseEdited  $ExerciseDeleted
+                      
+                      
+            02. 现象：解决学习路径显示页面(导入scorm)乱码问题
+                解决：main/inc/reduced_header.inc.php 
+                       代码修改：line 24、30、171
+                      newscorm/learnpath.class.php    
+                       代码修改：line 2454、2459修改函数get_html_toc 
+                      main/newscorm/lp_controller.php  
+                       代码修改：line 729、801
+                      main/newscorm/lp_log.php   
+                       代码修改：line 22
+                      main/newscorm/lp_message.php   
+                       代码修改：line 35
+                      main/newscorm/lp_stats.php    
+                       代码修改：line 102、105、327、411、454
+                      main/newscorm/lp_toc.php      
+                       代码修改：line 32
+                      main/newscorm/lp_view.php      
+                       代码修改：line 50                         
+
+
+            03. 现象：学习路径在显示时如果'步骤'的url是中文名则页面出现403禁止访问错误
+                解决：main/newscorm/lp_content.php  修改代码：line 62到69
+
+
+            04. 现象：学习路径 导入的Scorm包在 编辑章节保存后页面出现mysql错误 
+                解决：main/newscorm/learnpath.class.php  修改函数edit_document
+
+
+            05. 现象：编辑导入的学习路径内容时无法读取文件内的图片;
+                解决：在对应路径下新增两张对应的图片main/img/lp_dir.png   main/img/lp_sco.png
+                      main/newscorm/learnpath.class.php 修改函数display_item_form
+
+            06. 现象：学习路径-----以SCORM格式导出 文件有中文 则中文显示为-----的问题
+                解决：main/newscorm/learnpath.class.php 
+                      修改代码line 8360  用函数htmlspecialchars
+
+
+      
+      （4）关于课程的问题：     
+         
+            01. 现象：测验管理  测验类型（新增测验或编辑测验）
+                       修改为"每题一页 (连续) " 时测验不能进行,
+                       显示:没有测验或隐藏（测验能开始，但不能提交或看不到后续题目？？？）
+                解决：main/exercice/exercice_submit.php
+                      修改代码: line 486 
+
+
+            02. 现象：1.学员查看测验结果时不显示用户即用户名为空
+                      2.学员在查看测验结果时配对问题答案不一致即它把问题作为正确答案来处理
+                      3.多选题无操作时不写入数据库的问题即如果学员没做多选题则该题在查看时不显示
+                解决：main/exercice/exercise_result.php  修改代码line  131、939、777
+                       main/exercice/exercise_show.php    修改代码line  130、626、628、630、641、646、661
+                       main/lang/simpl_chinese/exercice.inc.php  修改内容：$langCorrect = "正确";
+
+            03. 现象：（教师）某门课程下，课程维护--导入备份--选择备份文件
+                       --Fatal error: Cannot redeclare class FormValidator in   
+                      D:\xampp\htdocs\elcms\main\inc\lib\formvalidator\FormValidator.class.php 
+                      on line 365
+                解决：页面显示错误已经解决通常是文件包含问题引起的，比如应该使用include_once来包含文件，
+                      而不要只使用include包含，就可以避免了
+                      main/coursecopy/import_backup.php  修改代码：line 181  include  改成 include_once
+
+
+
+      （5）报告，我的进展，日程管理等问题： 
+      
+            01. 现象：(报告)->X课程 > 学习跟踪 > 在课程里的学习详细资料 sql查询错误及日期格式
+                     【学习跟踪-学习者跟踪（报告） > 这个导师的学生 > 学习者详细资料 > 在课程里的学习详细资料  
+                     1.访问详细资料时显示用户姓名颠倒;       2.页面部分显示数据库查询错误.】
+                解决：main/mySpace/myStudents.php   修改代码：line 196、499、504、778
+        
+        
+            02. 现象：(教师)报告的教师接口页面和导师接口的"学习者"、"看见用户列表"
+                      页面出现两个控制显示记录的下拉菜单并且不起作用.
+                解决：main/mySpace/index.php   
+                      修改line 502 620 两处代码暂时屏蔽该功能显示所有记录
+         
+         
+            03. 现象：我的日程-添加日程/修改日程   修改接收列表，无法选择单人
+                解决：elcms\main\calendar\agenda.inc.php  代码修改：line 520、526、544、599 
+  
+  
+            04. 现象：学员注册课程之后还需要认证，同时学习币已经扣除了但学不了课程。同时部分页面有英文，姓名颠倒和显示问题
+                       （学员在访问计划内课程时,如果该课程是支付课程则需验证身份并且页面无法显示;免费课程则可以.）？？？
+                解决：main/lang/simpl_chinese/trad4all.inc.php  本地化修改
+                       plugin/credits_system/subscription.php    修改代码：line 112、118、249
+                       plugin/credits_system/manage_course_credits.php 
+                       修改代码：line 198、239、267（姓名颠倒和显示问题）340 本地化
+                       main/lang/simpl_chinese/plugin_credits_system.inc.php  本地化修改
+  
+  
+            05. 现象：我的课程---学员在注册支付课程成功后,页面可以直接进入该课程;
+                      但点击"我的课程" 页面并没有显示该课程,需要再次注册才能加入(再次注册时不需要支付).    
+                      也就是说：课程注册需要两次：第一次，注册+支付；第二次，注册
+                解决：plugin/credits_system/subscription.php  修改函数 get_language_unit 和line 100的代码
+                      main/lang/simpl_chinese/plugin_credits_system.inc.php 新增 对应键值$December  $Need  $unit
+                      
+
+            06. 现象：课程管理 > 注册到课程  学员在注册支付课程时页面显示信息不全面（部分中文提示信息没有显示）。
+                 解决： 没有汉化的原因,修改资源文件plugin_credits_system.inc.php
+
+
+            07. 现象：（注册/机构学员）注册学员和机构学员在访问支付课程时页面出现错误;个别课程提示拒绝访问.
+                      当把支付课程改为免费课程时可以正常访问
+                      (修改页面点击"禁用支付选项"时弹出的对话框显示乱码;关闭课程收费后提示内容没有汉化).
+                 解决：主要解决的是汉化和乱码问题,修改了subscription.php和相关资源文件.
+                       其中拒绝访问是由于对日期单位进行汉化时位置弄错.
+                      修改页面plugin/credits_system/inc/cs_functions.inc.php    
+                      
+                      
+            08. 现象：当操作是无权访问的时候的提示信息页面 返回功能无效
+                解决：main/inc/lib/main_api.lib.php  
+                      修改代码：line 1671 $_SERVER['HTTP_REFERER']改为javascript:history.back();
