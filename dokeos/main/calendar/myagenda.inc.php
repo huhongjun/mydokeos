@@ -323,7 +323,7 @@ function show_new_personal_item_form($id = "")
 	$day = $today['mday'];
 	$month = $today['mon'];
 	$year = $today['year'];
-	$hours = $today['hours'];
+	$hours = $today['hours']+8;
 	$minutes = $today['minutes'];
 	// if an $id is passed to this function this means we are editing an item
 	// we are loading the information here (we do this after everything else
