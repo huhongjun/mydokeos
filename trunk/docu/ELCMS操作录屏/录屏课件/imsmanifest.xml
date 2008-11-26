@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is a Reload version 2.5.4 SCORM 1.2 Content Package document-->
+<!--Spawned from the Reload Content Package Generator - http://www.reload.ac.uk-->
+<manifest xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" identifier="MANIFEST-0365681B5870985D1F968264E74015E1" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <organizations default="ORG-A93FE1422ABF1B7BAB7E42709F100B2B">
+    <organization identifier="ORG-A93FE1422ABF1B7BAB7E42709F100B2B" structure="hierarchical">
+      <title>ELCMS平台操作</title>
+      <item identifier="ITEM-909A6726EE306DF3745B9D941A23A13D" isvisible="true" identifierref="RES-3A5723D0C202D9FC1BC703285DA9EC6F">
+        <title>平台初始设置</title>
+      </item>
+      <item identifier="ITEM-485AE88CB0625835FBB39527D4ECE93C" isvisible="true" identifierref="RES-EA80CBD5D2EF5E0C869AE7503CE476B5">
+        <title>添加用户</title>
+      </item>
+      <item identifier="ITEM-108862A4469E79D11A867F324E0A7B61" isvisible="true" identifierref="RES-305AB6B56EEEF016759203344AA1F82A">
+        <title>新建课程</title>
+      </item>
+      <item identifier="ITEM-0E8EC9E91A206489F52B88594D089A20" isvisible="true" identifierref="RES-7A39CD90F970F10EBD033202F59E769C">
+        <title>课程定价</title>
+      </item>
+      <item identifier="ITEM-A73FE21E7A6989F0386A49E4F6DCF9B2" isvisible="true" identifierref="RES-41BDD8DFAABF549FE00B65CE8F502960">
+        <title>修改介绍</title>
+      </item>
+      <item identifier="ITEM-4E6BC96E042D7C2B25C63816F81FA48D" isvisible="true" identifierref="RES-235E8A6D6275967F9D81EBBB5A9CB4E1">
+        <title>添加学习路径</title>
+      </item>
+      <item identifier="ITEM-20070148D63A8F401C011D8F37FEF3AC" isvisible="true" identifierref="RES-D065A72C93CEB478C7D83AA017E3EBE1">
+        <title>创建论坛</title>
+      </item>
+      <item identifier="ITEM-AAA0060AC5DCD4D82AC85F9A6500BA34" isvisible="true" identifierref="RES-3DFE5F95F39206E70285237315E42286">
+        <title>创建测验</title>
+      </item>
+      <item identifier="ITEM-E641418C9B4E2FC0A3AFE426A722E52A" isvisible="true" identifierref="RES-BEB66561583F7104242F9EA4AE664D58">
+        <title>增加培训计划</title>
+      </item>
+      <item identifier="ITEM-0E8D6F8B4E553465E033B224E15A9E71" isvisible="true" identifierref="RES-3F3020B40B5BF995A1B0E984949F75DD">
+        <title>分配学习币</title>
+      </item>
+      <item identifier="ITEM-1A383B4CA36D4D85CB696F8B973C7CE6" isvisible="true" identifierref="RES-411B82F55265097EC0360BD5684DE397">
+        <title>学员学习</title>
+      </item>
+      <item identifier="ITEM-CB351DD4F31501DA056C4A0901B2718E" isvisible="true" identifierref="RES-8EBB2A0656A25049EEFC6514DE3703DF">
+        <title>管理员报告</title>
+      </item>
+      <item identifier="ITEM-8F4D20C242F5AB2DA0CBAC710484CBB6" isvisible="true" identifierref="RES-0A93C570610C3026661CEFDECFC04194">
+        <title>教师报告</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES-3A5723D0C202D9FC1BC703285DA9EC6F" type="webcontent" href="shezhi/shezhi.htm">
+      <file href="shezhi/shezhi.htm" />
+      <file href="shezhi/shezhi_skin.swf" />
+      <file href="shezhi/standard.js" />
+    </resource>
+    <resource identifier="RES-EA80CBD5D2EF5E0C869AE7503CE476B5" type="webcontent" href="adduser/adduser.htm">
+      <file href="adduser/adduser.htm" />
+      <file href="adduser/adduser_skin.swf" />
+      <file href="adduser/standard.js" />
+    </resource>
+    <resource identifier="RES-305AB6B56EEEF016759203344AA1F82A" type="webcontent" href="createcourse/createcourse.htm">
+      <file href="createcourse/createcourse.htm" />
+      <file href="createcourse/createcourse_skin.swf" />
+      <file href="createcourse/standard.js" />
+    </resource>
+    <resource identifier="RES-7A39CD90F970F10EBD033202F59E769C" type="webcontent" href="jingjia/jingjia.htm">
+      <file href="jingjia/jingjia.htm" />
+      <file href="jingjia/jingjia_skin.swf" />
+      <file href="jingjia/standard.js" />
+    </resource>
+    <resource identifier="RES-41BDD8DFAABF549FE00B65CE8F502960" type="webcontent" href="updatedagang/updatedagang.htm">
+      <file href="updatedagang/updatedagang.htm" />
+      <file href="updatedagang/standard.js" />
+      <file href="updatedagang/updatedagang_skin.swf" />
+    </resource>
+    <resource identifier="RES-235E8A6D6275967F9D81EBBB5A9CB4E1" type="webcontent" href="learnpath/learnpath.htm">
+      <file href="learnpath/learnpath.htm" />
+      <file href="learnpath/learnpath_skin.swf" />
+      <file href="learnpath/standard.js" />
+    </resource>
+    <resource identifier="RES-D065A72C93CEB478C7D83AA017E3EBE1" type="webcontent" href="lutan/lutan.htm">
+      <file href="lutan/lutan.htm" />
+      <file href="lutan/lutan_skin.swf" />
+      <file href="lutan/standard.js" />
+    </resource>
+    <resource identifier="RES-3DFE5F95F39206E70285237315E42286" type="webcontent" href="test/test.htm">
+      <file href="test/test.htm" />
+      <file href="test/standard.js" />
+      <file href="test/test_skin.swf" />
+    </resource>
+    <resource identifier="RES-BEB66561583F7104242F9EA4AE664D58" type="webcontent" href="peixunjihua/peixunjihua.htm">
+      <file href="peixunjihua/peixunjihua.htm" />
+      <file href="peixunjihua/peixunjihua_skin.swf" />
+      <file href="peixunjihua/standard.js" />
+    </resource>
+    <resource identifier="RES-3F3020B40B5BF995A1B0E984949F75DD" type="webcontent" href="xuexibi/xuexibi.htm">
+      <file href="xuexibi/xuexibi.htm" />
+      <file href="xuexibi/standard.js" />
+      <file href="xuexibi/xuexibi_skin.swf" />
+    </resource>
+    <resource identifier="RES-411B82F55265097EC0360BD5684DE397" type="webcontent" href="xuexi/xuexi.htm">
+      <file href="xuexi/xuexi.htm" />
+      <file href="xuexi/standard.js" />
+      <file href="xuexi/xuexi_skin.swf" />
+    </resource>
+    <resource identifier="RES-8EBB2A0656A25049EEFC6514DE3703DF" type="webcontent" href="adminbaogao/adminbaogao.htm">
+      <file href="adminbaogao/adminbaogao.htm" />
+      <file href="adminbaogao/adminbaogao_skin.swf" />
+      <file href="adminbaogao/standard.js" />
+    </resource>
+    <resource identifier="RES-0A93C570610C3026661CEFDECFC04194" type="webcontent" href="teacherbaogao/teacherbaogao.htm">
+      <file href="teacherbaogao/teacherbaogao.htm" />
+      <file href="teacherbaogao/standard.js" />
+      <file href="teacherbaogao/teacherbaogao_skin.swf" />
+    </resource>
+  </resources>
+</manifest>
+
