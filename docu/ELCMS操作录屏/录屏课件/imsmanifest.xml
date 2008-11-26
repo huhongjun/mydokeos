@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is a Reload version 2.5.4 SCORM 1.2 Content Package document-->
+<!--Spawned from the Reload Content Package Generator - http://www.reload.ac.uk-->
+<manifest xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" identifier="MANIFEST-3551437FA5E7DAFC6BFC5025D052267E" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <organizations default="ORG-3EF45BE3896DE52877DEC8119BA0FD97">
+    <organization identifier="ORG-3EF45BE3896DE52877DEC8119BA0FD97" structure="hierarchical">
+      <title>ELCMS平台操作</title>
+      <item identifier="ITEM-0C603A385F229190F4FB471D231C3C30" isvisible="true" identifierref="RES-42E7FDA08EA0A24F4F46AF0B0B9261EB">
+        <title>平台初始设置</title>
+      </item>
+      <item identifier="ITEM-647B5DF6ABD891A459F2AC510765AA74" isvisible="true" identifierref="RES-864645D863A186B151C8678CC8C2DAEC">
+        <title>添加用户</title>
+      </item>
+      <item identifier="ITEM-E755F18223687B0794F8C51DC2A773DF" isvisible="true" identifierref="RES-79286714805C57888C8F0229D8149D65">
+        <title>新建课程</title>
+      </item>
+      <item identifier="ITEM-74BE4D52D580302A95B87E62B5B6981B" isvisible="true" identifierref="RES-9ED3598CAABD4792C87AA3892B444701">
+        <title>课程定价</title>
+      </item>
+      <item identifier="ITEM-16BDB1655C35872A0C90DFD7B9C174CB" isvisible="true" identifierref="RES-39DCEBCC5C7625CBFD0C491988B1137B">
+        <title>修改介绍</title>
+      </item>
+      <item identifier="ITEM-2168971B2C0366112420B93204461E94" isvisible="true" identifierref="RES-B64340FEE3498629566C2E6B63CE5720">
+        <title>添加学习路径</title>
+      </item>
+      <item identifier="ITEM-EE69A49AD31EDC8D2C6ABF3599B03872" isvisible="true" identifierref="RES-7754D3D36769AB5DBBC618DC6C9316A9">
+        <title>创建测验</title>
+      </item>
+      <item identifier="ITEM-D4CF61E1C54362F780E6E4D534A34F48" isvisible="true" identifierref="RES-B9EF29B5050A5535796DB65D26DAF8B9">
+        <title>创建论坛</title>
+      </item>
+      <item identifier="ITEM-5878A608B2C3ECE8F3A1E9E670009ED6" isvisible="true" identifierref="RES-756D3A21E077BFB6AB3BF69F290CD2E2">
+        <title>增加培训计划</title>
+      </item>
+      <item identifier="ITEM-A952A9F646F474EEA2075E3EF2C24196" isvisible="true" identifierref="RES-8F4852FF4CB60C5AC294536CA55BC2E4">
+        <title>分配学习币</title>
+      </item>
+      <item identifier="ITEM-BE52D3152A24FA538FA957362F605313" isvisible="true" identifierref="RES-46AD6D5DF8382797009D40B01F28E491">
+        <title>学员学习</title>
+      </item>
+      <item identifier="ITEM-978FA687A28078C732E4C7D830CF86B9" isvisible="true" identifierref="RES-FCADD2B74AD059657A9C840CB283E460">
+        <title>管理员报告</title>
+      </item>
+      <item identifier="ITEM-A0EDA86F2D7463814847C34BA90D4AF2" isvisible="true" identifierref="RES-3F550C37CD7801B223B03D0C4C3772EB">
+        <title>教师报告</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES-42E7FDA08EA0A24F4F46AF0B0B9261EB" type="webcontent" href="平台初始设置_demo/平台初始设置_demo.htm">
+      <file href="平台初始设置_demo/平台初始设置_demo.htm" />
+      <file href="平台初始设置_demo/standard.js" />
+    </resource>
+    <resource identifier="RES-864645D863A186B151C8678CC8C2DAEC" type="webcontent" href="添加用户_demo/添加用户_demo.htm">
+      <file href="添加用户_demo/添加用户_demo.htm" />
+      <file href="添加用户_demo/standard.js" />
+    </resource>
+    <resource identifier="RES-79286714805C57888C8F0229D8149D65" type="webcontent" href="新建课程_demo/新建课程_demo.htm">
+      <file href="新建课程_demo/新建课程_demo.htm" />
+      <file href="新建课程_demo/standard.js" />
+    </resource>
+    <resource identifier="RES-9ED3598CAABD4792C87AA3892B444701" type="webcontent" href="课程定价_demo/课程定价_demo.htm">
+      <file href="课程定价_demo/课程定价_demo.htm" />
+      <file href="课程定价_demo/standard.js" />
+    </resource>
+    <resource identifier="RES-39DCEBCC5C7625CBFD0C491988B1137B" type="webcontent" href="修改介绍_demo/修改介绍_demo.htm">
+      <file href="修改介绍_demo/修改介绍_demo.htm" />
+      <file href="修改介绍_demo/standard.js" />
+    </resource>
+    <resource identifier="RES-B64340FEE3498629566C2E6B63CE5720" type="webcontent" href="添加学习路径_demo/添加学习路径_demo.htm">
+      <file href="添加学习路径_demo/添加学习路径_demo.htm" />
+      <file href="添加学习路径_demo/standard.js" />
+    </resource>
+    <resource identifier="RES-7754D3D36769AB5DBBC618DC6C9316A9" type="webcontent" href="创建测验/创建测验.htm">
+      <file href="创建测验/创建测验.htm" />
+      <file href="创建测验/standard.js" />
+    </resource>
+    <resource identifier="RES-B9EF29B5050A5535796DB65D26DAF8B9" type="webcontent" href="创建论坛/创建论坛.htm">
+      <file href="创建论坛/创建论坛.htm" />
+      <file href="创建论坛/standard.js" />
+    </resource>
+    <resource identifier="RES-756D3A21E077BFB6AB3BF69F290CD2E2" type="webcontent" href="增加培训计划_demo/增加培训计划_demo.htm">
+      <file href="增加培训计划_demo/增加培训计划_demo.htm" />
+      <file href="增加培训计划_demo/standard.js" />
+    </resource>
+    <resource identifier="RES-8F4852FF4CB60C5AC294536CA55BC2E4" type="webcontent" href="分配学习币_demo/分配学习币_demo.htm">
+      <file href="分配学习币_demo/分配学习币_demo.htm" />
+      <file href="分配学习币_demo/standard.js" />
+    </resource>
+    <resource identifier="RES-46AD6D5DF8382797009D40B01F28E491" type="webcontent" href="学员学习/学员学习.htm">
+      <file href="学员学习/学员学习.htm" />
+      <file href="学员学习/standard.js" />
+    </resource>
+    <resource identifier="RES-FCADD2B74AD059657A9C840CB283E460" type="webcontent" href="管理员报告_demo/管理员报告_demo.htm">
+      <file href="管理员报告_demo/管理员报告_demo.htm" />
+      <file href="管理员报告_demo/standard.js" />
+    </resource>
+    <resource identifier="RES-3F550C37CD7801B223B03D0C4C3772EB" type="webcontent" href="教师报告_demo/教师报告_demo.htm">
+      <file href="教师报告_demo/教师报告_demo.htm" />
+      <file href="教师报告_demo/standard.js" />
+    </resource>
+  </resources>
+</manifest>
+
