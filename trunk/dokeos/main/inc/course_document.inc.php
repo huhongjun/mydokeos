@@ -242,12 +242,11 @@ if ($is_allowed_to_edit AND count($docs_and_folders)>1)
 	$table->set_header($column++,'',false);
 }
 */
-$table->set_header($column++,get_lang('Type'));
-$table->set_header($column++,get_lang('Title'));
-
+$table->set_header($column++,mb_convert_encoding(get_lang('Type'),"utf-8","gb2312"));
+$table->set_header($column++,mb_convert_encoding(get_lang('Title'),"utf-8","gb2312"));
 //$column_header[] = array(get_lang('Comment'),true);  => display comment under the document name
-$table->set_header($column++,get_lang('Size'));
-$table->set_header($column++,get_lang('Date'));
+$table->set_header($column++,mb_convert_encoding(get_lang('Size'),"utf-8","gb2312"));
+$table->set_header($column++,mb_convert_encoding(get_lang('Date'),"utf-8","gb2312"));
 
 
 
