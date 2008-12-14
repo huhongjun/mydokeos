@@ -283,7 +283,7 @@ function getlist ($directory) {
 					"lastedit_date" =>date ("Y-m-d H:i:s", filemtime($path)),
 					"visibility" => 1,
 					"path" => $path,
-					"title" => basename($path),
+					"title" => mb_convert_encoding(basename($path),"utf-8","gb2312"),
 					"filetype" => filetype($path),
 					"size" => filesize ($path)
 			);
