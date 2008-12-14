@@ -188,6 +188,7 @@ else
 	if(!empty($_SESSION['user_language_choice']))
 	{
 		$user_selected_language=$_SESSION['user_language_choice'];
+		$_SESSION['_user']['language']=$user_selected_language;
 	}
 	elseif(!empty($_SESSION['_user']['language']))
 	{
