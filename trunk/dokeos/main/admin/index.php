@@ -46,7 +46,7 @@ api_protect_admin_script(true);
 $nameTools = get_lang('PlatformAdmin');
 
 // setting breadcrumbs
-//$interbreadcrumb[] = array('url' => 'index.php', 'name' => $nameTools);
+$interbreadcrumb[] = array('url' => 'index.php', 'name' => $nameTools);
 
 // setting the name of the tool
 $tool_name=get_lang('PlatformAdmin');
@@ -114,7 +114,7 @@ $keyword_url = Security::remove_XSS((empty($_GET['keyword'])?'':$_GET['keyword']
 <li><a href="course_import.php"><?php echo get_lang('AddCourse').' CSV'; ?></a></li>
 <!--<li><a href="course_virtual.php"><?php //echo get_lang('AdminManageVirtualCourses') ?></a></li>-->
 <li><a href="course_category.php"><?php echo get_lang("AdminCategories"); ?></a></li>
-<!--<li><a href="subscribe_class2course.php"><?php //echo get_lang('AddClassesToACourse'); ?></a></li>-->
+<li><a href="subscribe_class2course.php"><?php echo get_lang('AddClassesToACourse'); ?></a></li>
 <li><a href="subscribe_user2course.php"><?php echo get_lang('AddUsersToACourse'); ?></a></li>
 <li><a href="course_user_import.php"><?php echo get_lang('AddUsersToACourse').' CSV'; ?></a></li>
 </ul>
@@ -131,6 +131,8 @@ $keyword_url = Security::remove_XSS((empty($_GET['keyword'])?'':$_GET['keyword']
   <li><a href="languages.php"><?php echo get_lang('Languages'); ?></a></li>
   <li><a href="configure_homepage.php"><?php echo get_lang('ConfigureHomePage'); ?></a></li>
   <li><a href="statistics/index.php"><?php echo get_lang('ToolName'); ?> </a></li>
+  <li><a href="mydltt.php"><?php echo get_lang('MyDLTT'); ?> </a></li>
+  <li><a href="phpsysinfo/index.php"><?php echo "SysInfo"; ?></a></li>  
   <?php if(!empty($phpMyAdminPath)): ?>
   <li><a href="<?php echo $phpMyAdminPath; ?>" target="_blank"><?php echo get_lang("AdminDatabases"); ?></a><br />(<?php echo get_lang("DBManagementOnlyForServerAdmin"); ?>)</li>
   <?php endif; ?>
@@ -203,12 +205,12 @@ if(api_is_platform_admin()){
   <?php echo ucfirst(get_lang('ConfigureExtensions')); ?>
  </h4>
  <ul>
-  <!--li><a href="configure_extensions.php?display=visio"><?php //echo get_lang('Visioconf'); ?></a></li-->
+  <li><a href="configure_extensions.php?display=visio"><?php echo get_lang('Visioconf'); ?></a></li>
   <li><a href="configure_extensions.php?display=ppt2lp"><?php echo get_lang('Ppt2lp'); ?></a></li>
-  <!--li><a href="configure_extensions.php?display=ephorus"><?php //echo get_lang('EphorusPlagiarismPrevention'); ?></a></li-->
-  <!--li><a href="configure_extensions.php?display=search"><?php //echo get_lang('SearchEngine'); ?></a></li-->
-  <!--li><a href="configure_extensions.php?display=serverstats"><?php //echo get_lang('ServerStatistics'); ?></a></li-->
-  <!--li><a href="configure_extensions.php?display=bandwidthstats"><?php //echo get_lang('BandWidthStatistics'); ?></a></li-->
+  <li><a href="configure_extensions.php?display=ephorus"><?php echo get_lang('EphorusPlagiarismPrevention'); ?></a></li>
+  <li><a href="configure_extensions.php?display=search"><?php echo get_lang('SearchEngine'); ?></a></li>
+  <li><a href="configure_extensions.php?display=serverstats"><?php echo get_lang('ServerStatistics'); ?></a></li>
+  <li><a href="configure_extensions.php?display=bandwidthstats"><?php echo get_lang('BandWidthStatistics'); ?></a></li>
   </ul>
 </div>
 <?php
@@ -227,7 +229,6 @@ if(api_is_platform_admin()){
 	<!-- dynamic ldap code -->
 	<?php 
 	}
-/*
 ?>
 <div class="admin_section">
  <h4>
@@ -250,7 +251,6 @@ if(api_is_platform_admin()){
  </ul>
 </div>
 <?php
-*/
 }
 
 /**
