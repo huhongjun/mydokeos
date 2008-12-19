@@ -47,90 +47,90 @@ if(isset($_POST['activeExtension'])){
 
 	switch ($_POST['extension_code']){		
 		
-//		case 'visio' :
-//			$sql = 'UPDATE '.$tbl_settings_current.' SET
-//					selected_value="true"
-//					WHERE variable="service_visio"
-//					AND subkey="active"';
-//			$rs = api_sql_query($sql, __FILE__, __LINE__);
-//			if(Database::affected_rows()>0)
-//			{
-//				
-//				// select all the courses and insert the tool inside
-//				$sql = 'SELECT db_name FROM '.Database::get_main_table(TABLE_MAIN_COURSE);
-//				$rs = api_sql_query($sql, __FILE__, __LINE__);
-//				while($row = Database::fetch_array($rs)){
-//					if(!empty($_POST['visio_host']))
-//					{
-//						$tool_table = Database::get_course_table(TABLE_TOOL_LIST,$row['db_name']);
-//						$select = "SELECT id FROM $tool_table WHERE name='".TOOL_VISIO_CONFERENCE."'";
-//						$selectres = api_sql_query($select,__FILE__, __LINE__);
-//						if(Database::num_rows($selectres)<1)
-//						{
-//							$sql = 'INSERT INTO '.$tool_table.' SET 
-//									name="'.TOOL_VISIO_CONFERENCE.'",
-//									link="conference/index.php?type=conference",
-//									image="visio.gif",
-//									visibility="1",
-//									admin="0",
-//									address="squaregrey.gif",
-//									target="_self",
-//									category="interaction"';
-//							api_sql_query($sql, __FILE__, __LINE__);		
-//						}
-//						$select = "SELECT id FROM $tool_table WHERE name='".TOOL_VISIO_CLASSROOM."'";
-//						$selectres = api_sql_query($select,__FILE__, __LINE__);
-//						if(Database::num_rows($selectres)<1)
-//						{
-//							$sql = 'INSERT INTO '.$tool_table.' SET 
-//									name="'.TOOL_VISIO_CLASSROOM.'",
-//									link="conference/index.php?type=classroom",
-//									image="visio.gif",
-//									visibility="1",
-//									admin="0",
-//									address="squaregrey.gif",
-//									target="_self",
-//									category="authoring"';
-//							api_sql_query($sql, __FILE__, __LINE__);
-//						}
-//					}					
-//				}
-//				$message = get_lang('ServiceActivated');
-//				
-//			}
-//			$sql = 'UPDATE '.$tbl_settings_current.' SET
-//					selected_value="'.Database::escape_string($_POST['visio_host']).'"
-//					WHERE variable="service_visio"
-//					AND subkey="visio_host"';
-//			$rs = api_sql_query($sql, __FILE__, __LINE__);
-//			
-//			$sql = 'UPDATE '.$tbl_settings_current.' SET
-//					selected_value="'.Database::escape_string($_POST['visio_port']).'"
-//					WHERE variable="service_visio"
-//					AND subkey="visio_port"';
-//			$rs = api_sql_query($sql, __FILE__, __LINE__);	
-//
-//			$sql = 'UPDATE '.$tbl_settings_current.' SET
-//					selected_value="'.Database::escape_string($_POST['visio_pass']).'"
-//					WHERE variable="service_visio"
-//					AND subkey="visio_pass"';
-//			$rs = api_sql_query($sql, __FILE__, __LINE__);	
-//
-//			$sql = 'UPDATE '.$tbl_settings_current.' SET
-//					selected_value="'.($_POST['visio_use_rtmpt']=='true'?'true':'false').'"
-//					WHERE variable="service_visio"
-//					AND subkey="visio_use_rtmpt"';
-//			$rs = api_sql_query($sql, __FILE__, __LINE__);	
-//			
-//			if(empty($message))
-//			{
-//				$message = get_lang('ServiceReconfigured');
-//			}
-//			
-//			
-//			
-//			
-//			break;	
+		case 'visio' :
+			$sql = 'UPDATE '.$tbl_settings_current.' SET
+					selected_value="true"
+					WHERE variable="service_visio"
+					AND subkey="active"';
+			$rs = api_sql_query($sql, __FILE__, __LINE__);
+			if(Database::affected_rows()>0)
+			{
+				
+				// select all the courses and insert the tool inside
+				$sql = 'SELECT db_name FROM '.Database::get_main_table(TABLE_MAIN_COURSE);
+				$rs = api_sql_query($sql, __FILE__, __LINE__);
+				while($row = Database::fetch_array($rs)){
+					if(!empty($_POST['visio_host']))
+					{
+						$tool_table = Database::get_course_table(TABLE_TOOL_LIST,$row['db_name']);
+						$select = "SELECT id FROM $tool_table WHERE name='".TOOL_VISIO_CONFERENCE."'";
+						$selectres = api_sql_query($select,__FILE__, __LINE__);
+						if(Database::num_rows($selectres)<1)
+						{
+							$sql = 'INSERT INTO '.$tool_table.' SET 
+									name="'.TOOL_VISIO_CONFERENCE.'",
+									link="conference/index.php?type=conference",
+									image="visio.gif",
+									visibility="1",
+									admin="0",
+									address="squaregrey.gif",
+									target="_self",
+									category="interaction"';
+							api_sql_query($sql, __FILE__, __LINE__);		
+						}
+						$select = "SELECT id FROM $tool_table WHERE name='".TOOL_VISIO_CLASSROOM."'";
+						$selectres = api_sql_query($select,__FILE__, __LINE__);
+						if(Database::num_rows($selectres)<1)
+						{
+							$sql = 'INSERT INTO '.$tool_table.' SET 
+									name="'.TOOL_VISIO_CLASSROOM.'",
+									link="conference/index.php?type=classroom",
+									image="visio.gif",
+									visibility="1",
+									admin="0",
+									address="squaregrey.gif",
+									target="_self",
+									category="authoring"';
+							api_sql_query($sql, __FILE__, __LINE__);
+						}
+					}					
+				}
+				$message = get_lang('ServiceActivated');
+				
+			}
+			$sql = 'UPDATE '.$tbl_settings_current.' SET
+					selected_value="'.Database::escape_string($_POST['visio_host']).'"
+					WHERE variable="service_visio"
+					AND subkey="visio_host"';
+			$rs = api_sql_query($sql, __FILE__, __LINE__);
+			
+			$sql = 'UPDATE '.$tbl_settings_current.' SET
+					selected_value="'.Database::escape_string($_POST['visio_port']).'"
+					WHERE variable="service_visio"
+					AND subkey="visio_port"';
+			$rs = api_sql_query($sql, __FILE__, __LINE__);	
+
+			$sql = 'UPDATE '.$tbl_settings_current.' SET
+					selected_value="'.Database::escape_string($_POST['visio_pass']).'"
+					WHERE variable="service_visio"
+					AND subkey="visio_pass"';
+			$rs = api_sql_query($sql, __FILE__, __LINE__);	
+
+			$sql = 'UPDATE '.$tbl_settings_current.' SET
+					selected_value="'.($_POST['visio_use_rtmpt']=='true'?'true':'false').'"
+					WHERE variable="service_visio"
+					AND subkey="visio_use_rtmpt"';
+			$rs = api_sql_query($sql, __FILE__, __LINE__);	
+			
+			if(empty($message))
+			{
+				$message = get_lang('ServiceReconfigured');
+			}
+			
+			
+			
+			
+			break;	
 			
 		case 'ppt2lp' :
 			$sql = 'UPDATE '.$tbl_settings_current.' SET
@@ -282,9 +282,56 @@ Display::display_header($nameTool);
 	<!-- VISIOCONFERENCE -->
 	<div id="main_visio">
 		<div id="extension_header_visio" class="accordion_header">
-			
+			<a href="#"><?php echo get_lang('Visioconf') ?></a>
 		</div>
-
+		<div id="extension_content_visio" style="display:none" class="accordion_content">		
+			<?php echo get_lang('VisioconfDescription') ?><br /><br />
+			<table width="100%">
+				<tr>
+					<td>
+						<img src="<?php echo api_get_path(WEB_IMG_PATH).'screenshot_conf.jpg' ?>" />
+					</td>
+					<td align="center" width="50%">
+						<?php 
+						$form = new FormValidator('visio');						
+						$form -> addElement('text', 'visio_host', get_lang('VisioHost'));
+						$form -> addElement('html','<br /><br />');
+						$form -> addElement('text', 'visio_port', get_lang('VisioPort'));
+						$form -> addElement('html','<br /><br />');
+						$form -> addElement('text', 'visio_pass', get_lang('VisioPassword'));
+						$form -> addElement('html','<br /><br />');
+						$group = array();
+						$group[] =& HTML_QuickForm::createElement('radio', 'visio_use_rtmpt',null,get_lang('Yes'),'true');
+						$group[] =& HTML_QuickForm::createElement('radio', 'visio_use_rtmpt',null,get_lang('No'),'false');
+						$form->addGroup($group, '', get_lang('VisioUseRtmptTitle').' ('.get_lang('VisioUseRtmptComment').')', '&nbsp;');
+						//$form -> addElement('text', 'visio_is_web_rtmp', get_lang('VisioRTMPIsWeb'));
+						//$form -> addElement('html','<br /><br />');
+						$form -> addElement('hidden', 'extension_code', 'visio');
+						$defaults = array();
+						$renderer = $form -> defaultRenderer();
+						$renderer -> setElementTemplate('<div style="text-align:left">{label}</div><div style="text-align:left">{element}</div>');
+						$form -> addElement('html','<br /><br />');
+						if(in_array('service_visio',$listActiveServices))
+						{
+							$sql = 'SELECT subkey, selected_value FROM '.$tbl_settings_current.' 
+									WHERE variable = "service_visio"';
+							$rs = api_sql_query($sql, __FILE__, __LINE__);
+							while($row = Database::fetch_array($rs,'ASSOC'))
+							{
+								$defaults[$row['subkey']] = $row['selected_value'];
+							}							
+							$form -> addElement('submit', 'activeExtension', get_lang('ReconfigureExtension'));
+						}
+						else {
+							$form -> addElement('submit', 'activeExtension', get_lang('ActivateExtension'));
+						}
+						$form -> setDefaults($defaults);
+						$form -> display();
+						?>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 	
 	<!-- PPT2LP -->
@@ -358,7 +405,143 @@ Display::display_header($nameTool);
 				</tr>
 			</table>
 		</div>
-	</div>	
+	</div>
+	
+	<!-- EPHORUS -->
+	<div id="main_ephorus">
+		<div id="extension_header_ephorus" class="accordion_header">
+			<a href="#"><?php echo get_lang('EphorusPlagiarismPrevention') ?></a>
+		</div>
+		<div id="extension_content_ephorus" style="display:none;padding:0;width:780px;" class="accordion_content">
+			<table width="100%" cellpadding="0" cellspacing="0">
+				<tr>
+					<td align="center">
+						<TABLE style="WIDTH: 750px" cellSpacing="0" cellPadding="0" align="middle" border="0">
+						<TBODY>
+							<TR>
+								<TD>
+									<TABLE style="WIDTH: 475px" cellSpacing="0" cellPadding="0" border="0">
+									<TBODY>
+										<TR>
+											<TD>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+												<A title="http://www.ephorus.com/dokeos_activate.html" href="http://www.ephorus.com/dokeos_activate.html" target="_blank">
+												<IMG style="WIDTH: 235px; HEIGHT: 78px" height="66" alt="Ephorus" hspace="3" src="<?php echo api_get_path(WEB_IMG_PATH).'ephorus.gif' ?>" width="213" vspace="1" border="0">
+												</A>
+											</TD>
+											<TD>
+												<P align=center>
+													<FONT color="#669966" size="3"><?php echo get_lang('EphorusLeadersInAntiPlagiarism') ?></FONT>
+												</P>
+											</TD>
+										</TR>
+									</TBODY>
+									</TABLE>
+								</TD>
+							</TR>
+							<TR>
+								<TD>
+									<P>
+										<TABLE style="WIDTH: 85%" cellSpacing="0" cellPadding="0" border="0">
+										<TBODY>
+											<TR>
+												<TD width="50">
+													&nbsp; 
+												</TD>
+												<TD>
+													<P>
+														<?php echo get_lang('EphorusDescription') ?>
+													</P>
+													<P>
+														<A title="http://www.ephorus.nl/demo_account_en.html" href="http://www.ephorus.nl/demo_account_en.html" target="_blank"><?php echo get_lang('EphorusClickHereForADemoAccount') ?></A>
+													</P>
+													<P>
+														<A title="http://www.ephorus.nl:80/dokeos_activate.html" href="http://www.ephorus.nl/dokeos_activate.html" target="_blank"><?php echo get_lang('EphorusClickHereForInformationsAndPrices') ?></A>.
+													</P>
+												</TD>
+											</TR>
+										</TBODY>
+										</TABLE>
+									</P>
+								</TD>
+							</TR>
+						</TBODY>
+						</TABLE>						
+                    </td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<!-- SEARCH -->
+	<div id="main_search">
+		<div id="extension_header_search" class="accordion_header">
+			<a href="#"><?php echo get_lang('SearchEngine') ?></a>
+		</div>
+		<div id="extension_content_search" style="display:none" class="accordion_content">		
+			<?php echo get_lang('SearchEngineDescription') ?><br /><br />
+			<table width="100%">
+				<tr>
+					<td width="50%">
+						<img src="<?php echo api_get_path(WEB_IMG_PATH).'screenshot_search.jpg' ?>" />
+					</td>
+					<td align="center" width="50%">
+						<form method="POST" action="<?php echo api_get_self(); ?>">
+						<input type="hidden" name="extension_code" value="search" />
+						<input type="submit" name="activeExtension" value="<?php echo get_lang('ActivateExtension') ?>" />
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<!-- SERVER STATS -->
+	<div id="main_serverstats">
+		<div id="extension_header_serverstats" class="accordion_header">
+			<a href="#"><?php echo get_lang('ServerStatistics') ?></a>
+		</div>
+		<div id="extension_content_serverstats" style="display:none" class="accordion_content">		
+			<?php echo get_lang('ServerStatisticsDescription') ?><br /><br />
+			<table width="100%">
+				<tr>
+					<td width="50%">
+						<img src="<?php echo api_get_path(WEB_IMG_PATH).'screenshot_serverstats.jpg' ?>" />
+					</td>
+					<td align="center" width="50%">
+						<form method="POST" action="<?php echo api_get_self(); ?>">
+						<input type="hidden" name="extension_code" value="serverstats" />
+						<input type="submit" name="activeExtension" value="<?php echo get_lang('ActivateExtension') ?>" />
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<!-- BANDWIDTH STATS -->
+	<div id="main_bandwidthstats">
+		<div id="extension_header_bandwidthstats" class="accordion_header">
+			<a href="#"><?php echo get_lang('BandWidthStatistics') ?></a>
+		</div>
+		<div id="extension_content_bandwidthstats" style="display:none" class="accordion_content">		
+			<?php echo get_lang('BandWidthStatisticsDescription') ?><br /><br />
+			<table width="100%">
+				<tr>
+					<td width="50%">
+						<img src="<?php echo api_get_path(WEB_IMG_PATH).'screenshot_bandwidth.jpg' ?>" />
+					</td>
+					<td align="center" width="50%">
+						<form method="POST" action="<?php echo api_get_self(); ?>">
+						<input type="hidden" name="extension_code" value="bandwidthstats" />
+						<input type="submit" name="activeExtension" value="<?php echo get_lang('ActivateExtension') ?>" />
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
 </div><!-- /content -->
 	
 
