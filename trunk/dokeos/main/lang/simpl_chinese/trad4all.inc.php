@@ -606,6 +606,6 @@ $Top  = "向上对齐";
 $ExamSystem="考试系统";
 $param1="pcd";
 $param2="asd";
-$TeacherLink="http://192.168.0.59:8888/First/kaoshi.do?method=linked_1&";
-$StudentLink="http://192.168.0.59:8888/First/kaoshi.do?method=linked_2&";
+$TeacherLink="http://192.168.0.64:8080/First/kaoshi.do?method=linked_1&";
+$StudentLink="http://192.168.0.64:8080/First/kaoshi.do?method=linked_2&";
 ?>
