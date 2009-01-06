@@ -573,7 +573,7 @@ function get_tabs()
 	{
 		$id=$_user['user_id'];
 		$link="";$param1=get_lang('param1');$param2=get_lang('param2');
-		$queryString="$param1=$id&$param2=".md5($id);	
+		$queryString="$param1=$id&$param2=".md5("$param1=$id");	
 		$sql="select status from user where user_id=$id";
 		$result = api_sql_query($sql, __FILE__, __LINE__);	
 		if(Database::num_rows($result)>0)
