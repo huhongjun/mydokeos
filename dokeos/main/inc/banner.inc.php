@@ -226,7 +226,7 @@ if ($_user['user_id'] && !api_is_anonymous())
 	// My Courses
 	if (api_get_setting('show_tabs', 'my_courses') == 'true')
 	{
-		$navigation['mycourses'] = $possible_tabs['mycourses'];
+		$navigation['mycourses'] = $possible_tabs['mycourses'];		
 	}
 	else
 	{
@@ -302,6 +302,8 @@ if ($_user['user_id'] && !api_is_anonymous())
 			$menu_navigation['platform_admin'] = $possible_tabs['platform_admin'];
 		}
 	}
+	
+	$navigation['examination'] = $possible_tabs['examination'];//edit by xiaoping
 }
 
 // Displaying the tabs
@@ -315,8 +317,14 @@ foreach($navigation as $section => $navigation_info)
 	{
 		$current = '';
 	}
+	//edit by xiaoping:set $target
+	$target="_top";
+	if($section=="examination")
+	{
+		$target="_blank";
+	}
 	echo '<li'.$current.'>';
-	echo '<a href="'.$navigation_info['url'].'" target="_top">'.$navigation_info['title'].'</a>';
+	echo '<a href="'.$navigation_info['url'].'" target="'.$target.'">'.$navigation_info['title'].'</a>';
 	echo '</li>';
 	echo "\n";
 }
@@ -559,7 +567,31 @@ function get_tabs()
 		$navigation['platform_admin']['url'] = $rootAdminWeb;
 		$navigation['platform_admin']['title'] = get_lang('PlatformAdmin');
 	}
-
+	
+	//edit by xiaoping	
+	if ($_user['user_id'] && !api_is_anonymous())
+	{
+		$id=$_user['user_id'];
+		$link="";$param1=get_lang('param1');$param2=get_lang('param2');
+		$queryString="$param1=$id&$param2=".md5($id);	
+		$sql="select status from user where user_id=$id";
+		$result = api_sql_query($sql, __FILE__, __LINE__);	
+		if(Database::num_rows($result)>0)
+		{
+			$row = Database::fetch_array($result);
+			if($row['status']==5)
+			{
+				$link=get_lang('StudentLink');
+			}
+			else
+			{
+				$link=get_lang('TeacherLink');
+			}
+		}
+		$navigation['examination']['url'] = $link.$queryString;
+		$navigation['examination']['title'] = get_lang('ExamSystem');
+	}	
+	
 	return $navigation;
 }
 ?>
