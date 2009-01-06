@@ -601,4 +601,11 @@ $Absbottom = "绝对置下";
 $Bottom  = "向下对齐"; 
 $Middle  = "向中对齐"; 
 $Top  = "向上对齐";
+
+//edit by xiaoping
+$ExamSystem="考试系统";
+$param1="pcd";
+$param2="asd";
+$TeacherLink="http://192.168.0.59:8888/First/kaoshi.do?method=linked_1&";
+$StudentLink="http://192.168.0.59:8888/First/kaoshi.do?method=linked_2&";
 ?>
