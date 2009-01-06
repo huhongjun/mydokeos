@@ -192,8 +192,8 @@ if (is_array($flat_list))
 		$image='<img src="../img/kcmdf.gif" border="0" align="absmiddle" alt="scorm">'."\n";
 	    $dsp_line =	'<tr align="center" class="'.$oddclass.'">'."\n" .
         	'<td align="left" valign="top">' .
-			'<div style="float: left; width: 35px; height: 22px;"><a href="#" '.$style.' onclick="top.location.href=\''.$url_start_lp.'\';">' .
-			$image . '</a></div><a href="#" '.$style.' onclick="top.location.href=\''.$url_start_lp.'\';">' . $name . '</a>' .
+			'<div style="float: left; width: 35px; height: 22px;"><a href="#" '.$style.' onclick="window.navigate(\''.$url_start_lp.'\');">' .
+			$image . '</a></div><a href="#" '.$style.' onclick="top.location.reload(\''.$url_start_lp.'\');">' . $name . '</a>' .
 			"</td>\n";
 	    //$dsp_desc='<td>'.$details['lp_desc'].'</td>'."\n";
 	    $dsp_desc = '';
