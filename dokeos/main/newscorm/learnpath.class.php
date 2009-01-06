@@ -2530,13 +2530,13 @@ class learnpath {
 				$url = $this->get_link('http',$item['id']);
 				//urldecode() edit by xiaoping
 				//$html .= '<a href="'.urldecode($url).'" target="content_name" onclick="top.load_item('.$item['id'].',\''.urldecode($url).'\');">'.$title.'</a>' ;
-				//$html .= '<a href="" onclick="top.load_item('.$item['id'].',\''.$url.'\');return false;">'.$title.'</a>' ;
+				$html .= '<a href="" onclick="top.load_item('.$item['id'].',\''.$url.'\');return false;">'.$title.'</a>' ;
 
 				//<img align="absbottom" width="13" height="13" src="../img/lp_document.png">&nbsp;
-				$html .= '<a href="" onclick="dokeos_xajax_handler.switch_item(' .
-						$mycurrentitemid.',' .
-						$item['id'].');' .
-						'return false;" >'.stripslashes($title).'</a>' ;
+//				$html .= '<a href="" onclick="dokeos_xajax_handler.switch_item(' .
+//						$mycurrentitemid.',' .
+//						$item['id'].');' .
+//						'return false;" >'.stripslashes($title).'</a>' ;
 			}
 			elseif($item['type']=='dokeos_module' || $item['type']=='dokeos_chapter')
 			{
