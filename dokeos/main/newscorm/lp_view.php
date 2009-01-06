@@ -81,7 +81,7 @@ unset($_SESSION['questionList']);
 $src = '';
 switch($lp_type)
 {
-	case 1:
+	case 1:echo "1111111111111111111";
 		$_SESSION['oLP']->stop_previous_item();
 		$htmlHeadXtra[] = '<script src="scorm_api.php" type="text/javascript" language="javascript"></script>';
     	$prereq_check = $_SESSION['oLP']->prerequisites_match($lp_item_id);
@@ -92,7 +92,7 @@ switch($lp_type)
 			$src = 'blank.php?error=prerequisites';
 		}		
 		break;
-	case 2:
+	case 2:echo "22222222222222222222";
 		//save old if asset
 		$_SESSION['oLP']->stop_previous_item(); //save status manually if asset
 		$htmlHeadXtra[] = '<script src="scorm_api.php" type="text/javascript" language="javascript"></script>';
@@ -104,7 +104,7 @@ switch($lp_type)
 			$src = 'blank.php';
 		}
 		break;
-	case 3:
+	case 3:echo "333333333333333333";
 		//aicc
 		$_SESSION['oLP']->stop_previous_item(); //save status manually if asset
 		$htmlHeadXtra[] = '<script src="'.$_SESSION['oLP']->get_js_lib().'" type="text/javascript" language="javascript"></script>';
@@ -116,7 +116,7 @@ switch($lp_type)
 			$src = 'blank.php';
 		}		
 		break;
-	case 4:
+	case 4:echo "44444444444444444";
 		break;
 }
 
