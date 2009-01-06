@@ -176,7 +176,6 @@ if (is_array($flat_list))
 {
 	$counter = 0;
 	$current = 0;
-	$fullUrl = 'http://'.$_SERVER['HTTP_HOST'].substr($REQUEST_URI,0,strrpos($REQUEST_URI,'/')).'/'; 	
 	foreach ($flat_list as $id => $details)
 	{
 	    if(!$is_allowed_to_edit && $details['lp_visibility'] == 0)
@@ -187,13 +186,13 @@ if (is_array($flat_list))
 		$counter++;
 	    if (($counter % 2)==0) { $oddclass="row_odd"; } else { $oddclass="row_even"; }
 
-		$url_start_lp = $fullUrl.'lp_controller.php?'.api_get_cidreq().'&action=view&lp_id='.$id;
+		$url_start_lp = 'lp_controller.php?'.api_get_cidreq().'&action=view&lp_id='.$id;
 		$name = $details['lp_name'];
 		$image='<img src="../img/kcmdf.gif" border="0" align="absmiddle" alt="scorm">'."\n";
 	    $dsp_line =	'<tr align="center" class="'.$oddclass.'">'."\n" .
         	'<td align="left" valign="top">' .
-			'<div style="float: left; width: 35px; height: 22px;"><a href="#" '.$style.' onclick="window.navigate(\''.$url_start_lp.'\');">' .
-			$image . '</a></div><a href="#" '.$style.' onclick="top.location.reload(\''.$url_start_lp.'\');">' . $name . '</a>' .
+			'<div style="float: left; width: 35px; height: 22px;"><a href="'.$url_start_lp.'" '.$style.'>' .
+			$image . '</a></div><a href="'.$url_start_lp.'" '.$style.'>' . $name . '</a>' .
 			"</td>\n";
 	    //$dsp_desc='<td>'.$details['lp_desc'].'</td>'."\n";
 	    $dsp_desc = '';
