@@ -66,8 +66,9 @@ $users = ClassManager::get_users($class_id);
 if( count($users) > 0)
 {
 $table_header[] = array (get_lang('OfficialCode'), true);
-$table_header[] = array (get_lang('FirstName'), true);
 $table_header[] = array (get_lang('LastName'), true);
+$table_header[] = array (get_lang('FirstName'), true);
+
 $table_header[] = array (get_lang('Email'), true);
 $table_header[] = array (get_lang('Status'), true);
 $table_header[] = array ('', false);
@@ -76,8 +77,9 @@ foreach($users as $index => $user)
 {
 	$row = array ();
 	$row[] = $user['official_code'];
-	$row[] = $user['firstname'];
 	$row[] = $user['lastname'];
+	$row[] = $user['firstname'];
+	
 	$row[] = Display :: encrypted_mailto_link($user['email'], $user['email']);
 	$row[] = $user['status'] == 5 ? get_lang('Student') : get_lang('Teacher');
 	$row[] = '<a href="user_information.php?user_id='.$user['user_id'].'"><img src="../img/synthese_view.gif" border="0" /></a>';
