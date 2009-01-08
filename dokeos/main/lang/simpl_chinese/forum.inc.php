@@ -97,5 +97,6 @@ $YouWillNoLongerBeNotifiedOfNewPosts = "你的新帖子不再通过电子邮件通知你";
 //zhoulei add
 $ForumMoved = "论坛已移动";
 $TooShort ="查询条件太短";
-$OK='确定';
+$OK = "确定";
+$ForumcategoryMoved ="论坛类别已移动";
 ?>
