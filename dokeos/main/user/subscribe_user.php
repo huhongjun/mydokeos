@@ -136,7 +136,7 @@ if (isset ($_POST['action']))
 			
 			$list_register_user='';
 			
-			if ($$is_suscribe_counter!=1)
+			if ($$is_suscribe_counter!=0)
 			{			
 				for ($i=0; $i<$$is_suscribe_counter;$i++)		
 				{
@@ -286,7 +286,7 @@ function get_user_data($from, $number_of_items, $column, $direction)
 	{
 		$users[] = $user;
 		$_SESSION['session_user_id'][]=$user[0];
-		$_SESSION['session_user_name'][]=$user[3].' '.$user[2];		
+		$_SESSION['session_user_name'][]=$user[2].''.$user[3];		
 	}	
 	return $users;
 }
