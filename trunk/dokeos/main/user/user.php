@@ -494,9 +494,9 @@ function get_user_data($from, $number_of_items, $column, $direction)
 			{
 				$temp=array();
 				$temp[] = $user_id;
-				
+				$temp[] = $o_course_user['lastname'];
 				$temp[] = $o_course_user['firstname'];
-				$temp[] = $o_course_user['lastname'];	
+					
 							
 				$temp[] = $o_course_user['role'];
 				$temp[] = implode(', ',$groups_name); //Group
@@ -519,9 +519,10 @@ function get_user_data($from, $number_of_items, $column, $direction)
 			}
 			else
 			{
-				$temp=array();				
-				$temp[] = $o_course_user['firstname'];
+				$temp=array();	
 				$temp[] = $o_course_user['lastname'];				
+				$temp[] = $o_course_user['firstname'];
+							
 				$temp[] = $o_course_user['role'];
 				$temp[] = implode(', ',$groups_name);//Group
 				$temp[] = $o_course_user['official_code'];					
@@ -620,9 +621,9 @@ if( api_is_allowed_to_edit())
 {
 	$table->set_header($header_nr++, '', false);
 }			
-
-$table->set_header($header_nr++, get_lang('FirstName'));
 $table->set_header($header_nr++, get_lang('LastName'));
+$table->set_header($header_nr++, get_lang('FirstName'));
+
 $table->set_header($header_nr++, get_lang('Description'),false);
 $table->set_header($header_nr++, get_lang('GroupSingle'),false);
 $table->set_header($header_nr++, get_lang('OfficialCode'));
