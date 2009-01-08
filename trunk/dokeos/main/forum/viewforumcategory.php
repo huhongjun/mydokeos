@@ -319,7 +319,7 @@ foreach ($forum_list as $key=>$forum)
 			}
 			else
 			{
-				$name=$forum['last_poster_firstname'].' '.$forum['last_poster_lastname'];
+				$name=$forum['last_poster_lastname'].' '.$forum['last_poster_firstname'];
 				$poster_id=$forum['last_poster_id'];
 			}
 			echo "\t\t<td>";
