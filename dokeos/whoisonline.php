@@ -86,8 +86,9 @@ function display_user_list($user_list, $_plugins)
 			{
 				$table_row[] = '<span style="display:none;">0</span>';
 			}
-			$table_row[] = '<a href="'.$url.'">'.$user_info['firstName'].'</a>';
 			$table_row[] = '<a href="'.$url.'">'.$user_info['lastName'].'</a>';
+			$table_row[] = '<a href="'.$url.'">'.$user_info['firstName'].'</a>';
+			
 			if (api_get_setting("show_email_addresses") == "true")
 			{
 				$table_row[] = Display::encrypted_mailto_link($user_info['mail']);
@@ -99,8 +100,9 @@ function display_user_list($user_list, $_plugins)
 			$table_data[] = $table_row;
 		}
 		$table_header[] = array(get_lang('UserPicture'),true,'width="50"');
-		$table_header[] = array(get_lang('FirstName'),true);
 		$table_header[] = array(get_lang('LastName'),true);
+		$table_header[] = array(get_lang('FirstName'),true);
+		
 		if (api_get_setting("show_email_addresses") == "true")
 		{
 			$table_header[] = array(get_lang('Email'),true);
