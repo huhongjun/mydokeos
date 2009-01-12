@@ -341,13 +341,14 @@ function get_user_data($from, $number_of_items, $column, $direction)
 		}
 		$keyword_active = isset($_GET['keyword_active']);
 		$keyword_inactive = isset($_GET['keyword_inactive']);
-		$sql .= $query_admin_table." WHERE u.firstname LIKE '%".$keyword_firstname."%' " .
-				"AND u.lastname LIKE '%".$keyword_lastname."%' " .
-				"AND u.username LIKE '%".$keyword_username."%'  " .
-				"AND u.email LIKE '%".$keyword_email."%'   " .
-				"AND u.official_code LIKE '%".$keyword_officialcode."%'    " .
-				"AND u.status LIKE '".$keyword_status."'" .
-				$keyword_admin;
+		$sql .= $query_admin_table;	
+		$where_conditioin = (($keyword_firstname)?"AND	u.firstname LIKE '%".$keyword_firstname."%' ":"").
+							(($keyword_lastname)?"AND u.lastname LIKE '%".$keyword_lastname."%' ":"").
+							(($keyword_username)?"AND u.username LIKE '%".$keyword_username."%'  ": "").
+							(($keyword_email)?"AND u.email LIKE '%".$keyword_email."%'   ":""). 
+							(($keyword_officialcode)?"AND u.official_code LIKE '%".$keyword_officialcode."%' ":"").
+							(($keyword_status!="%")?("AND u.status LIKE '".$keyword_status."'" ):" ");							
+		$sql.=" WHERE 1 ".$where_conditioin;	
 		if($keyword_active && !$keyword_inactive)
 		{
 			$sql .= " AND u.active='1'";
@@ -372,6 +373,7 @@ function get_user_data($from, $number_of_items, $column, $direction)
 	{
 		$users[] = $user;
 	}
+	
 	return $users;
 }
 /**
@@ -522,8 +524,9 @@ if (isset ($_GET['search']) && $_GET['search'] == 'advanced')
 	Display :: display_header($tool_name);
 	//api_display_tool_title($tool_name);
 	$form = new FormValidator('advanced_search','get');
-	$form->add_textfield('keyword_firstname',get_lang('FirstName'),false);
 	$form->add_textfield('keyword_lastname',get_lang('LastName'),false);
+	$form->add_textfield('keyword_firstname',get_lang('FirstName'),false);
+	
 	$form->add_textfield('keyword_username',get_lang('LoginName'),false);
 	$form->add_textfield('keyword_email',get_lang('Email'),false);
 	$form->add_textfield('keyword_officialcode',get_lang('OfficialCode'),false);
