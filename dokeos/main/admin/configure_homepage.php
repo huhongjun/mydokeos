@@ -703,7 +703,7 @@ switch($action){
 			{
 			?>
 			
-			  <option value="<?php echo $key; ?>" <?php if($formSent && $insert_where == $key) echo 'selected="selected"'; ?> ><?php echo get_lang('After'); ?> &quot;<?php echo trim(strip_tags($enreg)); ?>&quot;</option>
+			  <option value="<?php echo $key; ?>" <?php if($formSent && $insert_where == $key) echo 'selected="selected"'; ?> > &quot;<?php echo trim(strip_tags($enreg)); ?>&quot;<?php echo get_lang('After'); ?></option>
 			
 			<?php
 			}
