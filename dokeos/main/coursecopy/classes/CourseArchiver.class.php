@@ -176,6 +176,7 @@ class CourseArchiver
         }
         return false;
 	}
+
 	/**
 	 * Read a course-object from a zip-file
 	 * @return course The course
@@ -200,10 +201,19 @@ class CourseArchiver
 			@unlink(api_get_path(SYS_ARCHIVE_PATH).''.$filename);
 		}
 		// read the course
+
+		
 		if(!is_file('course_info.dat'))
-		{
-			return new Course();
+		{	
+			get_dat_path(array($unzip_dir));
+			if(is_file($GLOBALS['tempdata'].'/course_info.dat')){				
+				@chdir($GLOBALS['tempdata']);
+			}else{
+				return new Course();
+			}
+			
 		}
+		//exit($the_dat_file_path);
 		$fp = @fopen('course_info.dat', "r");
 		$contents = @fread($fp, filesize('course_info.dat'));
 		@fclose($fp);
@@ -216,4 +226,32 @@ class CourseArchiver
 		return $course;
 	}
 }
+
+	function get_dat_path($path){			
+		global $the_dat_file_path,$atfopasdfasd;
+		$atfopasdfasd="<hr>";
+		if(is_array($path)){			
+			if(is_dir($path[0])){					
+				$arr_files=scandir($path[0]);					
+				foreach($arr_files as $key=>$value){						
+					if($value==".." || $value=="."){
+						continue;
+					}						
+					if(file_exists($path[0]."/".$value."/"."course_info.dat")){
+						
+						$the_dat_file_path=$the_dat_file_path?$the_dat_file_path:$path[0]."/".$value;
+						 $GLOBALS['tempdata']=$the_dat_file_path;
+						return $path[0]."/".$value;							
+					}elseif(is_dir($path[0]."/".$value)){						
+						get_dat_path(array($path[0]."/".$value));
+					}
+				}
+			}else{
+				return false;
+			}				
+		}else{
+			//$the_dat_file_path=$path;
+			return $path;	
+		}			
+	}	
 ?>
