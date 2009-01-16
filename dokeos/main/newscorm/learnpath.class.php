@@ -2457,7 +2457,7 @@ class learnpath {
 		if(api_is_allowed_to_edit())
 		{
 			$html.="<p>&nbsp;&nbsp;&nbsp;&nbsp;<a  target='_parent' href='lp_controller.php?".api_get_cidreq()."&action=build&lp_id=".$this->lp_id."' style= target='_parent'>".get_lang("Build")."</a>&nbsp;&#124;&nbsp;<a href='lp_controller.php?".api_get_cidreq()."&action=admin_view&lp_id=".$this->lp_id."' target='_parent'>".get_lang("BasicOverview")."</a>&nbsp;&#124;&nbsp;".get_lang("Display")."</p>";
-			//unset($mych);ï¿??$mych?????ï¿½ï¿½?ï¿½ï¿½???????? by xiaoping
+			//unset($mych);ï¿½??$mych?????ï¿½ï¿½?ï¿½ï¿½???????? by xiaoping
 		}
 		//		" onchange=\"javascript:document.getElementById('toc_$parent').focus();\">\n";
 		require_once('resourcelinker.inc.php');
@@ -2515,7 +2515,7 @@ class learnpath {
 				$html .= '<div class="'.$style_item.'" style="padding-left: '.($item['level']*2).'em; padding-right:'.($item['level']*1.5).'em"             title="'.$item['description'].'" >';
 			}
 
-			$title=mb_convert_encoding($item['title'],$mych,$this->encoding);		//ï¿?????ï¿????? by xiaoping
+			$title=mb_convert_encoding($item['title'],$mych,$this->encoding);		//ï¿½?????ï¿½????? by xiaoping
 
 			if(empty($title))
 			{
@@ -5868,7 +5868,7 @@ class learnpath {
 			//$form->addElement('html_editor','content_lp','');
 			$content=file_get_contents($item_path);
 			
-			//°ÑhtmlÎÄ¼þÖÐµÄÍ¼Æ¬Ïà¶ÔÂ·¾¶¸ÄÎªwebrootÂ·¾¶ by xiaoping			
+			//ï¿½ï¿½htmlï¿½Ä¼ï¿½ï¿½Ðµï¿½Í¼Æ¬ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ÎªwebrootÂ·ï¿½ï¿½ by xiaoping			
 			$dir=dirname($item_path).'/';
 			$regExp_src="/('|\")[^'\"]+\.(jpg|gif|png|jpeg|bmp)\s*('|\")/i";
 			$regExp_img="/<img\s+.+>/i";
@@ -7582,7 +7582,8 @@ class learnpath {
 		//Build a dummy imsmanifest structure. Do not add to the zip yet (we still need it)
 		//This structure is developed following regulations for SCORM 1.2 packaging in the SCORM 1.2 Content
 		//Aggregation Model official document, secion "2.3 Content Packaging"
-		$xmldoc = new DOMDocument('1.0',$this->encoding);
+		$xml_doc_charset="UTF-8";
+		$xmldoc = new DOMDocument('1.0',$xml_doc_charset);
 		$root = $xmldoc->createElement('manifest');
 		$root->setAttribute('identifier','SingleCourseManifest');
 		$root->setAttribute('version','1.1');
@@ -7616,13 +7617,15 @@ class learnpath {
 
 		//The title is then decoded twice when extracting (see scorm::parse_manifest)
 		global $charset;
-		$org_title = $xmldoc->createElement('title',htmlspecialchars($this->get_name(),ENT_QUOTES,$charset));
+		//file_put_contents("D:/debug.txt",$charset);
+		//$org_title = $xmldoc->createElement('title',htmlspecialchars($this->get_name(),ENT_QUOTES,$xml_doc_charset));
 
 		//The title is then decoded twice when extracting (see scorm::parse_manifest)
 
-		global $charset;
-		// zml edit encode chinese
-		$org_title = $xmldoc->createElement('title',htmlspecialchars($this->get_name(),ENT_QUOTES,$charset));
+		//global $charset;
+		// zml edit encode chinese	
+		$temp_title=htmlspecialchars(iconv("GB2312",$xml_doc_charset,$this->get_name()),ENT_QUOTES);
+		$org_title = $xmldoc->createElement('title',$temp_title);
 
 		$organization->appendChild($org_title);
 
@@ -8345,8 +8348,26 @@ EOD;
 
 		$xmldoc->save($garbage_path.'/'.$temp_dir_short.'/imsmanifest.xml');
 
-
-		$zip_folder->add($garbage_path.'/'.$temp_dir_short, PCLZIP_OPT_REMOVE_PATH, $garbage_path.'/'.$temp_dir_short.'/');
+		/* modify call class pclZip methd*/
+		
+		$temp_dir_short_1=$garbage_path.'/'.$temp_dir_short;
+		$th_replace_str=strpos($temp_dir_short_1,"/")==false?"\\":"/";
+		$temp_dir_short_1=str_replace($th_replace_str.$th_replace_str,$th_replace_str,$temp_dir_short_1);
+		$arr_temp_dir=explode($th_replace_str,$temp_dir_short_1);
+		unset($arr_temp_dir[0]);
+		$temp_dir_short_2=$th_replace_str.implode($th_replace_str,$arr_temp_dir);
+		
+		$arr_folder_files=scandir($temp_dir_short_1);
+	//	file_put_contents("D:/debug.txt",print_r($arr_folder_files,true));
+		foreach($arr_folder_files as $key=>$value){				
+			if($value!=".." && $value!="."){					
+					$zip_folder->add($temp_dir_short_1."/".$value,"",$temp_dir_short_2);					
+				}				
+				
+			}			
+				
+		//$zip_folder->add($temp_dir_short_1,"","/".$temp_dir_short_2);
+		//$zip_folder->add($garbage_path.'/'.$temp_dir_short, PCLZIP_OPT_REMOVE_PATH, $garbage_path.'/'.$temp_dir_short.'/');
 
 		//clean possible temporary files
 		foreach($files_cleanup as $file)
