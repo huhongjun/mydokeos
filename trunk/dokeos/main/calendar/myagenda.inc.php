@@ -256,7 +256,7 @@ function display_myminimonthcalendar($agendaitems, $month, $year, $monthName)
 	$backwardsURL = api_get_self()."?coursePath=".urlencode($course_path)."&amp;courseCode=".Security::remove_XSS($g_cc)."&amp;month=". ($month == 1 ? 12 : $month -1)."&amp;year=". ($month == 1 ? $year -1 : $year);
 	$forewardsURL = api_get_self()."?coursePath=".urlencode($course_path)."&amp;courseCode=".Security::remove_XSS($g_cc)."&amp;month=". ($month == 12 ? 1 : $month +1)."&amp;year=". ($month == 12 ? $year +1 : $year);
 
-	echo "<table id=\"smallcalendar\">\n", "<tr class=\"title\">\n", "<td width=\"10%\"><a href=\"", $backwardsURL, "\">&#171;</a></td>\n", "<td width=\"80%\" colspan=\"5\">", $year, "&nbsp;&nbsp;", $monthName, "</td>\n", "<td width=\"10%\"><a href=\"", $forewardsURL, "\">&#187;</a></td>\n", "</tr>\n";
+	echo "<table id=\"smallcalendar\">\n", "<tr class=\"title\">\n", "<td width=\"14%\"><a href=\"", $backwardsURL, "\">&#171;</a></td>\n", "<td width=\"72%\" colspan=\"5\">", $year, "&nbsp;&nbsp;", $monthName, "</td>\n", "<td width=\"14%\"><a href=\"", $forewardsURL, "\">&#187;</a></td>\n", "</tr>\n";
 
 	echo "<tr>\n";
 	for ($ii = 1; $ii < 8; $ii ++)
