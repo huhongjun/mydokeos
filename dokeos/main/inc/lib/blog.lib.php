@@ -2674,7 +2674,7 @@ class Blog
 							<td align="right">&nbsp;</td>
 							<input type="hidden" name="action" value="" />
 							<input type="hidden" name="new_blog_submit" value="true" />
-							<td><br /><input type="submit" name="Submit" value="' . get_lang('Ok') . '" /></td>
+							<td><br /><input type="submit" name="Submit" value="' . get_lang('Ok') . '" /><span style="margin-left:60px;"></span><a href="'.$_SERVER['HTTP_REFERER'].'">' . get_lang('Back') . '</a></td>
 						</tr>
 					</table>
 				</form>';
