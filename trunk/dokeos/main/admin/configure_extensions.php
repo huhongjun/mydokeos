@@ -390,7 +390,7 @@ Display::display_header($nameTool);
 							$form -> addElement('submit', 'activeExtension', get_lang('ReconfigureExtension'));
 						}
 						else {
-							$defaults['host'] = 'localhost';
+							$defaults['host'] = '192.168.0.65';
 							$defaults['port'] = '2002';
 							$defaults['size'] = '720x540';
 							$form -> addElement('submit', 'activeExtension', get_lang('ActivateExtension'));
