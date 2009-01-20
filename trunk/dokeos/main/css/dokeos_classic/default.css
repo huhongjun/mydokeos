@@ -37,6 +37,12 @@ body {
 	padding: 4px;
 	background-color: #fff;
 }
+.maincontent_new {
+	float: left;
+	width: 35%;
+	padding: 4px;
+	background-color: #fff;
+}
 #center {
 	margin: 0 190px 0 0;
 	padding: 10px 0 40px 0;
@@ -658,7 +664,7 @@ input.liteoption {
  font-size: 11px; border-collapse: collapse;}
 #smallcalendar .days_weekend {background-color: #e6e6e6; text-align: center;
  font-size: 11px; border: 1px solid #fff; border-collapse: collapse;}
-#smallcalendar .days_today {width: 12%; text-align: center;
+#smallcalendar .days_today { text-align: center;
  font-size: 11px;  border: 1px solid #FA8500; border-collapse: collapse; background-color: #FFCA8D;}
 
 /* ---------------------------------------------------
