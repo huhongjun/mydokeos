@@ -753,19 +753,20 @@ if ($maxCourse > 0)
 }
 
 
-echo '<div class="maincontent">'; // start of content for logged in users
+echo '<div class="maincontent_new">'; // start of content for logged in users
 
 // Plugins for the my courses main area
 api_plugin('mycourses_main');
-
+$announcement = isset($_GET['announcement']) ? $_GET['announcement'] : -1;
+$visibility = api_is_allowed_to_create_course() ? VISIBLE_TEACHER : VISIBLE_STUDENT;
+SystemAnnouncementManager :: display_announcements($visibility, $announcement);
+echo '</div><div class="maincontent_new"><h3>'.get_lang("CurrentCourse").'</h3>';
 /*
 -----------------------------------------------------------------------------
 	System Announcements
 -----------------------------------------------------------------------------
 */
-$announcement = isset($_GET['announcement']) ? $_GET['announcement'] : -1;
-$visibility = api_is_allowed_to_create_course() ? VISIBLE_TEACHER : VISIBLE_STUDENT;
-SystemAnnouncementManager :: display_announcements($visibility, $announcement);
+
 
 if (!empty ($_GET['include']) && !strstr($_GET['include'], '/') && strstr($_GET['include'], '.html'))
 {
