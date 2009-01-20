@@ -10,6 +10,7 @@ body {
 	background-color: #fff;
 }
 
+
 #outerframe {
 	position: relative;  /* do not remove, fixes a bug in IE */
 	border: 1px solid #fff;
