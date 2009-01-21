@@ -50,6 +50,7 @@ $langMoreElements = "+增加元素";
 $langLessElements = "-减少元素";
 $langTypeTextBelow = "请在下面输入文本";
 $langDefaultTextInBlanks = "[英国人民] 生活在 [(大不列颠)联合王国]. ";
+$UserAddAnswerLabel = "问题：（请直接更改以下模版）";
 $langDefaultMatchingOptA = "富有";
 $langDefaultMatchingOptB = "英俊";
 $langDefaultMakeCorrespond1 = "你父亲是";
