@@ -115,7 +115,10 @@ class FillBlanks extends Question {
 
 		// answer
 		$form -> addElement ('html', '<br /><br /><div class="row"><div class="label"></div><div class="formw">'.get_lang('TypeTextBelow').', '.get_lang('And').' '.get_lang('UseTagForBlank').'</div></div>');
-		$form -> addElement ('textarea', 'answer',get_lang('Answer'),'id="answer" cols="65" rows="6" onkeyup="updateBlanks(this)"');
+
+		$form -> addElement ('html', '<br /><div class="row"><div class="label"></div><div class="formw">'.get_lang('UserAddAnswerLabel').'</div></div>');
+
+		$form -> addElement ('textarea', 'answer',"",'id="answer" cols="65" rows="6" onkeyup="updateBlanks(this)"');
 		$form -> addRule ('answer',get_lang('GiveText'),'required');
 		$form -> addRule ('answer',get_lang('DefineBlanks'),'regex','/\[.*\]/');
 
