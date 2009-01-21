@@ -80,7 +80,7 @@ function display_user_list($user_list, $_plugins)
 			$url = '?id='.$uid.$course_url;
 			if(strlen($user_info['picture_uri']) > 0)
 			{
-				$table_row[] = '<span style="display:none;">1</span><a href="'.$url.'"><img src="'.api_get_path(WEB_CODE_PATH).'upload/users/'.$user_info['picture_uri'].'" alt="'.htmlspecialchars($user_info['firstName'],ENT_QUOTES,$charset).'" width="40" border="0"/></a>';
+				$table_row[] = '<span style="display:none;">1</span><a href="'.$url.'"><img src="'.api_get_path(WEB_CODE_PATH).'upload/users/'.$uid."/".$user_info['picture_uri'].'" alt="'.htmlspecialchars($user_info['firstName'],ENT_QUOTES,$charset).'" width="40" border="0"/></a>';
 			}
 			else
 			{
