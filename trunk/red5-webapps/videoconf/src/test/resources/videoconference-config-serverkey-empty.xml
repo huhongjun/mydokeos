@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<videoconference-config>
+  <server-keys>
+    <server-key host="" key="key1" />
+    <server-key host="host2" key="" />
+    <server-key host="" key="" />
+  </server-keys>
+</videoconference-config>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<videoconference-config>
+  <moderator-check-on-whiteboard>true</moderator-check-on-whiteboard>
+  <video-streams-dir>/opt/dokeos/video</video-streams-dir>
+</videoconference-config>

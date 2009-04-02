@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recorder-config>
+  <video-streams-dir>/opt/dokeos/recorded-streams</video-streams-dir>
+  <vod-streams-dir>/opt/dokeos/vod-streams</vod-streams-dir>
+</recorder-config>
+

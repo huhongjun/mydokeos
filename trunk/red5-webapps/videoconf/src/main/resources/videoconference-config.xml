@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<videoconference-config>
+  <server-keys ignore="false">
+    <server-key host="__test-cblue.dokeos.com_" key="0123456789abcdef0123456789abcdef" />
+  </server-keys>
+  <moderator-check-on-whiteboard>false</moderator-check-on-whiteboard>
+  <video-streams-dir>/opt/dokeos/recorded-streams</video-streams-dir>
+  <vod-streams-dir>/opt/dokeos/vod-streams</vod-streams-dir>
+</videoconference-config>
