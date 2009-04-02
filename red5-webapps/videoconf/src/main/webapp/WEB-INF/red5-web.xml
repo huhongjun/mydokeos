@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	
+  <bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations">
+      <list>
+        <value>/WEB-INF/red5-web.properties</value>
+        <value>/WEB-INF/dokeos-videoconf.properties</value>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="web.context" class="org.red5.server.Context" autowire="byType" />
+	
+  <bean id="web.scope" class="org.red5.server.WebScope" init-method="register">
+    <property name="server" ref="red5.server" />
+    <property name="parent" ref="global.scope" />
+    <property name="context" ref="web.context" />
+    <property name="handler" ref="web.handler" />
+    <property name="contextPath" value="${webapp.contextPath}" />
+    <property name="virtualHosts" value="${webapp.virtualHosts}" />
+  </bean>
+
+  <bean id="web.handler" class="com.dokeos.videoconference.VideoConferenceService" singleton="true">
+    <constructor-arg ref="classRoomMemberShipManagement"/>
+    <constructor-arg ref="videoConferenceConfig" /> 
+    <constructor-arg ref="authenticationStrategy" /> 
+  </bean>
+  
+  <bean id="userManagement" class="com.dokeos.videoconference.classroom.UserManagementImpl" />
+  
+  <bean id="classRoomManagement" class="com.dokeos.videoconference.classroom.ClassRoomManagementImpl" />
+  
+  <bean id="classRoomMemberShipManagement" class="com.dokeos.videoconference.classroom.ClassRoomMemberShipManagementImpl">
+    <constructor-arg ref="userManagement" />
+    <constructor-arg ref="classRoomManagement"/>
+  </bean>
+  
+  <bean id="videoConferenceConfig" class="com.dokeos.videoconference.config.VideoConferenceConfigImpl">
+    <constructor-arg ref="xmlConfigPersister" />
+  </bean>
+  
+  <bean id="xmlConfigPersister" class="com.dokeos.common.config.XmlConfigPersisterImpl">
+    <constructor-arg index="0" value="${dokeos.config.filename}" />
+    <constructor-arg index="1" value="${dokeos.config.dir}" />
+  </bean>
+  
+  <!-- bean id="fileNameGeneratorImpl" class="com.dokeos.common.red5.FilenameGeneratorImpl" init-method="initialize">
+      <constructor-arg ref="videoConferenceConfig" />
+  </bean-->
+  
+  <bean id="authenticationStrategy" class="com.dokeos.videoconference.auth.AuthenticationStrategyImpl">
+    <constructor-arg ref="checksumStrategy" />
+  </bean>
+  
+  <bean id="checksumStrategy" class="com.dokeos.videoconference.auth.MD5ChecksumStrategy" />
+  
+  <bean id="configReloaderJob" class="org.springframework.scheduling.timer.MethodInvokingTimerTaskFactoryBean">
+    <property name="targetObject" ref="videoConferenceConfig" />
+    <property name="targetMethod" value="refresh" />
+  </bean>
+  
+  <bean id="scheduledConfigReloader" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+    <property name="delay" value="10000" />
+    <property name="period" value="${dokeos.config.reload.period}" />
+    <property name="timerTask" ref="configReloaderJob" />
+  </bean>
+  
+  <bean id="timerFactory" class="org.springframework.scheduling.timer.TimerFactoryBean">
+    <property name="scheduledTimerTasks">
+        <list>
+            <ref bean="scheduledConfigReloader" />
+        </list>
+    </property>
+  </bean>
+
+</beans>

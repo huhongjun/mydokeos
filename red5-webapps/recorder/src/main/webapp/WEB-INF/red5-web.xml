@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+  <bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations">
+      <list>
+        <value>/WEB-INF/red5-web.properties</value>
+        <value>/WEB-INF/dokeos-recorder.properties</value>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="web.context" class="org.red5.server.Context" autowire="byType" />
+	
+  <bean id="web.scope" class="org.red5.server.WebScope" init-method="register">
+    <property name="server" ref="red5.server" />
+    <property name="parent" ref="global.scope" />
+    <property name="context" ref="web.context" />
+    <property name="handler" ref="web.handler" />
+    <property name="contextPath" value="${webapp.contextPath}" />
+    <property name="virtualHosts" value="${webapp.virtualHosts}" />
+  </bean>
+
+  <!-- Class for the Streaming Handlers -->
+  <bean id="web.handler" class="com.dokeos.audiorecorder.AudioRecorderService" singleton="true">
+      <constructor-arg ref="recorderConferenceConfig" />
+  </bean>
+
+  <bean id="recorderConferenceConfig" class="com.dokeos.audiorecorder.config.AudioRecorderConfigImpl">
+    <constructor-arg ref="xmlConfigPersister" />
+  </bean>
+  
+  <bean id="xmlConfigPersister" class="com.dokeos.common.config.XmlConfigPersisterImpl">
+    <constructor-arg index="0" value="${dokeos.config.filename}" />
+    <constructor-arg index="1" value="${dokeos.config.dir}" />
+  </bean>
+  
+  <bean id="streamFilenameGenerator" class="com.dokeos.common.red5.FilenameGeneratorImpl" init-method="initialize">
+      <constructor-arg ref="recorderConferenceConfig" />
+  </bean>
+</beans>

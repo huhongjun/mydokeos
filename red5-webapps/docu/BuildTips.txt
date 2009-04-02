@@ -1,0 +1,8 @@
+1、源码取自https://dokeos.svn.sourceforge.net/svnroot/dokeos/trunk/red5-webapps
+	2008/10/23 版本
+	
+2、编译
+	从red5安装目录下获得red5.jar，安装到mvn repository(C:\Documents and Settings\huhj\.m2\repository);
+	mvn eclipse:eclipse生成eclipse项目文件；
+	导入到eclipse，设置M2_REPO即可自动编译成功；
+	mvn package -Dmaven.test.skip=true (单元测试会出错，因此不测试)
