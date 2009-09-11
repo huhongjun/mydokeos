@@ -59,6 +59,7 @@ body {
 	padding: 4px;
 }
 */
+.maincontent_new {background-color:#FFFFFF;float:left;padding:4px;width:35%;}
 #center {
 	margin: 0 190px 0 0;
 	padding: 10px 0 40px 0;
@@ -269,16 +270,16 @@ input[text] {font-size: 12px; }
 	padding: 0.8em 0.5em 0.4em 0.5em;
 	background: #fff;
 	color: #006;
-	border-bottom: 1px solid #aeaeae;
+	border-bottom: 0px solid #aeaeae;
 	height:25px;
 	margin-bottom: 1px;
-	background-image: url(images/fondoHeader3.jpg);
+	background: url(images/fondoHeader3.jpg) repeat-x;
 
 }
 #header3 A {
 	PADDING: 10px 0px 20px 0px;
 	DISPLAY: block;
-	width:150px;
+	width:110px;
 	height:25px;
 	BACKGROUND:  url(images/tab.png) no-repeat;
 	COLOR: #fff;
