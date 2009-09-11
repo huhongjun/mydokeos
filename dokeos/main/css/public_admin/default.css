@@ -3,17 +3,20 @@
  *****************************************************/
 body {
 	font-family: bold arial, verdana, helvetica, sans-serif;
-	font-size: 12px;
+	font-family:"宋体";
+	font-size: 14px;
 	color: #000;
 	margin: 0;
 	padding: 0;
-	background-color: #ffffff;
+	/*background-color: #ffffff;*/
+	background:#FFFFFF url(images/ditiao2.jpg) ;
 }
 
 #outerframe {
 	position: relative;  /* do not remove, fixes a bug in IE */
 	background-color: #fff;	
-	background-repeat:no-repeat;
+	
+	background:#FFFFFF url(images/ditiao2.jpg) ;
 }
 
 /* Hides from IE5-mac \*/
@@ -29,6 +32,7 @@ body {
 	 background-color: transparent;
 	 min-height: 320px; 
 	 background-repeat: no-repeat;
+	 background:#FFFFFF url(images/ditiao2.jpg) ;
 }
 
 
@@ -42,11 +46,10 @@ body {
 .maincontent {
     float: left;
 	width: 68%;
-    padding: 0 20px 0 20px;
-	background-color: #fff;
+    padding: 0px 0px 0px 0px;	
 	min-height: 333px;
 	margin-top:0;
-	background-color: #ffffff;
+	
 
 } 
 
@@ -88,6 +91,8 @@ img {
 	border: none;
 
 }
+#Header2Right ul li img{
+margin-bottom:6px;}
 p,blockquote,ol,ul {
 	font-size: 12px;
 }
@@ -171,13 +176,10 @@ input[text] {font-size: 12px; }
  *  HEADER 1: Title, portal, organisation, course title	*
  ********************************************************/
 #header1 {
-	font-size: 12px;
-	padding: 4px;
-	background-color: #4475B0;
-	color: #fff;
-	height: 35px;
-	background-image: url(images/TGSS_header.jpg);
-    	Background-repeat: no-repeat;
+	font-size: 12px;	
+	color: #f3c5a7;
+	height: 47px;
+	background-image: url(images/logo-001.gif); 
 }
 #logoMinisterio{
 	position: relative;
@@ -193,8 +195,8 @@ input[text] {font-size: 12px; }
 
 }
 #header1 a {
-	color: #fff;
-	text-decoration: none;
+	color: #000000;
+	text-decoration: none;	
 }
 #header1 a:hover{
 	text-decoration: underline;
@@ -207,6 +209,13 @@ input[text] {font-size: 12px; }
 {
 	
 }
+#plugin_top_link{
+position:absolute;
+float:left;
+text-align:right;
+top:6px;
+right:8px;
+}
 #institution {
 	float: left;
 	font-weight: bold;
@@ -214,6 +223,8 @@ input[text] {font-size: 12px; }
 #my_courses {
 	float: right;
 	font-weight: bold;
+	margin-right:16px;
+	margin-top:25px;
 }
 /********************************************************
  *  HEADER 2: Users online, help, student/teacher view	*
@@ -223,14 +234,15 @@ input[text] {font-size: 12px; }
 	font-size: 1.0em;
 	font-weight: normal;
 	min-height:10px;
-	padding:  0.2em 0.5em;
-	padding-bottom: 0.2em;
-	background: #2A4B74;
-	color: #666;
+	padding: 0em 0em;
+	padding-bottom: 0em;
+	background-image: url("images/logo-002.gif");
+	color: #6F482F;
+	height:38px;
 	
 }
 #header2 a {
-	color: #666;
+	color: #6F482F;
 	text-decoration: none;
 	font-weight:normal;
 }
@@ -244,16 +256,17 @@ input[text] {font-size: 12px; }
 	width: 70%;
 	margin: 0;
 	padding: 0;
+	padding-right:8px;
 	list-style-type: none;
 	text-align: right;
 }
 #Header2Right ul li {
 	display: inline;
-	color:#ffffff;
+	color:#000000;
 }
 #Header2Right ul li a {
 	padding: 4px 6px 4px 4px;
-	color:#f1d40d;
+	color:#000000;
 }
 
 
@@ -282,8 +295,11 @@ input[text] {font-size: 12px; }
 	PADDING-TOP: 5px;
 	TEXT-DECORATION: none;
 }
+.add_banner_menu li a{
+	font-size:14px;
+}
 #header3 A:hover {
-	COLOR: #9ba408;
+	COLOR: #D95703;/*首页文字鼠标放上的颜色;*/
 	
 }
 #header3 UL 
@@ -317,7 +333,7 @@ input[text] {font-size: 12px; }
 	
 }
 #header3 #current A {
-		COLOR: #999
+		COLOR: #000000
 }
 
 #header3 .banner_links {
@@ -331,7 +347,7 @@ input[text] {font-size: 12px; }
 	padding: 0 30px 0 0;
 	background-color: transparent;
 	border: none;
-	COLOR: #fff;
+	COLOR: #FFF;
 	font-size: 1.0em;
 	font-weight:bold;
 	font-family: verdana, arial, helvetica, sans-serif;
@@ -340,7 +356,7 @@ input[text] {font-size: 12px; }
 	PADDING-TOP: 3px;
 }
 #header3 input:hover {
-	COLOR: #999;
+	COLOR: #FF6600;
 
 }
 #header3 input {
@@ -366,14 +382,14 @@ input[text] {font-size: 12px; }
 /*****************************************************
  *  HEADER 3: not used          			     	 *
  *****************************************************/
-#header4 {
-	background-color: #fff;
+#header4 {	
 	color: #009;
 	padding: 4px;
 	padding-left: 20px;
 	margin-bottom: 2px;
 	float: left;
 	clear:right;
+	padding:19px 4px 4px 20px;
 }
 #header4 a {
 	color: #666;
@@ -392,14 +408,15 @@ input[text] {font-size: 12px; }
  *  FOOTER STYLES                                    *
  *****************************************************/
 #footer {
-	padding: 50px;
-	height: 30px;
-	background-color: #305582;
+	margin-top:40px;
+	height:20px;
+	padding:10px;
+	background-color: #DE6618;
 	background-image: url(images/footer.jpg);
 	background-repeat: no-repeat;
 	font-size: 12px;
 	color:#ffffff;
-	padding-left:20px;
+
 
 }
 #footer .copyright {
@@ -423,10 +440,10 @@ input[text] {font-size: 12px; }
 	float: right;
 	width: 200px;
     min-height: 150px;
-	background-color: #F0F0F0;
-	border: 1px solid #bbb;
+	background-color: #FDE5D0;
+	border: 1px solid #F0BB90;
     padding: 60px 10px 10px 10px;
-	background: #f0f0f0 url(images/fondoNav.jpg) no-repeat top center;
+	background: #FDE5D0 url(images/fondoNav.jpg) no-repeat top center;
 }
 
 .menucaption {
@@ -438,12 +455,12 @@ input[text] {font-size: 12px; }
 	width: auto;
 	margin: 24px 6px 0 6px;
 	padding-left: 10px;
-	border: 1px solid #bbb;
+	border: 1px solid #f0bb90;
 }
 .menusectioncaption {
 	position: relative;
 	top: -9px;
-	background-color:#F0F0F0;
+	background-color:#FDE5D0;
 	font-size: 12px;
 	padding: 0 8px 0 4px;
 }
@@ -599,10 +616,10 @@ input.liteoption {
  width: 80%; margin: 10px auto; padding: 10px;}
 
 .courseadminview, .platformadminview {position: relative; width: 80%;
- margin: 25px auto 10px; padding: 10px; border: 1px solid #4171B5;}
+ margin: 25px auto 10px; padding: 10px; border: 1px solid #F0BB90;}
 
 .viewcaption {position: relative; top: -20px; font-size: 12px;
- font-weight: bold; color: #aaa; background-color: #fff; padding: 0 4px;}
+ font-weight: bold; color: #000000; background-color: #F0BB90; padding: 0 4px;}
 /***********************************/
 
 /*****************************************************
@@ -623,7 +640,7 @@ input.liteoption {
 }
 #agenda .title a { color: #fff;}
 #agenda .agendaitem {font-size: 12px;}
-#smallcalendar .title {background-color: #dcdcdc; font-weight: bold; padding: 2px;
+#smallcalendar .title {background-color: #FDE5D0; font-weight: bold; padding: 2px;
  color: #666; text-align: center; font-size: 11px;}
 #smallcalendar .title a { color: #666;}
 #agenda_select {list-style: none; border: 0px solid green;
@@ -633,28 +650,28 @@ input.liteoption {
 /* ---------------------------------------------------
 	styles for the agenda (day, week, month view)
 -----------------------------------------------------*/
-#agenda_list {width: 100%; margin: 0 auto; border: 1px solid #fff;
+#agenda_list {width: 100%; margin: 0 auto;;
  border-collapse: collapse;}
 
 /*The caption of the calendar (displays the month and the << and >> links*/
-#agenda_list .title {background-color: #dcdcdc; font-weight: bold;
- font-size: 12px; color: #666; text-align: left; padding: 2px 10px; text-align: center; border: 1px solid #bbb;}
-#agenda_list .title a:link, #agenda_list #title a:visited {background-color: #dcdcdc; font-weight: bold;
+#agenda_list .title {background-color: #FDE5D0; font-weight: bold;
+ font-size: 12px; color: #666; text-align: left; padding: 2px 10px; text-align: center; border: 1px solid #F0BB90;}
+#agenda_list .title a:link, #agenda_list #title a:visited { font-weight: bold;
  font-size: 11px; color: #666; padding: 2px 10px;text-align: center;}
 #agenda_list .title a:hover {background-color: #dcdcdc; font-weight: bold;
  font-size: 11px; color: #f3840d; padding: 2px 10px;text-align: center;}
 
 /* The cells with the name of the days of the weeks (mon->sun)*/
-#agenda_list .weekdays {background-color: #dcdcdc; text-align: center;
- font-weight: bold; border: 1px solid #264269; border-collapse: collapse;}
+#agenda_list .weekdays {background-color: #F7C9A4; text-align: center;
+ font-weight: bold; border: 1px solid #F0BB90; border-collapse: collapse;}
 
 /* The cells for the days (1->31) */
 #agenda_list .days_week {height: 40px; width: 12%; text-align: left; vertical-align: top;
- border: 1px solid #264269; border-collapse: collapse; background-color: #f5f5f5;}
+ border: 1px solid #F0BB90; border-collapse: collapse; background-color: #f5f5f5;}
 #agenda_list .days_weekend {height: 40px; width: 12%; text-align: left; vertical-align: top;
- border: 1px solid #264269; border-collapse: collapse; background-color: #e6e6e6;}
+ border: 1px solid #F0BB90; border-collapse: collapse; background-color: #FDE5D0;}
 #agenda_list .days_today {height: 40px; width: 12%; text-align: left; vertical-align: top;
- border: 1px solid #264269; border-collapse: collapse; background-color: #FFCA8D;color: #CC3300;font-weight: bold;}
+ border: 1px solid #F0BB90; border-collapse: collapse; background-color: #FFCA8D;color: #CC3300;font-weight: bold;}
 
 /* text in the cells: display of agenda items (visible)*/
 #agenda_list .data {background-color: #eee; text-align: left; padding: 2px 10px;
@@ -666,11 +683,11 @@ input.liteoption {
 
 /*text in the cells: display of agenda items (invisible)*/
 #agenda_list .data_hidden {background-color: #eee; text-align: left; padding: 2px 10px;
- font-weight: bold; border: 0px solid #dcdcdc; border-collapse: collapse; color: #999999;}
+ font-weight: bold; border: 0px solid #dcdcdc; border-collapse: collapse; color: #FF6600;}
 #agenda_list .datanotbold_hidden {background-color: #eee; text-align: left; padding: 2px 10px;
- font-weight: normal; border: 0px solid #dcdcdc; border-collapse: collapse; color: #999999;}
+ font-weight: normal; border: 0px solid #dcdcdc; border-collapse: collapse; color: #FF6600;}
 #agenda_list .text_hidden {background-color: #fff; text-align: left; padding: 2px 10px;
- font-weight: normal; border: 0px solid #dcdcdc; border-collapse: collapse; color: #999999;}
+ font-weight: normal; border: 0px solid #dcdcdc; border-collapse: collapse; color: #FF6600;}
 
 /*text in the cells: display of agenda items (highlighted)*/
 #agenda_list .datanow {background-color: #FFCC00; text-align: left; padding: 2px 10px;
@@ -683,14 +700,14 @@ input.liteoption {
 /* ---------------------------------------------------
 	styles for the mini agenda
 -----------------------------------------------------*/
-#smallcalendar {width: 100%; margin: 0 auto; border: 1px solid #fff;
+#smallcalendar {width: 100%; margin: 0 auto; 
  border-collapse: collapse;}
-#smallcalendar .weekdays {background-color: #dcdcdc; text-align: center;
- font-size: 11px; font-weight: bold; border: 1px solid #fff; border-collapse: collapse;}
+#smallcalendar .weekdays {background-color: #FDE5D0; text-align: center;
+ font-size: 11px; font-weight: bold; border: 1px solid #F0BB90; border-collapse: collapse;}
 #smallcalendar .days_week {background-color: #f5f5f5; text-align: center;
- font-size: 11px; border-collapse: collapse;}
-#smallcalendar .days_weekend {background-color: #e6e6e6; text-align: center;
- font-size: 11px; border: 1px solid #fff; border-collapse: collapse;}
+ font-size: 11px; border: 1px solid #F0BB90;border-collapse: collapse;}
+#smallcalendar .days_weekend {background-color: #FDE5D0; text-align: center;
+ font-size: 11px; border: 1px solid #F0BB90; border-collapse: collapse;}
 #smallcalendar .days_today {width: 12%; text-align: center;
  font-size: 11px;  border: 1px solid #FA8500; border-collapse: collapse; background-color: #FFCA8D;}
 
@@ -719,9 +736,9 @@ a.personal_agenda:hover, a.personal_agenda:hover {color: #666666; }
 	border-width: 1px;
 	border-style: solid;
 	padding: 5px;
-	border: 1px solid #dcdcdc;
+	border: 1px solid #F0BB90;
 	color: #000;
-	background-color: #E5EDF9;
+	background-color: #FDE5D0;
 	min-height: 30px;
 }
 .warning-message {
@@ -766,7 +783,7 @@ a.personal_agenda:hover, a.personal_agenda:hover {color: #666666; }
 	padding: 5px;
 	border: 1px solid #FF0000;
 	color: #000;
-	background-color: #FFD1D1;
+	background-color: #FDE5D0;
 	min-height: 30px;
 }
 .confirmation-message .bottom-link, .error-message .bottom-link, .normal-message .bottom-link, .warning-message .bottom-link
@@ -819,12 +836,12 @@ a.nobold:link, a.nobold:visited, a.nobold:active { font-weight: normal; color: #
 a.nobold:hover { font-weight: normal; color: #999; text-decoration: underline; margin: 0 0 0 25px;}
 
 .note {	margin: 6px; font-size: 12px; line-height: 14px;
-	font-family: verdana, arial, helvetica, sans-serif; background-color: #f0f0f0;
-	color: #666666; border: 1px solid #bbb;	padding: 10px 10px 10px 10px;}
+	font-family: verdana, arial, helvetica, sans-serif; background-color: #fde5d0;
+	color: #666666; border: 1px solid #f0bb90;	padding: 10px 10px 10px 10px;}
 	.note b {margin: 10px 10px 5px 0px; }
 
 .alternativeBgLight { background-color: #f5f5f5;
- border: 1px solid #dcdcdc; border-collapse: collapse;}
+ border: 1px solid #F0BB90; border-collapse: collapse;}
 .alternativeBgDark { background-color: #ccf;
  border: 1px solid #dcdcdc; border-collapse: collapse;}
 .myagendatoday {
@@ -885,8 +902,8 @@ span.form_error {
 }
 .data_table th{
 	padding-right: 12px;
-  	border: 1px  solid gray;
-  	background-color: #f0f0f0;
+  	border: 1px  solid gray #F0BB90;
+  	background-color: #FDE5D0;
 }
 .data_table tr.row_odd{
   	background-color: #fafafa;
@@ -900,9 +917,9 @@ span.form_error {
 .data_table td{
   	padding: 5px;
 	vertical-align: top;
-  	border-bottom: 1px solid #b0b0b0;
-  	border-right: 1px dotted #e1e1e1;
-  	border-left: 1px dotted #e1e1e1;
+  	border-bottom: 1px solid #F0BB90;
+  	border-right: 1px dotted #FDE5D0;
+  	border-left: 1px dotted #FFEFE1;
 }
 
 /* admin page tool list definitions */
@@ -939,7 +956,7 @@ div.admin_section {
 }
 div.admin_section h4 {
   margin: 0;
-	border-bottom: 1px solid gray;
+	border-bottom: 1px solid gray #F0BB90;
 	width: 100%;
 }
 .user_course_category {
@@ -955,8 +972,8 @@ div.admin_section h4 {
  *  DOKEOS CONFIG SETTINGS OF THE PLATFORM ADMIN SECTION 	   *
  ***************************************************************/
 .settingtitle{
-	background-color: #EFEFEF;
-	border: 1px solid #cccccc;
+	background-color: #FDE5D0;
+	border: 1px solid #F0BB90;
 	font-weight: bold;
 	color: #666666;
 	list-style-type: none;
@@ -1304,7 +1321,7 @@ div.comments {
 	background-color: #f5f5f5;
 }
 .alternativeBgDark 	{
-	background-color: #e6e6e6
+	background-color: #FDE5D0
 }
 .forms {
 	letter-spacing: normal;
@@ -1572,7 +1589,7 @@ padding-top: 0px;	padding-right: 0px;	padding-bottom: 0px;	padding-left: 0px;}
     Learning path
 ------------------------------------------------------------------------------
 */
-#show_audiorecorder_div{background:#F0F0F0; border:1px solid #999999; font-weight:bold; padding:2px; width:350px;}
+#show_audiorecorder_div{background:#F0F0F0; border:1px solid #FF6600; font-weight:bold; padding:2px; width:350px;}
 
 
 
