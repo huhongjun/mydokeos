@@ -19,6 +19,6 @@ $To = "到";
 $Date = "日期";
 $InvalidMessageId = "消息的id回复是无效的。";
 $ErrorSendingMessage = "当尝试发送消息时有一个错误。";
-$SureYouWantToDeleteSelectedMessages = "你确定你想删除选择的消息吗？";
+$SureYouWantToDeleteSelectedMessages = "你确定你想删除选择的消息吗";
 $SelectedMessagesDeleted = "选择的消息已删除";
 ?>

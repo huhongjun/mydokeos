@@ -4,7 +4,7 @@ for more information: see languages.txt in the lang folder.
 $langNewGroupCreate = "新建小组";
 $langGroupCreation = "新建小组";
 $langCreate = "新建";
-$langNewGroups = "新的小组";
+$langNewGroups = "个新小组";
 $langMax = "上限";
 #$langGroupPlacesThis = "座位 (可选)";
 $langGroupPlacesThis = "小组人数(可选)";
@@ -43,7 +43,7 @@ $langState = "声明";
 $langGroupFilledGroups = "小组已由在\"用户\"列表中的现有用户填写 (或已完成)";
 $langSubscribed  = "用户在此课程中注册";
 $langStudentsNotInThisGroups  = "用户不在此小组中";
-$langQtyOfUserCanSubscribe_PartBeforeNumber  = "一个用户也可成为最大成员数";
+$langQtyOfUserCanSubscribe_PartBeforeNumber  = "一个用户最多可以参加";
 $langQtyOfUserCanSubscribe_PartAfterNumber  = "组";
 $langGroupLimit = "限制";
 $langStudentRegAllowed = "允许学生注册到的小组";
