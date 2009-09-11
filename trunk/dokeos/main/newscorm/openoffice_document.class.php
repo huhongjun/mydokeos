@@ -15,8 +15,8 @@ abstract class OpenofficeDocument extends learnpath {
 	
 
 	public $first_item = 0;
-    public $original_charset = 'utf-8';
-    public $original_locale = 'en_US.UTF-8';
+    public $original_charset = 'GBK';
+    public $original_locale = 'GBK';
 
 	/**
 	 * Class constructor. Based on the parent constructor.

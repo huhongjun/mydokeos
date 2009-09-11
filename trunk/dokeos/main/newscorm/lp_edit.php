@@ -31,7 +31,7 @@ $form -> addElement('text', 'lp_name', ucfirst(get_lang('_title')));
 
 //Ecoding
 $encoding_select = &$form->addElement('select', 'lp_encoding', get_lang('Charset'));
-$encodings = array('UTF-8','ISO-8859-1','ISO-8859-15','cp1251','cp1252','KOI8-R','BIG5','GB2312','Shift_JIS','EUC-JP');
+$encodings = array('UTF-8','ISO-8859-1','ISO-8859-15','cp1251','cp1252','KOI8-R','BIG5','GB2312','gbk','EUC-JP');
 foreach($encodings as $encoding){
 	if($encoding == $_SESSION['oLP']->encoding){
   		$s_selected_encoding = $encoding;
