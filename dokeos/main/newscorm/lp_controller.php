@@ -9,6 +9,7 @@
 /**
  * Initialisations
  */
+ error_reporting(0);
 $debug = 0;
 if($debug>0) error_log('New LP -+- Entered lp_controller.php -+-',0);
 // name of the language file that needs to be included 

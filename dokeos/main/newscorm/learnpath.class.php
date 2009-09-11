@@ -19,7 +19,7 @@ class learnpath {
 	var $current_time_start; //the time the user loaded this resource (this does not mean he can see it yet)
 	var $current_time_stop; //the time the user closed this resource
 	var $default_status = 'not attempted';
-	var $encoding = 'ISO-8859-1';
+	var $encoding = 'GB2312';
 	var $error = '';
 	var $extra_information = ''; //this string can be used by proprietary SCORM contents to store data about the current learnpath
 	var $force_commit = false; //for SCORM only - if set to true, will send a scorm LMSCommit() request on each LMSSetValue()
@@ -38,7 +38,8 @@ class learnpath {
 	var $ordered_items = array(); //list of the learnpath items in the order they are to be read
 	var $path = ''; //path inside the scorm directory (if scorm)
 	var $theme; // the current theme of the learning path
-
+	var $start_charset="GB2312";
+	var $end_charset="UTF-8";
 	// Tells if all the items of the learnpath can be tried again. Defaults to "no" (=1)
 	var $prevent_reinit = 1;
 
@@ -345,6 +346,7 @@ class learnpath {
 		$id = intval($id);
 		// edit zml and xp
 		$title = $this->escape_string(mb_convert_encoding(htmlspecialchars($title),$this->encoding,$charset));
+		file_put_contents("D:/char_set2.txt",$this->encoding."__".$charset);
 		$description = $this->escape_string(mb_convert_encoding(htmlspecialchars($description),$this->encoding,$charset));
 
 		$sql_count = "
@@ -603,7 +605,7 @@ class learnpath {
 				"default_encoding,display_order,content_maker," .
 				"content_local,js_lib) " .
 				"VALUES ($type,'$name','$description','','embedded'," .
-				"'UTF-8','$dsp','Dokeos'," .
+				"'GB2312','$dsp','Dokeos'," .
 				"'local','')";
 				//if($this->debug>2){error_log('New LP - Inserting new lp '.$sql_insert,0);}
 				$res_insert = api_sql_query($sql_insert, __FILE__, __LINE__);
@@ -2529,7 +2531,10 @@ class learnpath {
 				//$html .= "<a href='lp_controller.php?".api_get_cidreq()."&action=content&lp_id=".$this->get_id()."&item_id=".$item['id']."' target='lp_content_frame_name'>".$title."</a>" ;
 				$url = $this->get_link('http',$item['id']);
 				//urldecode() edit by xiaoping
-				$html .= '<a href="'.urldecode($url).'" target="content_name" onclick="top.load_item('.$item['id'].',\''.urldecode($url).'\');">'.$title.'</a>' ;
+				$html .= '<a href="'.urldecode($url).'" target="content_name" onclick="try{ dokeos_xajax_handler.switch_item(' .
+					$mycurrentitemid.',' .
+						$item['id'].');' .
+						'return false;}catch(E){top.load_item('.$item['id'].',\''.urldecode($url).'\');}">'.$title.'</a>' ;
 				//$html .= '<a href="" onclick="top.load_item('.$item['id'].',\''.$url.'\');return false;">'.$title.'</a>' ;
 
 				//<img align="absbottom" width="13" height="13" src="../img/lp_document.png">&nbsp;
@@ -7624,7 +7629,8 @@ class learnpath {
 
 		//global $charset;
 		// zml edit encode chinese	
-		$temp_title=htmlspecialchars(iconv("GB2312",$xml_doc_charset,$this->get_name()),ENT_QUOTES);
+		//$temp_title=htmlspecialchars(iconv("GB2312",$xml_doc_charset,$this->get_name()),ENT_QUOTES);
+		$temp_title=mb_convert_encoding(htmlspecialchars($this->get_name(),ENT_QUOTES),$this->end_charset,$this->start_charset);
 		$org_title = $xmldoc->createElement('title',$temp_title);
 
 		$organization->appendChild($org_title);
@@ -7648,7 +7654,7 @@ class learnpath {
 				$my_item->setAttribute('identifierref','RESOURCE_'.$my_item_id);
 				$my_item->setAttribute('isvisible','true');
 				//give a child element <title> to the <item> element
-				$my_title = $xmldoc->createElement('title',htmlspecialchars($item->get_title(),ENT_QUOTES));
+				$my_title = $xmldoc->createElement('title',htmlspecialchars(mb_convert_encoding($item->get_title(),$this->end_charset,$this->start_charset),ENT_QUOTES));
 				$my_item->appendChild($my_title);
 				//give a child element <adlcp:prerequisites> to the <item> element
 				$my_prereqs = $xmldoc->createElement('adlcp:prerequisites',$this->get_scorm_prereq_string($my_item_id));
@@ -7913,7 +7919,7 @@ class learnpath {
 					$my_item->setAttribute('identifierref','RESOURCE_'.$item->get_id());
 					$my_item->setAttribute('isvisible','true');
 					//give a child element <title> to the <item> element
-					$my_title = $xmldoc->createElement('title',htmlspecialchars($item->get_title(),ENT_QUOTES));
+					$my_title = $xmldoc->createElement('title',htmlspecialchars(mb_convert_encoding($item->get_title(),$this->end_charset,$this->start_charset),ENT_QUOTES));
 					$my_item->appendChild($my_title);
 					//give a child element <adlcp:prerequisites> to the <item> element
 					$my_prereqs = $xmldoc->createElement('adlcp:prerequisites',$item->get_prereq_string());
@@ -7989,7 +7995,7 @@ class learnpath {
 					$my_item->setAttribute('identifierref','RESOURCE_'.$item->get_id());
 					$my_item->setAttribute('isvisible','true');
 					//give a child element <title> to the <item> element
-					$my_title = $xmldoc->createElement('title',htmlspecialchars($item->get_title(),ENT_QUOTES));
+					$my_title = $xmldoc->createElement('title',htmlspecialchars(mb_convert_encoding($item->get_title(),$this->end_charset,$this->start_charset),ENT_QUOTES));
 					$my_item->appendChild($my_title);
 					//give a child element <adlcp:prerequisites> to the <item> element
 					$my_prereqs = $xmldoc->createElement('adlcp:prerequisites',$item->get_prereq_string());
