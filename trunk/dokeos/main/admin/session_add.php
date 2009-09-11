@@ -170,7 +170,7 @@ if(intval($count_users)<50)
 	<select name="coach_username" value="true" style="width:250px;">
 		<option value="0"><?php get_lang('None'); ?></option>
 		<?php foreach($Coaches as $enreg): ?>
-		<option value="<?php echo $enreg['username']; ?>" <?php if($sent && $enreg['user_id'] == $id_coach) echo 'selected="selected"'; ?>><?php echo $enreg['firstname'].' '.$enreg['lastname'].' ('.$enreg['username'].')'; ?></option>
+		<option value="<?php echo $enreg['username']; ?>" <?php if($sent && $enreg['user_id'] == $id_coach) echo 'selected="selected"'; ?>><?php echo $enreg['lastname'].''.$enreg['firstname'].' ('.$enreg['username'].')'; ?></option>
 		<?php endforeach; ?>
 	</select>
 	<?php
