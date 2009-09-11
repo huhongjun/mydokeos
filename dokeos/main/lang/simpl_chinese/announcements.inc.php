@@ -1,22 +1,22 @@
 <?php /*
 for more information: see languages.txt in the lang folder. 
 */
-$Announcement = "通知";
-$langAnnEmpty = "通知列表已清除";
-$AnnouncementModified = "通知列表已更新";
-$AnnouncementAdded = "已添加通知";
-$AnnouncementDeleted = "已删除通知";
+$Announcement = "公告";
+$langAnnEmpty = "公告列表已清除";
+$AnnouncementModified = "公告列表已更新";
+$AnnouncementAdded = "已添加公告";
+$AnnouncementDeleted = "已删除公告";
 $AnnouncementPublishedOn = "发布";
-$AddAnnouncement = "添加通知";
+$AddAnnouncement = "添加公告";
 $langContent = "内容";
-$AnnouncementDeleteAll = "清除通知列表";
+$AnnouncementDeleteAll = "清除公告列表";
 $professorMessage = "来自教师的信息";
 $langEmailSent = "并发送邮件给注册学生";
-$EmailOption = "将此通知通过电子邮件发送给选定的组/用户";
+$EmailOption = "将此公告通过电子邮件发送给选定的组/用户";
 $langOn = "在";
 $langRegUser = "站点注册用户";
 $langUnvalid = "无效或没有电子邮件地址";
-$langModifAnn = "修改此通知";
+$langModifAnn = "修改此公告";
 $langModify    = "修改";
 $langDelete    = "删除";
 $langTitle     = "标题";
@@ -44,9 +44,9 @@ $langSelectedGroups = "选定的组";
 $langMsg = "消息";
 $langYes = "确定";
 $MsgText = "消息";
-$AnnouncementDeletedAll = "所有通知已经删除";
-$AnnouncementMoved = "通知已经移走";
-$NoAnnouncements = "还没有通知";
+$AnnouncementDeletedAll = "所有公告已删除";
+$AnnouncementMoved = "公告已移走";
+$NoAnnouncements = "还没有公告";
 $SelectEverybody = "选择所有人";
 $SelectedUsersGroups = "选择用户组";
 $LearnerMessage = "学习者消息";
